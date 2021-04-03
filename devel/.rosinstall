@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/khoixx/dev_ros1_ws/devel/setup.sh

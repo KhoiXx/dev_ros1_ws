@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: car
+    relative_path: urdf/car.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/car.srdf
+  CONFIG:
+    author_name: hopethisworktoo
+    author_email: khoi.nguyenxx@hcmut.edu.vn
+    generated_timestamp: 1616343356

@@ -1,0 +1,8 @@
+prefix=/home/khoixx/dev_ros1_ws/install
+
+Name: execute
+Description: Description of execute
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy
