@@ -1,0 +1,9 @@
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+E:\BO\study\LuanVan\testservo2\test\control\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
