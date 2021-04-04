@@ -4,7 +4,9 @@ import os
 import sys
 import rospy
 
+from Robot import Robot
 
-class Navigation():
-    def __init__(self,port = rosserial_port,baudrate = 115200):
-        self.robot = 
+class Navigation:
+    def __init__(self, _robot: Robot):
+        self.__robot = _robot
+        

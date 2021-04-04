@@ -27,7 +27,8 @@ class KeyBoardControl():
             Key_mapping.ROTATE_LEFT,
             Key_mapping.ROTATE_RIGHT,
             Key_mapping.TURN_45DEG_LEFT,
-            Key_mapping.TURN_45DEG_RIGHT
+            Key_mapping.TURN_45DEG_RIGHT,
+            Key_mapping.STOP
         }
 
     def press_handle(self, key):
