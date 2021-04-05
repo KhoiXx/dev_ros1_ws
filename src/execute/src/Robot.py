@@ -104,15 +104,6 @@ class Robot(RobotControl):
             if key_command == Key_mapping.FORWARD:
                 # move forward
                 # "0,1000;"
-                if self.rimocon_current_angle != 0:
-                    self.rimocon_current_angle = 0
-
-                    steering_data = []
-                    for _ in range(4):
-                        steering_data.append(self.rimocon_current_angle)
-
-                    self.set_steering(steering_data)
-                    time.sleep(Key_mapping.DELAY_FOR_STEER_45)
 
                 self.set_move_distance(Key_mapping.RIMOCON_DISTANCE_MOVE)
                 return

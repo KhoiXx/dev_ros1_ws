@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import copy
@@ -9,7 +9,7 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
-#from adafruit_servokit import ServoKit
+
 class servocontrol(object):
   """servocontrol"""
   def __init__(self):
@@ -27,6 +27,8 @@ class servocontrol(object):
     display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                    moveit_msgs.msg.DisplayTrajectory,
                                                    queue_size=20)
+
+
 
     planning_frame = group.get_planning_frame()
     print ("============ Reference frame: %s" % planning_frame)
@@ -55,6 +57,9 @@ class servocontrol(object):
     self.planning_frame = planning_frame
     self.eef_link = eef_link
     self.group_names = group_names
+
+  def set_servo_angle(self,_servo,_angle=0):
+
 
 def callback(data):
   rospy.loginfo(rospy.get_caller_id()+"%s",data.data)

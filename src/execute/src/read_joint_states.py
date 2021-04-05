@@ -6,6 +6,7 @@ import roslib
 from sensor_msgs.msg import JointState
 from adafruit_servokit import ServoKit
 from math import pi
+import numpy as np
 
 global position, velocity
 
