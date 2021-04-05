@@ -74,4 +74,17 @@ class RobotCommand:
         self.set_speed([speed, speed, speed, speed])
 
     
+    def set_spin(self, angle, speed = 0.5):
+        '''
+        Spin robot
+
+        :param angle: angle to spin
+
+        :param speed: speed to spin, default is 0.5 km/h
+        '''
+        command = [str(CommandCode.COMMAND_SPIN), str(angle), str(speed)]
+        command = CommandCode.COMMAND_DELIMITER.join(command)
+
+        self.__write_command(command)
+    
     
