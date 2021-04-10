@@ -1,0 +1,36 @@
+1618028896927 [handle_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Arm_moveit.py", line 102, in handle_command
+    self.group.set_pose_target(self.target, end_link)
+AttributeError: moveit_handle instance has no attribute 'target'
+] 
+1618028896941 [Finish initializing arm_moveit] 
+1618028897526 [Position received] 
+1618028898533 [handle_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Arm_moveit.py", line 102, in handle_command
+    self.group.set_pose_target(self.target, end_link)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/moveit_commander/move_group.py", line 284, in set_pose_target
+    ok = self._g.set_pose_target(conversions.pose_to_list(pose.pose), end_effector_link)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/moveit_commander/conversions.py", line 57, in pose_to_list
+    pose.append(pose_msg.position.x)
+AttributeError: 'PoseStamped' object has no attribute 'position'
+] 
+1618028941759 [Position received] 
+1618028942763 [handle_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Arm_moveit.py", line 102, in handle_command
+    self.group.set_pose_target(self.target, end_link)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/moveit_commander/move_group.py", line 284, in set_pose_target
+    ok = self._g.set_pose_target(conversions.pose_to_list(pose.pose), end_effector_link)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/moveit_commander/conversions.py", line 57, in pose_to_list
+    pose.append(pose_msg.position.x)
+AttributeError: 'PoseStamped' object has no attribute 'position'
+] 
+1618028975333 [Position received] 
+1618028976356 [handle_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Arm_moveit.py", line 102, in handle_command
+    self.group.set_pose_target(self.target, end_link)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/moveit_commander/move_group.py", line 284, in set_pose_target
+    ok = self._g.set_pose_target(conversions.pose_to_list(pose.pose), end_effector_link)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/moveit_commander/conversions.py", line 57, in pose_to_list
+    pose.append(pose_msg.position.x)
+AttributeError: 'PoseStamped' object has no attribute 'position'
+] 

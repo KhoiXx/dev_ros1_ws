@@ -9,10 +9,6 @@ generic_hw_control_loop:
 # Settings for ros_control hardware interface
 hardware_interface:
   joints:
-    - bl
-    - br
-    - fl
-    - fr
     - joint_0
     - joint1
     - joint_2

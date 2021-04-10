@@ -66,7 +66,7 @@ class adjust_joint_angle:
         self.position[2] = -position[2] + J2_ZERO
 
         self.log("arm is running")
-        for i in range(1,5):
+        for i in range(0,4):
             self.exc_joint[i].angle = self.fix_angle(self.position[i])
         time.sleep(0.01)
 

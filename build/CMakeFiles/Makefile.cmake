@@ -23,8 +23,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/khoixx/dev_ros1_ws/src/CMakeLists.txt"
   "/home/khoixx/dev_ros1_ws/src/arm_moveit/CMakeLists.txt"
   "/home/khoixx/dev_ros1_ws/src/arm_moveit/package.xml"
-  "/home/khoixx/dev_ros1_ws/src/arm_moveit/scripts/read_joint_states.py"
-  "/home/khoixx/dev_ros1_ws/src/arm_moveit/scripts/servocontrol.py"
   "/home/khoixx/dev_ros1_ws/src/car/CMakeLists.txt"
   "/home/khoixx/dev_ros1_ws/src/car/package.xml"
   "/home/khoixx/dev_ros1_ws/src/execute/CMakeLists.txt"

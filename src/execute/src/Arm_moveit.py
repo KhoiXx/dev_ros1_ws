@@ -30,9 +30,10 @@ class moveit_handle:
         self.scence = moveit_commander.PlanningSceneInterface()
         self.group = moveit_commander.MoveGroupCommander('robotarm')
         self.group.set_named_target("home")
-        self.group.plan()
-        time.sleep(5)
         self.group.go()
+        self.group.stop()
+        time.sleep(3)
+        self.group.clear_pose_targets()
         self.handle_command(2)
         self.target = Pose()
         rospy.Subscriber('target_position', Pose, self.callback)
@@ -51,26 +52,14 @@ class moveit_handle:
         # self.target.position.x = msg.position.x
         # self.target.position.y = msg.position.y
         # self.target.position.z = msg.position.z
-        self.target = msg
+        self.target = self.group.get_random_pose()
         self.group.set_goal_tolerance(0.01)
 
-        rospy.loginfo('Current position {0} current_target {1}'.format(self.group.get_current_pose(), [self.target.position]))
+        rospy.loginfo('Current position {0} current_target {1}'.format(self.group.get_current_pose(), [self.target]))
         self.log("Position received")
 
-
         time.sleep(1)
-        self.handle_command(1)
-        i = 0
-        # while i <= 3:
-        #     try:
-        #         if not self.handle_command(2):
-        #             self.log('No command exists try again')
-        #             print('Press spacebar for stop, p for plan, e for execute')
-        #             time.sleep(1)
-        #             i += 1
-        #             continue
-        #     except:
-        #         return False
+        self.handle_command(2)
 
     def handle_keyboard(self):
         with Listener(on_press = self.press_handle) as listener:
@@ -106,15 +95,17 @@ class moveit_handle:
                 time.sleep(0.5)
             elif command == 1:
                 rospy.loginfo("is planning")
-                self.group.plan(self.target)
-                time.sleep(10)
+                self.group.plan()
+                time.sleep(5)
+                rospy.loginfo("plan finished")
             elif command == 2:
                 
-                self.group.plan(self.target)
-                time.sleep(5)
                 rospy.loginfo("is executing")
                 self.group.go(wait=True)
+                self.group.stop()
                 time.sleep(3)
+                self.group.clear_pose_targets()
+                rospy.loginfo("execute finished")
             else:
                 return False
         except:
