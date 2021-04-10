@@ -60,8 +60,8 @@ def main():
 
     keyboard_node = KeyBoardControl()
     keyboard_node.key_board_handle()
-    if  keyboard_node == 0:
-        rospy.spin(keyboard_node)
+    if not keyboard_node :
+        rospy.spin()
         
 
 if __name__ == "__main__":

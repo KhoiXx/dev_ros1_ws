@@ -14,7 +14,7 @@ from math import pi
 import numpy as np
 
 ROS_WS = '/home/khoixx/dev_ros1_ws'
-LOG_FILE_PATH = ROS_WS + '/log/'
+LOG_FILE_PATH = ROS_WS + '/log/arm_log'
 
 J5_ZERO = 0
 J4_ZERO = 91
@@ -29,7 +29,7 @@ class adjust_joint_angle:
         
         log_info = [
             LOG_FILE_PATH,
-            datetime.datetime.now().strftime('%Y%m%d_%H%M%S'),
+            datetime.datetime.now().strftime('arm_real %d%m_%H:%M'),
             '.log'
         ]
         self.__file_log = open("".join(log_info), "w")
@@ -52,7 +52,7 @@ class adjust_joint_angle:
         self.exc_joint[0].actuation_range = 262
         for i in range(0,5):
             self.exc_joint[i].angle = self.fix_angle(self.position[i])
-        self.log('Finished initializing')
+        self.log('Finished initializing arm_control')
         rospy.Subscriber('joint_states', JointState, self.callback)
 
     def callback(self,msg):

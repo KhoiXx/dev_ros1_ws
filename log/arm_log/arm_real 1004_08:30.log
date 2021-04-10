@@ -1,0 +1,10 @@
+1618018218888 [handle_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Arm_moveit.py", line 100, in handle_command
+    self.group.set_position_target([self.target.position.x,self.target.position.y,self.target.position.z],end_effector_link=end_link)
+AttributeError: moveit_handle instance has no attribute 'target'
+] 
+1618018218897 [Finish initializing arm_moveit] 
+1618018234192 [Position received] 
+1618018235193 [command: %f] [1] 
+1618018403691 [Position received] 
+1618018404693 [command: %f] [1] 

@@ -19,3 +19,6 @@ class Key_mapping:
 
     FAST = 1.7
     SLOW = 0.2
+
+    EXECUTE_ARM = 'e'
+    PLAN_ARM = 'p'
