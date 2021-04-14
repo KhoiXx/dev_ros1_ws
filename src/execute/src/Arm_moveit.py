@@ -49,10 +49,11 @@ class moveit_handle:
         # target.position.z = 0.0956095295963
         cp = self.group.get_current_pose()
         rospy.loginfo("Callback: {0}".format(cp))
-        # self.target.position.x = msg.position.x
-        # self.target.position.y = msg.position.y
-        # self.target.position.z = msg.position.z
-        self.target = self.group.get_random_pose()
+        self.target.position.x = msg.position.x
+        self.target.position.y = msg.position.y
+        self.target.position.z = msg.position.z
+        self.target.orientation.w = 1.0
+        # self.target = self.group.get_random_pose()
         self.group.set_goal_tolerance(0.01)
 
         rospy.loginfo('Current position {0} current_target {1}'.format(self.group.get_current_pose(), [self.target]))
@@ -87,7 +88,8 @@ class moveit_handle:
         
         try:
             end_link = self.group.get_end_effector_link()
-            # self.group.set_position_target([self.target.position.x,self.target.position.y,self.target.position.z],end_effector_link=end_link)
+            #self.group.set_position_target([self.target.position.x,self.target.position.y,self.target.position.z],end_effector_link=end_link)
+            self.targer.orientation = self.group.get_random_orientation()
             self.group.set_pose_target(self.target, end_link)
             self.log('command: %f',command)
             if command == 0:

@@ -29,7 +29,7 @@ class adjust_joint_angle:
         
         log_info = [
             LOG_FILE_PATH,
-            datetime.datetime.now().strftime('arm_real %d%m_%H:%M'),
+            datetime.datetime.now().strftime('arm_real_%d%m_%H%M'),
             '.log'
         ]
         self.__file_log = open("".join(log_info), "w")
@@ -67,7 +67,14 @@ class adjust_joint_angle:
 
         self.log("arm is running")
         for i in range(0,4):
-            self.exc_joint[i].angle = self.fix_angle(self.position[i])
+            if i == 0:
+                if self.position[i] > 260:
+                    self.position[i] = 260
+                elif self.position[i] < 0:
+                    self.position[i] = 0
+                self.exc_joint[i].angle = self.position[i]
+            else:
+                self.exc_joint[i].angle = self.fix_angle(self.position[i])
         time.sleep(0.01)
 
         # if self.gripper_release:

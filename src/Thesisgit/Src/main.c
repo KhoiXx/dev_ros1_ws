@@ -26,6 +26,7 @@
 #include <string.h>
 #include <stdio.h>                     /* This ert_main.c example uses printf/fflush */
 #include <stdlib.h>
+#include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_i2c.h"
 #include "stm32f4xx_hal_gpio.h"
 #include "stm32f4xx_it.h"
@@ -50,6 +51,8 @@
 //#define vmin -30.00
 #define pulmax 3500
 #define pulmin 100
+#define Header_val 0xAAFF
+#define EndOfFrame_val 0x0A0D
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,44 +73,75 @@ DMA_HandleTypeDef hdma_uart5_rx;
 DMA_HandleTypeDef hdma_uart5_tx;
 
 /* USER CODE BEGIN PV */
-  uint8_t ActiveServo;
-	char dma_buffer[BS], data_rx[BS];
-	/**/
-	static uint8_t set[7],bset[4];
-	/**/
-	char* i;
-	int j=2000;
-	float vvl = 0.00, vvr = 0.00;
-	float pulfl = 0, pulfr = 0, pulbr = 0, pulbl = 0;
+/*variables define*/
+uint8_t ActiveServo;
+uint8_t dma_buffer[BS], data_rx[BS];
+static uint8_t bset[4];
+uint16_t rxByteCount = 0;
+int j=2000;
 
-	PIDControl pidfl, pidfr, pidbr, pidbl;
-	
-	typedef struct
-	{
-		float ppr;
-		float vmax;
-		float vmin;
-		float enco;
-		float enco_pre;
-		float vset;
-		float v;
-		float kp,ki,kd;
-	}Wheelselect;
-	Wheelselect whfl = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
-							whfr = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
-							whbr = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
-							whbl = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0};
-	typedef struct
-		{
-			int joint0;
-			int joint1;
-			int joint2;
-			int joint3;
-			int joint4;
-			int joint5;
-		}Jointangle;
-	Jointangle curangle = {.joint0 = 0, .joint1 = 180, .joint2 = 90, .joint3 = 60, .joint4 = 50, .joint5 = 30},
-						 posangle = {.joint0 = 0, .joint1 = 180, .joint2 = 90, .joint3 = 60, .joint4 = 50, .joint5 = 30};
+float vvl = 0.00, vvr = 0.00, vpl = 0.00, vpr = 0.00, v_spin = 0.5; //van toc dat, vi tri dat, van toc spin
+int16_t spin_angle = 0;
+float pulfl = 0, pulfr = 0, pulbr = 0, pulbl = 0;
+bool __flag_stop = false, __flag_run_speed = false, __flag_run_position = false;
+/**/
+
+
+/*struct define*/
+PIDControl pidfl, pidfr, pidbr, pidbl;
+
+typedef struct
+{
+  float ppr;
+  float vmax;
+  float vmin;
+  float enco;
+  float enco_pre;
+  float vset;
+  float v;
+  float kp,ki,kd;
+}Wheelselect;
+Wheelselect whfl = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
+            whfr = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
+            whbr = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
+            whbl = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0};
+
+typedef struct
+{
+  int joint0;
+  int joint1;
+  int joint2;
+  int joint3;
+  int joint4;
+  int joint5;
+}Jointangle;
+Jointangle curangle = {.joint0 = 0, .joint1 = 180, .joint2 = 90, .joint3 = 60, .joint4 = 50, .joint5 = 30},
+            posangle = {.joint0 = 0, .joint1 = 180, .joint2 = 90, .joint3 = 60, .joint4 = 50, .joint5 = 30};
+
+enum function_code {
+  COMMAND_SEND_SPEED = 0xA0,
+  RESP_ACK_SEND_SPEED = 0xB0,
+  COMMAND_SEND_ENCODER  = 0xA1,
+  RESP_ACK_SEND_ENCODER  = 0xB1,
+  COMMAND_SET_SPEED = 0xA2,
+  RESP_ACK_SET_SPEED = 0xB2,
+  COMMAND_SET_POSITION = 0xA3,
+  RESP_ACK_SET_POSITION = 0xB3,
+  COMMAND_SPIN = 0xA4,
+  RESP_ACK_SPIN = 0xB4,
+  COMMAND_STOP = 0xA5,
+  RESP_ACK_STOP = 0xB5 
+};
+
+typedef struct{
+  uint16_t Header;
+  uint8_t FunctionCode; // 0xB0, 0xB1, 0xB2, 0xB3, 0xB4, 0xB5
+  uint8_t ACK; // 'Y' for ACK, 'N' for NACK
+  uint16_t CheckSum;
+  uint16_t EndOfFrame;
+}__attribute__((packed)) SendAckStruct;
+SendAckStruct SendAckFrame;
+/**/
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -125,47 +159,25 @@ static void MX_UART5_Init(void);
 						 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t Size);
+void UART_SendAck(UART_HandleTypeDef *huart, uint8_t ack, uint8_t functionCode);
+void UART_SendData(UART_HandleTypeDef *huart, uint8_t functionCode);
+bool Pre_Ack_Send(UART_HandleTypeDef *huart, uint16_t _rxByteCount, uint16_t _startIndex, uint16_t _frameByteCount,uint8_t _functionCode );
+
+void calc_pid_speed(float _vvl, float _vvr);
 void inversespeed(void);
-float checkpul(float pul2check);
 void split(char in[],uint8_t out[]);
-float calspeed(int32_t value,int ppr);						 
 void Rotate(int curangle, int posangle, uint8_t Channel);
+float checkpul(float pul2check);
+float calspeed(int32_t value,int ppr);
+void stop(void);
+
+
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-/*ham ngat nhan du du lieu*/
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	HAL_UART_DMAStop(&huart5);
-//	HAL_UART_Transmit(&huart5,"ok",3,0x200);
-/*	char *tmp = dma_buffer;
-	for(int tmp = 0; tmp <27;tmp++){
-		data_rx[tmp] = dma_buffer[tmp];
-	}
-	memset(dma_buffer,0,sizeof(dma_buffer));
-	if(strchr(data_rx,'S') != NULL){
-		if(strchr(data_rx,'E') != NULL){
-			HAL_UART_Transmit(&huart5,"ok",3,0x200);
-		}
-	}*/
-	char *tmp = dma_buffer;
-	if(strchr(dma_buffer,'S') != NULL){
-		if(strchr(dma_buffer,'E') != NULL){
-			HAL_UART_Transmit(&huart5,"ok",3,0x200);
-			for(int l=0; l<BS; l++){
-				data_rx[l] = *tmp++;
-			}
-		}
-	}
-	memset(dma_buffer,0,sizeof(dma_buffer));
-	HAL_UART_DMAResume(&huart5);
-	HAL_UART_Receive_DMA(&huart5,(uint8_t*)dma_buffer, BS);
-}
-/*het ham*/
-
 /* USER CODE END 0 */
 
 /**
@@ -252,144 +264,57 @@ int main(void)
 			__HAL_TIM_SET_COUNTER(&htim4,0);
 			
 			//xu li chuoi nhan
-			if(strchr(data_rx,'S') != NULL){
-				if(strchr(data_rx,'E') != NULL){
-					if(strchr(data_rx,'A') != NULL){
-						char *tmp1 = strchr(data_rx,' ');
-						tmp1 = strchr(tmp1,' ');
-						//split(data_rx,set);
-						split(tmp1,set);
-					}
-					if(strchr(data_rx,'B') != NULL){
-						char *tmp1 = strchr(data_rx,' ');
-						tmp1 = strchr(tmp1,' ');
-						//send speed
-						split(tmp1,bset);
-					}
-				}
-			}
-			/*het ham ngat 5ms*/
-			
-			//tinh van toc dai
-
+      UART_ReceiveData(&huart5, (uint8_t *) dma_buffer, BS);
 			
 			//tinh van toc dat
-			inversespeed();
-
 			vvl = -0.14;
 			vvr = -0.14;
-			
-			//Dat thong so PID
-			PIDTuningsSet(&pidfl,2.6,4,0.005);
-			PIDTuningsSet(&pidbl,3,4,0.004);
-			PIDTuningsSet(&pidfr,2.6,4,0.005);
-			PIDTuningsSet(&pidbr,3,4,0.004);
-//			}
-			//PID for Front Left Wheel
-			PIDInputSet(&pidfl,whfl.v);
-			PIDSetpointSet(&pidfl,vvl);
-			PIDCompute(&pidfl);
-			if(vvl>=0)
-				pidfl.output += 0.9*(vvl-0.08)+0.01;
-			else 
-				pidfl.output += 0.9*(vvl+0.08)-0.01;
-			pulfl=PIDOutputGet(&pidfl)/(whfl.vmax)*(pulmax-pulmin)+pulmin;
-			pulfl = checkpul(pulfl);
+      calc_pid_speed(vvl, vvr);
+    }
 
-			//PID for Front Right Wheel
-			PIDInputSet(&pidfr,whfr.v);
-			PIDSetpointSet(&pidfr,vvr);
-			PIDCompute(&pidfr);
-			if(vvr>=0)
-				pidfr.output += 0.9*(vvr-0.08)+0.01;
-			else 
-				pidfr.output += 0.9*(vvr+0.08)-0.01;
-			pulfr=PIDOutputGet(&pidfr)/(whfr.vmax)*(pulmax-pulmin)+pulmin;
-			pulfr = checkpul(pulfr);
+    whfl.v = calspeed(whfl.enco,whfl.ppr);
+    whfr.v = calspeed(whfr.enco,whfr.ppr);
+    whbr.v = calspeed(whbr.enco,whbr.ppr);
+    whbl.v = calspeed(whbl.enco,whbl.ppr);
 
-			//PID for Back Right Wheel
-			PIDInputSet(&pidbr,whbr.v);
-			PIDSetpointSet(&pidbr,vvr);
-			PIDCompute(&pidbr);
-			if (vvr >=0)
-				pidbr.output += 0.85*(vvr-0.08)+0.01;
-			else
-				pidbr.output += 0.85*(vvr+0.08)-0.01;
-			pulbr=PIDOutputGet(&pidbr)/(whbr.vmax)*(pulmax-pulmin)+pulmin;
-			pulbr = checkpul(pulbr);
-			
-
-			//PID for Back Left Wheel
-			PIDInputSet(&pidbl,whbl.v);
-			PIDSetpointSet(&pidbl,vvl);
-			PIDCompute(&pidbl);
-			if (vvl >=0)
-				pidbl.output += 0.85*(vvl-0.08)+0.01;
-			else
-				pidbl.output += 0.85*(vvl+0.08)-0.01;
-			pulbl=PIDOutputGet(&pidbl)/(whbl.vmax)*(pulmax-pulmin)+pulmin;
-			pulbl = checkpul(pulbl);
-		}
-
-		whfl.v = calspeed(whfl.enco,whfl.ppr);
-		whfr.v = calspeed(whfr.enco,whfr.ppr);
-		whbr.v = calspeed(whbr.enco,whbr.ppr);
-		whbl.v = calspeed(whbl.enco,whbl.ppr);
-		
-		/*xuat pwm cho 4 dong co*/
+    /*xuat pwm cho 4 dong co*/
 
 
-		if(pulfl >= 0){
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1,(uint16_t)pulfl);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_RESET);
-		}else{
-			int fltmp = 3599+pulfl;
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, fltmp);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_SET);
-		}
-
-		if(pulfr >= 0){
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, (uint16_t)pulfr);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_RESET);
-	  }else{
-			int frtmp = 3599+pulfr;
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, frtmp);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_SET);
-		}
-
-		if(pulbr >= 0){
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)pulbr);
-			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET);
-		}else{
-			int brtmp = 3599+pulbr;
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, brtmp);
-			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET);
-		}
-
-		if(pulbl >= 0){
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, (uint16_t)pulbl);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
+    if(pulfl >= 0){
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1,(uint16_t)pulfl);
+      HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_RESET);
     }else{
-			int bltmp = 3599+pulbl;
-			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, bltmp);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);
-		}
+      int fltmp = 3599+pulfl;
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, fltmp);
+      HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_SET);
+    }
 
-////		if(j <3500) j+=5;
-//		j=200;
-//		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, j);
-//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_SET);
-//		
-//		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, j);
-//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_SET);
-//		
-//		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, j);
-//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);
-//		
-//		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, j);
-//		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET);
-//		HAL_Delay(10);
-		/**/
+    if(pulfr >= 0){
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, (uint16_t)pulfr);
+      HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_RESET);
+    }else{
+      int frtmp = 3599+pulfr;
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, frtmp);
+      HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_SET);
+    }
+
+    if(pulbr >= 0){
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)pulbr);
+      HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET);
+    }else{
+      int brtmp = 3599+pulbr;
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, brtmp);
+      HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_SET);
+    }
+
+    if(pulbl >= 0){
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, (uint16_t)pulbl);
+      HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
+    }else{
+      int bltmp = 3599+pulbl;
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, bltmp);
+      HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);
+    }
 	
 		
     /* USER CODE END WHILE */
@@ -889,29 +814,183 @@ float checkpul(float pul2check){
 	return pul2check;
 }
 
-void Rotate(int curangle, int posangle, uint8_t Channel){
-	int anglemax = 180, anglemin = 0;
-	if(Channel == 0) anglemax = 10;
-	if(Channel == 4) anglemin = 30;
+void stop(void){
+  __flag_stop = true;
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_7,GPIO_PIN_RESET);
+
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_RESET);
+
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 0);
+  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_15,GPIO_PIN_RESET);
+
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
+}
+
+/*PID van toc*/
+void calc_pid_speed(float _vvl,float _vvr){
+//Dat thong so PID
+  PIDTuningsSet(&pidfl,2.6,4,0.005);
+  PIDTuningsSet(&pidbl,3,4,0.004);
+  PIDTuningsSet(&pidfr,2.6,4,0.005);
+  PIDTuningsSet(&pidbr,3,4,0.004);
+//			}
+  //PID for Front Left Wheel
+  PIDInputSet(&pidfl,whfl.v);
+  PIDSetpointSet(&pidfl,_vvl);
+  PIDCompute(&pidfl);
+  if(_vvl>=0)
+    pidfl.output += 0.9*(_vvl-0.08)+0.01;
+  else 
+    pidfl.output += 0.9*(_vvl+0.08)-0.01;
+  pulfl=PIDOutputGet(&pidfl)/(whfl.vmax)*(pulmax-pulmin)+pulmin;
+  pulfl = checkpul(pulfl);
+
+  //PID for Front Right Wheel
+  PIDInputSet(&pidfr,whfr.v);
+  PIDSetpointSet(&pidfr,_vvr);
+  PIDCompute(&pidfr);
+  if(_vvr>=0)
+    pidfr.output += 0.9*(_vvr-0.08)+0.01;
+  else 
+    pidfr.output += 0.9*(_vvr+0.08)-0.01;
+  pulfr=PIDOutputGet(&pidfr)/(whfr.vmax)*(pulmax-pulmin)+pulmin;
+  pulfr = checkpul(pulfr);
+
+  //PID for Back Right Wheel
+  PIDInputSet(&pidbr,whbr.v);
+  PIDSetpointSet(&pidbr,_vvr);
+  PIDCompute(&pidbr);
+  if (_vvr >=0)
+    pidbr.output += 0.85*(_vvr-0.08)+0.01;
+  else
+    pidbr.output += 0.85*(_vvr+0.08)-0.01;
+  pulbr=PIDOutputGet(&pidbr)/(whbr.vmax)*(pulmax-pulmin)+pulmin;
+  pulbr = checkpul(pulbr);
+  
+
+  //PID for Back Left Wheel
+  PIDInputSet(&pidbl,whbl.v);
+  PIDSetpointSet(&pidbl,_vvl);
+  PIDCompute(&pidbl);
+  if (_vvl >=0)
+    pidbl.output += 0.85*(_vvl-0.08)+0.01;
+  else
+    pidbl.output += 0.85*(_vvl+0.08)-0.01;
+  pulbl=PIDOutputGet(&pidbl)/(whbl.vmax)*(pulmax-pulmin)+pulmin;
+  pulbl = checkpul(pulbl);
+}
+
+/*truyen nhan*/
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  UNUSED(huart);
+	__HAL_DMA_DISABLE(huart5.hdmarx); 
+	HAL_UART_Receive_DMA(&huart5, (uint8_t*)dma_buffer, BS);
+  rxByteCount = 0;
+}
+
+void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t Size)
+{
+  //nhan du 4 byte de check header, function code, id
+	rxByteCount = Size - __HAL_DMA_GET_COUNTER(huart -> hdmarx);
 	
-	if(curangle >anglemax) curangle = anglemax;
-	else if(curangle <anglemin) curangle = anglemin;
+	if (rxByteCount < 4) return; //khong nhan du byte
+  for (int i = 0; i < rxByteCount - 4; i++)
+	{
+    if (dma_buffer[i] != 0xAA || dma_buffer[i + 1] != 0xFF) continue;		
+		uint16_t startIndex = i; // start index of header in dma_buffer
+		uint8_t function_code = dma_buffer[i + 2];
+
+    if (function_code == COMMAND_SEND_SPEED){
+      uint16_t frameByteCount = 7; //2b header 1b function 2b crc 2b end
+      Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+      UART_SendData(&huart5, function_code);
+    }
+    else if(function_code == COMMAND_SEND_ENCODER){
+      uint16_t frameByteCount = 7; //2b header 1b function 2b crc 2b end
+      bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+      if (check_status) UART_SendData(&huart5, function_code);
+    }
+    else if(function_code == COMMAND_SET_SPEED){
+      uint16_t frameByteCount = 15; //2b header 1b function 8b data(4b whl 4b whr) 2b crc 2b end
+      bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+      if (check_status) {
+        memcpy(&vvl, &dma_buffer[startIndex + 3], 4);
+        memcpy(&vvl, &dma_buffer[startIndex + 7], 4);
+        __flag_stop = false;
+        __flag_run_speed = true;
+      }
+    }
+    else if(function_code == COMMAND_SET_POSITION){
+      uint16_t frameByteCount = 15; //2b header 1b function 8b data(4b whl 4b whr) 2b crc 2b end
+      bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+      if (check_status) {
+        memcpy(&vpl, &dma_buffer[startIndex + 3], 4);
+        memcpy(&vpl, &dma_buffer[startIndex + 7], 4);
+        __flag_stop = false;
+        __flag_run_position = true;
+      }
+    }
+    else if(function_code == COMMAND_SPIN){
+      uint16_t frameByteCount = 13; //2b header 1b function 8b data(2b spin_angle 4b spin_speed) 2b crc 2b end
+      bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+      if (check_status) {
+        memcpy(&spin_angle, &dma_buffer[startIndex + 3], 2);
+        memcpy(&v_spin, &dma_buffer[startIndex + 5], 4);
+        __flag_stop = false;
+      }
+    }
+    else if(function_code == COMMAND_STOP){
+      uint16_t frameByteCount = 7; //2b header 1b function 2b crc 2b end
+      Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+      stop();
+    }
+    
+    __HAL_DMA_DISABLE(huart5.hdmarx);
+    HAL_UART_Receive_DMA(huart, pdma_buffer, Size);
+		rxByteCount = 0;
+		break;
+  }
+}
+
+void UART_SendAck(UART_HandleTypeDef *huart, uint8_t ack, uint8_t functionCode)
+{
+	SendAckFrame.Header = Header_val;
+	SendAckFrame.FunctionCode = functionCode;
+	SendAckFrame.ACK = ack;
+	SendAckFrame.EndOfFrame = EndOfFrame_val;
 	
-	if(Channel == 5) curangle =  curangle*2/3; 
-	
-	if(curangle >= posangle){
-		int tmp1;
-		for(tmp1 = posangle; tmp1 <=  curangle; tmp1++){
-			PCA9685_SetServoAngle(Channel, tmp1);
-			HAL_Delay(7);			
-		}
-	} else {
-		int tmp2;
-		for(tmp2 = posangle; tmp2 >= curangle; tmp2--){
-			PCA9685_SetServoAngle(Channel, tmp2);
-			HAL_Delay(7);
-		}
-	}
+	// calculate check sum
+	uint16_t crc = 0;
+	crc +=  0xAA + 0xFF;
+	crc += SendAckFrame.FunctionCode;
+	crc += SendAckFrame.ACK;
+	SendAckFrame.CheckSum = crc;
+	// send data
+	HAL_UART_Transmit_DMA(huart, (uint8_t *) &SendAckFrame, sizeof(SendAckFrame));
+}
+
+bool Pre_Ack_Send(UART_HandleTypeDef *huart, uint16_t _rxByteCount, uint16_t _startIndex, uint16_t _frameByteCount,uint8_t _functionCode ){
+  if (_rxByteCount - _startIndex < _frameByteCount) return false;
+  // get frame data to an array
+  uint8_t arrFrame[_frameByteCount];
+  for (int i = 0; i < _frameByteCount; i++) arrFrame[i] = dma_buffer[i + _startIndex];
+  
+  // check sum
+  uint16_t crc = 0;
+  for(int i = 0; i < _frameByteCount - 4; i++) crc += arrFrame[i];
+  if((crc&0xff)!= arrFrame[_frameByteCount - 4] || ((crc>>8)&0xff)!= arrFrame[_frameByteCount - 3])
+  {
+    // send NACK
+    UART_SendAck(huart, 'N', _functionCode);
+    return false;
+  }			
+  // send ACK
+  UART_SendAck(huart, 'Y', _functionCode);
+  return true;
 }
 /* USER CODE END 4 */
 
