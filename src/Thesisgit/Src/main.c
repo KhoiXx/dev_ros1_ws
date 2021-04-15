@@ -95,16 +95,16 @@ typedef struct
   float ppr;
   float vmax;
   float vmin;
-  float enco;
-  float enco_pre;
+  int16_t enco;
+  int16_t enco_sum;
   float vset;
   float v;
   float kp,ki,kd;
 }Wheelselect;
-Wheelselect whfl = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
-            whfr = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
-            whbr = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
-            whbl = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_pre = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0};
+Wheelselect whfl = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_sum = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
+            whfr = {.ppr = 1491, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_sum = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
+            whbr = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_sum = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0},
+            whbl = {.ppr = 1700, .vmax = 1.23, .vmin = -1.23, .enco = 0, .enco_sum = 0, .vset=0.00, .v=0.00, .kp=0, .ki=0, .kd=0};
 
 typedef struct
 {
@@ -141,6 +141,15 @@ typedef struct{
   uint16_t EndOfFrame;
 }__attribute__((packed)) SendAckStruct;
 SendAckStruct SendAckFrame;
+
+typedef struct{
+  uint16_t Header;
+  uint8_t FunctionCode; // 0xB0, 0xB1, 0xB2, 0xB3, 0xB4, 0xB5
+  uint8_t Data[8]; //1 float == 4byte but convert float -> uint multiple by 1000 
+  uint16_t CheckSum;
+  uint16_t EndOfFrame;
+}__attribute__((packed)) SendDataStruct;
+SendDataStruct SendDataFrame;
 /**/
 /* USER CODE END PV */
 
@@ -169,7 +178,7 @@ void inversespeed(void);
 void split(char in[],uint8_t out[]);
 void Rotate(int curangle, int posangle, uint8_t Channel);
 float checkpul(float pul2check);
-float calspeed(int32_t value,int ppr);
+float calspeed(int16_t value,int ppr);
 void stop(void);
 
 
@@ -257,6 +266,11 @@ int main(void)
 			whfr.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim1);
 			whbr.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);
 			whbl.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim4);
+
+      whfl.enco_sum += whfl.enco;
+      whfr.enco_sum += whfl.enco;
+      whbr.enco_sum += whfl.enco;
+      whbl.enco_sum += whfl.enco;
 			
 			__HAL_TIM_SET_COUNTER(&htim1,0);
 			__HAL_TIM_SET_COUNTER(&htim5,0);
@@ -782,7 +796,7 @@ void split(char in[], uint8_t out[])
    }
 }
 
-float calspeed(int32_t value,  int ppr)
+float calspeed(int16_t value,  int ppr)
 {
 	float 	p = 0.00, v = 0.00;
 	
@@ -831,12 +845,12 @@ void stop(void){
 
 /*PID van toc*/
 void calc_pid_speed(float _vvl,float _vvr){
-//Dat thong so PID
+  //Dat thong so PID
   PIDTuningsSet(&pidfl,2.6,4,0.005);
   PIDTuningsSet(&pidbl,3,4,0.004);
   PIDTuningsSet(&pidfr,2.6,4,0.005);
   PIDTuningsSet(&pidbr,3,4,0.004);
-//			}
+  
   //PID for Front Left Wheel
   PIDInputSet(&pidfl,whfl.v);
   PIDSetpointSet(&pidfl,_vvl);
@@ -925,7 +939,7 @@ void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t 
       }
     }
     else if(function_code == COMMAND_SET_POSITION){
-      uint16_t frameByteCount = 15; //2b header 1b function 8b data(4b whl 4b whr) 2b crc 2b end
+      uint16_t frameByteCount = 15; //2b header 1b function 8b data(4b whl(%f) 4b whr(%f)) 2b crc 2b end
       bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
       if (check_status) {
         memcpy(&vpl, &dma_buffer[startIndex + 3], 4);
@@ -935,7 +949,7 @@ void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t 
       }
     }
     else if(function_code == COMMAND_SPIN){
-      uint16_t frameByteCount = 13; //2b header 1b function 8b data(2b spin_angle 4b spin_speed) 2b crc 2b end
+      uint16_t frameByteCount = 13; //2b header 1b function 8b data(2b spin_angle(int16) 4b spin_speed(float)) 2b crc 2b end
       bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
       if (check_status) {
         memcpy(&spin_angle, &dma_buffer[startIndex + 3], 2);
@@ -954,23 +968,6 @@ void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t 
 		rxByteCount = 0;
 		break;
   }
-}
-
-void UART_SendAck(UART_HandleTypeDef *huart, uint8_t ack, uint8_t functionCode)
-{
-	SendAckFrame.Header = Header_val;
-	SendAckFrame.FunctionCode = functionCode;
-	SendAckFrame.ACK = ack;
-	SendAckFrame.EndOfFrame = EndOfFrame_val;
-	
-	// calculate check sum
-	uint16_t crc = 0;
-	crc +=  0xAA + 0xFF;
-	crc += SendAckFrame.FunctionCode;
-	crc += SendAckFrame.ACK;
-	SendAckFrame.CheckSum = crc;
-	// send data
-	HAL_UART_Transmit_DMA(huart, (uint8_t *) &SendAckFrame, sizeof(SendAckFrame));
 }
 
 bool Pre_Ack_Send(UART_HandleTypeDef *huart, uint16_t _rxByteCount, uint16_t _startIndex, uint16_t _frameByteCount,uint8_t _functionCode ){
@@ -992,6 +989,49 @@ bool Pre_Ack_Send(UART_HandleTypeDef *huart, uint16_t _rxByteCount, uint16_t _st
   UART_SendAck(huart, 'Y', _functionCode);
   return true;
 }
+
+void UART_SendAck(UART_HandleTypeDef *huart, uint8_t ack, uint8_t functionCode)
+{
+	SendAckFrame.Header = Header_val;
+	SendAckFrame.FunctionCode = functionCode;
+	SendAckFrame.ACK = ack;
+	SendAckFrame.EndOfFrame = EndOfFrame_val;
+	
+	// calculate check sum
+	uint16_t crc = 0;
+	crc +=  0xAA + 0xFF;
+	crc += SendAckFrame.FunctionCode;
+	crc += SendAckFrame.ACK;
+	SendAckFrame.CheckSum = crc;
+	// send data
+	HAL_UART_Transmit_DMA(huart, (uint8_t *) &SendAckFrame, sizeof(SendAckFrame));
+}
+
+void UART_SendData(UART_HandleTypeDef *huart, uint8_t functionCode){
+  SendDataFrame.Header = Header_val;
+  SendDataFrame.FunctionCode = functionCode;
+	SendDataFrame.EndOfFrame = EndOfFrame_val;
+  if (functionCode == COMMAND_SEND_SPEED){
+    int16_t Speed_whfl = (int16_t)whfl.v*1000;
+    int16_t Speed_whfr = (int16_t)whfr.v*1000;
+    int16_t Speed_whbr = (int16_t)whbr.v*1000;
+    int16_t Speed_whbl = (int16_t)whbl.v*1000);
+    // 01 23 45 67= whfl whfr whbr whbl 
+    for (int i = 1; i >= 0; i--){
+      SendDataFrame.Data[1 - i] = Speed_whfl >> 8 * i;
+      SendDataFrame.Data[3 - i] = Speed_whfr >> 8 * i;
+      SendDataFrame.Data[5 - i] = Speed_whbr >> 8 * i;
+      SendDataFrame.Data[7 - i] = Speed_whbr >> 8 * i;
+    }
+  }
+
+  // calculate check sum
+	uint16_t crc = 0;
+	crc += 0xFF + 0xAA;
+  crc += SendDataFrame.FunctionCode;
+}
+
+
 /* USER CODE END 4 */
 
 /**
