@@ -21,13 +21,50 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-E:\BO\study\LuanVan\Thesisgit\MDK-ARM\testservo2.uvprojx
-Project File Date:  03/17/2021
+E:\BO\study\LuanVan\dev_ros1_ws\src\Thesisgit\MDK-ARM\testservo2.uvprojx
+Project File Date:  04/15/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'testservo2'
-"testservo2\testservo2.axf" - 0 Error(s), 0 Warning(s).
+compiling main.c...
+../Src/main.c(250): warning:  #177-D: variable "temp1"  was declared but never referenced
+  	static float temp1;
+../Src/main.c(761): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	float vc_set = (float)bset[0]/100000.00000;
+../Src/main.c(762): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	float omegac_set = (float)bset[1]/100.00;
+../Src/main.c(763): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	vvl = (2*vc_set-omegac_set*
+en)/2;
+../Src/main.c(764): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	vvr = (2*vc_set+omegac_set*
+en)/2;
+../Src/main.c(765): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	if(vvl>1.23){
+../Src/main.c(768): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	if(vvr>1.23){
+../Src/main.c(921): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidfl.output += 0.9 * (_vvl - 0.08) + 0.01;
+../Src/main.c(923): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidfl.output += 0.9 * (_vvl + 0.08) - 0.01;
+../Src/main.c(932): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidfr.output += 0.9 * (_vvr - 0.08) + 0.01;
+../Src/main.c(934): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidfr.output += 0.9 * (_vvr + 0.08) - 0.01;
+../Src/main.c(943): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidbr.output += 0.85 * (_vvr - 0.08) + 0.01;
+../Src/main.c(945): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidbr.output += 0.85 * (_vvr + 0.08) - 0.01;
+../Src/main.c(954): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidbl.output += 0.85 * (_vvl - 0.08) + 0.01;
+../Src/main.c(956): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      pidbl.output += 0.85 * (_vvl + 0.08) - 0.01;
+../Src/main.c: 15 warnings, 0 errors
+linking...
+Program Size: Code=17136 RO-data=456 RW-data=236 ZI-data=2484  
+FromELF: creating hex file...
+"testservo2\testservo2.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
 

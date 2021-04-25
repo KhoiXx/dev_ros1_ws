@@ -61,6 +61,21 @@ class RobotControl:
 
     #def init
 
+
+    def __init_navigation(self):
+        self.path_finding = None
+        # start point and target point received from nfc tag
+        self.nav_start_point = [] # (x, y, base_yaw_to_map)
+        self.nav_target_point = [] # (x, y, base_yaw_to_map)
+        # navigation status running
+        self.nav_running = False
+        self.nav_force_stop = False
+        self.nav_start_estimate_point = []
+        self.nav_goal_estimate_point = []
+    
+    def __init_rimocon(self):
+        self.rimocon_current_angle = 0
+        self.rimocon_current_speed = -1
     #def else
     def log(self, *arg):
         '''

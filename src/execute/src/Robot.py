@@ -20,7 +20,7 @@ from Vehicle import Vehicle
 
 #variables
 rosserial_port = '/dev/ttyTHS1'
-
+SPEED_MIN_VALUE = 0.5
 #main code
 
 class Robot(RobotControl):
@@ -29,10 +29,10 @@ class Robot(RobotControl):
         super(Robot, self).__init__(port, baud_rate, node_log)
         self.vehicle = Vehicle(CENTER_X, CENTER_Y, MR_WIDTH / 2)
         self.log("The robot is connected to ", port)
-        self._current_speed = 1.4
+        self._current_speed = SPEED_MIN_VALUE
         self.target_goal = PoseStamped()
         self.initial_topic()
-        
+        self.log_console("Robot finished initialize...")
 
     def initial_topic(self):
         '''
@@ -47,11 +47,12 @@ class Robot(RobotControl):
         if not self.is_keyboard_mode():
             self.set_keyboard_mode()
             # reset speed
-            self._current_speed = 1.4
+            self._current_speed = SPEED_MIN_VALUE
 
         command = msg.data
         # Show log
         self.log("Data from: [" + str(command) + ']')]
+        self.set_status_running()
         self.handle_command(command)
 
     def handle_command(self, command):
