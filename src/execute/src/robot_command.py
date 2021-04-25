@@ -58,44 +58,47 @@ class RobotCommand:
         command_send = bytearray(command)
         if command_send[0:2] != CommandCode.HEADER:
             command_send = CommandCode.HEADER + command_send
-        if command_send[-1:-3] != CommandCode.END:
+        crc = 0
+        for i in len(command_send):
+            crc += int.from_bytes(command_send[i:i+1], 'little')
+        command_send += crc.to_bytes(2, 'big')
+        if command_send[-2:] != CommandCode.END:
             command_send += CommandCode.END
         
         self.newest_command = [command_send]
         self.latest_cmd_time = int (time.time() * 1000)
         self.__robot_serial.write(command_send)
-        for i in range(3):
+        time.sleep(0.002)
+        for i in range(10):
             status = self.check_frame(8)
             if status == True:
                 break
             else:
                 self.__robot_serial.write(command_send)
-                time.sleep(0.001)
+                time.sleep(0.002)
                 continue
+        
         
     
     def get_speed(self):
-        self.write_command()
-        return self.__robot_serial.read(6)
+        command = CommandCode.COMMAND_SEND_SPEED
+        self.write_command(command)
 
-    def get_encoder(self):\
-        command = COMMAND_SEND_SPEED
-        self.write_command(coomand)
-        return self.__robot_serial.read(6)
+    def get_encoder(self):
+        command = CommandCode.COMMAND_SEND_ENCODER
+        self.write_command(command)
     
     def set_speed(self,data):
-        command = str(CommandCode.COMMAND_WRITE)
+        command = CommandCode.COMMAND_SET_SPEED
         for speed in data:
-            command += CommandCode.SPLIT_CHAR + str(speed)
+            command += speed.to_bytes(1, 'big')
         self.write_command(command)
 
     def set_stop(self,attempt_try = 3):
         for _ in range(attempt_try):
-            self.set_speed([0,0,0,0])
+            command = CommandCode.COMMAND_STOP
+            self.write_command(command)
             time.sleep(0.02)
-    
-    def set_max_speed(self, speed):
-        self.set_speed([speed, speed, speed, speed])
 
     
     def set_spin(self, angle, speed = 0.5):
@@ -112,34 +115,37 @@ class RobotCommand:
         self.__write_command(command)
     
     def check_frame(self, byte_read):
-        read_data = self.__robot_serial.read_until(CommandCode.END,byte_read)
-        if read_data[0:2] != CommandCode.HEADER or read_data[-2:] != CommandCode.END:
-            return False
+        try:
+            read_data = self.__robot_serial.read_until(CommandCode.END,byte_read)
+            if read_data[0:2] != CommandCode.HEADER or read_data[-2:] != CommandCode.END:
+                return False
 
-        for i in range(len(read_data) - 4):
-            crc += int.from_bytes(read_data[i: i + 1], 'big')
-        if int.from_bytes(read_data[-4:-2], 'little') != crc:
-            return False
+            for i in range(len(read_data) - 4):
+                crc += int.from_bytes(read_data[i: i + 1], 'big')
+            if int.from_bytes(read_data[-4:-2], 'little') != crc:
+                return False
 
-        if read_data[2:3] in Ack_response and byte_read == 8:
-            status = False
-            if read_data[3:4] == Ack_response.YACK:
-                status = True
-            else:
+            if read_data[2:3] in Ack_response and byte_read == 8:
                 status = False
-        elif read_data[2:3] in CommandCode and byte_read == 15:
-            status = False
-            if read_data[2:3] == CommandCode.COMMAND_SEND_SPEED:
-                for i in range(1,4):
-                    self.wh_speed[i] = int.from_bytes(read_data[ i+2 : i+4], 'little')
-                status = True
-            elif read_data[2:3] == CommandCode.COMMAND_SEND_ENCODER:
-                for i in range(1,4):
-                    self.wh_encoder[i] = int.from_bytes(read_data[ i+2 : i+4], 'little')
-                status = True
-            else:
+                if read_data[3:4] == Ack_response.YACK:
+                    status = True
+                else:
+                    status = False
+            elif read_data[2:3] in CommandCode and byte_read == 15:
                 status = False
-        else:
+                if read_data[2:3] == CommandCode.COMMAND_SEND_SPEED:
+                    for i in range(1,4):
+                        self.wh_speed[i] = int.from_bytes(read_data[ i+2 : i+4], 'little')
+                    status = True
+                elif read_data[2:3] == CommandCode.COMMAND_SEND_ENCODER:
+                    for i in range(1,4):
+                        self.wh_encoder[i] = int.from_bytes(read_data[ i+2 : i+4], 'little')
+                    status = True
+                else:
+                    status = False
+            else:
+                return False
+            return status
+        except:
             return False
-        return status
                 
