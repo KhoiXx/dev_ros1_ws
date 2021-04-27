@@ -14,7 +14,7 @@ from math import pi
 import numpy as np
 
 ROS_WS = '/home/khoixx/dev_ros1_ws'
-LOG_FILE_PATH = ROS_WS + '/log/arm_log'
+LOG_FILE_PATH = ROS_WS + '/log/arm_log/'
 
 J5_ZERO = 0
 J4_ZERO = 91
