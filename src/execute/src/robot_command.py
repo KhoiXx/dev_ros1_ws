@@ -91,7 +91,8 @@ class RobotCommand:
     def set_speed(self,data):
         command = CommandCode.COMMAND_SET_SPEED
         for speed in data:
-            command += speed.to_bytes(1, 'big')
+            speed /= 10000
+            command += speed.to_bytes(2, 'little')
         self.write_command(command)
 
     def set_stop(self,attempt_try = 3):
@@ -102,21 +103,17 @@ class RobotCommand:
 
     
     def set_spin(self, angle, speed = 0.5):
-        '''
-        Spin robot
-
-        :param angle: angle to spin
-
-        :param speed: speed to spin, default is 0.5 km/h
-        '''
-        command = [str(CommandCode.COMMAND_SPIN), str(angle), str(speed)]
-        command = CommandCode.COMMAND_DELIMITER.join(command)
+        command = CommandCode.COMMAND_SET_SPEED
+        command += angle.to_bytes(2, 'litte')
+        command += speed.to_bytes(2, 'little')
+        self.write_command(command)
 
         self.__write_command(command)
     
     def check_frame(self, byte_read):
         try:
             read_data = self.__robot_serial.read_until(CommandCode.END,byte_read)
+            timeout = self.__robot_serial.timeout
             if read_data[0:2] != CommandCode.HEADER or read_data[-2:] != CommandCode.END:
                 return False
 
