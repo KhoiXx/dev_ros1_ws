@@ -26,17 +26,17 @@ ROS_WS = '/home/khoixx/dev_ros1_ws'
 LOG_FILE_PATH = ROS_WS + '/log/'
 
 class RobotControl:
-    def __init__(self, port, baud_rate, node_log):
+    def __init__(self, port, baud_rate):
 
         self.MAP_FILE_PATH = ROS_WS + "/map/"
         self.MAP_FILE_PGM = self.MAP_FILE_PATH + "map.pgm"
         self.MAP_FILE_YAML = self.MAP_FILE_PATH + "map.yaml"
 
-        self.root_node = node_log
+        # self.root_node = node_log
         try:
 
             # "robot_port0,robot_port1,imu_port,lidar_port"
-            self.root_node.get_logger().info('RobotControl@__init__')
+            # self.root_node.get_logger().info('RobotControl@__init__')
 
             log_info = [
                 LOG_FILE_PATH,
@@ -73,9 +73,8 @@ class RobotControl:
         self.nav_start_estimate_point = []
         self.nav_goal_estimate_point = []
     
-    def __init_rimocon(self):
-        self.rimocon_current_angle = 0
-        self.rimocon_current_speed = -1
+    def __init_keyboard(self):
+        self.keyboard_current_speed = -1
     #def else
     def log(self, *arg):
         '''
@@ -98,26 +97,20 @@ class RobotControl:
         return self.__robot_serial.get_encoder()
 
     def set_speed(self, speed_data):
-        '''
-        set speed to robot
-
-        :param speed_data: [front_left_speed, front_right_speed, rear_left_speed, rear_right_speed]
-        '''
-
         self.__robot_serial.set_speed(speed_data)
 
-    def log_console(self, *arg):
-        '''
-        logging to console
-        '''
-        # log(self.root_node, arg)
-        now = int (time.time() * 1000) # milliseconds
-        msg = []
-        msg.append(str(now))
-        for x in arg:
-            msg.append("[" + str(x) + "]")
-        msg.append("\n")
-        self.root_node.get_logger().info("".join(msg))
+    # def log_console(self, *arg):
+    #     '''
+    #     logging to console
+    #     '''
+    #     # log(self.root_node, arg)
+    #     now = int (time.time() * 1000) # milliseconds
+    #     msg = []
+    #     msg.append(str(now))
+    #     for x in arg:
+    #         msg.append("[" + str(x) + "]")
+    #     msg.append("\n")
+    #     self..get_logger().info("".join(msg))
 
     def check_file_exist(self, path1, path2=None):
         '''
@@ -175,7 +168,7 @@ class RobotControl:
 
         try:
             self.log('Saving map...')
-            self.log_console('Saving map...')
+            #self.log_console('Saving map...')
             # backup old map
             self.rename_file(self.MAP_FILE_YAML, self.MAP_FILE_YAML + suffix)  # rename old map "map.yaml" to "map.yaml_Ymd_HMS" for backup
             self.rename_file(self.MAP_FILE_PGM, self.MAP_FILE_PGM + suffix)    # rename old map "map.pgm" to "map.pgm_Ymd_HMS" for backup
@@ -210,11 +203,6 @@ class RobotControl:
         return False
 
     def release_motor(self, param=''):
-        '''
-        Release motor
-
-        :param param: 0 for release 4 wheels, 1 for release 4 steering, otherwise release all
-        '''
         self.__robot_serial.set_stop()
 
     def turn_angle(self,_angle,_speed):
@@ -264,8 +252,71 @@ class RobotControl:
 
         return angle
     
+    def set_navigate_mode(self):
+        self.__current_mode = NAVIGATE_MODE
+
+    def is_navigate_mode(self):
+        return self.__current_mode == NAVIGATE_MODE
+    
     def set_keyboard_mode(self):
         self.__current_mode = KEYBOARD_MODE
     
     def is_keyboard_mode(self):
         return self.__current_mode == KEYBOARD_MODE
+
+    def set_status_stop(self):
+        self.__robot_status = ROBOT_STATUS_STOP
+
+    def set_status_running(self):
+        self.__robot_status = ROBOT_STATUS_RUNNING
+
+    def set_status_rotating(self):
+        self.__robot_status = ROBOT_STATUS_ROTATING
+
+    def is_status_stop(self):
+        return self.__robot_status == ROBOT_STATUS_STOP
+    
+    def is_status_rotating(self):
+        return self.__robot_status == ROBOT_STATUS_ROTATING
+    
+    def is_status_running(self):
+        return self.__robot_status == ROBOT_STATUS_RUNNING
+
+    def get_latest_command(self):
+        return self.__robot_serial_command.newest_command
+
+    def log_latest_command(self):
+        if self.__robot_serial_command.has_new_command():
+            command = ' '.join(self.__robot_serial_command.newest_command)
+            self.log("log_latest_command", command)
+    
+    def get_encoder(self):
+        return self.__robot_serial.get_encoder()
+
+    def set_speed(self, speed_data):
+        '''
+        [vvl,vvr]
+        '''
+        self.__robot_serial.set_speed(speed_data)
+    
+    def set_stop(self,attempt_try = 3):
+        self.__robot_serial.set_stop(attempt_try)
+    
+    def set_spin(self, angle, speed = 0.5):
+        self.__robot_serial.set_spin(angle, speed)
+    
+    def time_sleep_to_count(self, time_sleep, timeout):
+        return int(timeout / time_sleep)
+
+    def log_running_status(self):
+        status = 'ROBOT STATUS:'
+        status += ' Rotating[' + str(self.is_status_rotating()) + ']'
+        status += ' Running[' + str(self.is_status_running()) + ']'
+        status += ' Stop[' + str(self.is_status_stop()) + ']'
+        self.log(status)
+
+    def log_running_mode(self):
+        status = 'ROBOT RUNNING MODE:'
+        status += ' Navigate[' + str(self.is_navigate_mode()) + ']'
+        status += ' Keyboard[' + str(self.is_keyboard_mode()) + ']'
+        self.log(status)
