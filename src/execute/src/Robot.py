@@ -19,31 +19,28 @@ from UtilitiesMacroAndConstant import *
 from Vehicle import Vehicle
 
 #variables
-rosserial_port = '/dev/ttyTHS1'
+
 SPEED_MIN_VALUE = 0.5
 #main code
 
 class Robot(RobotControl):
-    def __init__(self,port = PORT,baudrate = BAUDRATE,node_log=None):
+    def __init__(self,port = PORT,baudrate = BAUDRATE):
 
-        super(Robot, self).__init__(port, baud_rate, node_log)
+        super(Robot, self).__init__(port, baud_rate)
         self.vehicle = Vehicle(CENTER_X, CENTER_Y, MR_WIDTH / 2)
         self.log("The robot is connected to ", port)
         self._current_speed = SPEED_MIN_VALUE
         self.target_goal = PoseStamped()
         self.initial_topic()
-        self.log_console("Robot finished initialize...")
+        self.set_speed_mode()
+        # self.log_console("Robot finished initialize...")
 
     def initial_topic(self):
-        '''
-        create publisher, subscription for robot
-        '''
         self.log("Initial robot's topic...")
-        # self.root_node.create_subscription(String, 'nfc_reader', self.nfc_reader_callback, 10)
-        self.root_node.create_subscription(String, 'keyboard_control', self.keycontrol_callback, 10)
+        self.sub_key = rospy.Subscriber('keyboard_control', String, self.keycontrol_callback, 10)
     
     def keycontrol_callback(self, msg):
-
+        self.log_latest_command()
         if not self.is_keyboard_mode():
             self.set_keyboard_mode()
             # reset speed
@@ -51,7 +48,7 @@ class Robot(RobotControl):
 
         command = msg.data
         # Show log
-        self.log("Data from: [" + str(command) + ']')]
+        self.log("Data from: [" + str(command) + ']')
         self.set_status_running()
         self.handle_command(command)
 
@@ -65,73 +62,58 @@ class Robot(RobotControl):
             command = ''
 
             if key_command == Key_mapping.ROTATE_LEFT:
-                # turn left 90 degree
-                # "q,-90,-90,-90,-90"
-                if not _current_speed:
-                    _current_speed = 1
-                self.turn_angle(-90,_current_speed)
+                if not self._current_speed:
+                    self._current_speed = 0.8
+                self.set_speed([-self._current_speed,self._current_speed])
+                time.sleep(1)
                 return
 
             if key_command == Key_mapping.ROTATE_RIGHT:
-                # turn right 90 degree
-                # "q,90,90,90,90"
-                if not _current_speed:
-                    _current_speed = 1
-                self.turn_angle(90,_current_speed)
+                if not self._current_speed:
+                    self._current_speed = 0.8
+                self.set_speed([-self._current_speed,self._current_speed])
+                time.sleep(1)
                 return
 
             if key_command == Key_mapping.LEFT:
-                # rotate-left
-                # "3,180;"
-                # SPIN at min speed for running slam
-                self.rimocon_current_angle = -1
-                self.set_spin(Key_mapping.RIMOCON_ANGLE_90 * 20, 0.3)
+                if not self._current_speed:
+                    self._current_speed = 0.8
+                self.set_speed([self._current_speed*0.5,self._current_speed])
+                time.sleep(1)
                 return
 
             if key_command == Key_mapping.RIGHT:
-                # rotate-right
-                # "3,-180;"
-                # SPIN at min speed for running slam
-                self.rimocon_current_angle = -1
-                self.set_spin(Key_mapping.RIMOCON_ANGLE_90 * 20 * -1, 0.3)
+                if not self._current_speed:
+                    self._current_speed = 0.8
+                self.set_speed([self._current_speed,self._current_speed*0.5])
+                time.sleep(1)
                 return
 
             if key_command == Key_mapping.STOP:
-                # stop
-                # "8;"
                 self.release_motor()
                 return
 
             if key_command == Key_mapping.FORWARD:
-                # move forward
-                # "0,1000;"
-
-                self.set_move_distance(Key_mapping.RIMOCON_DISTANCE_MOVE)
+                if not self._current_speed:
+                    self._current_speed = 0.8
+                self.set_speed([self._current_speed, self._current_speed])
+                time.sleep(1)
                 return
 
             if key_command == Key_mapping.BACK:
-                # move backward
-                # "0,-1000;"
-                if self.rimocon_current_angle != 0:
-                    self.rimocon_current_angle = 0
-
-                    steering_data = []
-                    for _ in range(4):
-                        steering_data.append(self.rimocon_current_angle)
-
-                    self.set_steering(steering_data)
-                    time.sleep(Key_mapping.DELAY_FOR_STEER_45)
-
-                self.set_move_distance(Key_mapping.RIMOCON_DISTANCE_MOVE * -1)
+                if not self._current_speed:
+                    self._current_speed = 0.8
+                self.set_speed([-self._current_speed, -self._current_speed])
+                time.sleep(1)
                 return
                 
             if key_command == Key_mapping.COMMAND_SAVE_MAP:
                 if self.save_map(timeout_map=15):
                     self.log("Save map successfully...")
-                    self.log_console("Save map successfully...")
+                    # self.log_console("Save map successfully...")
                 else:
                     self.log("Save map failed...")
-                    self.log_console("Save map failed...")
+                    # self.log_console("Save map failed...")
                 return
 
             self.log("handle_key_command INVALID command [" + key_command + "]")

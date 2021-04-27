@@ -22,3 +22,5 @@ class Key_mapping:
 
     EXECUTE_ARM = 'e'
     PLAN_ARM = 'p'
+
+    COMMAND_SAVE_MAP = 'm'
