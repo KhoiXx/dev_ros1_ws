@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="execute" type="thesis_robot_node.py" name="Thesis_robot" output="screen"\>
+</launch>
