@@ -1,3 +1,4 @@
 <launch>
-  <node pkg="execute" type="keyboard_control.py" name="keyboard_control" output="screen"\>
+  <include file="$(find robot_bringup)/launch/robot_base.launch"/>
+  <node pkg="execute" type="keyboard_control.py" name="keyboard_control" output="screen"/>
 </launch>
