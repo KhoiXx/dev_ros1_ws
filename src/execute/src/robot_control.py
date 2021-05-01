@@ -12,7 +12,7 @@ import math
 # from distutils.util import strtobool
 from robot_command import RobotCommand
 import numpy as np
-from UtilitiesMacroAndConstant import MR_WIDTH
+from UtilitiesMacroAndConstant import ROBOT_WIDTH
 
 ROBOT_STATUS_STOP = 0
 ROBOT_STATUS_ROTATING = 1
@@ -25,8 +25,8 @@ KEYBOARD_MODE = 2
 ROS_WS = '/home/khoixx/dev_ros1_ws'
 LOG_FILE_PATH = ROS_WS + '/log/'
 
-class RobotControl:
-    def __init__(self, port, baud_rate):
+class RobotControl(object):
+    def __init__(self, port, baudrate):
 
         self.MAP_FILE_PATH = ROS_WS + "/map/"
         self.MAP_FILE_PGM = self.MAP_FILE_PATH + "map.pgm"
@@ -206,14 +206,14 @@ class RobotControl:
         self.__robot_serial.set_stop()
 
     def turn_angle(self,_angle,_speed):
+        if _speed <0:
+            _speed = -_speed
         if _speed >1.6 :
             _speed = 1.6
         elif _speed > 0 and _speed <0.2:
             _speed = 0.2
-        if _speed <0:
-            _speed = -_speed
         
-        current_omega = (_speed/MR_WIDTH)*200 #rad/s
+        current_omega = (_speed/ROBOT_WIDTH)*200 #rad/s
         _angle = np.deg2rad(_angle)
         time_reach_angle = _angle/current_omega
         if  _angle < 0:
@@ -221,8 +221,8 @@ class RobotControl:
       
         while time_reach_angle >0:
             tic = time.clock()
-            self.set_speed([_speed,-_speed,_speed,-_speed])
-            time_reach_angle -= time.clock()-tic
+            self.set_speed([_speed,-_speed])
+            time_reach_angle -= time.clock() - tic
                 
     def correct_angle(self, angle, is_radian=True):
         '''
@@ -283,11 +283,11 @@ class RobotControl:
         return self.__robot_status == ROBOT_STATUS_RUNNING
 
     def get_latest_command(self):
-        return self.__robot_serial_command.newest_command
+        return self.__robot_serial.newest_command
 
     def log_latest_command(self):
-        if self.__robot_serial_command.has_new_command():
-            command = ' '.join(self.__robot_serial_command.newest_command)
+        if self.__robot_serial.has_new_command():
+            command = ' '.join(str(self.__robot_serial.newest_command))
             self.log("log_latest_command", command)
     
     def get_encoder(self):
@@ -303,7 +303,7 @@ class RobotControl:
         self.__robot_serial.set_stop(attempt_try)
     
     def set_spin(self, angle, speed = 0.5):
-        self.__robot_serial.set_spin(angle, speed)
+        self.__robot_serial.turn_angle(angle, speed)
     
     def time_sleep_to_count(self, time_sleep, timeout):
         return int(timeout / time_sleep)
