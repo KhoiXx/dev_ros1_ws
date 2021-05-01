@@ -1,2 +1,2 @@
-arm_moveit:car:execute:serial_communication
+arm_moveit:car:execute:robot_bringup:robot_navigation:serial_communication
 -DCATKIN_DEVEL_PREFIX=/home/khoixx/dev_ros1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/khoixx/dev_ros1_ws/install -G Unix Makefiles
