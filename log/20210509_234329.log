@@ -1,0 +1,2269 @@
+1620578609813 [Opening serial port: /dev/ttyTHS1.] 
+1620578610120 [The robot is connected to ] [/dev/ttyTHS1] 
+1620578610120 [Initial robot's topic...] 
+1620578610128 [Start initializing navigation] 
+1620578610128 [Start initializing navigation topic] 
+1620578610217 [Initialization navigation topic finished] 
+1620578610224 [Initialization navigation finished] 
+1620578611357 [Data from: [r]] 
+1620578612437 [Data from: [,]] 
+1620578612438 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578613327 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578613327 [Data from: [,]] 
+1620578613327 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578613549 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578613550 [Data from: [s]] 
+1620578613550 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578615350 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578615350 [Data from: [,]] 
+1620578615351 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578615651 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578615651 [Data from: [s]] 
+1620578615652 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578617108 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578617108 [Data from: [.]] 
+1620578617108 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578618405 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578618405 [Data from: [s]] 
+1620578618405 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578620806 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578620806 [Data from: [.]] 
+1620578620806 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578620986 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578620986 [Data from: [s]] 
+1620578620986 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578623393 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578623393 [Data from: [w]] 
+1620578623393 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578623801 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578623801 [Data from: [s]] 
+1620578623801 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578626759 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578626759 [Data from: [.]] 
+1620578626759 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578627128 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578627128 [Data from: [s]] 
+1620578627128 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578629375 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578629375 [Data from: [,]] 
+1620578629375 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578631055 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578631055 [Data from: [s]] 
+1620578631056 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578633170 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578633170 [Data from: [,]] 
+1620578633171 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578633471 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578633471 [Data from: [s]] 
+1620578633471 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578635879 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578635879 [Data from: [,]] 
+1620578635879 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578636116 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578636116 [Data from: [s]] 
+1620578636116 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578638591 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578638591 [Data from: [,]] 
+1620578638591 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578638680 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578638680 [Data from: [s]] 
+1620578638680 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578640003 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578640003 [Data from: [,]] 
+1620578640003 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578640236 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578640236 [Data from: [s]] 
+1620578640237 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578642928 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578642928 [Data from: [,]] 
+1620578642928 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578643173 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578643173 [Data from: [,]] 
+1620578643173 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578643198 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578643198 [Data from: [s]] 
+1620578643198 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578644732 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578644732 [Data from: [,]] 
+1620578644732 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578645004 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578645004 [Data from: [s]] 
+1620578645004 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578647786 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578647786 [Data from: [,]] 
+1620578647787 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578647991 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578647991 [Data from: [s]] 
+1620578647991 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578650431 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578650431 [Data from: [,]] 
+1620578650431 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578650691 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578650691 [Data from: [s]] 
+1620578650691 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578653034 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578653034 [Data from: [,]] 
+1620578653034 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578653240 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578653240 [Data from: [s]] 
+1620578653240 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578654112 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578654112 [Data from: [,]] 
+1620578654112 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578654387 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578654387 [Data from: [s]] 
+1620578654388 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578655008 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578655008 [Data from: [,]] 
+1620578655009 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578655476 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578655476 [Data from: [s]] 
+1620578655476 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578656372 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578656372 [Data from: [,]] 
+1620578656372 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578660917 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578660917 [Data from: [s]] 
+1620578660917 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578666406 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578666406 [Data from: [,]] 
+1620578666409 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578666795 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578666795 [Data from: [s]] 
+1620578666795 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578668796 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578668796 [Data from: [,]] 
+1620578668796 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578669018 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578669018 [Data from: [s]] 
+1620578669019 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578670867 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578670867 [Data from: [,]] 
+1620578670869 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578671012 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578671012 [Data from: [s]] 
+1620578671013 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578672541 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578672541 [Data from: [w]] 
+1620578672543 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578673025 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578673025 [Data from: [s]] 
+1620578673025 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578674515 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578674515 [Data from: [.]] 
+1620578674515 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578674856 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578674856 [Data from: [s]] 
+1620578674856 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578676755 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578676755 [Data from: [.]] 
+1620578676755 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578677858 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578677858 [Data from: [s]] 
+1620578677858 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578681900 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578681900 [Data from: [,]] 
+1620578681900 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578682938 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578682938 [Data from: [s]] 
+1620578682938 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578684450 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578684450 [Data from: [w]] 
+1620578684451 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578684982 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578684982 [Data from: [s]] 
+1620578684983 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578685623 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578685623 [Data from: [s]] 
+1620578685624 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578686349 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578686349 [Data from: [s]] 
+1620578686349 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578687380 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578687380 [Data from: [x]] 
+1620578687381 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578688224 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578688224 [Data from: [s]] 
+1620578688225 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578691110 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578691110 [Data from: [x]] 
+1620578691111 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578691496 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578691496 [Data from: [s]] 
+1620578691498 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578693490 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578693490 [Data from: [,]] 
+1620578693491 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578693844 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578693844 [Data from: [s]] 
+1620578693844 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578695602 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578695602 [Data from: [,]] 
+1620578695603 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578695890 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578695890 [Data from: [s]] 
+1620578695890 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578698895 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578698895 [Data from: [.]] 
+1620578698895 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578701156 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578701156 [Data from: [s]] 
+1620578701157 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578703369 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578703369 [Data from: [,]] 
+1620578703369 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578704202 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578704202 [Data from: [,]] 
+1620578704202 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578704585 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578704585 [Data from: [s]] 
+1620578704586 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578705491 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578705491 [Data from: [,]] 
+1620578705491 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578705656 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578705656 [Data from: [s]] 
+1620578705657 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578706548 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578706548 [Data from: [,]] 
+1620578706549 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578706634 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578706634 [Data from: [s]] 
+1620578706634 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578707194 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578707194 [Data from: [,]] 
+1620578707194 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578707429 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578707429 [Data from: [s]] 
+1620578707430 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578707920 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578707920 [Data from: [,]] 
+1620578707920 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578708017 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578708017 [Data from: [s]] 
+1620578708018 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578751146 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578751146 [Data from: [.]] 
+1620578751146 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578753387 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578753387 [Data from: [s]] 
+1620578753387 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578759713 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578759713 [Data from: [,]] 
+1620578759713 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578760993 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578760993 [Data from: [s]] 
+1620578760994 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578762515 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578762515 [Data from: [,]] 
+1620578762515 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578762768 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578762768 [Data from: [s]] 
+1620578762768 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578763852 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578763852 [Data from: [,]] 
+1620578763858 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578764019 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578764019 [Data from: [s]] 
+1620578764019 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578765208 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578765208 [Data from: [,]] 
+1620578765208 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578765332 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578765332 [Data from: [s]] 
+1620578765333 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578798280 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578798280 [Data from: [,]] 
+1620578798281 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578798850 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578798850 [Data from: [s]] 
+1620578798851 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578801762 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578801762 [Data from: [w]] 
+1620578801762 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578802107 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578802107 [Data from: [s]] 
+1620578802107 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578805473 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578805473 [Data from: [x]] 
+1620578805473 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578805911 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578805911 [Data from: [s]] 
+1620578805913 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578807555 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578807555 [Data from: [x]] 
+1620578807555 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578807890 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578807890 [Data from: [s]] 
+1620578807890 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578809217 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578809217 [Data from: [x]] 
+1620578809218 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578809534 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578809534 [Data from: [s]] 
+1620578809534 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578812440 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578812440 [Data from: [x]] 
+1620578812452 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578812762 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578812762 [Data from: [s]] 
+1620578812763 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578814395 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578814395 [Data from: [x]] 
+1620578814395 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578814646 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578814646 [Data from: [s]] 
+1620578814647 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578816971 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578816971 [Data from: [x]] 
+1620578816972 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578817275 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578817275 [Data from: [s]] 
+1620578817276 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578818755 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578818755 [Data from: [x]] 
+1620578818757 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578819111 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578819111 [Data from: [s]] 
+1620578819111 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578820818 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578820818 [Data from: [.]] 
+1620578820819 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578821247 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578821247 [Data from: [s]] 
+1620578821247 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578823419 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578823419 [Data from: [.]] 
+1620578823420 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578823638 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578823638 [Data from: [s]] 
+1620578823639 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578825907 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578825907 [Data from: [.]] 
+1620578825907 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578826214 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578826214 [Data from: [s]] 
+1620578826214 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578829431 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578829431 [Data from: [.]] 
+1620578829431 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578829576 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578829576 [Data from: [s]] 
+1620578829576 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578831809 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578831809 [Data from: [.]] 
+1620578831810 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578832071 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578832071 [Data from: [s]] 
+1620578832071 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578833445 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578833445 [Data from: [w]] 
+1620578833449 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578833860 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578833860 [Data from: [s]] 
+1620578833861 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578837951 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578837951 [Data from: [w]] 
+1620578837952 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578838223 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578838223 [Data from: [s]] 
+1620578838223 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578843224 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578843224 [Data from: [w]] 
+1620578843225 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578843480 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578843480 [Data from: [s]] 
+1620578843480 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578844201 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578844201 [Data from: [w]] 
+1620578844202 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578844548 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578844548 [Data from: [s]] 
+1620578844548 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578846241 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578846241 [Data from: [w]] 
+1620578846242 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578846526 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578846526 [Data from: [s]] 
+1620578846526 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578849180 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578849180 [Data from: [w]] 
+1620578849180 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578849491 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578849491 [Data from: [s]] 
+1620578849491 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578851040 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578851040 [Data from: [w]] 
+1620578851040 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578851343 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578851343 [Data from: [s]] 
+1620578851343 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578852486 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578852486 [Data from: [w]] 
+1620578852487 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578852760 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578852760 [Data from: [s]] 
+1620578852761 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578853958 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578853958 [Data from: [w]] 
+1620578853959 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578854228 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578854228 [Data from: [s]] 
+1620578854229 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578858220 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578858220 [Data from: [w]] 
+1620578858220 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578858485 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578858485 [Data from: [s]] 
+1620578858485 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578861339 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578861339 [Data from: [w]] 
+1620578861340 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578861561 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578861561 [Data from: [s]] 
+1620578861562 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578862980 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578862980 [Data from: [w]] 
+1620578862981 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578863260 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578863260 [Data from: [s]] 
+1620578863261 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578865811 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578865811 [Data from: [w]] 
+1620578865811 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578866082 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578866082 [Data from: [s]] 
+1620578866082 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578866751 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578866751 [Data from: [w]] 
+1620578866751 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578867041 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578867041 [Data from: [s]] 
+1620578867042 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578867893 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578867893 [Data from: [w]] 
+1620578867894 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578868162 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578868162 [Data from: [s]] 
+1620578868162 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578876897 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578876897 [Data from: [w]] 
+1620578876898 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578877157 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578877157 [Data from: [s]] 
+1620578877157 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578877928 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578877928 [Data from: [w]] 
+1620578877928 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578878273 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578878274 [Data from: [s]] 
+1620578878274 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578879249 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578879249 [Data from: [s]] 
+1620578879250 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578879791 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578879791 [Data from: [s]] 
+1620578879792 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578880258 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578880258 [Data from: [s]] 
+1620578880259 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578880689 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578880689 [Data from: [s]] 
+1620578880690 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578881478 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578881478 [Data from: [x]] 
+1620578881478 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 113, in handle_command
+    self.set_speed([-self._current_speed, -self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578887137 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
+1620578887137 [Data from: [s]] 
+1620578887137 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578895384 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578895384 [Data from: [,]] 
+1620578895384 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 77, in handle_command
+    self.set_speed([-self._current_speed,self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578897150 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x 0 0 \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578897150 [Data from: [s]] 
+1620578897150 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578899790 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578899790 [Data from: [.]] 
+1620578899790 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 83, in handle_command
+    self.set_speed([self._current_speed,-self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578900436 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x f f \ x 0 4 \ x f 8 \ n \ r ' ) ]] 
+1620578900436 [Data from: [w]] 
+1620578900461 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578901040 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578901040 [Data from: [s]] 
+1620578901042 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578901840 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578901840 [Data from: [w]] 
+1620578901841 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578902936 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578902936 [Data from: [s]] 
+1620578902936 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578904356 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578904356 [Data from: [w]] 
+1620578904356 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578904733 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578904733 [Data from: [s]] 
+1620578904733 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578905773 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578905773 [Data from: [w]] 
+1620578905773 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578906276 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578906276 [Data from: [s]] 
+1620578906276 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578907426 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578907426 [Data from: [w]] 
+1620578907426 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578907822 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578907822 [Data from: [s]] 
+1620578907850 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578908794 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578908794 [Data from: [w]] 
+1620578908794 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578909087 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578909087 [Data from: [s]] 
+1620578909087 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578910128 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
+1620578910128 [Data from: [w]] 
+1620578910128 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 106, in handle_command
+    self.set_speed([self._current_speed, self._current_speed])
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 300, in set_speed
+    self.__robot_serial.set_speed(speed_data)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 140, in set_speed
+    self.write_command(command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 
+1620578910425 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1620578910425 [Data from: [s]] 
+1620578910426 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 99, in handle_command
+    self.release_motor()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 206, in release_motor
+    self.__robot_serial.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 145, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 81, in write_command
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment
+] 

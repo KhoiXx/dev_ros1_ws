@@ -1,0 +1,21 @@
+<launch>
+
+  <arg name="camera_filter"         default="pointcloud"/>
+  <arg name="camera_type"           default="d415"/>
+  <arg name="camera_align_depth"    default="true"/>
+  <arg name="camera_enable"         default="true"/>
+
+  <!-- Robot_base -->
+  <include file="$(find robot_bringup)/launch/robot_base.launch"/>
+
+  <!-- Camera -->
+  <include if="$(arg camera_enable)" file="$(find robot_fire)/launch/robot_start_realsense.launch">
+    <arg name="filters"             value="$(arg camera_filter)"/>
+    <arg name="device_type"         value="$(arg camera_type)"/>
+    <arg name="align_depth"         value="$(arg camera_align_depth)"/>
+    <arg name="enable_infra1"       value="false"/>
+    <arg name="enable_infra2"       value="false"/>
+  </include>
+
+
+</launch>

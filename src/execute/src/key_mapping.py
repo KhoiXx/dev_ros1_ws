@@ -1,9 +1,9 @@
 class Key_mapping:
     FORWARD = 'w'
-    BACK = 's'
+    BACK = 'x'
     LEFT = 'a'
     RIGHT = 'd'
-    STOP = ' '
+    STOP = 's'
     SLOW = 'r'
     FAST = 'f'
 
