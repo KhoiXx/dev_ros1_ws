@@ -74,9 +74,6 @@ class RobotControl(object):
         self.nav_start_estimate_point = []
         self.nav_goal_estimate_point = []
     
-    def __init_keyboard(self):
-        self.keyboard_current_speed = -1
-    #def else
     def log(self, *arg):
         '''
         logging to file.
@@ -99,9 +96,6 @@ class RobotControl(object):
     
     def get_speed(self):
         return self.__robot_serial.get_speed()
-
-    def set_speed(self, speed_data):
-        self.__robot_serial.set_speed(speed_data)
 
     def check_file_exist(self, path1, path2=None):
         '''
@@ -193,9 +187,6 @@ class RobotControl(object):
 
         return False
 
-    def release_motor(self, param=''):
-        self.__robot_serial.set_stop()
-
     def turn_angle(self,_angle,_speed):
         if _speed <0:
             _speed = -_speed
@@ -280,9 +271,6 @@ class RobotControl(object):
         if self.__robot_serial.has_new_command():
             command = ' '.join(str(self.__robot_serial.newest_command))
             self.log("log_latest_command", command)
-    
-    def get_encoder(self):
-        return self.__robot_serial.get_encoder()
 
     def set_speed(self, speed_data):
         '''
@@ -293,13 +281,19 @@ class RobotControl(object):
     
     def set_stop(self,attempt_try = 3):
         self.__robot_serial.set_stop(attempt_try)
-        self.set_stop()
         self.set_status_stop()
     
     def set_spin(self, angle, speed = 0.5):
         self.__robot_serial.turn_angle(angle, speed)
         self.set_status_rotating()
     
+    def set_rotate(self, speed_data):
+        '''
+        [vvl,vvr]
+        '''
+        self.__robot_serial.set_speed(speed_data)
+        self.set_status_rotating()
+
     def time_sleep_to_count(self, time_sleep, timeout):
         return int(timeout / time_sleep)
 

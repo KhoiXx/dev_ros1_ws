@@ -98,7 +98,7 @@ class IMU_node(IMU_Sensor):
             self.log_to_file = open("".join(log_info),"w")
             super(IMU_node, self).__init__(_port, _baud)
             rospy.loginfo("IMU is ready")
-            rospy.Subscriber("robot_status", Int8, self.read_robot_status)
+            rospy.Subscriber("robot_status", String, self.read_robot_status)
             self.pub_acc_gyr_raw = rospy.Publisher("/imu/data_raw", Imu, queue_size=20)
             self.pub_mag_raw = rospy.Publisher("/imu/mag", MagneticField, queue_size=10)
             self.initMessage()
@@ -167,7 +167,7 @@ class IMU_node(IMU_Sensor):
     def read_robot_status(self, status_msg):
         self.log("Read robot_status")
         self.__pre_robot_status = self.__robot_status
-        self.__robot_status = int(status_msg)
+        self.__robot_status = status_msg.data
 
 def main(_port, _baud):
     try:

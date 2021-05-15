@@ -78,7 +78,13 @@ class RobotCommand(object):
         self.newest_command = [command_send]
         self.latest_cmd_time = int (time.time() * 1000)
         self.__robot_serial.write(command_send)
-        self.__robot_serial.flush()
+        # self.__robot_serial.flush()
+        time.sleep(0.05)
+        status = self.check_frame(8)
+        if not status:
+            self.__robot_serial.write(command_send)
+            # self.__robot_serial.flush()
+            time.sleep(0.05)
 
         # self.clear_serial(1)
         # count += 1

@@ -106,7 +106,7 @@ class Robot(RobotControl):
                 return
 
             if key_command == Key_mapping.STOP:
-                self.release_motor()
+                self.set_stop()
                 return
 
             if key_command == Key_mapping.FORWARD:

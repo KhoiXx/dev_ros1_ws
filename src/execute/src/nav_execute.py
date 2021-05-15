@@ -98,7 +98,7 @@ class Navigation:
         '''
         update odom with data from sensor
         '''
-
+        self.__robot.log("Update odom")
         self.current_time = rospy.Time.now()
         dt = (self.current_time - self.last_time).to_sec()
         v_straight = self.__robot.get_speed()
@@ -115,21 +115,23 @@ class Navigation:
         self.velocity[1] = self.imu_data[1][1] #vy
         self.velocity[2] = self.imu_data[2][2] #vth
 
-        vx = self.velocity[0]
-        vy = self.velocity[1]
+        vy = self.velocity[0]
+        vx = self.velocity[1]
         vth = self.velocity[2]
         
         # compute odometry in a typical way given the velocities of the robot
         delta_x = (vx * np.cos(self.pose[2]) - vy * np.sin(self.pose[2])) * dt
         delta_y = (vx * np.sin(self.pose[2]) + vy * np.cos(self.pose[2])) * dt
         delta_th = vth * dt
-        #self.__robot.log_running_status()
+        self.__robot.log_running_status()
         log_msg = "pre_delta_X:{0} pre_delta_y:{1} status:{2}".format(delta_x, delta_y, self.__robot.robot_status)
+        self.__robot.log(log_msg)
 
-        if self.__robot.is_status_stop or self.__robot.is_status_rotating:
+        if self.__robot.is_status_stop() or self.__robot.is_status_rotating():
             delta_x = 0
             delta_y = 0
-        log_msg = "delta_X:{0} delta_y:{1} status:{2}".format(delta_x, delta_y, self.__robot.robot_status)
+
+        log_msg = "delta_X:{0} delta_y:{1} status:{2}".format(delta_x, delta_y, self.__robot.is_status_stop())
         self.pose[0] += delta_x
         self.pose[1] += delta_y
         self.pose[2] += delta_th
