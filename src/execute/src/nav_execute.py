@@ -111,21 +111,26 @@ class Navigation:
         v_right = (v_straight[1] + v_straight[2]) / 2
 
         v_avg= (v_left + v_right) / 2
+        vth = self.imu_data[2][2]
         delta_s = v_avg * dt
         #rospy.loginfo(v_left)
         #rospy.loginfo(v_right)
-        
+
         yaw_angle = self.imu_data[0][2]
         yaw_angle = self.__correct_angle(yaw_angle)
 
+        rospy.loginfo(yaw_angle-self.pre_yaw_angle)
+        
+        delta_th = vth * dt
+        self.pose[2] += self.__correct_angle(delta_th)
 
-        delta_x = delta_s * np.cos(yaw_angle)
-        delta_y = delta_s * np.sin(yaw_angle)
-        delta_th = yaw_angle - self.pre_yaw_angle
+
+        delta_x = delta_s * np.cos(self.pose[2])
+        delta_y = delta_s * np.sin(self.pose[2])
+        rospy.loginfo("delta th{0}".format (self.pose[2]))
 
         vx = delta_x/dt
         vy = delta_y/dt
-        vth = delta_th/dt
 
         # self.velocity[0] = self.imu_data[1][0] *dt #vx
         # self.velocity[1] = self.imu_data[1][1] *dt#vy
@@ -150,7 +155,7 @@ class Navigation:
         log_msg = "vx:{0} vy:{1} yaw:{2}".format(vx, vy, yaw_angle)
         self.pose[0] += delta_x
         self.pose[1] += delta_y
-        self.pose[2] += self.__correct_angle(delta_th)
+        
         #log_msg = "vx: {0} vy:{1} vth:{2} posex:{3} posey:{4} posez:{5} vstraight: {5}".format(vx,vy,vth, self.pose[0], self.pose[1], self.pose[2], v_straight)
         self.__robot.log(log_msg)
         # since all odometry is 6DOF we'll need a quaternion created from yaw

@@ -80,7 +80,6 @@ class IMU_Sensor(object):
     def calib_offset(self):
         try:
             self.log("Cablib offset")
-            self.clear_serial(2)
             self.__serial_imu.write('2'.encode())
             time.sleep(0.5)
         except:
@@ -156,9 +155,9 @@ class IMU_node(IMU_Sensor):
             self.log("accx: {0} accy: {1}".format(self.accX, self.accY))
             
 
-            if self.__robot_status == ROBOT_STATUS._STOP and self.__pre_robot_status != ROBOT_STATUS._STOP:
-                self.calib_offset()
-                self.__time_pre = self.__time_now
+            # if self.__time_now - self.__time_pre > 5000:
+            #     self.calib_offset()
+            #     self.__time_pre = self.__time_now
 
         except:
             rospy.loginfo("Publish IMU fail")

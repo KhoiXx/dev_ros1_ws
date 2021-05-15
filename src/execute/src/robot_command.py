@@ -31,7 +31,7 @@ class Ack_response:
 class RobotCommand(object):
     def __init__(self,_port):
         try:
-            self.__robot_serial = ser.Serial(_port, baudrate=115200, timeout=0.06) #open port for STM
+            self.__robot_serial = ser.Serial(_port, baudrate=115200, timeout=0.1) #open port for STM
             if self.__robot_serial.isOpen():
                 rospy.loginfo("Port {0} is open".format(_port))
             time.sleep(0.2)
@@ -49,6 +49,11 @@ class RobotCommand(object):
             rospy.loginfo("Cannot open serial port @Exception")
 
     def clear_serial(self,_flgs = 0):
+        '''
+        flgs = 0: all
+        flgs = 1: input
+        flgs = 2: output
+        '''
         if _flgs == 0:
             self.__robot_serial.reset_input_buffer()
             self.__robot_serial.reset_output_buffer()
@@ -117,6 +122,7 @@ class RobotCommand(object):
         wh_speed[4] fl, fr, br, bl
         '''
         self.command = CommandCode.COMMAND_SEND_SPEED
+        self.clear_serial()
         self.write_command(self.command)
         rospy.loginfo("send get speed")
         self.check_frame(15)
