@@ -25,17 +25,21 @@ class Navigation:
         self.current_time = rospy.Time.now()
         self.last_time = rospy.Time.now()
         self.previous_calib_time = rospy.Time.now()
+        
+        self.velocity = [0.00, 0.00, 0.00] #vx, vy, vth
         self.__init_topic()
         self.__init_flag()
         rospy.loginfo("Initialization navigation finished")
         self.__robot.log("Initialization navigation finished")
 
+        self.pre_yaw_angle = 0.00
         self.imu_data = [[0.00, 0.00, 0.00], 
                          [0.00, 0.00, 0.00], 
                          [0.00, 0.00, 0.00]]
         
-        self.velocity = [0.00, 0.00, 0.00] #vx, vy, vth
         self.pose =[0.00, 0.00, 0.00] #x, y, th
+        rospy.Timer(rospy.Duration(0.1), callback = self.odom_update) #10Hz
+        
     
     def __init_topic(self):
         self.__robot.log("Start initializing navigation topic")
@@ -44,7 +48,7 @@ class Navigation:
         self.goal_sub = rospy.Subscriber('/move_base_simple/goal', PoseStamped, self.goal_callback)
         self.imu_sub = rospy.Subscriber('/imu/data', Imu, self.imu_callback)
         #update odom
-        rospy.Timer(rospy.Duration(0.02), callback = self.odom_update) #50Hz
+
         self.odom_raw_pub = rospy.Publisher('/odom', Odometry, queue_size=20)
         self.odom_broadcaster = tf.TransformBroadcaster()
         self.__robot.log("Initialization navigation topic finished")
@@ -102,39 +106,51 @@ class Navigation:
         self.current_time = rospy.Time.now()
         dt = (self.current_time - self.last_time).to_sec()
         v_straight = self.__robot.get_speed()
+        rospy.loginfo(v_straight)
         v_left = (v_straight[0] + v_straight[3]) / 2
         v_right = (v_straight[1] + v_straight[2]) / 2
 
         v_avg= (v_left + v_right) / 2
-        # delta_s = v_avg * dt
+        delta_s = v_avg * dt
+        #rospy.loginfo(v_left)
+        #rospy.loginfo(v_right)
         
-        # yaw_angle = self.imu_data[0][2]
-        # yaw_angle = self.__correct_angle(yaw_angle)
+        yaw_angle = self.imu_data[0][2]
+        yaw_angle = self.__correct_angle(yaw_angle)
 
-        self.velocity[0] = self.imu_data[1][0] #vx
-        self.velocity[1] = self.imu_data[1][1] #vy
-        self.velocity[2] = self.imu_data[2][2] #vth
 
-        vy = self.velocity[0]
-        vx = self.velocity[1]
-        vth = self.velocity[2]
+        delta_x = delta_s * np.cos(yaw_angle)
+        delta_y = delta_s * np.sin(yaw_angle)
+        delta_th = yaw_angle - self.pre_yaw_angle
+
+        vx = delta_x/dt
+        vy = delta_y/dt
+        vth = delta_th/dt
+
+        # self.velocity[0] = self.imu_data[1][0] *dt #vx
+        # self.velocity[1] = self.imu_data[1][1] *dt#vy
+        # self.velocity[2] = self.imu_data[2][2] #vth
+
+        # vy = self.velocity[0]
+        # vx = self.velocity[1]
+        # vth = self.velocity[2]
         
-        # compute odometry in a typical way given the velocities of the robot
-        delta_x = (vx * np.cos(self.pose[2]) - vy * np.sin(self.pose[2])) * dt
-        delta_y = (vx * np.sin(self.pose[2]) + vy * np.cos(self.pose[2])) * dt
-        delta_th = vth * dt
+        # delta_x = (vx * np.cos(self.pose[2]) - vy * np.sin(self.pose[2])) * dt
+        # delta_y = (vx * np.sin(self.pose[2]) + vy * np.cos(self.pose[2])) * dt
+        # delta_th = vth * dt
         self.__robot.log_running_status()
-        log_msg = "pre_delta_X:{0} pre_delta_y:{1} status:{2}".format(delta_x, delta_y, self.__robot.robot_status)
-        self.__robot.log(log_msg)
+        # log_msg = "vx:{0} vy:{1} vth:{2} yaw:{3}".format(vx, vy, vth, yaw_angle)
+        # self.__robot.log(log_msg)
+        #rospy.loginfo(log_msg)
 
         if self.__robot.is_status_stop() or self.__robot.is_status_rotating():
             delta_x = 0
             delta_y = 0
 
-        log_msg = "delta_X:{0} delta_y:{1} status:{2}".format(delta_x, delta_y, self.__robot.is_status_stop())
+        log_msg = "vx:{0} vy:{1} yaw:{2}".format(vx, vy, yaw_angle)
         self.pose[0] += delta_x
         self.pose[1] += delta_y
-        self.pose[2] += delta_th
+        self.pose[2] += self.__correct_angle(delta_th)
         #log_msg = "vx: {0} vy:{1} vth:{2} posex:{3} posey:{4} posez:{5} vstraight: {5}".format(vx,vy,vth, self.pose[0], self.pose[1], self.pose[2], v_straight)
         self.__robot.log(log_msg)
         # since all odometry is 6DOF we'll need a quaternion created from yaw
@@ -167,6 +183,7 @@ class Navigation:
         self.odom_raw_pub.publish(odom)
 
         self.last_time = self.current_time
+        self.pre_yaw_angle = yaw_angle
 
     def __get_vel(self):
         '''

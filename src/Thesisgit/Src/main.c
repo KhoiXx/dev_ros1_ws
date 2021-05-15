@@ -54,7 +54,7 @@
 #define pi 3.1416
 
 #define Header_val 0xffaa
-#define EndOfFrame_val 0x0d0a
+#define EndOfFrame_val 0x0e0f
 
 /* USER CODE END PD */
 
@@ -281,7 +281,6 @@ int main(void)
 			
 			//xu li chuoi nhan
       UART_ReceiveData(&huart5, (uint8_t *) dma_buffer, BS);
-			count++;
       check_flag();
     }
     /* USER CODE END WHILE */
@@ -1041,10 +1040,10 @@ void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t 
     if (function_code == COMMAND_SEND_SPEED)
     {
       uint16_t frameByteCount = 7; //2b header 1b function 2b crc 2b end
-      bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
-      if (check_status == true)
-        HAL_Delay(10);
-        UART_SendData(&huart5, function_code);
+//      bool check_status = Pre_Ack_Send(huart, rxByteCount, startIndex, frameByteCount, function_code);
+//      if (check_status == true)
+//        HAL_Delay(10);
+       UART_SendData(&huart5, function_code);
     }
     else if (function_code == COMMAND_SEND_ENCODER)
     {
@@ -1174,6 +1173,7 @@ void UART_SendAck(UART_HandleTypeDef *huart, uint8_t ack, uint8_t functionCode)
 	SendAckFrame.CheckSum = crc;
 	// send data
 	HAL_UART_Transmit_DMA(huart, (uint8_t *) &SendAckFrame, sizeof(SendAckFrame));
+	count = sizeof(SendAckFrame);
 }
 
 void UART_SendData(UART_HandleTypeDef *huart, uint8_t functionCode){
@@ -1182,16 +1182,16 @@ void UART_SendData(UART_HandleTypeDef *huart, uint8_t functionCode){
 	SendDataFrame.EndOfFrame = EndOfFrame_val;
 	
   if (functionCode == COMMAND_SEND_SPEED){
-    int16_t Speed_whfl = (int16_t)whfl.v*1000;
-    int16_t Speed_whfr = (int16_t)whfr.v*1000;
-    int16_t Speed_whbr = (int16_t)whbr.v*1000;
-    int16_t Speed_whbl = (int16_t)whbl.v*1000;
+    int16_t Speed_whfl = (int16_t)(whfl.v*1000);
+    int16_t Speed_whfr = (int16_t)(whfr.v*1000);
+    int16_t Speed_whbr = (int16_t)(whbr.v*1000);
+    int16_t Speed_whbl = (int16_t)(whbl.v*1000);
     // 01 23 45 67= whfl whfr whbr whbl 
     for (int i = 1; i >= 0; i--){
       SendDataFrame.Data[i] = (Speed_whfl >> 8 * i) & 0xff;
       SendDataFrame.Data[2 + i] = (Speed_whfr >> 8 * i) & 0xff;
       SendDataFrame.Data[4 + i] = (Speed_whbr >> 8 * i) & 0xff;
-      SendDataFrame.Data[6 + i] = (Speed_whbr >> 8 * i & 0xff);
+      SendDataFrame.Data[6 + i] = (Speed_whbl >> 8 * i & 0xff);
     }
   } else if (functionCode == COMMAND_SEND_ENCODER){
     // 01 23 45 67= whfl whfr whbr whbl 

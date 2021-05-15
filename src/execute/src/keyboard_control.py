@@ -39,7 +39,7 @@ class KeyBoardControl():
             if key.char in self.mapping_key:
                 self.public_direction(key.char)
         except:
-            if key == key.ctrl or key == key.esc:
+            if key == key.esc:
                 return False
                 
         

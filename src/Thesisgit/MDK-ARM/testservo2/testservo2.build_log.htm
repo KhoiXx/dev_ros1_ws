@@ -21,58 +21,60 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-E:\BO\study\LuanVan\turtlebot3\dev_ros1_ws\src\Thesisgit\MDK-ARM\testservo2.uvprojx
+E:\BO\study\LuanVan\dev_ros1_ws\src\Thesisgit\MDK-ARM\testservo2.uvprojx
 Project File Date:  04/15/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'testservo2'
 compiling main.c...
-../Src/main.c(768): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(762): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	float vc_set = (float)bset[0]/100000.00000;
-../Src/main.c(769): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(763): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	float omegac_set = (float)bset[1]/100.00;
-../Src/main.c(770): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(764): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	vvl = (2*vc_set-omegac_set*
 en)/2;
-../Src/main.c(771): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(765): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	vvr = (2*vc_set+omegac_set*
 en)/2;
-../Src/main.c(772): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(766): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	if(vvl>1.23){
-../Src/main.c(775): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(769): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	if(vvr>1.23){
-../Src/main.c(889): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(883): warning:  #1035-D: single-precision operand implicitly converted to double-precision
     float w = _spin_speed / 
 adius; //omega = v / R rad/s
-../Src/main.c(890): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(884): warning:  #1035-D: single-precision operand implicitly converted to double-precision
     float time_to_spin = ((float)_angle * 
 i) / (w * 180);
-../Src/main.c(879): warning:  #550-D: variable "spin_direction"  was set but never used
+../Src/main.c(873): warning:  #550-D: variable "spin_direction"  was set but never used
     int8_t spin_direction;
-../Src/main.c(993): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(987): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfl.output += 0.9 * (_vvl - 0.08) + 0.01;
-../Src/main.c(994): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(988): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbl.output += 0.85 * (_vvl - 0.08) + 0.01;
-../Src/main.c(998): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(992): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfl.output += 0.9 * (_vvl + 0.08) - 0.01;
-../Src/main.c(999): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(993): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbl.output += 0.85 * (_vvl + 0.08) - 0.01;
-../Src/main.c(1004): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(998): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfr.output += 0.9 * (_vvr - 0.08) + 0.01;
-../Src/main.c(1005): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(999): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbr.output += 0.85 * (_vvr - 0.08) + 0.01;
-../Src/main.c(1009): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(1003): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfr.output += 0.9 * (_vvr + 0.08) - 0.01;
-../Src/main.c(1010): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(1004): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbr.output += 0.85 * (_vvr + 0.08) - 0.01;
-../Src/main.c(954): warning:  #177-D: variable "empty_string"  was declared but never referenced
+../Src/main.c(948): warning:  #177-D: variable "empty_string"  was declared but never referenced
     float empty_string[3];
-../Src/main.c: 18 warnings, 0 errors
+../Src/main.c(1042): warning:  #177-D: variable "frameByteCount"  was declared but never referenced
+        uint16_t frameByteCount = 7; //2b header 1b function 2b crc 2b end
+../Src/main.c: 19 warnings, 0 errors
 linking...
-Program Size: Code=18172 RO-data=456 RW-data=244 ZI-data=2500  
+Program Size: Code=18200 RO-data=456 RW-data=244 ZI-data=2500  
 FromELF: creating hex file...
-"testservo2\testservo2.axf" - 0 Error(s), 18 Warning(s).
+"testservo2\testservo2.axf" - 0 Error(s), 19 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -95,7 +97,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>

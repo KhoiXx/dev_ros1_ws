@@ -84,13 +84,13 @@ class Robot(RobotControl):
             if key_command == Key_mapping.ROTATE_LEFT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([-self._current_speed * 0.8,self._current_speed * 0.8])
+                self.set_rotate([-self._current_speed * 0.8,self._current_speed * 0.8])
                 return
 
             if key_command == Key_mapping.ROTATE_RIGHT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([self._current_speed * 0.8,-self._current_speed * 0.8])
+                self.set_rotate([self._current_speed * 0.8,-self._current_speed * 0.8])
                 return
 
             if key_command == Key_mapping.LEFT:
