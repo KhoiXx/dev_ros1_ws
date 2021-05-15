@@ -6,17 +6,17 @@ import datetime
 import threading
 import sys
 import math
+import numpy as np
+
+from enum import Enum
 
 # from mr001.UtilitiesMacroAndConstant import *
 # from mr001.speed_control import SpeedControl
 # from distutils.util import strtobool
 from robot_command import RobotCommand
-import numpy as np
 from UtilitiesMacroAndConstant import ROBOT_WIDTH
 
-ROBOT_STATUS_STOP = 0
-ROBOT_STATUS_ROTATING = 1
-ROBOT_STATUS_RUNNING = 2
+ROBOT_STATUS = Enum('ROBOT_STATUS','_STOP _ROTATING _RUNNING')
 
 
 NAVIGATE_MODE = 1
@@ -31,6 +31,10 @@ class RobotControl(object):
         self.MAP_FILE_PATH = ROS_WS + "/map/"
         self.MAP_FILE_PGM = self.MAP_FILE_PATH + "map.pgm"
         self.MAP_FILE_YAML = self.MAP_FILE_PATH + "map.yaml"
+        
+        self.__current_mode = 0
+        self.robot_status = ROBOT_STATUS._STOP
+        self.pre_robot_status = ROBOT_STATUS._STOP
 
         # self.root_node = node_log
         try:
@@ -52,9 +56,6 @@ class RobotControl(object):
             self.log("Serial not found at port " + port + ".")
             sys.exit(str(exp))
 
-        # robot at initial state not NAVIGATE_MODE nor LINETRACE_MODE
-        self.__current_mode = 0
-        self.__robot_status = ROBOT_STATUS_STOP
 
         # self.speed_control = SpeedControl(self.root_node)
 
@@ -93,24 +94,14 @@ class RobotControl(object):
     def flush_data_serial(self, _flg=0):
         self.__robot_serial.clear_serial(_flg)
 
-    def get_encoder_driving(self):
+    def get_encoder(self):
         return self.__robot_serial.get_encoder()
+    
+    def get_speed(self):
+        return self.__robot_serial.get_speed()
 
     def set_speed(self, speed_data):
         self.__robot_serial.set_speed(speed_data)
-
-    # def log_console(self, *arg):
-    #     '''
-    #     logging to console
-    #     '''
-    #     # log(self.root_node, arg)
-    #     now = int (time.time() * 1000) # milliseconds
-    #     msg = []
-    #     msg.append(str(now))
-    #     for x in arg:
-    #         msg.append("[" + str(x) + "]")
-    #     msg.append("\n")
-    #     self..get_logger().info("".join(msg))
 
     def check_file_exist(self, path1, path2=None):
         '''
@@ -265,22 +256,22 @@ class RobotControl(object):
         return self.__current_mode == KEYBOARD_MODE
 
     def set_status_stop(self):
-        self.__robot_status = ROBOT_STATUS_STOP
+        self.robot_status = ROBOT_STATUS._STOP
 
     def set_status_running(self):
-        self.__robot_status = ROBOT_STATUS_RUNNING
+        self.robot_status = ROBOT_STATUS._RUNNING
 
     def set_status_rotating(self):
-        self.__robot_status = ROBOT_STATUS_ROTATING
+        self.robot_status = ROBOT_STATUS._ROTATING
 
     def is_status_stop(self):
-        return self.__robot_status == ROBOT_STATUS_STOP
+        return self.robot_status == ROBOT_STATUS._STOP
     
     def is_status_rotating(self):
-        return self.__robot_status == ROBOT_STATUS_ROTATING
+        return self.robot_status == ROBOT_STATUS._ROTATING
     
     def is_status_running(self):
-        return self.__robot_status == ROBOT_STATUS_RUNNING
+        return self.robot_status == ROBOT_STATUS._RUNNING
 
     def get_latest_command(self):
         return self.__robot_serial.newest_command
@@ -298,12 +289,16 @@ class RobotControl(object):
         [vvl,vvr]
         '''
         self.__robot_serial.set_speed(speed_data)
+        self.set_status_running()
     
     def set_stop(self,attempt_try = 3):
         self.__robot_serial.set_stop(attempt_try)
+        self.set_stop()
+        self.set_status_stop()
     
     def set_spin(self, angle, speed = 0.5):
         self.__robot_serial.turn_angle(angle, speed)
+        self.set_status_rotating()
     
     def time_sleep_to_count(self, time_sleep, timeout):
         return int(timeout / time_sleep)

@@ -4,6 +4,7 @@ import serial as ser
 import time
 import struct
 import rospy
+import traceback
 
 class CommandCode:
     HEADER = b'\xaa\xff'
@@ -29,16 +30,22 @@ class Ack_response:
 
 class RobotCommand(object):
     def __init__(self,_port):
-        self.__robot_serial = ser.Serial(_port, baudrate=115200, timeout=0.5) #open port
-        time.sleep(0.2)
-        self.clear_serial()
-        time.sleep(0.1)
-
-        self.newest_command = []
-        self.prev_cmd_time = 0
-        self.latest_cmd_time = 0
-        self.wh_speed = [0, 0, 0, 0]
-        self.wh_encoder = [0, 0, 0, 0]
+        try:
+            self.__robot_serial = ser.Serial(_port, baudrate=115200, timeout=0.5) #open port for STM
+            if self.__robot_serial.isOpen():
+                rospy.loginfo("Port {0} is open".format(_port))
+            time.sleep(0.2)
+            self.clear_serial()
+            time.sleep(0.1)
+            count = 0
+            self.command = CommandCode.COMMAND_STOP
+            self.newest_command = []
+            self.prev_cmd_time = 0
+            self.latest_cmd_time = 0
+            self.wh_speed = [0, 0, 0, 0]
+            self.wh_encoder = [0, 0, 0, 0]
+        except:
+            rospy.loginfo("Cannot open serial port @Exception")
 
     def clear_serial(self,_flgs = 0):
         if _flgs == 0:
@@ -71,26 +78,58 @@ class RobotCommand(object):
         self.newest_command = [command_send]
         self.latest_cmd_time = int (time.time() * 1000)
         self.__robot_serial.write(command_send)
-        for i in range(5):
-            status = self.check_frame(8)
-            if status == True:
-                break
-            else:
-                self.__robot_serial.write(command_send)
-                continue
+        self.__robot_serial.flush()
+
+        # self.clear_serial(1)
+        # count += 1
+        # rospy.loginfo("count: {0}".format(count))
+        # for i in range(5):
+        #     status = self.check_frame(8)
+        #     if status == True:
+        #         break
+        #     else:
+        #         self.__robot_serial.write(command_send)
+        #         continue
         
-        
+    def get_imu(self):
+        '''
+        get data from imu
+        return value[[3], [3], [3]]:
+        ---------------------------
+        [0]: 1: acc_x, acc_y, acc_z
+        [1]: 1: roll, pitch, yaw
+        [2]: 1: lin_acc_x, lin_acc_y, lin_acc_z
+        '''
+
     
     def get_speed(self):
-        command = CommandCode.COMMAND_SEND_SPEED
-        self.write_command(command)
+        '''
+        get velocity from base (STM) caculated by encoder
+        return value[4]:
+        ---------------
+        wh_speed[4] fl, fr, br, bl
+        '''
+        self.command = CommandCode.COMMAND_SEND_SPEED
+        self.write_command(self.command)
+        for i in range(4):
+            self.wh_speed[i] /= 1000
+        return self.wh_speed
 
     def get_encoder(self):
-        command = CommandCode.COMMAND_SEND_ENCODER
-        self.write_command(command)
+        '''
+        get encoder from base (STM)
+        return value[4]:
+        ---------------
+        wh_encoder[4] fl, fr, br, bl
+        '''
+        self.command = CommandCode.COMMAND_SEND_ENCODER
+        self.write_command(self.command)
+        return self.wh_encoder
+        
     
     def set_speed(self,data):
-        command = CommandCode.COMMAND_SET_SPEED
+        self.command = CommandCode.COMMAND_SET_SPEED
+        command = self.command
         for speed in data:
             speed *= 10000
             speed = int(speed)
@@ -105,19 +144,18 @@ class RobotCommand(object):
 
     def set_stop(self,attempt_try = 3):
         for _ in range(attempt_try):
-            command = CommandCode.COMMAND_STOP
-            self.write_command(command)
+            self.command = CommandCode.COMMAND_STOP
+            self.write_command(self.command)
 
     
     def set_spin(self, angle, speed = 0.5):
-        command = CommandCode.COMMAND_SET_SPEED
+        self.command = CommandCode.COMMAND_SPIN
+        command = self.command
         # command += angle.to_bytes(2, 'little')
         # command += speed.to_bytes(2, 'little')
         command += struct.pack("<H", angle)
         command += struct.pack("<H", speed)
         self.write_command(command)
-
-        self.__write_command(command)
     
     def check_frame(self, byte_read):
         try:

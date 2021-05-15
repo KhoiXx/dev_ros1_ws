@@ -5,25 +5,23 @@ ROS_MODE = True
 # Vehicle sufficient macros
 VEL_SCALE = 6
 #  centimet
-MR_WIDTH = 45
-MR_HEIGHT = 32
+ROBOT_WIDTH = 45
+ROBOT_HEIGHT = 32
 # ROBOT_LENGTH = 48
 # ROBOT_WIDTH = 30
 # GM6020
 ROBOT_LENGTH = 45
 ROBOT_WIDTH = 32
 # GM6020
-# bánh kính bánh xe cm
 ROBOT_WHEEL_RADIUS = 7.8
-# số xung để bánh xe đi dc 1m
 PULSE_ENCODER_TO_METER = 11264.0
 # 1 pixel is 2cm
 MAP_RESOLUTION = 2
 #  centimet
-MR_ANGLE = math.atan(MR_HEIGHT / MR_WIDTH)
-MR_DISTANCE_FROM_CENTER = math.sqrt((MR_HEIGHT / 2) * (MR_HEIGHT / 2) + (MR_WIDTH / 2) * (MR_WIDTH / 2))
+ROBOT_ANGLE = math.atan(ROBOT_HEIGHT / ROBOT_WIDTH)
+ROBOT_DISTANCE_FROM_CENTER = math.sqrt((ROBOT_HEIGHT / 2) * (ROBOT_HEIGHT / 2) + (ROBOT_WIDTH / 2) * (ROBOT_WIDTH / 2))
 SCALE = 10
-MR_SCALE = 5
+ROBOT_SCALE = 5
 # centimet
 CENTER_X = 0
 # centimet
@@ -31,9 +29,9 @@ CENTER_Y = 0
 # millimeter
 DISTANCE_BETWWEN_LED = 16
 # millimeter
-MR_DISTANCE_FROM_CENTER_TO_SENSOR = 240
+ROBOT_DISTANCE_FROM_CENTER_TO_SENSOR = 240
 # km/h
-MR_MAX_SPEED = 7.92
+ROBOT_MAX_SPEED = 7.92
 
 # Initailize speed and angle value
 front_left_angle = 0

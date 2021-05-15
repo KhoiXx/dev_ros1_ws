@@ -38,7 +38,6 @@ class KeyBoardControl():
         try:
             if key.char in self.mapping_key:
                 self.public_direction(key.char)
-            time.sleep(0.05)
         except:
             if key == key.ctrl or key == key.esc:
                 return False
@@ -50,7 +49,7 @@ class KeyBoardControl():
             
 
     def key_board_handle(self):
-        with Listener(on_press = self.press_handle, on_release = self.release_handle) as listener:
+        with Listener(on_press = self.press_handle) as listener:
             listener.join()
             
     def public_direction(self, command):

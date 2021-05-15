@@ -1,7 +1,10 @@
 {
-    "python.pythonPath": "/usr/bin/python3",
+    "python.pythonPath": "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
     "ros.distro": "melodic",
     "python.autoComplete.extraPaths": [
+        "C:/opt/ros/melodic/x64\\lib/site-packages"
+    ],
+    "python.analysis.extraPaths": [
         "C:/opt/ros/melodic/x64\\lib/site-packages"
     ]
 }

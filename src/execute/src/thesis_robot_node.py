@@ -5,20 +5,23 @@ import sys
 import time
 
 from Robot import Robot
-rosserial_port = '/dev/ttyTHS1'
+from nav_execute import Navigation
+
+
 
 class Thesis_robot(object):
     def __init__(self, port , baudrate):
         self.thesis_robot = Robot(port, baudrate)
         time.sleep(1)
+        self.navigation = Navigation(self.thesis_robot)
 
-def main():
+def main(port, baud):
     try:
         rospy.init_node("Thesis_robot")
         rospy.loginfo("ROS Node Thesis_robot")
         try:
-            Thesis_robot(port = rosserial_port, baudrate = 115200)
-            rospy.loginfo("Thesis_robot is connected to port THS1")
+            Thesis_robot(port = port, baudrate = baud)
+            rospy.loginfo("Thesis_robot is connected to port {0}".format(port))
         except Exception as ex:
             sys.exit(str(ex))
         rospy.spin()
@@ -27,4 +30,6 @@ def main():
         rospy.on_shutdown()
 
 if __name__=='__main__':
-	main()
+    rosserial_port = rospy.get_param('~port', '/dev/ttyTHS1')
+    baud = int(rospy.get_param('~baud','115200'))
+    main(rosserial_port, baud)

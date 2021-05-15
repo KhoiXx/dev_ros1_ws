@@ -44,7 +44,7 @@
 /* USER CODE BEGIN PD */
 #define SERVO_Motor1   0
 #define SERVO_COUNT	6
-#define BS 29
+#define BS 30
 #define radius 0.039 //m
 #define len 0.21 
 //#define vmax 30.00
@@ -70,7 +70,6 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim5;
-TIM_HandleTypeDef htim9;
 
 UART_HandleTypeDef huart5;
 DMA_HandleTypeDef hdma_uart5_rx;
@@ -90,6 +89,7 @@ float pulfl = 0, pulfr = 0, pulbr = 0, pulbl = 0;
 bool __flag_stop = false, __flag_run_speed = false, __flag_run_position = false;
 uint8_t __base_flag = 0; // 0: stop; 1:set speed; 2: set position; 3: spin
 float Kpid[3] ;
+int count = 0;
 
 /**/
 
@@ -167,7 +167,6 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_UART5_Init(void);
-static void MX_TIM9_Init(void);
 /* USER CODE BEGIN PFP */
 						 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
@@ -228,7 +227,6 @@ int main(void)
   MX_TIM4_Init();
   MX_TIM5_Init();
   MX_UART5_Init();
-  MX_TIM9_Init();
   /* USER CODE BEGIN 2 */
 	PCA9685_Init(&hi2c1);
 	
@@ -262,8 +260,30 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {	
-    //xu li chuoi nhan
-    UART_ReceiveData(&huart5, (uint8_t *) dma_buffer, BS);
+		/*bat dau ham ngat 5ms*/
+		if(tick_flag ==1){
+			tick_flag =0;
+			//doc encoder
+			whfl.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim5);
+			whfr.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim1);
+			whbr.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);
+			whbl.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim4);
+      
+      whfl.enco_sum += whfl.enco;
+      whfr.enco_sum += whfl.enco;
+      whbr.enco_sum += whfl.enco;
+      whbl.enco_sum += whfl.enco;
+			
+			__HAL_TIM_SET_COUNTER(&htim1,0);
+			__HAL_TIM_SET_COUNTER(&htim5,0);
+			__HAL_TIM_SET_COUNTER(&htim3,0);
+			__HAL_TIM_SET_COUNTER(&htim4,0);
+			
+			//xu li chuoi nhan
+      UART_ReceiveData(&huart5, (uint8_t *) dma_buffer, BS);
+			count++;
+      check_flag();
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -612,44 +632,6 @@ static void MX_TIM5_Init(void)
   /* USER CODE BEGIN TIM5_Init 2 */
 
   /* USER CODE END TIM5_Init 2 */
-
-}
-
-/**
-  * @brief TIM9 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM9_Init(void)
-{
-
-  /* USER CODE BEGIN TIM9_Init 0 */
-
-  /* USER CODE END TIM9_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-
-  /* USER CODE BEGIN TIM9_Init 1 */
-
-  /* USER CODE END TIM9_Init 1 */
-  htim9.Instance = TIM9;
-  htim9.Init.Prescaler = 35;
-  htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim9.Init.Period = 9999;
-  htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim9) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim9, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM9_Init 2 */
-
-  /* USER CODE END TIM9_Init 2 */
 
 }
 
@@ -1032,27 +1014,7 @@ void calc_pid_speed(float _vvl, float _vvr)
   pulbl = PIDOutputGet(&pidbl) / (whbl.vmax) * (pulmax - pulmin) + pulmin;
   pulbl = checkpul(pulbl);
 }
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{		
-	if(htim->Instance == TIM9) // 5ms
-	{
-whfl.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim5);
-			whfr.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim1);
-			whbr.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);
-			whbl.enco = (int16_t)__HAL_TIM_GET_COUNTER(&htim4);
-      
-      whfl.enco_sum += whfl.enco;
-      whfr.enco_sum += whfl.enco;
-      whbr.enco_sum += whfl.enco;
-      whbl.enco_sum += whfl.enco;
-			
-			__HAL_TIM_SET_COUNTER(&htim1,0);
-			__HAL_TIM_SET_COUNTER(&htim5,0);
-			__HAL_TIM_SET_COUNTER(&htim3,0);
-			__HAL_TIM_SET_COUNTER(&htim4,0);
-      check_flag();
-	}	
-}
+
 /*truyen nhan*/
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -1165,6 +1127,7 @@ void UART_ReceiveData(UART_HandleTypeDef *huart, uint8_t *pdma_buffer, uint16_t 
     }
 
     __HAL_DMA_DISABLE(huart5.hdmarx);
+		memset(pdma_buffer, 0, BS);
     HAL_UART_Receive_DMA(huart, pdma_buffer, Size);
     rxByteCount = 0;
     break;

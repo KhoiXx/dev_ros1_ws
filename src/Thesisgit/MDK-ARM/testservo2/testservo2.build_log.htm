@@ -21,121 +21,58 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-E:\BO\study\LuanVan\Thesisgit\MDK-ARM\testservo2.uvprojx
-Project File Date:  04/30/2021
+E:\BO\study\LuanVan\turtlebot3\dev_ros1_ws\src\Thesisgit\MDK-ARM\testservo2.uvprojx
+Project File Date:  04/15/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'testservo2'
-assembling startup_stm32f407xx.s...
-compiling stm32f4xx_it.c...
-compiling Timer_Delay.c...
-..\SERVO\util\Timer_Delay.c(33): warning:  #167-D: argument of type "volatile TIM_HandleTypeDef *" is incompatible with parameter of type "TIM_HandleTypeDef *"
-      if (HAL_TIM_Base_Init(&HTIMx) != HAL_OK)
-..\SERVO\util\Timer_Delay.c(35): warning:  #223-D: function "Error_Handler" declared implicitly
-        Error_Handler();
-..\SERVO\util\Timer_Delay.c(38): warning:  #167-D: argument of type "volatile TIM_HandleTypeDef *" is incompatible with parameter of type "TIM_HandleTypeDef *"
-      if (HAL_TIM_ConfigClockSource(&HTIMx, &sClockSourceConfig) != HAL_OK)
-..\SERVO\util\Timer_Delay.c(40): warning:  #223-D: function "Error_Handler" declared implicitly
-        Error_Handler();
-..\SERVO\util\Timer_Delay.c(44): warning:  #167-D: argument of type "volatile TIM_HandleTypeDef *" is incompatible with parameter of type "TIM_HandleTypeDef *"
-      if (HAL_TIMEx_MasterConfigSynchronization(&HTIMx, &sMasterConfig) != HAL_OK)
-..\SERVO\util\Timer_Delay.c(46): warning:  #223-D: function "Error_Handler" declared implicitly
-        Error_Handler();
-..\SERVO\util\Timer_Delay.c(49): warning:  #167-D: argument of type "volatile TIM_HandleTypeDef *" is incompatible with parameter of type "TIM_HandleTypeDef *"
-      HAL_TIM_Base_Start(&HTIMx);
-..\SERVO\util\Timer_Delay.c: 7 warnings, 0 errors
-compiling DWT_Delay.c...
-compiling stm32f4xx_hal_msp.c...
-compiling SERVO_cfg.c...
-..\SERVO\SERVO_cfg.c(22): warning:  #144-D: a value of type "volatile uint32_t *" cannot be used to initialize an entity of type "uint32_t *"
-  		&TIM2->CCR1,
-..\SERVO\SERVO_cfg.c: 1 warning, 0 errors
-compiling SERVO.c...
-..\SERVO\SERVO.c(111): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	gs_SERVO_info[au16_SERVO_Instance].Period_Min = (uint16_t) (ARR_Value * (SERVO_CfgParam[au16_SERVO_Instance].MinPulse/20.0));
-..\SERVO\SERVO.c(112): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	gs_SERVO_info[au16_SERVO_Instance].Period_Max = (uint16_t) (ARR_Value * (SERVO_CfgParam[au16_SERVO_Instance].MaxPulse/20.0));
-..\SERVO\SERVO.c(124): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	au16_Pulse = ((af_Angle*(gs_SERVO_info[au16_SERVO_Instance].Period_Max - gs_SERVO_info[au16_SERVO_Instance].Period_Min))/180.0)
-..\SERVO\SERVO.c: 3 warnings, 0 errors
 compiling main.c...
-../Src/main.c(781): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(768): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	float vc_set = (float)bset[0]/100000.00000;
-../Src/main.c(782): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(769): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	float omegac_set = (float)bset[1]/100.00;
-../Src/main.c(783): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(770): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	vvl = (2*vc_set-omegac_set*
 en)/2;
-../Src/main.c(784): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(771): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	vvr = (2*vc_set+omegac_set*
 en)/2;
-../Src/main.c(785): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(772): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	if(vvl>1.23){
-../Src/main.c(788): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(775): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   	if(vvr>1.23){
-../Src/main.c(902): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(889): warning:  #1035-D: single-precision operand implicitly converted to double-precision
     float w = _spin_speed / 
 adius; //omega = v / R rad/s
-../Src/main.c(903): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(890): warning:  #1035-D: single-precision operand implicitly converted to double-precision
     float time_to_spin = ((float)_angle * 
 i) / (w * 180);
-../Src/main.c(892): warning:  #550-D: variable "spin_direction"  was set but never used
+../Src/main.c(879): warning:  #550-D: variable "spin_direction"  was set but never used
     int8_t spin_direction;
-../Src/main.c(1006): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(993): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfl.output += 0.9 * (_vvl - 0.08) + 0.01;
-../Src/main.c(1007): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(994): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbl.output += 0.85 * (_vvl - 0.08) + 0.01;
-../Src/main.c(1011): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(998): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfl.output += 0.9 * (_vvl + 0.08) - 0.01;
-../Src/main.c(1012): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(999): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbl.output += 0.85 * (_vvl + 0.08) - 0.01;
-../Src/main.c(1017): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(1004): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfr.output += 0.9 * (_vvr - 0.08) + 0.01;
-../Src/main.c(1018): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(1005): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbr.output += 0.85 * (_vvr - 0.08) + 0.01;
-../Src/main.c(1022): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(1009): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidfr.output += 0.9 * (_vvr + 0.08) - 0.01;
-../Src/main.c(1023): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(1010): warning:  #1035-D: single-precision operand implicitly converted to double-precision
       pidbr.output += 0.85 * (_vvr + 0.08) - 0.01;
-../Src/main.c(967): warning:  #177-D: variable "empty_string"  was declared but never referenced
+../Src/main.c(954): warning:  #177-D: variable "empty_string"  was declared but never referenced
     float empty_string[3];
 ../Src/main.c: 18 warnings, 0 errors
-compiling stm32f4xx_hal_i2c_ex.c...
-compiling stm32f4xx_hal_flash_ex.c...
-compiling stm32f4xx_hal_flash_ramfunc.c...
-compiling stm32f4xx_hal_rcc_ex.c...
-compiling stm32f4xx_hal_flash.c...
-compiling stm32f4xx_hal_rcc.c...
-compiling stm32f4xx_hal_i2c.c...
-compiling stm32f4xx_hal_dma_ex.c...
-compiling stm32f4xx_hal_pwr_ex.c...
-compiling stm32f4xx_hal_dma.c...
-compiling stm32f4xx_hal_gpio.c...
-compiling stm32f4xx_hal_cortex.c...
-compiling stm32f4xx_hal_pwr.c...
-compiling stm32f4xx_hal.c...
-compiling pca9685.c...
-..\Src\pca9685.c(93): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  		PrescalerVal = (25000000 / (4096.0 * (float)Frequency)) - 1;
-..\Src\pca9685.c(94): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  		Prescale = floor(PrescalerVal + 0.5);
-..\Src\pca9685.c(162): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	if(Angle < 
-IN_ANGLE) Angle = MIN_ANGLE;
-..\Src\pca9685.c(165): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	Value = (Angle - 
-IN_ANGLE) * ((float)SERVO_MAX - (float)SERVO_MIN) / (MAX_ANGLE - MIN_ANGLE) + (float)SERVO_MIN;
-..\Src\pca9685.c: 4 warnings, 0 errors
-compiling stm32f4xx_hal_uart.c...
-compiling stm32f4xx_hal_exti.c...
-compiling system_stm32f4xx.c...
-compiling stm32f4xx_hal_tim_ex.c...
-compiling stm32f4xx_hal_tim.c...
 linking...
-Program Size: Code=18240 RO-data=456 RW-data=240 ZI-data=2560  
+Program Size: Code=18172 RO-data=456 RW-data=244 ZI-data=2500  
 FromELF: creating hex file...
-"testservo2\testservo2.axf" - 0 Error(s), 33 Warning(s).
+"testservo2\testservo2.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -158,7 +95,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:43
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

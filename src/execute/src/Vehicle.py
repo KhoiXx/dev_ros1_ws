@@ -98,27 +98,27 @@ class Vehicle:
         dy = + self.len * math.sin(self.angle)
 
     def calculate_front_left_target(self):
-        temp_angle = self.angle - MR_ANGLE
-        dx = MR_DISTANCE_FROM_CENTER * math.cos(temp_angle)
-        dy = MR_DISTANCE_FROM_CENTER * math.sin(temp_angle)
+        temp_angle = self.angle - ROBOT_ANGLE
+        dx = ROBOT_DISTANCE_FROM_CENTER * math.cos(temp_angle)
+        dy = ROBOT_DISTANCE_FROM_CENTER * math.sin(temp_angle)
         self.front_left_target.set(self.center.x + dx, self.center.y + dy)
 
     def calculate_front_right_target(self):
-        temp_angle = self.angle + MR_ANGLE
-        dx = MR_DISTANCE_FROM_CENTER * math.cos(temp_angle)
-        dy = MR_DISTANCE_FROM_CENTER * math.sin(temp_angle)
+        temp_angle = self.angle + ROBOT_ANGLE
+        dx = ROBOT_DISTANCE_FROM_CENTER * math.cos(temp_angle)
+        dy = ROBOT_DISTANCE_FROM_CENTER * math.sin(temp_angle)
         self.front_right_target.set(self.center.x + dx, self.center.y + dy)
 
     def calculate_rear_left_target(self):
-        temp_angle = self.angle + MR_ANGLE - math.pi
-        dx = MR_DISTANCE_FROM_CENTER * math.cos(temp_angle)
-        dy = MR_DISTANCE_FROM_CENTER * math.sin(temp_angle)
+        temp_angle = self.angle + ROBOT_ANGLE - math.pi
+        dx = ROBOT_DISTANCE_FROM_CENTER * math.cos(temp_angle)
+        dy = ROBOT_DISTANCE_FROM_CENTER * math.sin(temp_angle)
         self.rear_left_target.set(self.center.x + dx, self.center.y + dy)
 
     def calculate_rear_right_target(self):
-        temp_angle = self.angle - MR_ANGLE - math.pi
-        dx = MR_DISTANCE_FROM_CENTER * math.cos(temp_angle)
-        dy = MR_DISTANCE_FROM_CENTER * math.sin(temp_angle)
+        temp_angle = self.angle - ROBOT_ANGLE - math.pi
+        dx = ROBOT_DISTANCE_FROM_CENTER * math.cos(temp_angle)
+        dy = ROBOT_DISTANCE_FROM_CENTER * math.sin(temp_angle)
         self.rear_right_target.set(self.center.x + dx, self.center.y + dy)
 
     def update(self):
@@ -137,7 +137,7 @@ class Vehicle:
         target = PVector(tx, ty)
         dislocation = PVector.sub2Vectors(target, self.center)
         accel = dislocation.copy()
-        accel.setMag(accel.mag() / MR_SCALE)
+        accel.setMag(accel.mag() / ROBOT_SCALE)
 
         # print("Important: ", accel.mag())
         self.angle = dislocation.heading()
@@ -278,7 +278,7 @@ class Vehicle:
 if __name__ == '__main__':
     center_x = 400
     center_y = 400
-    vehicle = Vehicle(center_x, center_y, MR_WIDTH / 2)
+    vehicle = Vehicle(center_x, center_y, ROBOT_WIDTH / 2)
 
     # print(vehicle.rear_center_target.x, vehicle.rear_center_target.y, vehicle.front_center_target.x,
     #       vehicle.front_center_target.y)
