@@ -7,7 +7,7 @@ import time
 from Robot import Robot
 from nav_execute import Navigation
 
-PORT = '/dev/ttyTHS1'
+
 
 class Thesis_robot(object):
     def __init__(self, port , baudrate):
@@ -21,7 +21,7 @@ def main(port, baud):
         rospy.loginfo("ROS Node Thesis_robot")
         try:
             Thesis_robot(port = port, baudrate = baud)
-            rospy.loginfo("Thesis_robot is connected to port THS1")
+            rospy.loginfo("Thesis_robot is connected to port {0}".format(port))
         except Exception as ex:
             sys.exit(str(ex))
         rospy.spin()

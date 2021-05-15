@@ -1,7 +1,0 @@
-1620572944069 [Opening serial port: /dev/ttyTHS1.] 
-1620572944389 [The robot is connected to ] [/dev/ttyTHS1] 
-1620572944389 [Initial robot's topic...] 
-1620572944437 [Start initializing navigation] 
-1620572944437 [Start initializing navigation topic] 
-1620572944519 [Initialization navigation topic finished] 
-1620572944525 [Initialization navigation finished] 

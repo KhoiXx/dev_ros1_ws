@@ -1,0 +1,8 @@
+1621074796136 [Opening serial port: /dev/ttyTHS1.] 
+1621074796441 [The robot is connected to ] [/dev/ttyTHS1] 
+1621074796441 [Initial robot's topic...] 
+1621074796446 [Start initializing navigation] 
+1621074796447 [Start initializing navigation topic] 
+1621074796499 [Update odom] 
+1621074796501 [Initialization navigation topic finished] 
+1621074796509 [Initialization navigation finished] 

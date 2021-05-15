@@ -6,6 +6,7 @@ MPU9250_WE myMPU9250 = MPU9250_WE(0x68);
 xyzFloat accValue;
 xyzFloat gyrValue;
 xyzFloat magValue;
+xyzFloat pre_accValue;
 float deg2rad = 3.14 / 180; // pi : 180deg
 
 void setup() {
@@ -28,7 +29,7 @@ void setup() {
   delay(1000);
   myMPU9250.autoOffsets();
   Serial.println("Done intializing MPU9250!");
-  
+  //myMPU9250.setAccOffsets(105.0, 171.0, 452.0, 521.0, 166508.0-16384.0, 166824-16384.0);
   myMPU9250.enableGyrDLPF();
   myMPU9250.setGyrDLPF(MPU9250_DLPF_6);
   myMPU9250.setSampleRateDivider(5);
@@ -68,10 +69,20 @@ void loop() {
 }
 
 void read_imu() {
+  pre_accValue = accValue;
   accValue = myMPU9250.getGValues();
   gyrValue = myMPU9250.getGyrValues();
   //myMPU9250.startMagMeasurement(); //only needed for triggered mode
   magValue = myMPU9250.getMagValues();
+  accValue.x *= 9.8;
+  accValue.y *= 9.8;
+  accValue.z *= 9.8;
+  if (abs(accValue.x - pre_accValue.x) < 0.02 && abs(accValue.x <=0.05)){
+    accValue.x = 0.00;
+  }
+  if (abs(accValue.y - pre_accValue.y) < 0.02 && abs(accValue.y <=0.09)){
+    accValue.y = 0.00;
+  }
 }
 
 void send_imu() {
@@ -79,9 +90,9 @@ void send_imu() {
   concatString(data, "", magValue.x, ",");
   concatString(data, "", magValue.y, ",");
   concatString(data, "", magValue.z, ",");
-  concatString(data, "", accValue.x * 9.8, ",");
-  concatString(data, "", accValue.y * 9.8, ",");
-  concatString(data, "", accValue.z * 9.8, ",");
+  concatString(data, "", accValue.x, ",");
+  concatString(data, "", accValue.y, ",");
+  concatString(data, "", accValue.z, ",");
   concatString(data, "", gyrValue.x * deg2rad, ",");
   concatString(data, "", gyrValue.y * deg2rad, ",");
   concatString(data, "", gyrValue.z * deg2rad, "");

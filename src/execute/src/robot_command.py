@@ -8,7 +8,7 @@ import traceback
 
 class CommandCode:
     HEADER = b'\xaa\xff'
-    END = b'\x0a\x0d'
+    END = b'\x0f\x0e'
     COMMAND_SEND_SPEED = b'\xA0'
     COMMAND_SEND_ENCODER  = b'\xA1'
     COMMAND_SET_SPEED = b'\xA2'
@@ -31,12 +31,13 @@ class Ack_response:
 class RobotCommand(object):
     def __init__(self,_port):
         try:
-            self.__robot_serial = ser.Serial(_port, baudrate=115200, timeout=0.5) #open port for STM
+            self.__robot_serial = ser.Serial(_port, baudrate=115200, timeout=0.1) #open port for STM
             if self.__robot_serial.isOpen():
                 rospy.loginfo("Port {0} is open".format(_port))
             time.sleep(0.2)
             self.clear_serial()
             time.sleep(0.1)
+            self.__speed_data = None
             count = 0
             self.command = CommandCode.COMMAND_STOP
             self.newest_command = []
@@ -48,6 +49,11 @@ class RobotCommand(object):
             rospy.loginfo("Cannot open serial port @Exception")
 
     def clear_serial(self,_flgs = 0):
+        '''
+        flgs = 0: all
+        flgs = 1: input
+        flgs = 2: output
+        '''
         if _flgs == 0:
             self.__robot_serial.reset_input_buffer()
             self.__robot_serial.reset_output_buffer()
@@ -78,15 +84,24 @@ class RobotCommand(object):
         self.newest_command = [command_send]
         self.latest_cmd_time = int (time.time() * 1000)
         self.__robot_serial.write(command_send)
-        count += 1
-        rospy.loginfo("count: {0}".format(count))
-        for i in range(5):
-            status = self.check_frame(8)
-            if status == True:
-                break
-            else:
-                self.__robot_serial.write(command_send)
-                continue
+        self.__robot_serial.flush()
+        # status = self.check_frame(8)
+        # if not status:
+        #     rospy.loginfo("Not ACK")
+        #     self.__robot_serial.write(command_send)
+        #     self.__robot_serial.flush()
+        self.clear_serial(2)
+
+        # self.clear_serial(1)
+        # count += 1
+        # rospy.loginfo("count: {0}".format(count))
+        # for i in range(5):
+        #     status = self.check_frame(8)
+        #     if status == True:
+        #         break
+        #     else:
+        #         self.__robot_serial.write(command_send)
+        #         continue
         
     def get_imu(self):
         '''
@@ -107,9 +122,19 @@ class RobotCommand(object):
         wh_speed[4] fl, fr, br, bl
         '''
         self.command = CommandCode.COMMAND_SEND_SPEED
+        self.clear_serial()
         self.write_command(self.command)
-        for i in range(4):
-            self.wh_speed[i] /= 1000
+        rospy.loginfo("send get speed")
+        self.check_frame(15)
+        if not self.__speed_data is None:
+            # rospy.loginfo(str(self.__speed_data))
+            for i in [0,2,4,6]:
+                # self.wh_speed[i] = int.from_bytes(read_data[ i+2 : i+4], 'little')
+                self.wh_speed[int(0.5 * i)] = struct.unpack("<h", self.__speed_data[ i+3 : i+5])[0] 
+                self.wh_speed[int(0.5 * i)] /= 1000.000
+        # rospy.loginfo(self.wh_speed)
+        # for i in range(4):
+        #     self.wh_speed[i] /= 1000
         return self.wh_speed
 
     def get_encoder(self):
@@ -156,9 +181,16 @@ class RobotCommand(object):
     
     def check_frame(self, byte_read):
         try:
+                
             read_data = self.__robot_serial.read_until(CommandCode.END, byte_read)
             if read_data[0:2] != CommandCode.HEADER or read_data[-2:] != CommandCode.END:
                 return False
+
+            if read_data[2:3] == CommandCode.COMMAND_SEND_SPEED:
+                if len(read_data) == 15:
+                    self.__speed_data = read_data
+                    return True
+            crc=0
 
             for i in range(len(read_data) - 4):
                 # crc += int.from_bytes(read_data[i: i + 1], 'big')
@@ -166,7 +198,6 @@ class RobotCommand(object):
             # if int.from_bytes(read_data[-4:-2], 'little') != crc:
             if struct.unpack("<h", read_data[-4:-2])[0] != crc:
                 return False
-
             if read_data[2:3] in Ack_response and byte_read == 8:
                 status = False
                 if read_data[3:4] == Ack_response.YACK:

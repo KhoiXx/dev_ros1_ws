@@ -12,11 +12,11 @@ from serial import Serial
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
-from std_msgs.msg import String
+from std_msgs.msg import String, Int8
 
 from key_mapping import Key_mapping
 from robot_control import RobotControl
-from UtilitiesMacroAndConstant import *
+from UtilitiesMacroAndConstant import ROBOT_WIDTH
 from Vehicle import Vehicle
 
 #variables
@@ -25,13 +25,12 @@ SPEED_MIN_VALUE = 0.4
 DIRECTION_FORWARD = 1
 DIRECTION_BACKWARD = -1
 #main code
-
+PORT = '/dev/ttyTHS1'
 class Robot(RobotControl):
-    def __init__(self,port = PORT,baudrate = BAUDRATE):
+    def __init__(self,__port = PORT,__baudrate = 115200):
 
-        super(Robot, self).__init__(port, baudrate)
-        self.vehicle = Vehicle(CENTER_X, CENTER_Y, ROBOT_WIDTH / 2)
-        self.log("The robot is connected to ", port)
+        super(Robot, self).__init__(__port, __baudrate)
+        self.log("The robot is connected to ", __port)
         self._current_speed = SPEED_MIN_VALUE
         self.direction = 1
         self.target_goal = PoseStamped()
@@ -41,6 +40,17 @@ class Robot(RobotControl):
     def initial_topic(self):
         self.log("Initial robot's topic...")
         self.sub_key = rospy.Subscriber('keyboard_control', String, self.keycontrol_callback)
+        self.status_pub = rospy.Publisher('robot_status', String, queue_size=10)
+        rospy.Timer(rospy.Duration(0.02), callback = self.robot_status_pub) #50Hz
+
+    def robot_status_pub(self, timer):
+        pre_status = self.pre_robot_status
+        status = str(self.robot_status)
+        if status != pre_status :
+            self.status_pub.publish(status)
+        self.pre_robot_status = status
+
+
     
     def keycontrol_callback(self, msg):
         self.log_latest_command()
@@ -50,8 +60,8 @@ class Robot(RobotControl):
             self._current_speed = SPEED_MIN_VALUE
 
         command = msg.data
-        # Show log
-        self.log("Data from: [" + str(command) + ']')
+        # # Show log
+        # self.log("Data from: [" + str(command) + ']')
         self.set_status_running()
         self.handle_command(command)
 
@@ -74,13 +84,13 @@ class Robot(RobotControl):
             if key_command == Key_mapping.ROTATE_LEFT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([-self._current_speed,self._current_speed])
+                self.set_speed([-self._current_speed * 0.8,self._current_speed * 0.8])
                 return
 
             if key_command == Key_mapping.ROTATE_RIGHT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([self._current_speed,-self._current_speed])
+                self.set_speed([self._current_speed * 0.8,-self._current_speed * 0.8])
                 return
 
             if key_command == Key_mapping.LEFT:
@@ -96,7 +106,7 @@ class Robot(RobotControl):
                 return
 
             if key_command == Key_mapping.STOP:
-                self.release_motor()
+                self.set_stop()
                 return
 
             if key_command == Key_mapping.FORWARD:

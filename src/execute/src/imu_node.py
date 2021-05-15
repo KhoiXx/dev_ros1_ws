@@ -7,7 +7,9 @@ import datetime
 import traceback
 import numpy as np
 
+from std_msgs.msg import String
 from sensor_msgs.msg import Imu, MagneticField
+from robot_control import ROBOT_STATUS
 
 ROS_WS = '/home/khoixx/dev_ros1_ws'
 LOG_FILE_PATH = ROS_WS + '/log/imu/' 
@@ -75,6 +77,13 @@ class IMU_Sensor(object):
             except Exception as exp:
                 rospy.loginfo("ReadIMU@Exception")
 
+    def calib_offset(self):
+        try:
+            self.log("Cablib offset")
+            self.__serial_imu.write('2'.encode())
+            time.sleep(0.5)
+        except:
+            rospy.loginfo("calibIMU@Exception")
 
 class IMU_node(IMU_Sensor):
     def __init__(self, _port, _baud):
@@ -88,10 +97,18 @@ class IMU_node(IMU_Sensor):
             self.log_to_file = open("".join(log_info),"w")
             super(IMU_node, self).__init__(_port, _baud)
             rospy.loginfo("IMU is ready")
+            rospy.Subscriber("robot_status", String, self.read_robot_status)
             self.pub_acc_gyr_raw = rospy.Publisher("/imu/data_raw", Imu, queue_size=20)
             self.pub_mag_raw = rospy.Publisher("/imu/mag", MagneticField, queue_size=10)
             self.initMessage()
-            rospy.Timer(rospy.Duration(nsecs=10**7), callback = self.publish_imu_raw)
+
+            self.__robot_status = ROBOT_STATUS._STOP
+            self.__pre_robot_status = ROBOT_STATUS._STOP
+
+            time.sleep(1.5) #wait for imu init
+            rospy.Timer(rospy.Duration(0.02), callback = self.publish_imu_raw) #50Hz
+            self.__time_now = rospy.Time.now()
+            self.__time_pre = rospy.Time.now()
 
         except:
             rospy.loginfo("Cannot open serial port {0}".format(_port))
@@ -120,25 +137,36 @@ class IMU_node(IMU_Sensor):
     def publish_imu_raw(self, timer):
         try:
             self.readIMU()
-
+            self.__time_now = rospy.Time.now()
             self.acc_gyr.linear_acceleration.x = self.accX
             self.acc_gyr.linear_acceleration.y = self.accY
             self.acc_gyr.linear_acceleration.z = self.accZ
             self.acc_gyr.angular_velocity.x = self.gyroX
             self.acc_gyr.angular_velocity.y = self.gyroY
             self.acc_gyr.angular_velocity.z = self.gyroZ
-            self.acc_gyr.header.stamp = rospy.Time.now()
+            self.acc_gyr.header.stamp = self.__time_now
             self.pub_acc_gyr_raw.publish(self.acc_gyr)
 
             self.mag.magnetic_field.x = self.magX
             self.mag.magnetic_field.y = self.magY
             self.mag.magnetic_field.z = self.magZ
-            self.mag.header.stamp = rospy.Time.now()
+            self.mag.header.stamp = self.__time_now
             self.pub_mag_raw.publish(self.mag)
+            self.log("accx: {0} accy: {1}".format(self.accX, self.accY))
+            
+
+            # if self.__time_now - self.__time_pre > 5000:
+            #     self.calib_offset()
+            #     self.__time_pre = self.__time_now
 
         except:
             rospy.loginfo("Publish IMU fail")
             self.log("Publish IMU fail")
+    
+    def read_robot_status(self, status_msg):
+        self.log("Read robot_status")
+        self.__pre_robot_status = self.__robot_status
+        self.__robot_status = status_msg.data
 
 def main(_port, _baud):
     try:
