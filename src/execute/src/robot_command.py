@@ -124,7 +124,7 @@ class RobotCommand(object):
         self.command = CommandCode.COMMAND_SEND_SPEED
         self.clear_serial()
         self.write_command(self.command)
-        rospy.loginfo("send get speed")
+        # rospy.loginfo("send get speed")
         self.check_frame(15)
         if not self.__speed_data is None:
             # rospy.loginfo(str(self.__speed_data))

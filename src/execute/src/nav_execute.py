@@ -106,7 +106,7 @@ class Navigation:
         self.current_time = rospy.Time.now()
         dt = (self.current_time - self.last_time).to_sec()
         v_straight = self.__robot.get_speed()
-        rospy.loginfo(v_straight)
+        # rospy.loginfo(v_straight)
         v_left = (v_straight[0] + v_straight[3]) / 2
         v_right = (v_straight[1] + v_straight[2]) / 2
 
@@ -119,7 +119,7 @@ class Navigation:
         yaw_angle = self.imu_data[0][2]
         yaw_angle = self.__correct_angle(yaw_angle)
 
-        rospy.loginfo(yaw_angle-self.pre_yaw_angle)
+        # rospy.loginfo(yaw_angle-self.pre_yaw_angle)
         
         delta_th = vth * dt
         self.pose[2] += self.__correct_angle(delta_th)
@@ -127,7 +127,7 @@ class Navigation:
 
         delta_x = delta_s * np.cos(self.pose[2])
         delta_y = delta_s * np.sin(self.pose[2])
-        rospy.loginfo("delta th{0}".format (self.pose[2]))
+        # rospy.loginfo("delta th{0}".format (self.pose[2]))
 
         vx = delta_x/dt
         vy = delta_y/dt
@@ -143,10 +143,7 @@ class Navigation:
         # delta_x = (vx * np.cos(self.pose[2]) - vy * np.sin(self.pose[2])) * dt
         # delta_y = (vx * np.sin(self.pose[2]) + vy * np.cos(self.pose[2])) * dt
         # delta_th = vth * dt
-        self.__robot.log_running_status()
-        # log_msg = "vx:{0} vy:{1} vth:{2} yaw:{3}".format(vx, vy, vth, yaw_angle)
-        # self.__robot.log(log_msg)
-        #rospy.loginfo(log_msg)
+        # self.__robot.log_running_status()
 
         if self.__robot.is_status_stop() or self.__robot.is_status_rotating():
             delta_x = 0
@@ -196,10 +193,6 @@ class Navigation:
         '''
         self.__robot.get_speed()
     
-    def __get_imu(self):
-        '''
-        Get imu data from arduino
-        '''
 
     def __correct_angle(self, angle, is_radian=True):
         '''
