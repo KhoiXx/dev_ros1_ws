@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/env python
 
 import traceback
@@ -40,7 +38,7 @@ class moveit_handle:
         self.target = Pose()
         rospy.Subscriber('target_position', Pose, self.callback)
         
-        display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path', moveit_msgs.msg.DisplayTrajectory)
+        rospy.Publisher('/move_group/display_planned_path', moveit_msgs.msg.DisplayTrajectory, queue_size=10)
 
         self.log('Finish initializing arm_moveit')
         rospy.loginfo('Finish initializing arm_moveit')
@@ -91,7 +89,7 @@ class moveit_handle:
         try:
             end_link = self.group.get_end_effector_link()
             #self.group.set_position_target([self.target.position.x,self.target.position.y,self.target.position.z],end_effector_link=end_link)
-            self.targer.orientation = self.group.get_random_orientation()
+            #self.targer.orientation = self.group.get_random_orientation()
             self.group.set_pose_target(self.target, end_link)
             self.log('command: %f',command)
             if command == 0:

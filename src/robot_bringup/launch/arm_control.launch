@@ -1,6 +1,6 @@
 <launch>
     <include file="$(find arm_moveit)/launch/demo.launch">
-        <arg name="use_rviz" value="false"/>
+        <arg name="use_rviz" value="true"/>
     </include>
 
     <node pkg="execute" type="Arm_moveit.py" name="Arm_moveit" respawn="true"/>

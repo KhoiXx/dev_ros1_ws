@@ -6,6 +6,8 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("arm_moveit")
+subdirs("robot_navigation")
 subdirs("serial_communication")
 subdirs("execute")
+subdirs("robot_bringup")
 subdirs("car")

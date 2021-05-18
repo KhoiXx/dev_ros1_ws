@@ -1,0 +1,47 @@
+<launch>
+
+  <arg name="database_path"       default="rtabmap.db"/>
+  <arg name="delete_db"           default="false"/>
+  <arg name="localization"        default="false"/>
+  <arg name="simulation"          default="false"/>
+  <arg name="wait_for_transform"  default="10"/> 
+
+  <arg name="rtabmap_frame"     default="base_link"/>
+
+  <arg     if="$(arg delete_db)" name="args"  default="--delete_db_on_start"/>
+  <arg unless="$(arg delete_db)" name="args"  default=""/>
+
+  <!-- Input topics -->
+  <arg     if="$(arg simulation)" name="rgb_topic"      default="/camera/color/image_raw"/>
+  <arg unless="$(arg simulation)" name="rgb_topic"      default="/camera/color/image_raw"/>
+  <arg     if="$(arg simulation)" name="depth_topic"    default="/camera/depth/image_raw"/>
+  <arg unless="$(arg simulation)" name="depth_topic"    default="/camera/aligned_depth_to_color/image_raw"/>
+  <arg name="camera_info_topic"                         default="/camera/color/camera_info"/>
+  <arg name="scan_topic"                                default="/scan"/>
+  <arg name="odom_topic"                                default="/odom"/>
+  
+
+  <!-- Navigation parameters -->
+  <!-- <include file="$(find robot_bringup)/launch/includes/rtab_move_base.launch.xml"/> -->
+
+  <!-- Start realsense camera -->
+  
+  <!-- Robot remote and description -->
+  <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />
+  
+  <!-- Mapping -->
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+    <arg name="frame_id"              value="base_link" />
+     <arg name="args"                    value="delete_db_on_start"/>    
+    <arg name="depth_topic"       value="/camera/aligned_depth_to_color/image_raw"/>
+    <arg name="rgb_topic"         value="/camera/color/image_raw"/>
+    <arg name="camera_info_topic"         value="/camera/color/camera_info"/>
+    <arg name="rviz"              value="true" />
+    <arg name="rtabmapviz"        value="false" /> 
+    <arg name="odom_topic"     value="/odom"/> 
+    <arg name="visual_odometry"   value="false"/> 
+    <arg name="rviz_cfg"          value="$(find robot_bringup)/config/robot_mapping.rviz" />
+    <arg name="queue_size"              value="200"/>
+  </include>
+
+</launch>

@@ -1,0 +1,6 @@
+1619541355705 [handle_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Arm_moveit.py", line 92, in handle_command
+    self.targer.orientation = self.group.get_random_orientation()
+AttributeError: 'MoveGroupCommander' object has no attribute 'get_random_orientation'
+] 
+1619541355714 [Finish initializing arm_moveit] 

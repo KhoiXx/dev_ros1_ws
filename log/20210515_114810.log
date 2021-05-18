@@ -1,0 +1,1979 @@
+1621054090987 [Opening serial port: /dev/ttyTHS1.] 
+1621054091293 [The robot is connected to ] [/dev/ttyTHS1] 
+1621054091293 [Initial robot's topic...] 
+1621054263850 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
+1621054289408 [handle_key_command@Exception] [Traceback (most recent call last):
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/Robot.py", line 109, in handle_command
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 284, in set_stop
+    self.set_stop()
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_control.py", line 283, in set_stop
+    self.__robot_serial.set_stop(attempt_try)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 148, in set_stop
+    self.write_command(self.command)
+  File "/home/khoixx/dev_ros1_ws/src/execute/src/robot_command.py", line 80, in write_command
+    self.__robot_serial.write(command_send)
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 618, in write
+    timeout = Timeout(self._write_timeout)
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialutil.py", line 130, in __init__
+    self.is_non_blocking = (duration == 0)
+RuntimeError: maximum recursion depth exceeded in cmp
+] 
