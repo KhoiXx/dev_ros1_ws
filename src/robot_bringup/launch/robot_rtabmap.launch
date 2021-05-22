@@ -1,7 +1,7 @@
 <launch>
 
   <arg name="database_path"       default="rtabmap.db"/>
-  <arg name="delete_db"           default="false"/>
+  <arg name="delete_db"           default="true"/>
   <arg name="localization"        default="false"/>
   <arg name="simulation"          default="false"/>
   <arg name="wait_for_transform"  default="10"/> 
@@ -30,9 +30,8 @@
   <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />
   
   <!-- Mapping -->
-  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+  <include file="$(find robot_bringup)/launch/robot_mapping.launch">
     <arg name="frame_id"              value="base_link" />
-     <arg name="args"                    value="delete_db_on_start"/>    
     <arg name="depth_topic"       value="/camera/aligned_depth_to_color/image_raw"/>
     <arg name="rgb_topic"         value="/camera/color/image_raw"/>
     <arg name="camera_info_topic"         value="/camera/color/camera_info"/>
@@ -41,7 +40,7 @@
     <arg name="odom_topic"     value="/odom"/> 
     <arg name="visual_odometry"   value="false"/> 
     <arg name="rviz_cfg"          value="$(find robot_bringup)/config/robot_mapping.rviz" />
-    <arg name="queue_size"              value="200"/>
+    <arg name="queue_size"              value="20"/>
   </include>
 
 </launch>

@@ -11,11 +11,11 @@
   <include if="$(arg camera_enable)" file="$(find robot_bringup)/launch/robot_start_realsense.launch">
     <arg name="device_type"         value="$(arg camera_type)"/>
     <arg name="enable_pointcloud" value="false"/>
-    <arg name="depth_fps"                 value="15"/>
-    <arg name="color_fps"                 value="15"/>
     <arg name="topic_odom_in"             value="/odom"/>
     <arg name="enable_sync"       value="true"/>
     <arg name="align_depth"    value="$(arg camera_align_depth)"/>
+    <arg name="enable_infra1"       default="false"/>
+    <arg name="enable_infra2"       default="false"/>  
   </include>
 
   <!-- <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen">
