@@ -22,13 +22,15 @@
   
 
   <!-- Navigation parameters -->
-  <!-- <include file="$(find robot_bringup)/launch/includes/rtab_move_base.launch.xml"/> -->
+  <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml"/>
 
   <!-- Start realsense camera -->
   
-  <!-- Robot remote and description -->
-  <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />
+  <!-- Robot remote and description --> 
+  <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
   
+  <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base2arm" args="0 0 0.1 0 0 0 1 dummy base_link 100" />   -->
   <!-- Mapping -->
   <include file="$(find robot_bringup)/launch/robot_mapping.launch">
     <arg name="frame_id"              value="base_link" />
@@ -41,6 +43,7 @@
     <arg name="visual_odometry"   value="false"/> 
     <arg name="rviz_cfg"          value="$(find robot_bringup)/config/robot_mapping.rviz" />
     <arg name="queue_size"              value="20"/>
+    <arg name="localization"              value="true"/>
   </include>
 
 </launch>

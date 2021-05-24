@@ -1,6 +1,6 @@
 local_costmap:  
   global_frame: odom
-  robot_base_frame: base_footprint
+  robot_base_frame: dummy
   update_frequency: 2.0
   publish_frequency: 2.0
   transform_tolerance: 5 #olala, idk
@@ -18,7 +18,7 @@ local_costmap:
 
   # assuming receiving a cloud from rtabmap_ros/obstacles_detection node
   point_cloud_sensor: {
-    sensor_frame: base_footprint,
+    sensor_frame: dummy,
     data_type: PointCloud2, 
     topic: openni_points, 
     expected_update_rate: 0.5, 

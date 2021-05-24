@@ -17,23 +17,4 @@
     <arg name="enable_infra1"       default="false"/>
     <arg name="enable_infra2"       default="false"/>  
   </include>
-
-  <!-- <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen">
-    <param name="odom_tf_linear_variance" value="0.003"/>
-    <param name="odom_tf_angular_variance" value="0.003"/>
-      
-    <remap from="grid_map" to="/map"/>
-
-    <param name="Grid/MaxGroundHeight"                  type="string" value="0.3"/>
-    <param name="Grid/MaxObstacleHeight"                  type="string" value="3"/>
-    <param name="Grid/NormalSegmentation"                  type="string" value="false"/>
-
-    <param name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
-    <param name="rgb_topic" value="/camera/color/image_raw"/>
-    <param name="camera_info_topic" value="/camera/color/camera_info"/>
-    <param name="rviz" value="true"/>
-    <param name="rtabmapviz" value="false"/>
-    <param name="visual_odometry" value="true"/>
-    
-  </node> -->
 </launch>

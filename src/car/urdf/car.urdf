@@ -47,6 +47,9 @@
     </collision>
   </link>
   <joint name="dummy_joint" type="fixed">
+    <origin
+      xyz="0 0 0.11"
+      rpy="0 0 0" />
     <parent link="dummy"/>
     <child link="base_link"/>
   </joint>

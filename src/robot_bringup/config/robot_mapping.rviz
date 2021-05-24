@@ -101,11 +101,39 @@ Visualization Manager:
           Value: false
         camera_link:
           Value: true
+        dummy:
+          Value: true
         imu:
           Value: false
+        link_1:
+          Value: true
+        link_2:
+          Value: true
+        link_3:
+          Value: true
+        link_4:
+          Value: true
+        link_5:
+          Value: true
+        link_6:
+          Value: true
+        link_61:
+          Value: true
+        link_62:
+          Value: true
+        link_63:
+          Value: true
         map:
           Value: true
         odom:
+          Value: true
+        whbl:
+          Value: true
+        whbr:
+          Value: true
+        whfl:
+          Value: true
+        whfr:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -115,16 +143,36 @@ Visualization Manager:
       Tree:
         map:
           odom:
-            base_link:
-              camera_link:
-                camera_aligned_depth_to_color_frame:
-                  camera_color_optical_frame:
+            dummy:
+              base_link:
+                camera_link:
+                  camera_aligned_depth_to_color_frame:
+                    camera_color_optical_frame:
+                      {}
+                  camera_color_frame:
                     {}
-                camera_color_frame:
+                  camera_depth_frame:
+                    camera_depth_optical_frame:
+                      {}
+                link_1:
+                  link_2:
+                    link_3:
+                      link_4:
+                        link_5:
+                          link_6:
+                            link_61:
+                              {}
+                          link_62:
+                            link_63:
+                              {}
+                whbl:
                   {}
-                camera_depth_frame:
-                  camera_depth_optical_frame:
-                    {}
+                whbr:
+                  {}
+                whfl:
+                  {}
+                whfr:
+                  {}
             imu:
               {}
       Update Interval: 0
@@ -209,6 +257,96 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        dummy:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_61:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_62:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_63:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        whbl:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        whbr:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        whfl:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        whfr:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
