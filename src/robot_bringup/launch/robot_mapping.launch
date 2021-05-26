@@ -139,6 +139,8 @@
   <arg if="$(arg rgbd_sync)"      name="rgbd_topic_relay"          default="$(arg rgbd_topic)"/>
   <arg unless="$(arg rgbd_sync)"  name="rgbd_topic_relay"          default="$(arg rgbd_topic)_relay"/>
 
+
+
   <!-- Nodes -->
   <group ns="$(arg namespace)">
      
@@ -366,7 +368,17 @@
       <param name="Grid/MaxObstacleHeight"           type="double" value="2.0"/>
       <!-- <param name="GridGlobal/FullUpdate"           type="bool" value="true"/> -->
       <param name="Grid/NormalsSegmentation"           type="bool" value="false"/>
-      <param name="Grid/MaxGroundAngle"           type="double" value="60.0"/>
+      <param name="Grid/MaxGroundAngle"           type="double" value="65.0"/>
+      <param name="Optimizer/GravitySigma"           type="double" value="0.0"/>
+
+      <param name="Grid/FromDepth"                  type="string" value="false"/>
+      <!-- When sending goals on /rtabmap/goal topic, use actionlib to communicate with move_base --> 
+      <param name="use_action_for_goal"              type="bool" value="true"/>
+      <remap from="move_base"                        to="/move_base"/>
+
+
+      <!-- output -->
+      <remap from="grid_map" to="/map"/>
     </node>
   </group>
   <!-- Visualization RVIZ -->
@@ -385,5 +397,6 @@
     <param name="decimation"  type="double" value="4"/>
     <param name="voxel_size"  type="double" value="0.0"/>
     <param name="approx_sync" type="bool"   value="$(arg approx_sync)"/>
+
   </node>
 </launch>

@@ -1,8 +1,0 @@
-1621064893129 [Opening serial port: /dev/ttyTHS1.] 
-1621064893435 [The robot is connected to ] [/dev/ttyTHS1] 
-1621064893436 [Initial robot's topic...] 
-1621064900498 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x a 0 \ x 0 f \ x 0 0 \ x a 0 \ x 0 f \ x 0 0 \ x 0 3 \ x a 9 \ n \ r ' ) ]] 
-1621064901172 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ n \ r ' ) ]] 
-1621064903899 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x 0 0 \ x d 0 \ x 0 7 \ x 0 0 \ x 0 3 \ x f 9 \ n \ r ' ) ]] 
-1621064905467 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x d 0 \ x 0 7 \ x f f \ x 0 5 \ x f 7 \ n \ r ' ) ]] 
-1621064909046 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x d 0 \ x 0 7 \ x f f \ x 9 0 \ x 0 1 \ x f f \ x 0 5 \ x b 1 \ n \ r ' ) ]] 

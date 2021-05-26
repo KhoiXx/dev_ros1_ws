@@ -67,17 +67,14 @@ class Navigation:
         -------
         cmd_vel_msg: Twist
         '''
-
         try:
             self.__robot.log('cmd_vel_callback', str(cmd_vel_msg))
-
-            if self.__robot.is_status_stop():
-                return
 
             linear_x = cmd_vel_msg.linear.x
             angular_z = cmd_vel_msg.angular.z
             self.pre_cmd_vel = cmd_vel_msg
-            if linear_x == 0.0 and angular_z == 0:
+            rospy.loginfo("Receive cmd_vel: {0} {1}".format(linear_x, angular_z))
+            if linear_x == 0.0 and angular_z == 0.0:
                 self.__robot.set_stop()
                 return
             self.calculate_cmd(linear_x, angular_z)
@@ -191,11 +188,13 @@ class Navigation:
         self.last_time = self.current_time
     
     def calculate_cmd(self, linear, angular):
-        if linear == 0:
+        rospy.loginfo("Handling cmd_vel msg")
+        if linear == 0.0:
             speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
             self.__robot.set_rotate(self.check_speed(speed_wh, is_angular=True))
             return
-        if angular == 0:
+        self.robot.log("Rotate robot to cmd_vel")
+        if angular == 0.0:
             speed = self.check_speed(linear)
             self.__robot.set_speed([speed, speed])
             return

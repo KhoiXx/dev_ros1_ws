@@ -3,14 +3,14 @@ TrajectoryPlannerROS:
   # Current limits based on AZ3 standalone configuration. (default)
   # Robot configuration parameters (users add)
   max_vel_x:  0.800
-  min_vel_x:  0.15
+  min_vel_x:  0.14
 
-  max_vel_theta:
-  min_vel_theta:
-  min_in_place_rotational_vel: 0.15
+  max_vel_theta: 3.0
+  min_vel_theta: -3.0
+  min_in_place_rotational_vel: 0.2
 
   acc_lim_x:  0.75
-  acc_lim_y:  0.75
+  acc_lim_y:  0.0
   acc_lim_theta: 4.00
   holonomic_robot: false
 
