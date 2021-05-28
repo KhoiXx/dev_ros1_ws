@@ -3,6 +3,8 @@
   <arg name="map_topic" default="map" />
   <arg name="cmd_vel_topic" default="cmd_vel" />
   <arg name="odom_topic" default="odom" />
+  <arg name="odom_frame_id"   default="odom"/>
+  <arg name="base_frame_id"   default="dummy"/>
   <arg name="move_forward_only" default="false"/>
 
   <!-- move_base -->

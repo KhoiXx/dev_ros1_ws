@@ -371,7 +371,7 @@
       <param name="Grid/MaxGroundAngle"           type="double" value="65.0"/>
       <param name="Optimizer/GravitySigma"           type="double" value="0.0"/>
 
-      <param name="Grid/FromDepth"                  type="string" value="false"/>
+      <param name="Grid/FromDepth"                  type="string" value="true"/>
       <!-- When sending goals on /rtabmap/goal topic, use actionlib to communicate with move_base --> 
       <param name="use_action_for_goal"              type="bool" value="true"/>
       <remap from="move_base"                        to="/move_base"/>

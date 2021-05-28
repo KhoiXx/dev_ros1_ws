@@ -4,7 +4,9 @@
   <arg name="delete_db"           default="true"/>
   <arg name="localization"        default="false"/>
   <arg name="simulation"          default="false"/>
-  <arg name="wait_for_transform"  default="10"/> 
+  <arg name="wait_for_transform"  default="10"/>
+  
+
 
   <arg name="rtabmap_frame"     default="base_link"/>
 
@@ -20,19 +22,17 @@
   <arg name="scan_topic"                                default="/scan"/>
   <arg name="odom_topic"                                default="/odom"/>
   
-  <!-- <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
       <remap from="image"       to="/camera/aligned_depth_to_color/image_raw"/>
       <remap from="camera_info" to="/camera/color/camera_info"/>
       <remap from="scan"        to="/scan"/>
       <param name="range_max" type="double" value="3"/>
-  </node> -->
+  </node>
 
   
   <!-- Robot remote and description --> 
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
   
-    <!-- Navigation parameters -->
-  <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml"/>
 
   <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />
   <!-- <node pkg="tf" type="static_transform_publisher" name="base2arm" args="0 0 0.1 0 0 0 1 dummy base_link 100" />   -->
@@ -49,9 +49,12 @@
     <arg name="visual_odometry"   value="false"/> 
     <arg name="rviz_cfg"          value="$(find robot_bringup)/config/robot_mapping.rviz" />
     <arg name="queue_size"              value="20"/>
-    <arg name="localization"              value="true"/>
+    <arg name="localization"              value="$(arg localization)"/>
 
     <remap from="move_base"                        to="/move_base"/>
   </include>
+  
+    <!-- Navigation parameters -->
+  <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml"/>
 
 </launch>

@@ -193,7 +193,7 @@ class Navigation:
             speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
             self.__robot.set_rotate(self.check_speed(speed_wh, is_angular=True))
             return
-        self.robot.log("Rotate robot to cmd_vel")
+        self.__robot.log("Rotate robot to cmd_vel")
         if angular == 0.0:
             speed = self.check_speed(linear)
             self.__robot.set_speed([speed, speed])
