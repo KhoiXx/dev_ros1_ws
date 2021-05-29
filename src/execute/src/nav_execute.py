@@ -39,6 +39,7 @@ class Navigation:
         
         self.pose =[0.00, 0.00, 0.00] #x, y, th
         self.pre_cmd_vel = Twist()
+        self.goal_pose = Pose()
         rospy.Timer(rospy.Duration(0.1), callback = self.odom_update) #10Hz
         
     
@@ -98,6 +99,10 @@ class Navigation:
         -------
         goal: PoseStamped
         '''
+        self.goal_pose = goal_msg.pose
+        goal_roll, goal_pitch, goal_yaw = quat2euler([self.goal_pose.orientation.w, self.goal_pose.orientation.x, self.goal_pose.orientation.y, self.goal_pose.orientation.z])
+        self.__robot.log("position: {0}, yaw: {1}".format(self.goal_pose.position, goal_yaw))
+        rospy.loginfo("goal_yaw: {}".format(goal_yaw))
 
     def imu_callback(self, imu_msg):
         '''
@@ -191,7 +196,7 @@ class Navigation:
         rospy.loginfo("Handling cmd_vel msg")
         if linear == 0.0:
             speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
-            self.__robot.set_rotate(self.check_speed(speed_wh, is_angular=True))
+            self.__robot.set_rotate(self.check_speed(speed_wh))
             return
         self.__robot.log("Rotate robot to cmd_vel")
         if angular == 0.0:

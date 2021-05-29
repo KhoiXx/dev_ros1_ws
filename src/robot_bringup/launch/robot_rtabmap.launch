@@ -2,7 +2,7 @@
 
   <arg name="database_path"       default="rtabmap.db"/>
   <arg name="delete_db"           default="true"/>
-  <arg name="localization"        default="false"/>
+  <arg name="localization"        default="true"/>
   <arg name="simulation"          default="false"/>
   <arg name="wait_for_transform"  default="10"/>
   
@@ -50,8 +50,6 @@
     <arg name="rviz_cfg"          value="$(find robot_bringup)/config/robot_mapping.rviz" />
     <arg name="queue_size"              value="20"/>
     <arg name="localization"              value="$(arg localization)"/>
-
-    <remap from="move_base"                        to="/move_base"/>
   </include>
   
     <!-- Navigation parameters -->
