@@ -83,6 +83,8 @@ class RobotCommand(object):
         
         self.newest_command = [command_send]
         self.latest_cmd_time = int (time.time() * 1000)
+        
+        self.clear_serial(2)
         self.__robot_serial.write(command_send)
         self.__robot_serial.flush()
         # status = self.check_frame(8)
@@ -90,7 +92,6 @@ class RobotCommand(object):
         #     rospy.loginfo("Not ACK")
         #     self.__robot_serial.write(command_send)
         #     self.__robot_serial.flush()
-        self.clear_serial(2)
 
         # self.clear_serial(1)
         # count += 1

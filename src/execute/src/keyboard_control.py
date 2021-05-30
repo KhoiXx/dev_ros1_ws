@@ -31,7 +31,8 @@ class KeyBoardControl():
             Key_mapping.SLOW,
             Key_mapping.TURN_45DEG_LEFT,
             Key_mapping.TURN_45DEG_RIGHT,
-            Key_mapping.STOP
+            Key_mapping.STOP,
+            Key_mapping.COMMAND_SAVE_MAP
         }
 
     def press_handle(self, key):

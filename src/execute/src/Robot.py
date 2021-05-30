@@ -15,8 +15,7 @@ from nav_msgs.msg import Odometry
 from std_msgs.msg import String, Int8
 
 from key_mapping import Key_mapping
-from robot_control import RobotControl
-from UtilitiesMacroAndConstant import ROBOT_WIDTH
+from robot_control import RobotControl, ROBOT_WIDTH
 from Vehicle import Vehicle
 
 #variables
@@ -74,35 +73,39 @@ class Robot(RobotControl):
             key_command = str(command)
             command = ''
             if key_command == Key_mapping.FAST:
-                self._current_speed = 0.4
+                self._current_speed = 0.2
                 return
             
             if key_command == Key_mapping.SLOW:
-                self._current_speed = 0.2
+                self._current_speed = 0.15
                 return
 
             if key_command == Key_mapping.ROTATE_LEFT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([-self._current_speed * 0.8,self._current_speed * 0.8])
+                speed_rotate = self._current_speed *0.8 / (ROBOT_WIDTH / 2)
+
+                self.set_rotate(speed_rotate)
                 return
 
             if key_command == Key_mapping.ROTATE_RIGHT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([self._current_speed * 0.8,-self._current_speed * 0.8])
+                speed_rotate = - self._current_speed *0.8 / (ROBOT_WIDTH / 2)
+
+                self.set_rotate(speed_rotate)
                 return
 
             if key_command == Key_mapping.LEFT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([self.direction * self._current_speed * 0.2, self.direction * self._current_speed])
+                self.set_speed([self.direction * self._current_speed * 0.4, self.direction * self._current_speed])
                 return
 
             if key_command == Key_mapping.RIGHT:
                 if not self._current_speed:
                     self._current_speed = 0.6
-                self.set_speed([self.direction * self._current_speed, self.direction * self._current_speed * 0.2])
+                self.set_speed([self.direction * self._current_speed, self.direction * self._current_speed * 0.4])
                 return
 
             if key_command == Key_mapping.STOP:

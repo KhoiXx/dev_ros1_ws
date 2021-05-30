@@ -14,8 +14,9 @@ from enum import Enum
 # from mr001.speed_control import SpeedControl
 # from distutils.util import strtobool
 from robot_command import RobotCommand
-from UtilitiesMacroAndConstant import ROBOT_WIDTH
 
+ROBOT_WIDTH = 0.26
+ROBOT_MAX_SPEED = 0.5
 ROBOT_STATUS = Enum('ROBOT_STATUS','_STOP _ROTATING _RUNNING')
 
 
@@ -157,15 +158,9 @@ class RobotControl(object):
             # backup old map
             self.rename_file(self.MAP_FILE_YAML, self.MAP_FILE_YAML + suffix)  # rename old map "map.yaml" to "map.yaml_Ymd_HMS" for backup
             self.rename_file(self.MAP_FILE_PGM, self.MAP_FILE_PGM + suffix)    # rename old map "map.pgm" to "map.pgm_Ymd_HMS" for backup
-
-            # Init terminal command to save new map files with name = map.*
-            # this command create 2 files: "map.pgm" and "map.yaml"
-            # cmd = "ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/map/map"
-            map_file_name = "map" # "map.pgm", "map.yaml"
-            cmd = "ros2 run nav2_map_server map_saver_cli -f {0}{1}"
-            cmd = cmd.format(self.MAP_FILE_PATH, map_file_name)
             # Run the cmd in a subprocess
-            subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+            # subprocess.call(['gnome-terminal', '-x', 'rosrun map_server map_saver -f /home/khoixx/dev_ros1_ws/map/map map:=/map'])
+            subprocess.call(['gnome-terminal','sh', '--working-directory=/home/khoixx/dev_ros1_ws/map','--command= rosrun map_server map_saver map:=/map'])
             # Wait for map to be saved
             time.sleep(timeout_map)
             # Check if new map files is already created
@@ -175,8 +170,6 @@ class RobotControl(object):
 
             # failed to create map
             # Kill the subprocess after all
-            id_proc = int(subprocess.check_output(["pidof", "map_saver"]))
-            os.kill(id_proc, signal.SIGKILL)
 
         finally:
             if not save_map_succeed:
@@ -287,10 +280,13 @@ class RobotControl(object):
         self.__robot_serial.turn_angle(angle, speed)
         self.set_status_rotating()
     
-    def set_rotate(self, speed_data):
+    def set_rotate(self, speed_rotate):
         '''
         [vvl,vvr]
+        speed_rotate: rad/s
         '''
+        speed_linear = speed_rotate * ROBOT_WIDTH / 2 # V= W*R
+        speed_data = [-speed_linear, speed_linear]
         self.__robot_serial.set_speed(speed_data)
         self.set_status_rotating()
 
