@@ -49,6 +49,10 @@ class IMU_Sensor(object):
         elif _flgs == 2:
             self.__serial_imu.reset_output_buffer()
 
+    def init_imu(self):
+        self.readIMU()
+        return [self.magX, self.magY, self.magZ, self.accX, self.accY, self.accZ, self.gyroX, self.gyroY, self.gyroZ]
+
     def readIMU(self):
         step = 0
         while step < 10:
@@ -106,6 +110,7 @@ class IMU_node(IMU_Sensor):
             self.__pre_robot_status = ROBOT_STATUS._STOP
 
             time.sleep(1.5) #wait for imu init
+            self.init_data = self.init_imu()
             rospy.Timer(rospy.Duration(0.02), callback = self.publish_imu_raw) #50Hz
             self.__time_now = rospy.Time.now()
             self.__time_pre = rospy.Time.now()

@@ -51,7 +51,7 @@ class adjust_joint_angle:
             self.test.servo[i].set_pulse_width_range(min_pulse = 370, max_pulse = 2340)
         self.log("PCA is opening")
         self.exc_joint = [self.test.servo[5], self.test.servo[4], self.test.servo[3], self.test.servo[2], self.test.servo[1], self.test.servo[0]]
-        self.exc_joint[0].actuation_range = 262
+        self.exc_joint[0].actuation_range = 270
         for i in range(0,5):
             self.exc_joint[i].angle = self.fix_angle(self.position[i])
         self.log('Finished initializing arm_control')

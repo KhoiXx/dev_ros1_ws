@@ -294,10 +294,14 @@
       <param name="noise_radius"        type="double" value="$(arg scan_cloud_assembling_noise_radius)"/>
       <param name="noise_min_neighbors" type="int"    value="$(arg scan_cloud_assembling_noise_min_neighbors)"/>
     </node>
-  
+    
+    
+
     <!-- Visual SLAM (robot side) -->
     <!-- args: "delete_db_on_start" and "udebug" -->
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="$(arg output)" args="$(arg rtabmap_args)" launch-prefix="$(arg launch_prefix)">
+      <!-- output -->
+      <remap from="grid_map" to="/map"/>
       <param     if="$(arg stereo)" name="subscribe_depth"  type="bool" value="false"/>
       <param unless="$(arg stereo)" name="subscribe_depth"  type="bool" value="$(arg depth)"/>
       <param name="subscribe_rgb"        type="bool"   value="$(arg depth)"/>
@@ -365,20 +369,22 @@
       <param name="Grid/RangeMax"           type="double" value="1.5"/>
       <!-- <param name="Grid/MinGroundHeight"           type="double" value="0.05"/> -->
       <param name="Grid/MaxGroundHeight"           type="double" value="0.02"/>
-      <param name="Grid/MaxObstacleHeight"           type="double" value="2.0"/>
+      <!-- <param name="Grid/MaxObstacleHeight"           type="double" value="2.0"/> --> -->
       <!-- <param name="GridGlobal/FullUpdate"           type="bool" value="true"/> -->
-      <param name="Grid/NormalsSegmentation"           type="bool" value="false"/>
-      <param name="Grid/MaxGroundAngle"           type="double" value="65.0"/>
+      <param name="Grid/NormalsSegmentation"           type="bool" value="true"/>
+      <param name="Grid/MaxGroundAngle"           type="double" value="55.0"/>
+      <!-- <param name="Grid/NoiseFilteringRadius"           type="double" value="0.01"/> -->
       <param name="Optimizer/GravitySigma"           type="double" value="0.0"/>
-
+      <param name="Vis/MaxFeatures"                  type="int" value="600"/>
       <param name="Grid/FromDepth"                  type="string" value="true"/>
+      <param name="Grid/3D"                  type="string" value="true"/>
+      <param name="RGBD/SavedLocalizationIgnored"  type="string" value="true"/>
+      <!-- <param name="RGBD/NeighborLinkRefining"      type="string" value="true"/> -->
       <!-- When sending goals on /rtabmap/goal topic, use actionlib to communicate with move_base --> 
       <param name="use_action_for_goal"              type="bool" value="true"/>
       <remap from="move_base"                        to="/move_base"/>
-      <param name="Rtabmap/StartNewMapOnLoopClosure"  value="true"/>
+      <!-- <param name="Rtabmap/StartNewMapOnLoopClosure"  value="true"/> -->
 
-      <!-- output -->
-      <remap from="grid_map" to="/map"/>
     </node>
   </group>
   <!-- Visualization RVIZ -->

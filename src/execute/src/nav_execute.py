@@ -40,7 +40,7 @@ class Navigation:
         self.pose =[0.00, 0.00, 0.00] #x, y, th
         self.pre_cmd_vel = Twist()
         self.goal_pose = Pose()
-        rospy.Timer(rospy.Duration(0.1), callback = self.odom_update) #10Hz
+        rospy.Timer(rospy.Duration(0.05), callback = self.odom_update) #10Hz
         
     
     def __init_topic(self):
@@ -69,7 +69,7 @@ class Navigation:
         cmd_vel_msg: Twist
         '''
         try:
-            self.__robot.log('cmd_vel_callback', str(cmd_vel_msg))
+            # self.__robot.log('cmd_vel_callback', str(cmd_vel_msg))
 
             linear_x = cmd_vel_msg.linear.x
             angular_z = cmd_vel_msg.angular.z
@@ -123,7 +123,8 @@ class Navigation:
         '''
         update odom with data from sensor
         '''
-        self.__robot.log("Update odom")
+        # self.__robot.log("Update odom
+        # ")
         self.current_time = rospy.Time.now()
         dt = (self.current_time - self.last_time).to_sec()
         v_straight = self.__robot.get_speed()
@@ -155,7 +156,7 @@ class Navigation:
             delta_x = 0
             delta_y = 0
 
-        log_msg = "vx:{0} vy:{1} yaw:{2}".format(vx, vy, yaw_angle)
+        log_msg = "vl:{0} vr:{1} yaw:{2}".format(v_left, v_right, self.pose[2])
         self.pose[0] += delta_x
         self.pose[1] += delta_y
         
@@ -195,10 +196,10 @@ class Navigation:
     def calculate_cmd(self, linear, angular):
         rospy.loginfo("Handling cmd_vel msg")
         if linear == 0.0:
-            speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
-            self.__robot.set_rotate(self.check_speed(speed_wh))
+            # speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
+            self.__robot.set_rotate(self.check_speed(angular, is_angular=True))
             return
-        self.__robot.log("Rotate robot to cmd_vel")
+        # self.__robot.log("Rotate robot to cmd_vel")
         if angular == 0.0:
             speed = self.check_speed(linear)
             self.__robot.set_speed([speed, speed])
@@ -212,6 +213,7 @@ class Navigation:
             v_whr = abs(angular * R_r) * direction
             v_whl = self.check_speed(v_whl)
             v_whr = self.check_speed(v_whr)
+            self.__robot.log("v left: {0} v right: {1}".format(v_whl, v_whr))
             self.__robot.set_speed([v_whl, v_whr])
             return
         
@@ -222,6 +224,11 @@ class Navigation:
             speed = ROBOT_MAX_SPEED
         elif speed < -ROBOT_MAX_SPEED:
             speed = -ROBOT_MAX_SPEED
+        
+        if speed > 0.04 and speed < 0.11:
+            speed = 0.11
+        elif speed < -0.04 and speed > -0.11:
+            speed = -0.11
         if is_angular:
             speed /= (ROBOT_WIDTH / 2)
         return speed

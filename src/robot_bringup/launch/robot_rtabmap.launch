@@ -5,7 +5,7 @@
   <arg name="localization"        default="true"/>
   <arg name="simulation"          default="false"/>
   <arg name="wait_for_transform"  default="10"/>
-  
+  <arg name="map_file" default="/home/khoixx/dev_ros1_ws/map/map.yaml"/>
 
 
   <arg name="rtabmap_frame"     default="base_link"/>
@@ -22,13 +22,14 @@
   <arg name="scan_topic"                                default="/scan"/>
   <arg name="odom_topic"                                default="/odom"/>
   
-  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
+  <!-- <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
       <remap from="image"       to="/camera/aligned_depth_to_color/image_raw"/>
       <remap from="camera_info" to="/camera/color/camera_info"/>
       <remap from="scan"        to="/scan"/>
       <param name="range_max" type="double" value="3"/>
-  </node>
+  </node> -->
 
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
   
   <!-- Robot remote and description --> 
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
@@ -36,6 +37,7 @@
 
   <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />
   <!-- <node pkg="tf" type="static_transform_publisher" name="base2arm" args="0 0 0.1 0 0 0 1 dummy base_link 100" />   -->
+  <!-- <node pkg="execute" type="init_pose.py" name="init_pose"/> -->
   <!-- Mapping -->
   <include file="$(find robot_bringup)/launch/robot_mapping.launch">
     <arg name="frame_id"              value="base_link" />

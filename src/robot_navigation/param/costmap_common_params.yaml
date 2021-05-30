@@ -1,21 +1,16 @@
 #users add
 
-plugins: static_
 obstacle_range: 3.0
 raytrace_range: 3.5
 
 footprint: [[-0.1985, -0.0835], [-0.1985, 0.0835], [0.0015, 0.0835], [0.0015, -0.0835]]
 # robot_radius: 0.2
-robot_base_frame: dummy
 
 plugins: 
     - {name: static_map,       type: "costmap_2d::StaticLayer"}
     - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
     - {name: inflation,        type: "costmap_2d::InflationLayer"}
 
-inflation_radius: 0.4
-cost_scaling_factor: 2.0
+inflation_radius: 0.2
+cost_scaling_factor: 1.5
 
-map_type: costmap
-observation_sources: point_cloud_sensor
-point_cloud_sensor: {sensor_frame: camera_link, data_type: PointCloud2, topic: voxel_cloud, marking: true, clearing: true}
