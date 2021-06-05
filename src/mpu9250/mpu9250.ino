@@ -2,12 +2,18 @@
 #include <MPU9250_WE.h>
 #include <Wire.h>
 MPU9250_WE myMPU9250 = MPU9250_WE(0x68);
+#define TRIG_PIN 6
+#define ECHO_PIN 7
+#define TRIG_PIN_1 8
+#define ECHO_PIN_1 9
+#define TIME_OUT 5000
 
 xyzFloat accValue;
 xyzFloat gyrValue;
 xyzFloat magValue;
 xyzFloat pre_accValue;
 float deg2rad = 3.14 / 180; // pi : 180deg
+float is_obstacle, is_package;
 
 void setup() {
   Serial.begin(115200);
@@ -39,14 +45,27 @@ void setup() {
   myMPU9250.setAccDLPF(MPU9250_DLPF_6);
   myMPU9250.setMagOpMode(AK8963_CONT_MODE_8HZ);
   delay(100);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(TRIG_PIN_1, OUTPUT);
+  pinMode(ECHO_PIN_1, INPUT);
 }
 
 void loop() {
   read_imu();
+  is_obstacle = check_obstacle(TRIG_PIN, ECHO_PIN);
+  is_package = check_obstacle(TRIG_PIN_1, ECHO_PIN_1);
   if (Serial.available()) {
     if (char(Serial.read()) == '1')
       send_imu();
+    else if (char(Serial.read()) == '2'){
+      myMPU9250.init();
+      myMPU9250.initMagnetometer();
+      delay(500);
+      myMPU9250.autoOffsets();}
   }
+//  send_imu();
+//  delay(20);
   // Serial.print(accValue.x);;
   // Serial.print("   ");
   // Serial.print(accValue.y);
@@ -77,12 +96,12 @@ void read_imu() {
   accValue.x *= 9.8;
   accValue.y *= 9.8;
   accValue.z *= 9.8;
-  if (abs(accValue.x - pre_accValue.x) < 0.02 && abs(accValue.x <=0.05)){
-    accValue.x = 0.00;
-  }
-  if (abs(accValue.y - pre_accValue.y) < 0.02 && abs(accValue.y <=0.09)){
-    accValue.y = 0.00;
-  }
+//  if (abs(accValue.x - pre_accValue.x) < 0.02 && abs(accValue.x <=0.05)){
+//    accValue.x = 0.00;
+//  }
+//  if (abs(accValue.y - pre_accValue.y) < 0.02 && abs(accValue.y <=0.09)){
+//    accValue.y = 0.00;
+//  }
 }
 
 void send_imu() {
@@ -95,10 +114,32 @@ void send_imu() {
   concatString(data, "", accValue.z, ",");
   concatString(data, "", gyrValue.x * deg2rad, ",");
   concatString(data, "", gyrValue.y * deg2rad, ",");
-  concatString(data, "", gyrValue.z * deg2rad, "");
+  concatString(data, "", gyrValue.z * deg2rad, ",");
+  concatString(data, "", is_obstacle, ",");
+  concatString(data, "", is_package, "");
   Serial.println(data);
 }
 
 void concatString(String &output, String first, float data, String last) {
   output += first + String(data) + last;
+}
+
+float check_obstacle(int trig, int echo)
+{
+  long duration, distance;
+  short boolean;
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  
+  duration = pulseIn(echo, HIGH, TIME_OUT);
+ 
+  // convert to distance
+  distance = duration / 29.1 / 2;
+  if(distance < 15 & distance>0){
+    boolean = 1;
+  } else boolean = 0;
+  return boolean;
 }

@@ -6,8 +6,8 @@ local_costmap:
   transform_tolerance: 0.5
   static_map: false
   rolling_window: true
-  width: 4.0
-  height: 4.0
+  width: 5.0
+  height: 5.0
   resolution: 0.025
   
   observation_sources: point_cloud_sensor
