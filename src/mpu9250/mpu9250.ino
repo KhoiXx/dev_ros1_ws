@@ -2,10 +2,10 @@
 #include <MPU9250_WE.h>
 #include <Wire.h>
 MPU9250_WE myMPU9250 = MPU9250_WE(0x68);
-#define TRIG_PIN 6
-#define ECHO_PIN 7
-#define TRIG_PIN_1 8
-#define ECHO_PIN_1 9
+#define TRIG_PIN 7
+#define ECHO_PIN 6
+#define TRIG_PIN_1 9
+#define ECHO_PIN_1 8
 #define TIME_OUT 5000
 
 xyzFloat accValue;

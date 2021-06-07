@@ -7,15 +7,23 @@ import tf
 import threading
 import numpy as np
 import traceback
+import threading
+import time
 
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point, Pose, Quaternion, Twist, PoseStamped, PoseWithCovarianceStamped, Vector3
 from transforms3d.euler import quat2euler, euler2quat
 from sensor_msgs.msg import Imu, MagneticField
+from actionlib_msgs.msg import GoalStatusArray, GoalID
+from move_base_msgs.msg import MoveBaseActionResult
 
 from Robot import Robot
 from robot_control import ROBOT_WIDTH, ROBOT_MAX_SPEED
+
+MAX_YAW_TOLERANCE = 0.15
+GOAL_STATUS_SUCCESS = 3
+GOAL_STATUS_ABORT = 4
 
 class Navigation:
     def __init__(self, _robot):
@@ -40,6 +48,8 @@ class Navigation:
         self.pose =[0.00, 0.00, 0.00] #x, y, th
         self.pre_cmd_vel = Twist()
         self.goal_pose = Pose()
+        self.goal_yaw = 0.0
+        self.v_straight = None
         rospy.Timer(rospy.Duration(0.05), callback = self.odom_update) #10Hz
         
     
@@ -49,18 +59,25 @@ class Navigation:
         self.odom_sub = rospy.Subscriber('/odom', Odometry, self.odometry_callback)
         self.goal_sub = rospy.Subscriber('/move_base_simple/goal', PoseStamped, self.goal_callback)
         self.imu_sub = rospy.Subscriber('/imu/data', Imu, self.imu_callback)
+        self.goal_result_sub = rospy.Subscriber('/move_base/result', MoveBaseActionResult, self.goal_result_callback)
+        rospy.Subscriber('/sonar/back_obstacle', Bool, self.back_obstacle_callback)
+        rospy.Subscriber('/sonar/package_onboard', Bool, self.package_onboard_callback)
         #update odom
 
         self.odom_raw_pub = rospy.Publisher('/odom', Odometry, queue_size=20)
+        self.cancel_goal_pub = rospy.Publisher('/move_base/cancel', GoalID, queue_size=10)
+        self.goal_pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
         self.odom_broadcaster = tf.TransformBroadcaster()
         self.__robot.log("Initialization navigation topic finished")
 
     def __init_flag(self):
         self.__is_nav_mode = False
-        self.__is_recoverty_mode = False
+        self.__is_recovery_mode = False
         self.__current_position = None
         self.__current_goal_pose = None
-    
+        self.__is_back_obstacle = False
+        self.__is_package_onboard = False
+
     def cmd_vel_callback(self, cmd_vel_msg):
         '''
         Subscription to cmd_vel topic (published by ros navigation)
@@ -70,15 +87,22 @@ class Navigation:
         '''
         try:
             # self.__robot.log('cmd_vel_callback', str(cmd_vel_msg))
-
+            if self.__is_recovery_mode or not self.__is_nav_mode:
+                return
             linear_x = cmd_vel_msg.linear.x
             angular_z = cmd_vel_msg.angular.z
             self.pre_cmd_vel = cmd_vel_msg
             rospy.loginfo("Receive cmd_vel: {0} {1}".format(linear_x, angular_z))
+            # if abs(self.v_straight[0] - self.v_straight[3]) > 0.1 or abs(self.v_straight[1] - self.v_straight[2]) > 0.1:
+            #     self.__robot.set_stop()
+            #     time.sleep(1)
+            #     return
             if linear_x == 0.0 and angular_z == 0.0:
+                self.__robot.log("cmd stop")
                 self.__robot.set_stop()
                 return
             self.calculate_cmd(linear_x, angular_z)
+            self.__robot.log("speed:{}".format(self.v_straight))
         except:
             self.__robot.log("cmd_vel_callback@Exception", traceback.format_exc())
             
@@ -99,10 +123,34 @@ class Navigation:
         -------
         goal: PoseStamped
         '''
+        self.__is_nav_mode = True
+        self.__is_recovery_mode = False
         self.goal_pose = goal_msg.pose
-        goal_roll, goal_pitch, goal_yaw = quat2euler([self.goal_pose.orientation.w, self.goal_pose.orientation.x, self.goal_pose.orientation.y, self.goal_pose.orientation.z])
-        self.__robot.log("position: {0}, yaw: {1}".format(self.goal_pose.position, goal_yaw))
-        rospy.loginfo("goal_yaw: {}".format(goal_yaw))
+        goal_roll, goal_pitch, self.goal_yaw = quat2euler([self.goal_pose.orientation.w, self.goal_pose.orientation.x, self.goal_pose.orientation.y, self.goal_pose.orientation.z])
+        self.__robot.log("position: {0}, yaw: {1}".format(self.goal_pose.position, self.goal_yaw))
+        rospy.loginfo("goal_yaw: {}".format(self.goal_yaw))
+
+    def goal_result_callback(self, result_msg):
+        '''
+        Check goal status and correct robot heading
+        '''
+        try:
+            rospy.loginfo("Goal result {0}".format(result_msg.status))
+            self.__robot.log("Goal result {0}".format(result_msg.status.status))
+            if result_msg.status.status == GOAL_STATUS_SUCCESS:
+                self.__robot.log("Navigation succeed ===> Correct robot heading")
+                t = threading.Thread(target=self.correct_robot_heading())
+                t.setDaemon(True)
+                t.start()
+                return
+            elif result_msg.status.status == GOAL_STATUS_ABORT:
+                #this mean robot stuck ====> try to recover and set goal again
+                t = threading.Thread(target=self.run_recovery())
+                t.setDaemon(True)
+                t.start()
+                return
+        except:
+            self.__robot.log("goal_result_callback@Exception",traceback.format_exc())
 
     def imu_callback(self, imu_msg):
         '''
@@ -119,6 +167,18 @@ class Navigation:
         except:
             self.__robot.log("imu_callback@Exception", traceback.format_exc())
 
+    def back_obstacle_callback(self, msg):
+        try:
+            self.__is_back_obstacle = msg
+        except:
+            self.__robot.log("back_obstacle_callback@Exception", traceback.format_exc())
+    
+    def package_onboard_callback(self,msg):
+        try:
+            self.__is_package_onboard = msg
+        except:
+            self.__robot.log("package_onboard_callback@Exception", traceback.format_exc())
+
     def odom_update(self, timer):
         '''
         update odom with data from sensor
@@ -127,20 +187,17 @@ class Navigation:
         # ")
         self.current_time = rospy.Time.now()
         dt = (self.current_time - self.last_time).to_sec()
-        v_straight = self.__robot.get_speed()
-        # rospy.loginfo(v_straight)
-        v_left = (v_straight[0] + v_straight[3]) / 2
-        v_right = (v_straight[1] + v_straight[2]) / 2
+        self.v_straight = self.__robot.get_speed()
+        # rospy.loginfo(self.v_straight)
+        v_left = (self.v_straight[0] + self.v_straight[3]) / 2
+        v_right = (self.v_straight[1] + self.v_straight[2]) / 2
 
         v_avg= (v_left + v_right) / 2
         vth = self.imu_data[2][2]
         delta_s = v_avg * dt
         #rospy.loginfo(v_left)
         #rospy.loginfo(v_right)
-
-        yaw_angle = self.imu_data[0][2]
-        yaw_angle = self.__correct_angle(yaw_angle)
-        
+    
         delta_th = vth * dt
         self.pose[2] += self.__correct_angle(delta_th)
 
@@ -160,7 +217,7 @@ class Navigation:
         self.pose[0] += delta_x
         self.pose[1] += delta_y
         
-        #log_msg = "vx: {0} vy:{1} vth:{2} posex:{3} posey:{4} posez:{5} vstraight: {5}".format(vx,vy,vth, self.pose[0], self.pose[1], self.pose[2], v_straight)
+        #log_msg = "vx: {0} vy:{1} vth:{2} posex:{3} posey:{4} posez:{5} vstraight: {5}".format(vx,vy,vth, self.pose[0], self.pose[1], self.pose[2], self.v_straight)
         self.__robot.log(log_msg)
         # since all odometry is 6DOF we'll need a quaternion created from yaw
         odom_quat = tf.transformations.quaternion_from_euler(0, 0, self.pose[2])
@@ -197,14 +254,26 @@ class Navigation:
         rospy.loginfo("Handling cmd_vel msg")
         if linear == 0.0:
             # speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
+            self.__robot.log("cmd rotate")
             self.__robot.set_rotate(self.check_speed(angular, is_angular=True))
             return
         # self.__robot.log("Rotate robot to cmd_vel")
         if angular == 0.0:
+            self.__robot.log("cmd forward")
             speed = self.check_speed(linear)
+            if speed < 0:
+                if self.__is_back_obstacle:
+                    self.__robot.set_stop()
+                    msg = GoalID()
+                    msg.stamp = rospy.Time.now()
+                    msg.id = ""
+                    self.cancel_goal_pub.publish(msg)
+                    self.__robot.log("Cancel goal because obstacle is in the back")
+                    return
             self.__robot.set_speed([speed, speed])
             return
         else:
+            self.__robot.log("cmd turn")
             direction = 1 if linear  > 0 else -1
             R_c = linear / angular
             R_l = R_c - ROBOT_WIDTH / 2   # r  center left
@@ -225,10 +294,10 @@ class Navigation:
         elif speed < -ROBOT_MAX_SPEED:
             speed = -ROBOT_MAX_SPEED
         
-        if speed > 0.04 and speed < 0.11:
-            speed = 0.11
-        elif speed < -0.04 and speed > -0.11:
-            speed = -0.11
+        if speed > 0.05 and speed < 0.14:
+            speed = 0.15
+        elif speed < -0.05 and speed > -0.14:
+            speed = -0.15
         if is_angular:
             speed /= (ROBOT_WIDTH / 2)
         return speed
@@ -260,3 +329,56 @@ class Navigation:
             angle = np.rad2deg(angle)
 
         return angle
+    
+    def correct_robot_heading(self):
+        try:
+            self.__is_nav_mode = False
+            self.__is_recovery_mode = False
+            self.__robot.set_stop()
+            time.sleep(1)
+
+            yaw_now = self.pose[2]
+            time_out = 10
+            time_sleep = 0.2
+            count = 0
+            count_max = time_out / time_sleep
+            delta_angle = self.goal_yaw - yaw_now
+
+            while delta_angle > 0.1:
+                self.__robot.log("yaw_now:{0}, yaw_goal:{1}, delta:{2}".format(yaw_now, self.goal_yaw, delta_angle))
+                self.__robot.set_rotate(self.check_speed(1, is_angular=True))
+                time.sleep(time_sleep)
+                count += 1
+                if count >= count_max: #time out
+                    self.__robot.log("Robot cannot rotate close to goal")
+                    break
+            self.__robot.set_stop()
+            if delta_angle < 0.1:
+                self.__robot.log("Correct heading succeeded")
+            else:
+                self.__robot.log("Correct heading failed")
+        except:
+            self.__robot.log("corect_robot_heading@Exception", traceback.format_exc())
+    
+    def run_recovery(self):
+        try:
+            self.__is_recovery_mode = True
+            self.__is_nav_mode = False
+            if self.__is_back_obstacle:
+                self.__robot.log("Cannot go backward, there is a obstacle")
+                rospy.loginfo("Cannot go backward, there is a obstacle. Please move robot manually, it's stuck")
+                self.__is_recovery_mode = False
+                return
+            else:
+                self.__robot.log("Try to move backward")
+                speed = 0.15
+                self.__robot.set_speed([-speed, -speed])
+                for i in range (10): #keep moving back in 1s
+                    if self.__is_back_obstacle:
+                        break
+                    time.sleep(0.1)
+                self.__robot.log("Try to set goal again")
+                self.goal_pub.publish(self.goal_pose)
+                self.__is_recovery_mode = False
+        except:
+            self.__robot.log("run_recovery@Exception", traceback.format_exc())

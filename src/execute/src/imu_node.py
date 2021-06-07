@@ -7,7 +7,7 @@ import datetime
 import traceback
 import numpy as np
 
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 from sensor_msgs.msg import Imu, MagneticField
 from robot_control import ROBOT_STATUS
 
@@ -35,6 +35,9 @@ class IMU_Sensor(object):
             self.gyroX = 0.0
             self.gyroY = 0.0
             self.gyroZ = 0.0
+
+            self.is_back_obstacle = 0
+            self.is_package = 0
             # self.log("Opening serial port: {0}".format(port))
         except:
             sys.exit(traceback.format_exc())
@@ -76,6 +79,9 @@ class IMU_Sensor(object):
                 self.gyroX = data[6]
                 self.gyroY = data[7]
                 self.gyroZ = data[8]
+
+                self.is_back_obstacle = data[9]
+                self.is_package = data[10]
                 break
 
             except Exception as exp:
@@ -104,6 +110,8 @@ class IMU_node(IMU_Sensor):
             rospy.Subscriber("robot_status", String, self.read_robot_status)
             self.pub_acc_gyr_raw = rospy.Publisher("/imu/data_raw", Imu, queue_size=20)
             self.pub_mag_raw = rospy.Publisher("/imu/mag", MagneticField, queue_size=10)
+            self.pub_back_obstacle = rospy.Publisher("/sonar/back_obstacle", Bool, queue_size=2)
+            self.pub_package_onboard = rospy.Publisher("/sonar/package_onboard", Bool, queue_size=2)
             self.initMessage()
 
             self.__robot_status = ROBOT_STATUS._STOP
@@ -143,12 +151,12 @@ class IMU_node(IMU_Sensor):
         try:
             self.readIMU()
             self.__time_now = rospy.Time.now()
-            self.acc_gyr.linear_acceleration.x = self.accX
-            self.acc_gyr.linear_acceleration.y = self.accY
-            self.acc_gyr.linear_acceleration.z = self.accZ
-            self.acc_gyr.angular_velocity.x = self.gyroX
-            self.acc_gyr.angular_velocity.y = self.gyroY
-            self.acc_gyr.angular_velocity.z = self.gyroZ
+            self.acc_gyr.linear_acceleration.x = self.accX - self.init_data[3]
+            self.acc_gyr.linear_acceleration.y = self.accY - self.init_data[4]
+            self.acc_gyr.linear_acceleration.z = self.accZ - self.init_data[5]
+            self.acc_gyr.angular_velocity.x = self.gyroX - self.init_data[6]
+            self.acc_gyr.angular_velocity.y = self.gyroY - self.init_data[7]
+            self.acc_gyr.angular_velocity.z = self.gyroZ - self.init_data[8]
             self.acc_gyr.header.stamp = self.__time_now
             self.pub_acc_gyr_raw.publish(self.acc_gyr)
 
@@ -159,6 +167,11 @@ class IMU_node(IMU_Sensor):
             self.pub_mag_raw.publish(self.mag)
             self.log("accx: {0} accy: {1}".format(self.accX, self.accY))
             
+            msg = Bool()
+            msg.data = bool(self.is_back_obstacle)
+            self.pub_back_obstacle.publish(msg)
+            msg.data = bool(self.is_package)
+            self.pub_package_onboard.publish(msg)
 
             # if self.__time_now - self.__time_pre > 5000:
             #     self.calib_offset()

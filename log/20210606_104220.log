@@ -1,0 +1,5 @@
+1622950940336 [Opening serial port: /dev/ttyTHS1.] 
+1622950940641 [The robot is connected to ] [/dev/ttyTHS1] 
+1622950940641 [Initial robot's topic...] 
+1622951208999 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 5 \ x 0 2 N \ x 0 f \ x 0 e ' ) ]] 
+1622951219248 [log_latest_command] [[ b y t e a r r a y ( b ' \ x a a \ x f f \ x a 2 \ x b 0 \ x 0 4 \ x f f \ x b 0 \ x 0 4 \ x 0 0 \ x 0 4 \ x b 2 \ x 0 f \ x 0 e ' ) ]] 
