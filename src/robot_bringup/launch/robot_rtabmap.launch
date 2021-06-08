@@ -22,14 +22,14 @@
   <arg name="scan_topic"                                default="/scan"/>
   <arg name="odom_topic"                                default="/odom"/>
   
-  <!-- <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
       <remap from="image"       to="/camera/aligned_depth_to_color/image_raw"/>
       <remap from="camera_info" to="/camera/color/camera_info"/>
       <remap from="scan"        to="/scan"/>
       <param name="range_max" type="double" value="3"/>
-  </node> -->
+  </node>
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
   
   <!-- Robot remote and description --> 
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
@@ -41,7 +41,7 @@
   <!-- Mapping -->
   <include file="$(find robot_bringup)/launch/robot_mapping.launch">
     <arg name="frame_id"              value="base_link" />
-    <!-- <arg name="subscribe_scan"          value="true"/> -->
+    <arg name="subscribe_scan"          value="true"/>
     <arg name="depth_topic"       value="/camera/aligned_depth_to_color/image_raw"/>
     <arg name="rgb_topic"         value="/camera/color/image_raw"/>
     <arg name="camera_info_topic"         value="/camera/color/camera_info"/>
