@@ -29,7 +29,7 @@
       <param name="range_max" type="double" value="3"/>
   </node>
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
   
   <!-- Robot remote and description --> 
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>

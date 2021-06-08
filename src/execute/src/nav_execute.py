@@ -14,7 +14,7 @@ from std_msgs.msg import String, Bool
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point, Pose, Quaternion, Twist, PoseStamped, PoseWithCovarianceStamped, Vector3
 from transforms3d.euler import quat2euler, euler2quat
-from sensor_msgs.msg import Imu, MagneticField
+from sensor_msgs.msg import Imu, MagneticField, LaserScan
 from actionlib_msgs.msg import GoalStatusArray, GoalID
 from move_base_msgs.msg import MoveBaseActionResult
 
@@ -49,6 +49,9 @@ class Navigation:
         self.pre_cmd_vel = Twist()
         self.goal_pose = Pose()
         self.goal_yaw = 0.0
+        self.range_max = None
+        self.range_min = None
+        self.scan_range = []
         self.v_straight = None
         rospy.Timer(rospy.Duration(0.05), callback = self.odom_update) #10Hz
         
@@ -62,6 +65,8 @@ class Navigation:
         self.goal_result_sub = rospy.Subscriber('/move_base/result', MoveBaseActionResult, self.goal_result_callback)
         rospy.Subscriber('/sonar/back_obstacle', Bool, self.back_obstacle_callback)
         rospy.Subscriber('/sonar/package_onboard', Bool, self.package_onboard_callback)
+        rospy.Subscriber('/scan', LaserScan, self.scan_callback)
+        
         #update odom
 
         self.odom_raw_pub = rospy.Publisher('/odom', Odometry, queue_size=20)
@@ -77,6 +82,7 @@ class Navigation:
         self.__current_goal_pose = None
         self.__is_back_obstacle = False
         self.__is_package_onboard = False
+        self.__is_turning = False
 
     def cmd_vel_callback(self, cmd_vel_msg):
         '''
@@ -106,7 +112,16 @@ class Navigation:
         except:
             self.__robot.log("cmd_vel_callback@Exception", traceback.format_exc())
             
-
+    def scan_callback(self,scan_msg):
+        '''
+        Subscription to odom topic (published by ros depth_image_to_scan)
+        Params:
+        -------
+        scan_msg: LaserScan
+        '''
+        self.scan_range = scan_msg.ranges
+        self.range_max = scan_msg.range_max
+        self.range_min = scan_msg.range_min
         
     def odometry_callback(self, odom_msg):
         '''
@@ -261,6 +276,7 @@ class Navigation:
         if angular == 0.0:
             self.__robot.log("cmd forward")
             speed = self.check_speed(linear)
+            self.__robot.log("speed:{0}, obstacle:{1}".format(speed, self.__is_back_obstacle))
             if speed < 0:
                 if self.__is_back_obstacle:
                     self.__robot.set_stop()
@@ -273,6 +289,7 @@ class Navigation:
             self.__robot.set_speed([speed, speed])
             return
         else:
+            self.__is_turning = True
             self.__robot.log("cmd turn")
             direction = 1 if linear  > 0 else -1
             R_c = linear / angular
@@ -280,10 +297,16 @@ class Navigation:
             R_r = R_c + ROBOT_WIDTH / 2   # r center right
             v_whl = abs(angular * R_l) * direction
             v_whr = abs(angular * R_r) * direction
-            v_whl = self.check_speed(v_whl)
-            v_whr = self.check_speed(v_whr)
+            ratio = v_whl/v_whr
+            if v_whl <= v_whr:
+                v_whl = self.check_speed(v_whl)
+                v_whr = v_whl/ratio
+            else:
+                v_whr = self.check_speed(v_whr)
+                v_whl = v_whr * ratio
             self.__robot.log("v left: {0} v right: {1}".format(v_whl, v_whr))
             self.__robot.set_speed([v_whl, v_whr])
+            self.__is_turning = False
             return
         
     def check_speed(self, speed, is_angular=False):
@@ -294,10 +317,10 @@ class Navigation:
         elif speed < -ROBOT_MAX_SPEED:
             speed = -ROBOT_MAX_SPEED
         
-        if speed > 0.05 and speed < 0.14:
-            speed = 0.15
-        elif speed < -0.05 and speed > -0.14:
-            speed = -0.15
+        if speed > 0.05 and speed < 0.11:
+            speed = 0.11
+        elif speed < -0.05 and speed > -0.11:
+            speed = -0.11
         if is_angular:
             speed /= (ROBOT_WIDTH / 2)
         return speed
@@ -343,17 +366,19 @@ class Navigation:
             count = 0
             count_max = time_out / time_sleep
             delta_angle = self.goal_yaw - yaw_now
-
-            while delta_angle > 0.1:
-                self.__robot.log("yaw_now:{0}, yaw_goal:{1}, delta:{2}".format(yaw_now, self.goal_yaw, delta_angle))
-                self.__robot.set_rotate(self.check_speed(1, is_angular=True))
+            direction = 1 if delta_angle >= 0 else -1
+            while delta_angle > 0.05:
+                self.__robot.log("rotating delta angle{0}".format(delta_angle))
+                self.__robot.set_rotate(self.check_speed(1.2*direction, is_angular=True))
                 time.sleep(time_sleep)
                 count += 1
+                yaw_now = self.pose[2]
+                delta_angle = self.goal_yaw - yaw_now
                 if count >= count_max: #time out
                     self.__robot.log("Robot cannot rotate close to goal")
                     break
             self.__robot.set_stop()
-            if delta_angle < 0.1:
+            if delta_angle < 0.08:
                 self.__robot.log("Correct heading succeeded")
             else:
                 self.__robot.log("Correct heading failed")
@@ -366,7 +391,20 @@ class Navigation:
             self.__is_nav_mode = False
             if self.__is_back_obstacle:
                 self.__robot.log("Cannot go backward, there is a obstacle")
-                rospy.loginfo("Cannot go backward, there is a obstacle. Please move robot manually, it's stuck")
+                rospy.loginfo("Cannot go backward, there is a obstacle. Try to move forward")
+                self.__robot.set_speed([0.15, 0.15])
+                for i in range (10):
+                    if self.range_min >= 0.5:
+                        time.sleep(0.2)
+                    else:
+                        self.__robot.set_stop()
+                        self.__is_navigation_mode = False
+                        self.__is_recovery_mode = False
+                        return
+                self.__robot.set_stop()
+                self.__robot.log("Try to set goal again")
+                self.goal_pub.publish(self.goal_pose)
+                self.__is_navigation_mode = False
                 self.__is_recovery_mode = False
                 return
             else:
@@ -376,7 +414,8 @@ class Navigation:
                 for i in range (10): #keep moving back in 1s
                     if self.__is_back_obstacle:
                         break
-                    time.sleep(0.1)
+                    time.sleep(0.2)
+                self.__robot.set_stop()
                 self.__robot.log("Try to set goal again")
                 self.goal_pub.publish(self.goal_pose)
                 self.__is_recovery_mode = False

@@ -151,12 +151,12 @@ class IMU_node(IMU_Sensor):
         try:
             self.readIMU()
             self.__time_now = rospy.Time.now()
-            self.acc_gyr.linear_acceleration.x = self.accX - self.init_data[3]
-            self.acc_gyr.linear_acceleration.y = self.accY - self.init_data[4]
-            self.acc_gyr.linear_acceleration.z = self.accZ - self.init_data[5]
-            self.acc_gyr.angular_velocity.x = self.gyroX - self.init_data[6]
-            self.acc_gyr.angular_velocity.y = self.gyroY - self.init_data[7]
-            self.acc_gyr.angular_velocity.z = self.gyroZ - self.init_data[8]
+            self.acc_gyr.linear_acceleration.x = self.accX 
+            self.acc_gyr.linear_acceleration.y = self.accY 
+            self.acc_gyr.linear_acceleration.z = self.accZ
+            self.acc_gyr.angular_velocity.x = self.gyroX 
+            self.acc_gyr.angular_velocity.y = self.gyroY 
+            self.acc_gyr.angular_velocity.z = self.gyroZ 
             self.acc_gyr.header.stamp = self.__time_now
             self.pub_acc_gyr_raw.publish(self.acc_gyr)
 

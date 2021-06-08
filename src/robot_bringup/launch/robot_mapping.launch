@@ -253,7 +253,7 @@
       <!-- <param name="Grid/MaxObstacleHeight"           type="double" value="2.0"/> --> -->
       <!-- <param name="GridGlobal/FullUpdate"           type="bool" value="true"/> -->
       <param name="Grid/NormalsSegmentation"           type="bool" value="false"/>
-      <param name="Grid/MaxGroundAngle"           type="double" value="55.0"/>
+      <param name="Grid/MaxGroundAngle"           type="double" value="60.0"/>
       <!-- <param name="Grid/NoiseFilteringRadius"           type="double" value="0.01"/> -->
       <param name="Optimizer/GravitySigma"           type="double" value="0.0"/>
       <param name="Vis/MaxFeatures"                  type="int" value="600"/>
