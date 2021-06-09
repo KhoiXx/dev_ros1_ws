@@ -48,6 +48,7 @@ class Navigation:
         self.pose =[0.00, 0.00, 0.00] #x, y, th
         self.pre_cmd_vel = Twist()
         self.goal_pose = Pose()
+        self.goal_posestamped = PoseStamped()
         self.goal_yaw = 0.0
         self.range_max = None
         self.range_min = None
@@ -91,10 +92,13 @@ class Navigation:
         -------
         cmd_vel_msg: Twist
         '''
+        
+        if self.__is_recovery_mode or not self.__is_nav_mode:
+            rospy.loginfo("Returning")
+            self.__robot.log("Returning {0} {1}".format(self.__is_recovery_mode, self.__is_nav_mode))
+            return
         try:
             # self.__robot.log('cmd_vel_callback', str(cmd_vel_msg))
-            if self.__is_recovery_mode or not self.__is_nav_mode:
-                return
             linear_x = cmd_vel_msg.linear.x
             angular_z = cmd_vel_msg.angular.z
             self.pre_cmd_vel = cmd_vel_msg
@@ -141,6 +145,7 @@ class Navigation:
         self.__is_nav_mode = True
         self.__is_recovery_mode = False
         self.goal_pose = goal_msg.pose
+        self.goal_posestamped = goal_msg
         goal_roll, goal_pitch, self.goal_yaw = quat2euler([self.goal_pose.orientation.w, self.goal_pose.orientation.x, self.goal_pose.orientation.y, self.goal_pose.orientation.z])
         self.__robot.log("position: {0}, yaw: {1}".format(self.goal_pose.position, self.goal_yaw))
         rospy.loginfo("goal_yaw: {}".format(self.goal_yaw))
@@ -184,13 +189,13 @@ class Navigation:
 
     def back_obstacle_callback(self, msg):
         try:
-            self.__is_back_obstacle = msg
+            self.__is_back_obstacle = msg.data
         except:
             self.__robot.log("back_obstacle_callback@Exception", traceback.format_exc())
     
     def package_onboard_callback(self,msg):
         try:
-            self.__is_package_onboard = msg
+            self.__is_package_onboard = msg.data
         except:
             self.__robot.log("package_onboard_callback@Exception", traceback.format_exc())
 
@@ -366,10 +371,10 @@ class Navigation:
             count = 0
             count_max = time_out / time_sleep
             delta_angle = self.goal_yaw - yaw_now
-            direction = 1 if delta_angle >= 0 else -1
+            direction = -1 if delta_angle >= 0 else 1
             while delta_angle > 0.05:
-                self.__robot.log("rotating delta angle{0}".format(delta_angle))
                 self.__robot.set_rotate(self.check_speed(1.2*direction, is_angular=True))
+                self.__robot.log("rotating delta angle{0}".format(delta_angle))
                 time.sleep(time_sleep)
                 count += 1
                 yaw_now = self.pose[2]
@@ -388,14 +393,15 @@ class Navigation:
     def run_recovery(self):
         try:
             self.__is_recovery_mode = True
-            self.__is_nav_mode = False
+            self.__is_nav_mode = False            
+            self.__robot.log(self.__is_back_obstacle)
             if self.__is_back_obstacle:
                 self.__robot.log("Cannot go backward, there is a obstacle")
                 rospy.loginfo("Cannot go backward, there is a obstacle. Try to move forward")
                 self.__robot.set_speed([0.15, 0.15])
-                for i in range (10):
+                for i in range (50):
                     if self.range_min >= 0.5:
-                        time.sleep(0.2)
+                        time.sleep(0.1)
                     else:
                         self.__robot.set_stop()
                         self.__is_navigation_mode = False
@@ -403,7 +409,7 @@ class Navigation:
                         return
                 self.__robot.set_stop()
                 self.__robot.log("Try to set goal again")
-                self.goal_pub.publish(self.goal_pose)
+                self.goal_pub.publish(self.goal_posestamped)
                 self.__is_navigation_mode = False
                 self.__is_recovery_mode = False
                 return
@@ -411,13 +417,13 @@ class Navigation:
                 self.__robot.log("Try to move backward")
                 speed = 0.15
                 self.__robot.set_speed([-speed, -speed])
-                for i in range (10): #keep moving back in 1s
+                for i in range (50): #keep moving back in 5s
                     if self.__is_back_obstacle:
                         break
-                    time.sleep(0.2)
+                    time.sleep(0.1)
                 self.__robot.set_stop()
                 self.__robot.log("Try to set goal again")
-                self.goal_pub.publish(self.goal_pose)
+                self.goal_pub.publish(self.goal_posestamped)
                 self.__is_recovery_mode = False
         except:
             self.__robot.log("run_recovery@Exception", traceback.format_exc())
