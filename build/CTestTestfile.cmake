@@ -5,9 +5,9 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
-subdirs("arm_moveit")
-subdirs("robot_navigation")
-subdirs("serial_communication")
-subdirs("execute")
-subdirs("robot_bringup")
-subdirs("car")
+subdirs("fiducials/fiducials")
+subdirs("image_common/image_transport")
+subdirs("fiducials/fiducial_msgs")
+subdirs("fiducials/fiducial_slam")
+subdirs("vision_msgs")
+subdirs("fiducials/aruco_detect")

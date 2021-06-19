@@ -17,11 +17,11 @@ ROS_WS = '/home/khoixx/dev_ros1_ws'
 LOG_FILE_PATH = ROS_WS + '/log/arm_log/'
 
 J5_ZERO = 0
-J4_ZERO = 91
-J3_ZERO = 57
-J2_ZERO = 100
-J1_ZERO = 92
-J0_ZERO = 83
+J4_ZERO = 180
+J3_ZERO = 144
+J2_ZERO = 70
+J1_ZERO = 32
+J0_ZERO = 220
 position_zero = [J0_ZERO, J1_ZERO, J2_ZERO, J3_ZERO, J4_ZERO, J5_ZERO]
 
 class adjust_joint_angle:
@@ -34,12 +34,12 @@ class adjust_joint_angle:
         ]
         self.__file_log = open("".join(log_info), "w")
         self.name = []
-        self.j5_angle = np.rad2deg(-0.00993) + J5_ZERO
-        self.j4_angle = np.rad2deg(1.55) + J4_ZERO
-        self.j3_angle = np.rad2deg(1.56998) + J3_ZERO
-        self.j2_angle = -np.rad2deg(0.80674) + J2_ZERO
-        self.j1_angle = np.rad2deg(-1.22291) + J1_ZERO
-        self.j0_angle = np.rad2deg(-0.785) + J0_ZERO
+        self.j5_angle = J5_ZERO
+        self.j4_angle = np.rad2deg(0.1) + J4_ZERO
+        self.j3_angle = J3_ZERO
+        self.j2_angle = J2_ZERO
+        self.j1_angle = J1_ZERO
+        self.j0_angle = J0_ZERO
 
         self.gripper_release = True
         self.position = [self.j0_angle,self.j1_angle,self.j2_angle,self.j3_angle,self.j4_angle,self.j5_angle]
@@ -51,7 +51,7 @@ class adjust_joint_angle:
             self.test.servo[i].set_pulse_width_range(min_pulse = 370, max_pulse = 2340)
         self.log("PCA is opening")
         self.exc_joint = [self.test.servo[5], self.test.servo[4], self.test.servo[3], self.test.servo[2], self.test.servo[1], self.test.servo[0]]
-        self.exc_joint[0].actuation_range = 270
+        self.exc_joint[0].actuation_range = 260
         for i in range(0,5):
             self.exc_joint[i].angle = self.fix_angle(self.position[i])
         self.log('Finished initializing arm_control')
@@ -68,10 +68,10 @@ class adjust_joint_angle:
         self.position[2] = -position[2] + J2_ZERO
 
         self.log("arm is running")
-        for i in range(0,4):
+        for i in range(0,6):
             if i == 0:
-                if self.position[i] > 260:
-                    self.position[i] = 260
+                if self.position[i] > 270:
+                    self.position[i] = 270
                 elif self.position[i] < 0:
                     self.position[i] = 0
                 self.exc_joint[i].angle = self.position[i]

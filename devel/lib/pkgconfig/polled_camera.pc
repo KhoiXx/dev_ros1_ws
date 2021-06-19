@@ -1,0 +1,8 @@
+prefix=/home/khoixx/dev_ros1_ws/devel
+
+Name: polled_camera
+Description: Description of polled_camera
+Version: 1.11.14
+Cflags: -I/home/khoixx/dev_ros1_ws/devel/include -I/home/khoixx/dev_ros1_ws/src/image_common/polled_camera/include
+Libs: -L${prefix}/lib -lpolled_camera
+Requires: image_transport message_runtime roscpp sensor_msgs std_msgs

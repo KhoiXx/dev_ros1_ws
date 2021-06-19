@@ -1,0 +1,8 @@
+prefix=/home/khoixx/dev_ros1_ws/devel
+
+Name: arm_moveit_1
+Description: Description of arm_moveit_1
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

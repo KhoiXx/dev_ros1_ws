@@ -1,8 +1,9 @@
 <launch>
-    <include file="$(find arm_moveit)/launch/demo.launch">
-        <arg name="use_rviz" value="true"/>
+    <include file="$(find robot_moveit)/launch/demo.launch">
+        <arg name="use_gui" value="true"/>
+        <arg name="use_rviz" value="false"/>
     </include>
 
-    <node pkg="execute" type="Arm_moveit.py" name="Arm_moveit" respawn="true"/>
-    <node pkg="execute" type="Arm_control_real.py" name="Arm_control_real" output="screen"/>
+    <!-- <node pkg="execute" type="Arm_moveit.py" name="Arm_moveit" respawn="true"/> -->
+    <node pkg="execute" type="Arm_control_real.py" name="Arm_control_real" output="screen" launch-prefix="bash -c 'sleep 18; $0 $@' "/>
 </launch>

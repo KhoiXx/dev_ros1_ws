@@ -131,12 +131,12 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/khoixx/dev_ros1_ws/build/gtest/cmake_install.cmake")
-  include("/home/khoixx/dev_ros1_ws/build/arm_moveit/cmake_install.cmake")
-  include("/home/khoixx/dev_ros1_ws/build/robot_navigation/cmake_install.cmake")
-  include("/home/khoixx/dev_ros1_ws/build/serial_communication/cmake_install.cmake")
-  include("/home/khoixx/dev_ros1_ws/build/execute/cmake_install.cmake")
-  include("/home/khoixx/dev_ros1_ws/build/robot_bringup/cmake_install.cmake")
-  include("/home/khoixx/dev_ros1_ws/build/car/cmake_install.cmake")
+  include("/home/khoixx/dev_ros1_ws/build/fiducials/fiducials/cmake_install.cmake")
+  include("/home/khoixx/dev_ros1_ws/build/image_common/image_transport/cmake_install.cmake")
+  include("/home/khoixx/dev_ros1_ws/build/fiducials/fiducial_msgs/cmake_install.cmake")
+  include("/home/khoixx/dev_ros1_ws/build/fiducials/fiducial_slam/cmake_install.cmake")
+  include("/home/khoixx/dev_ros1_ws/build/vision_msgs/cmake_install.cmake")
+  include("/home/khoixx/dev_ros1_ws/build/fiducials/aruco_detect/cmake_install.cmake")
 
 endif()
 

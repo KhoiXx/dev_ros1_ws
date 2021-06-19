@@ -23,6 +23,36 @@ BUILD_GTEST:BOOL=OFF
 //Build shared libraries (DLLs).
 BUILD_SHARED_LIBS:BOOL=ON
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=Boost_DIR-NOTFOUND
+
+//Boost filesystem library (debug)
+Boost_FILESYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/lib/aarch64-linux-gnu/libboost_filesystem.so
+
+//Boost filesystem library (release)
+Boost_FILESYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/lib/aarch64-linux-gnu/libboost_filesystem.so
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/include
+
+//Boost library directory DEBUG
+Boost_LIBRARY_DIR_DEBUG:PATH=/usr/lib/aarch64-linux-gnu
+
+//Boost library directory RELEASE
+Boost_LIBRARY_DIR_RELEASE:PATH=/usr/lib/aarch64-linux-gnu
+
+//Boost python library (debug)
+Boost_PYTHON_LIBRARY_DEBUG:FILEPATH=/usr/lib/aarch64-linux-gnu/libboost_python.so
+
+//Boost python library (release)
+Boost_PYTHON_LIBRARY_RELEASE:FILEPATH=/usr/lib/aarch64-linux-gnu/libboost_python.so
+
+//Boost system library (debug)
+Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/lib/aarch64-linux-gnu/libboost_system.so
+
+//Boost system library (release)
+Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/lib/aarch64-linux-gnu/libboost_system.so
+
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
 
@@ -40,7 +70,7 @@ CATKIN_SKIP_TESTING:BOOL=OFF
 CATKIN_SYMLINK_INSTALL:BOOL=OFF
 
 //List of ';' separated packages to build
-CATKIN_WHITELIST_PACKAGES:STRING=
+CATKIN_WHITELIST_PACKAGES:STRING=aruco_detect;fiducial_msgs;fiducial_slam;fiducials;image_transport;vision_msgs
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
@@ -209,6 +239,150 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Compile device code in 64 bit mode
+CUDA_64_BIT_DEVICE_CODE:BOOL=ON
+
+//Attach the build rule to the CUDA source file.  Enable only when
+// the CUDA source file is added to at most one target.
+CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE:BOOL=ON
+
+//Generate and parse .cubin files in Device mode.
+CUDA_BUILD_CUBIN:BOOL=OFF
+
+//Build in Emulation mode
+CUDA_BUILD_EMULATION:BOOL=OFF
+
+//"cudart" library
+CUDA_CUDART_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcudart.so
+
+//"cuda" library (older versions only).
+CUDA_CUDA_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/libcuda.so
+
+//Directory to put all the output files.  If blank it will default
+// to the CMAKE_CURRENT_BINARY_DIR
+CUDA_GENERATED_OUTPUT_DIR:PATH=
+
+//Generated file extension
+CUDA_HOST_COMPILATION_CPP:BOOL=ON
+
+//Host side compiler used by NVCC
+CUDA_HOST_COMPILER:FILEPATH=/usr/bin/cc
+
+//Path to a program.
+CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda/bin/nvcc
+
+//Semi-colon delimit multiple arguments.
+CUDA_NVCC_FLAGS:STRING=
+
+//Semi-colon delimit multiple arguments.
+CUDA_NVCC_FLAGS_DEBUG:STRING=
+
+//Semi-colon delimit multiple arguments.
+CUDA_NVCC_FLAGS_MINSIZEREL:STRING=
+
+//Semi-colon delimit multiple arguments.
+CUDA_NVCC_FLAGS_RELEASE:STRING=
+
+//Semi-colon delimit multiple arguments.
+CUDA_NVCC_FLAGS_RELWITHDEBINFO:STRING=
+
+//Propage C/CXX_FLAGS and friends to the host compiler via -Xcompile
+CUDA_PROPAGATE_HOST_FLAGS:BOOL=ON
+
+//Path to a file.
+CUDA_SDK_ROOT_DIR:PATH=CUDA_SDK_ROOT_DIR-NOTFOUND
+
+//Compile CUDA objects with separable compilation enabled.  Requires
+// CUDA 5.0+
+CUDA_SEPARABLE_COMPILATION:BOOL=OFF
+
+//Path to a file.
+CUDA_TOOLKIT_INCLUDE:PATH=/usr/local/cuda/include
+
+//Toolkit location.
+CUDA_TOOLKIT_ROOT_DIR:PATH=/usr/local/cuda
+
+//Use the static version of the CUDA runtime library if available
+CUDA_USE_STATIC_CUDA_RUNTIME:BOOL=ON
+
+//Print out the commands run while compiling the CUDA source file.
+//  With the Makefile generator this defaults to VERBOSE variable
+// specified on the command line, but can be forced on with this
+// option.
+CUDA_VERBOSE_BUILD:BOOL=OFF
+
+//Version of CUDA as computed from nvcc.
+CUDA_VERSION:STRING=10.2
+
+//"cublas" library
+CUDA_cublas_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/libcublas.so
+
+//"cublas_device" library
+CUDA_cublas_device_LIBRARY:FILEPATH=CUDA_cublas_device_LIBRARY-NOTFOUND
+
+//"cudadevrt" library
+CUDA_cudadevrt_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcudadevrt.a
+
+//static CUDA runtime library
+CUDA_cudart_static_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcudart_static.a
+
+//"cufft" library
+CUDA_cufft_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcufft.so
+
+//"cupti" library
+CUDA_cupti_LIBRARY:FILEPATH=CUDA_cupti_LIBRARY-NOTFOUND
+
+//"curand" library
+CUDA_curand_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcurand.so
+
+//"cusolver" library
+CUDA_cusolver_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcusolver.so
+
+//"cusparse" library
+CUDA_cusparse_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libcusparse.so
+
+//"nppc" library
+CUDA_nppc_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppc.so
+
+//"nppi" library
+CUDA_nppi_LIBRARY:FILEPATH=CUDA_nppi_LIBRARY-NOTFOUND
+
+//"nppial" library
+CUDA_nppial_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppial.so
+
+//"nppicc" library
+CUDA_nppicc_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppicc.so
+
+//"nppicom" library
+CUDA_nppicom_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppicom.so
+
+//"nppidei" library
+CUDA_nppidei_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppidei.so
+
+//"nppif" library
+CUDA_nppif_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppif.so
+
+//"nppig" library
+CUDA_nppig_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppig.so
+
+//"nppim" library
+CUDA_nppim_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppim.so
+
+//"nppist" library
+CUDA_nppist_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppist.so
+
+//"nppisu" library
+CUDA_nppisu_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppisu.so
+
+//"nppitc" library
+CUDA_nppitc_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnppitc.so
+
+//"npps" library
+CUDA_npps_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnpps.so
+
+//Path to a library.
+CUDA_rt_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/librt.so
+
 //Path to a program.
 DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
 
@@ -217,6 +391,9 @@ EMPY_EXECUTABLE:FILEPATH=/usr/bin/empy
 
 //Empy script
 EMPY_SCRIPT:STRING=/usr/bin/empy
+
+//The directory containing a CMake configuration file for Eigen3.
+Eigen3_DIR:PATH=/usr/lib/cmake/eigen3
 
 //The directory containing a CMake configuration file for GMock.
 GMock_DIR:PATH=GMock_DIR-NOTFOUND
@@ -245,8 +422,23 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
 
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python2
+
+//Path to a file.
+PYTHON_INCLUDE_DIR:PATH=/usr/include/python2.7
+
+//Path to a library.
+PYTHON_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/libpython2.7.so
+
+//Path to a library.
+PYTHON_LIBRARY_DEBUG:FILEPATH=PYTHON_LIBRARY_DEBUG-NOTFOUND
 
 //Specify specific Python version to use ('major.minor' or 'major')
 PYTHON_VERSION:STRING=2
@@ -273,6 +465,9 @@ UBUNTU:BOOL=TRUE
 UBUNTU_BIONIC:BOOL=TRUE
 
 //Path to a file.
+_file_name:FILEPATH=/home/khoixx/dev_ros1_ws/src/fiducials/aruco_detect/test/aruco_images.test
+
+//Path to a file.
 _gmock_INCLUDES:FILEPATH=/usr/include/gmock/gmock.h
 
 //Path to a file.
@@ -284,6 +479,9 @@ _gtest_INCLUDES:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//Path to a file.
+_path_name:FILEPATH=/home/khoixx/dev_ros1_ws/src/image_common/camera_calibration_parsers/test/parser.py
+
 //The directory containing a CMake configuration file for actionlib.
 actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 
@@ -291,10 +489,91 @@ actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 actionlib_msgs_DIR:PATH=/opt/ros/melodic/share/actionlib_msgs/cmake
 
 //Value Computed by CMake
+arm_moveit_1_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/arm_moveit_1
+
+//Value Computed by CMake
+arm_moveit_1_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/arm_moveit_1
+
+//Value Computed by CMake
 arm_moveit_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/arm_moveit
 
 //Value Computed by CMake
 arm_moveit_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/arm_moveit
+
+//Value Computed by CMake
+aruco_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/aruco_ros/aruco
+
+//The directory containing a CMake configuration file for aruco.
+aruco_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/aruco/cmake
+
+//Dependencies for the target
+aruco_LIB_DEPENDS:STATIC=general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_gapi;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;opencv_aruco;general;opencv_bgsegm;general;opencv_bioinspired;general;opencv_ccalib;general;opencv_cudaarithm;general;opencv_cudabgsegm;general;opencv_cudacodec;general;opencv_cudafeatures2d;general;opencv_cudafilters;general;opencv_cudaimgproc;general;opencv_cudalegacy;general;opencv_cudaobjdetect;general;opencv_cudaoptflow;general;opencv_cudastereo;general;opencv_cudawarping;general;opencv_cudev;general;opencv_cvv;general;opencv_datasets;general;opencv_dnn_objdetect;general;opencv_dpm;general;opencv_face;general;opencv_freetype;general;opencv_fuzzy;general;opencv_hdf;general;opencv_hfs;general;opencv_img_hash;general;opencv_line_descriptor;general;opencv_optflow;general;opencv_phase_unwrapping;general;opencv_plot;general;opencv_quality;general;opencv_reg;general;opencv_rgbd;general;opencv_saliency;general;opencv_shape;general;opencv_stereo;general;opencv_structured_light;general;opencv_superres;general;opencv_surface_matching;general;opencv_text;general;opencv_tracking;general;opencv_videostab;general;opencv_viz;general;opencv_xfeatures2d;general;opencv_ximgproc;general;opencv_xobjdetect;general;opencv_xphoto;
+
+//Value Computed by CMake
+aruco_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/aruco_ros/aruco
+
+//Value Computed by CMake
+aruco_detect_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/fiducials/aruco_detect
+
+//Value Computed by CMake
+aruco_detect_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/fiducials/aruco_detect
+
+//Value Computed by CMake
+aruco_gazebo_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/fiducials/aruco_gazebo
+
+//Value Computed by CMake
+aruco_gazebo_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/fiducials/aruco_gazebo
+
+//Value Computed by CMake
+aruco_msgs_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/aruco_ros/aruco_msgs
+
+//The directory containing a CMake configuration file for aruco_msgs.
+aruco_msgs_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/aruco_msgs/cmake
+
+//Value Computed by CMake
+aruco_msgs_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/aruco_ros/aruco_msgs
+
+//Value Computed by CMake
+aruco_ros_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/aruco_ros/aruco_ros
+
+//Value Computed by CMake
+aruco_ros_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/aruco_ros/aruco_ros
+
+//Dependencies for the target
+aruco_ros_utils_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libcv_bridge.so;general;/usr/lib/aarch64-linux-gnu/libopencv_core.so.3.2.0;general;/usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.3.2.0;general;/usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.3.2.0;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;image_transport;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libtf.so;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;aruco;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;
+
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/melodic/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/melodic/share/bondcpp/cmake
+
+//Value Computed by CMake
+camera_calibration_parsers_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/image_common/camera_calibration_parsers
+
+//The directory containing a CMake configuration file for camera_calibration_parsers.
+camera_calibration_parsers_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/camera_calibration_parsers/cmake
+
+//Dependencies for the target
+camera_calibration_parsers_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;general;yaml-cpp;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;
+
+//Value Computed by CMake
+camera_calibration_parsers_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/image_common/camera_calibration_parsers
+
+//Dependencies for the target
+camera_calibration_parsers_wrapper_LIB_DEPENDS:STATIC=general;camera_calibration_parsers;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/usr/lib/aarch64-linux-gnu/libboost_python.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;
+
+//Value Computed by CMake
+camera_info_manager_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/image_common/camera_info_manager
+
+//The directory containing a CMake configuration file for camera_info_manager.
+camera_info_manager_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/camera_info_manager/cmake
+
+//Dependencies for the target
+camera_info_manager_LIB_DEPENDS:STATIC=general;camera_calibration_parsers;general;image_transport;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+camera_info_manager_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/image_common/camera_info_manager
 
 //Value Computed by CMake
 car_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/car
@@ -308,14 +587,44 @@ catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 //The directory containing a CMake configuration file for class_loader.
 class_loader_DIR:PATH=/opt/ros/melodic/share/class_loader/cmake
 
+//The directory containing a CMake configuration file for compressed_image_transport.
+compressed_image_transport_DIR:PATH=/opt/ros/melodic/share/compressed_image_transport/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for cv_bridge.
+cv_bridge_DIR:PATH=/opt/ros/melodic/share/cv_bridge/cmake
+
+//The directory containing a CMake configuration file for dynamic_reconfigure.
+dynamic_reconfigure_DIR:PATH=/opt/ros/melodic/share/dynamic_reconfigure/cmake
 
 //Value Computed by CMake
 execute_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/execute
 
 //Value Computed by CMake
 execute_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/execute
+
+//Value Computed by CMake
+fiducial_msgs_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/fiducials/fiducial_msgs
+
+//The directory containing a CMake configuration file for fiducial_msgs.
+fiducial_msgs_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/fiducial_msgs/cmake
+
+//Value Computed by CMake
+fiducial_msgs_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/fiducials/fiducial_msgs
+
+//Value Computed by CMake
+fiducial_slam_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/fiducials/fiducial_slam
+
+//Value Computed by CMake
+fiducial_slam_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/fiducials/fiducial_slam
+
+//Value Computed by CMake
+fiducials_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/fiducials/fiducials
+
+//Value Computed by CMake
+fiducials_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/fiducials/fiducials
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/melodic/share/gencpp/cmake
@@ -387,6 +696,36 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//Value Computed by CMake
+image_common_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/image_common/image_common
+
+//Value Computed by CMake
+image_common_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/image_common/image_common
+
+//Value Computed by CMake
+image_transport_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/image_common/image_transport
+
+//The directory containing a CMake configuration file for image_transport.
+image_transport_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/image_transport/cmake
+
+//Dependencies for the target
+image_transport_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+image_transport_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/image_common/image_transport
+
+//Dependencies for the target
+image_transport_plugins_LIB_DEPENDS:STATIC=general;image_transport;
+
+//Value Computed by CMake
+jetson_camera_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/jetson_camera
+
+//Value Computed by CMake
+jetson_camera_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/jetson_camera
+
+//Dependencies for the target
+jetson_camera_nodelet_LIB_DEPENDS:STATIC=general;camera_info_manager;general;camera_calibration_parsers;general;/opt/ros/melodic/lib/libcv_bridge.so;general;/usr/lib/aarch64-linux-gnu/libopencv_core.so.3.2.0;general;/usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.3.2.0;general;/usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.3.2.0;general;image_transport;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libnodeletlib.so;general;/opt/ros/melodic/lib/libbondcpp.so;general;/usr/lib/aarch64-linux-gnu/libuuid.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;general;opencv_calib3d;general;opencv_core;general;opencv_dnn;general;opencv_features2d;general;opencv_flann;general;opencv_gapi;general;opencv_highgui;general;opencv_imgcodecs;general;opencv_imgproc;general;opencv_ml;general;opencv_objdetect;general;opencv_photo;general;opencv_stitching;general;opencv_video;general;opencv_videoio;general;opencv_aruco;general;opencv_bgsegm;general;opencv_bioinspired;general;opencv_ccalib;general;opencv_cudaarithm;general;opencv_cudabgsegm;general;opencv_cudacodec;general;opencv_cudafeatures2d;general;opencv_cudafilters;general;opencv_cudaimgproc;general;opencv_cudalegacy;general;opencv_cudaobjdetect;general;opencv_cudaoptflow;general;opencv_cudastereo;general;opencv_cudawarping;general;opencv_cudev;general;opencv_cvv;general;opencv_datasets;general;opencv_dnn_objdetect;general;opencv_dpm;general;opencv_face;general;opencv_freetype;general;opencv_fuzzy;general;opencv_hdf;general;opencv_hfs;general;opencv_img_hash;general;opencv_line_descriptor;general;opencv_optflow;general;opencv_phase_unwrapping;general;opencv_plot;general;opencv_quality;general;opencv_reg;general;opencv_rgbd;general;opencv_saliency;general;opencv_shape;general;opencv_stereo;general;opencv_structured_light;general;opencv_superres;general;opencv_surface_matching;general;opencv_text;general;opencv_tracking;general;opencv_videostab;general;opencv_viz;general;opencv_xfeatures2d;general;opencv_ximgproc;general;opencv_xobjdetect;general;opencv_xphoto;
+
 //The directory containing a CMake configuration file for joint_state_publisher.
 joint_state_publisher_DIR:PATH=/opt/ros/melodic/share/joint_state_publisher/cmake
 
@@ -394,7 +733,7 @@ joint_state_publisher_DIR:PATH=/opt/ros/melodic/share/joint_state_publisher/cmak
 kdl_parser_DIR:PATH=/opt/ros/melodic/share/kdl_parser/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/libtf2.so
+lib:FILEPATH=/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/melodic/share/message_filters/cmake
@@ -405,8 +744,32 @@ message_generation_DIR:PATH=/opt/ros/melodic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 
+//Value Computed by CMake
+moveit_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/moveit
+
+//Value Computed by CMake
+moveit_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/moveit
+
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/melodic/share/nodelet/cmake
+
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
+
+//Value Computed by CMake
+polled_camera_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/image_common/polled_camera
+
+//Dependencies for the target
+polled_camera_LIB_DEPENDS:STATIC=general;image_transport;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/aarch64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/aarch64-linux-gnu/libpython2.7.so;general;/usr/lib/aarch64-linux-gnu/libboost_program_options.so;general;/usr/lib/aarch64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+polled_camera_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/image_common/polled_camera
+
+//Value Computed by CMake
+raspicam_node_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/raspicam_node
+
+//Value Computed by CMake
+raspicam_node_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/raspicam_node
 
 //Value Computed by CMake
 robot_bringup_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/robot_bringup
@@ -415,6 +778,18 @@ robot_bringup_DIR:PATH=
 
 //Value Computed by CMake
 robot_bringup_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/robot_bringup
+
+//Value Computed by CMake
+robot_description_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/robot_description
+
+//Value Computed by CMake
+robot_description_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/robot_description
+
+//Value Computed by CMake
+robot_moveit_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/robot_moveit
+
+//Value Computed by CMake
+robot_moveit_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/robot_moveit
 
 //Value Computed by CMake
 robot_navigation_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/robot_navigation
@@ -458,6 +833,9 @@ rospack_DIR:PATH=/opt/ros/melodic/share/rospack/cmake
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/melodic/share/rospy/cmake
 
+//The directory containing a CMake configuration file for rostest.
+rostest_DIR:PATH=/opt/ros/melodic/share/rostest/cmake
+
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/melodic/share/rostime/cmake
 
@@ -470,11 +848,17 @@ serial_communication_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/serial_com
 //Value Computed by CMake
 serial_communication_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/serial_communication
 
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/melodic/share/smclib/cmake
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/melodic/share/std_msgs/cmake
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/melodic/share/tf2/cmake
+
+//The directory containing a CMake configuration file for tf2_geometry_msgs.
+tf2_geometry_msgs_DIR:PATH=/opt/ros/melodic/share/tf2_geometry_msgs/cmake
 
 //The directory containing a CMake configuration file for tf2_kdl.
 tf2_kdl_DIR:PATH=/opt/ros/melodic/share/tf2_kdl/cmake
@@ -488,8 +872,23 @@ tf2_py_DIR:PATH=/opt/ros/melodic/share/tf2_py/cmake
 //The directory containing a CMake configuration file for tf2_ros.
 tf2_ros_DIR:PATH=/opt/ros/melodic/share/tf2_ros/cmake
 
+//The directory containing a CMake configuration file for tf.
+tf_DIR:PATH=/opt/ros/melodic/share/tf/cmake
+
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/melodic/share/urdf/cmake
+
+//Value Computed by CMake
+vision_msgs_BINARY_DIR:STATIC=/home/khoixx/dev_ros1_ws/build/vision_msgs
+
+//The directory containing a CMake configuration file for vision_msgs.
+vision_msgs_DIR:PATH=/home/khoixx/dev_ros1_ws/devel/share/vision_msgs/cmake
+
+//Value Computed by CMake
+vision_msgs_SOURCE_DIR:STATIC=/home/khoixx/dev_ros1_ws/src/vision_msgs
+
+//The directory containing a CMake configuration file for visualization_msgs.
+visualization_msgs_DIR:PATH=/opt/ros/melodic/share/visualization_msgs/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
@@ -499,6 +898,26 @@ xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_FILESYSTEM_LIBRARY_DEBUG
+Boost_FILESYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_FILESYSTEM_LIBRARY_RELEASE
+Boost_FILESYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_DEBUG
+Boost_LIBRARY_DIR_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_RELEASE
+Boost_LIBRARY_DIR_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_PYTHON_LIBRARY_DEBUG
+Boost_PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_PYTHON_LIBRARY_RELEASE
+Boost_PYTHON_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
+Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
+Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //catkin environment
 CATKIN_ENV:INTERNAL=/home/khoixx/dev_ros1_ws/build/catkin_generated/env_cached.sh
 CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/khoixx/dev_ros1_ws/build/test_results
@@ -606,7 +1025,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -647,8 +1066,113 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_64_BIT_DEVICE_CODE
+CUDA_64_BIT_DEVICE_CODE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE
+CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_BUILD_CUBIN
+CUDA_BUILD_CUBIN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_BUILD_EMULATION
+CUDA_BUILD_EMULATION-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_CUDART_LIBRARY
+CUDA_CUDART_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_CUDA_LIBRARY
+CUDA_CUDA_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_GENERATED_OUTPUT_DIR
+CUDA_GENERATED_OUTPUT_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_HOST_COMPILATION_CPP
+CUDA_HOST_COMPILATION_CPP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_EXECUTABLE
+CUDA_NVCC_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS
+CUDA_NVCC_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_DEBUG
+CUDA_NVCC_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_MINSIZEREL
+CUDA_NVCC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_RELEASE
+CUDA_NVCC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_NVCC_FLAGS_RELWITHDEBINFO
+CUDA_NVCC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_PROPAGATE_HOST_FLAGS
+CUDA_PROPAGATE_HOST_FLAGS-ADVANCED:INTERNAL=1
+//This is the value of the last time CUDA_SDK_ROOT_DIR was set
+// successfully.
+CUDA_SDK_ROOT_DIR_INTERNAL:INTERNAL=CUDA_SDK_ROOT_DIR-NOTFOUND
+//ADVANCED property for variable: CUDA_SEPARABLE_COMPILATION
+CUDA_SEPARABLE_COMPILATION-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_TOOLKIT_INCLUDE
+CUDA_TOOLKIT_INCLUDE-ADVANCED:INTERNAL=1
+//This is the value of the last time CUDA_TOOLKIT_ROOT_DIR was
+// set successfully.
+CUDA_TOOLKIT_ROOT_DIR_INTERNAL:INTERNAL=/usr/local/cuda
+//This is the value of the last time CUDA_TOOLKIT_TARGET_DIR was
+// set successfully.
+CUDA_TOOLKIT_TARGET_DIR_INTERNAL:INTERNAL=/usr/local/cuda
+//ADVANCED property for variable: CUDA_VERBOSE_BUILD
+CUDA_VERBOSE_BUILD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_VERSION
+CUDA_VERSION-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cublas_LIBRARY
+CUDA_cublas_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cublas_device_LIBRARY
+CUDA_cublas_device_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cudadevrt_LIBRARY
+CUDA_cudadevrt_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cudart_static_LIBRARY
+CUDA_cudart_static_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cufft_LIBRARY
+CUDA_cufft_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cupti_LIBRARY
+CUDA_cupti_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_curand_LIBRARY
+CUDA_curand_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cusolver_LIBRARY
+CUDA_cusolver_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_cusparse_LIBRARY
+CUDA_cusparse_LIBRARY-ADVANCED:INTERNAL=1
+//Location of make2cmake.cmake
+CUDA_make2cmake:INTERNAL=/usr/share/cmake-3.10/Modules/FindCUDA/make2cmake.cmake
+//ADVANCED property for variable: CUDA_nppc_LIBRARY
+CUDA_nppc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppi_LIBRARY
+CUDA_nppi_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppial_LIBRARY
+CUDA_nppial_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppicc_LIBRARY
+CUDA_nppicc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppicom_LIBRARY
+CUDA_nppicom_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppidei_LIBRARY
+CUDA_nppidei_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppif_LIBRARY
+CUDA_nppif_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppig_LIBRARY
+CUDA_nppig_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppim_LIBRARY
+CUDA_nppim_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppist_LIBRARY
+CUDA_nppist_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppisu_LIBRARY
+CUDA_nppisu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_nppitc_LIBRARY
+CUDA_nppitc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CUDA_npps_LIBRARY
+CUDA_npps_LIBRARY-ADVANCED:INTERNAL=1
+//Location of parse_cubin.cmake
+CUDA_parse_cubin:INTERNAL=/usr/share/cmake-3.10/Modules/FindCUDA/parse_cubin.cmake
+//Location of run_nvcc.cmake
+CUDA_run_nvcc:INTERNAL=/usr/share/cmake-3.10/Modules/FindCUDA/run_nvcc.cmake
+//Details about finding CUDA
+FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr/local/cuda][/usr/local/cuda/bin/nvcc][/usr/local/cuda/include][/usr/local/cuda/lib64/libcudart_static.a][v10.2(10.2)]
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.1.1()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python2][v2.7.17()]
+//Details about finding PythonLibs
+FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/aarch64-linux-gnu/libpython2.7.so][/usr/include/python2.7][v2.7.17()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GMOCK_FROM_SOURCE_FOUND:INTERNAL=TRUE
@@ -671,10 +1195,67 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_INCLUDE_DIR
+PYTHON_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python2.7/dist-packages
+//ADVANCED property for variable: PYTHON_LIBRARY
+PYTHON_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_LIBRARY_DEBUG
+PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+YAML_CPP_CFLAGS:INTERNAL=
+YAML_CPP_CFLAGS_I:INTERNAL=
+YAML_CPP_CFLAGS_OTHER:INTERNAL=
+YAML_CPP_FOUND:INTERNAL=1
+YAML_CPP_INCLUDEDIR:INTERNAL=/usr/include
+YAML_CPP_INCLUDE_DIRS:INTERNAL=
+YAML_CPP_LDFLAGS:INTERNAL=-lyaml-cpp
+YAML_CPP_LDFLAGS_OTHER:INTERNAL=
+YAML_CPP_LIBDIR:INTERNAL=
+YAML_CPP_LIBRARIES:INTERNAL=yaml-cpp
+YAML_CPP_LIBRARY_DIRS:INTERNAL=
+YAML_CPP_LIBS:INTERNAL=
+YAML_CPP_LIBS_L:INTERNAL=
+YAML_CPP_LIBS_OTHER:INTERNAL=
+YAML_CPP_LIBS_PATHS:INTERNAL=
+YAML_CPP_PREFIX:INTERNAL=/usr
+YAML_CPP_STATIC_CFLAGS:INTERNAL=
+YAML_CPP_STATIC_CFLAGS_I:INTERNAL=
+YAML_CPP_STATIC_CFLAGS_OTHER:INTERNAL=
+YAML_CPP_STATIC_INCLUDE_DIRS:INTERNAL=
+YAML_CPP_STATIC_LDFLAGS:INTERNAL=-lyaml-cpp
+YAML_CPP_STATIC_LDFLAGS_OTHER:INTERNAL=
+YAML_CPP_STATIC_LIBDIR:INTERNAL=
+YAML_CPP_STATIC_LIBRARIES:INTERNAL=yaml-cpp
+YAML_CPP_STATIC_LIBRARY_DIRS:INTERNAL=
+YAML_CPP_STATIC_LIBS:INTERNAL=
+YAML_CPP_STATIC_LIBS_L:INTERNAL=
+YAML_CPP_STATIC_LIBS_OTHER:INTERNAL=
+YAML_CPP_STATIC_LIBS_PATHS:INTERNAL=
+YAML_CPP_VERSION:INTERNAL=0.5.2
+YAML_CPP_yaml-cpp_INCLUDEDIR:INTERNAL=
+YAML_CPP_yaml-cpp_LIBDIR:INTERNAL=
+YAML_CPP_yaml-cpp_PREFIX:INTERNAL=
+YAML_CPP_yaml-cpp_VERSION:INTERNAL=
+//Components requested for this build tree.
+_Boost_COMPONENTS_SEARCHED:INTERNAL=filesystem;python;system
+//Last used Boost_INCLUDE_DIR value.
+_Boost_INCLUDE_DIR_LAST:INTERNAL=/usr/include
+//Last used Boost_LIBRARY_DIR_DEBUG value.
+_Boost_LIBRARY_DIR_DEBUG_LAST:INTERNAL=/usr/lib/aarch64-linux-gnu
+//Last used Boost_LIBRARY_DIR_RELEASE value.
+_Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=/usr/lib/aarch64-linux-gnu
+//Last used Boost_NAMESPACE value.
+_Boost_NAMESPACE_LAST:INTERNAL=boost
+//Last used Boost_USE_MULTITHREADED value.
+_Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
+__pkg_config_arguments_YAML_CPP:INTERNAL=yaml-cpp
+__pkg_config_checked_YAML_CPP:INTERNAL=1
+prefix_result:INTERNAL=
 

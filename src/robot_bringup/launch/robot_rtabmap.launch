@@ -32,7 +32,7 @@
   <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
   
   <!-- Robot remote and description --> 
-  <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
+  <!-- <include file="$(find robot_bringup)/launch/robot_remote.launch"/> -->
   
 
   <node pkg="tf" type="static_transform_publisher" name="base2cam_broadcaster" args="0.15 0 0 0 0 0 1 base_link camera_link 100" />

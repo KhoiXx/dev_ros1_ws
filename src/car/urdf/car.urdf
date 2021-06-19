@@ -47,9 +47,6 @@
     </collision>
   </link>
   <joint name="dummy_joint" type="fixed">
-    <origin
-      xyz="0 0 0.11"
-      rpy="0 0 0" />
     <parent link="dummy"/>
     <child link="base_link"/>
   </joint>
@@ -396,8 +393,8 @@
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-0.01"
-      upper="1.57"
+      lower="-3.14"
+      upper="3.14"
       effort="0"
       velocity="0" />
   </joint>
