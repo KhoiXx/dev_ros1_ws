@@ -19,10 +19,10 @@ LOG_FILE_PATH = ROS_WS + '/log/arm_log/'
 
 J5_ZERO = 0
 J4_ZERO = 178
-J3_ZERO = 154
+J3_ZERO = 148
 J2_ZERO = 74
 J1_ZERO = 34
-J0_ZERO = 215
+J0_ZERO = 218
 position_zero = [J0_ZERO, J1_ZERO, J2_ZERO, J3_ZERO, J4_ZERO, J5_ZERO]
 
 class adjust_joint_angle:
@@ -89,8 +89,12 @@ class adjust_joint_angle:
         # rospy.loginfo("Current Position: %f",self.position)
     def gripper_callback(self, msg):
         angle = msg.data
-        angle = 6 if angle < 6 else 53 if angle > 53 else angle
-        self.exc_joint[5] = angle
+        angle = 5 if angle < 5 else 53 if angle > 53 else angle
+        i = (angle - float(self.exc_joint[5].angle))
+        for value in range(abs(int(i))):
+            self.exc_joint[5].angle += 1 if i >0 else -1
+            time.sleep(0.07)
+
 
     def set_angle(self,_joint):
         i = self.pre_position[_joint]

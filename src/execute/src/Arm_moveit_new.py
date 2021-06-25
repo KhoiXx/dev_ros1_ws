@@ -45,9 +45,9 @@ class moveit_handle():
             '.log'
         ]
         self.__file_log = open("".join(log_info), "w")
-        self.__init_arm()
         self.__init_variables()
         self.__init_topic()
+        self.__init_arm()
         self.__robot_base = Robot()
         self.tfBuffer = tf2_ros.Buffer()
         listener = tf2_ros.TransformListener(self.tfBuffer)
@@ -80,6 +80,7 @@ class moveit_handle():
     def __init_variables(self):
         self.target = Pose()
         self.chosen_id = [0]
+        self.package_width = 36
         self.package_id = 10
         self.shelf_id = 1
         self.__is_package_onboard = False
@@ -97,6 +98,7 @@ class moveit_handle():
         self.group = moveit_commander.MoveGroupCommander('robotarm')
         self.group.set_named_target("home")
         self.handle_command(1)
+        self.calc_gripper_angle()
 
     def aruco_transform(self, msg):
         for i in msg.transforms:
@@ -163,61 +165,58 @@ class moveit_handle():
             self.handle_command(1)
             time.sleep(3)
             trans,rot = self.lookup_transform("fiducial_10", "dummy")
-            # for i in range(3):
-            #     value[i] = float(value[i])
-            # value[0] -= 0.06
-            # value[1] -= 0.015
-            # value[2] += 0.03
-            # #link_52 x: 0.128, y 0.036, z: 0.172 r : -1.047, p: 0.018, y: -1.546
-            # # self.target.position.x = value[0]
-            # # self.target.position.y = value[1]
-            # # self.target.position.z = value[2]
-            # # self.target.orientation.w = 1.0
-            trans.x -= 0.08
-            trans.y += 0.048
-            trans.z += 0.02
-            # self.group.set_position_target(value)
-            # self.handle_command(1)
-            # trans_x = value[0] - 0.095
-            # trans_y = value[1] - 0.032
+            trans.x -= 0.1
+            trans.y += 0.03
+            trans.z += 0.03
+
             rospy.loginfo("position = {}".format([trans.x, trans.y, trans.z]))
-            yaw = np.arctan2(trans.y, trans.x) - 1.495
+            yaw = np.arctan2(trans.y, trans.x) - 1.49
             pose = [trans.x, trans.y, trans.z] +[0.0, 0.0, yaw]
-            # pose = self.group.get_current_pose()
-            # r,p,y = quat2euler([pose.pose.orientation.w, pose.pose.orientation.x,pose.pose.orientation.y,pose.pose.orientation.z])
-            # r = 0.02
-            # p = 0.1
-            # goal =[pose.pose.position.x , pose.pose.position.y, pose.pose.position.z, r, p, y]
             rospy.loginfo("Target position: {}, Current_pose:{}".format(pose, self.group.get_current_pose()))
 
+            self.log("Target pose: {}".format(pose))
+            cam_pose, _ = self.lookup_transform("main_camera_optical", "dummy")
+            self.log("Current pose 1: {}".format(cam_pose))
             self.group.set_pose_target(pose)
             a = self.group.plan()
             while not a.joint_trajectory.points:
                 rospy.loginfo("plannig")
-                pose[5] += 0.02
+                pose[5] += 0.05
                 self.group.set_pose_target(pose)
                 a = self.group.plan()
-                if abs(pose[5] - yaw) > 0.5:
+                if abs(pose[5] - yaw) > 0.2:
                     break
-            rospy.loginfo("plan finish {}".format(pose))
             self.handle_command(1)
-            self.group.shift_pose_target(0, 0.05)
             
-            # joints = self.group.get_current_joint_values()
-            # rospy.loginfo(joints)
-            # joints[4] = 0.01
-            # # self.group.set_joint_value_target(joints)
-            # # self.handle_command(1)
-            # rpy = self.group.get_current_rpy()
-            # self.group.shift_pose_target(3, -rpy[0])
-            # rospy.loginfo(rpy)
-            # self.handle_command(1)
-            # rpy = self.group.get_current_rpy()
-            # self.group.shift_pose_target(4, -rpy[1])
-            # rospy.loginfo(rpy)
+            cam_pose, _ = self.lookup_transform("main_camera_optical", "dummy")
+            self.log("Current pose 2: {}".format(cam_pose))
+
+            self.group.shift_pose_target(0, 0.052)
             self.handle_command(1)
-            gripper = self.calc_gripper_angle(38)
-            self.gripper_state.publish(gripper)
+
+            cam_pose, _ = self.lookup_transform("main_camera_optical", "dummy")
+            self.log("Current pose 3: {}".format(cam_pose))
+
+            self.calc_gripper_angle(36, False)
+            time.sleep(3)
+            self.group.shift_pose_target(0, -0.08)
+            self.handle_command(1)
+
+            self.group.set_named_target("load")
+            self.handle_command(1)
+            self.group.shift_pose_target(2, -0.052)
+            self.handle_command(1)
+            
+            cam_pose, _ = self.lookup_transform("main_camera_optical", "dummy")
+            self.log("Current pose 4: {}".format(cam_pose))
+            
+            self.calc_gripper_angle()
+            time.sleep(2)
+            self.group.shift_pose_target(2, 0.08)
+            self.handle_command(1)
+            self.group.set_named_target("home")
+            self.handle_command(1)
+
             
         except:
             self.log("result_callback@Exception",traceback.format_exc())
@@ -364,7 +363,8 @@ class moveit_handle():
                 if not package and not shelf:
                     continue
                 self.chosen_id = [int(package)] if package else Fiducials_id.PACKAGE_3 if shelf == 3 else Fiducials_id.PACKAGE_2 if shelf == 2 else Fiducials_id.PACKAGE_1
-                shelf = int(shelf)  if shelf else 3 if package in Fiducials_id.PACKAGE_3 else 2 if package in Fiducials_id.PACKAGE_2 else 1
+                self.package_width = 36 if package in Fiducials_id.PACKAGE_1 else 30
+                self.shelf_id = int(shelf)  if shelf else 3 if package in Fiducials_id.PACKAGE_3 else 2 if package in Fiducials_id.PACKAGE_2 else 1
                 break
             except :
                 rospy.logwarn(traceback.format_exc())
@@ -391,7 +391,7 @@ class moveit_handle():
                 time.sleep(0.5)
             elif command == 1:
                 self.log("Executing to joint_target")
-                self.group.set_goal_tolerance(0.01)
+                self.group.set_goal_tolerance(0.005)
                 self.group.go(wait=True)
                 self.group.stop()
                 self.group.clear_pose_targets()
@@ -411,22 +411,25 @@ class moveit_handle():
         except:
             self.log('handle_command@Exception', traceback.format_exc())
 
-    def calc_gripper_angle(self, package_width, rad = False):
+    def calc_gripper_angle(self, package_width = 50, release = True):
         '''This is specified for my robot only
             =====> calculate servo angle suitable for each package width
             my equation: y = -1.09 * x + 60.3 
                          y: gripper angle (deg)
                          x: width of the package (mm)'''
-        joint_angle = -1.09 * package_width +60.3
-        joint_angle_rad = np.deg2rad(joint_angle)
-        if joint_angle_rad <= 0.15:
-            joint_angle_rad = 0.15
-        elif joint_angle_rad >= 0.9:
-            joint_angle_rad = 0.9
-        if not rad:
-            return np.rad2deg(joint_angle_rad)
+        
+        msg = Int32()
+        if release:
+            msg.data = 6
+            self.gripper_state.publish(msg)
         else:
-            return joint_angle_rad
+            joint_angle = -1.09 * package_width +63.3
+            if joint_angle <= np.rad2deg(0.15):
+                joint_angle = np.rad2deg(0.15)
+            elif joint_angle >= np.rad2deg(0.9):
+                joint_angle = np.rad2deg(0.9)
+            msg.data = joint_angle + 5
+            self.gripper_state.publish(msg)
 
     def log(self, *arg):
         '''
