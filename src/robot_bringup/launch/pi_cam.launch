@@ -1,7 +1,7 @@
 <launch>
     <include file="$(find jetson_camera)/launch/jetson_camera.launch"/>
     <include file="$(find aruco_detect)/launch/aruco_detect.launch">
-        <param name="fiducial_len" value="0.03"/>
+        <arg name="fiducial_len" value="0.02"/>
         <param name="dictionary" value="0"/>
     </include>
 </launch>

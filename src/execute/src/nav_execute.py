@@ -72,7 +72,6 @@ class Navigation:
         rospy.Subscriber('/scan', LaserScan, self.scan_callback)
         rospy.Subscriber('/finding_pose', Float32, self.finding_pose_callback)
         rospy.Subscriber('/set_rotate_angle', Int32, self.set_rotate_angle_callback)
-        rospy.Subscriber('/fiducial_transforms', FiducialTransformArray, self.aruco_callback)
 
         #update odom
         self.odom_raw_pub = rospy.Publisher('/odom', Odometry, queue_size=20)
@@ -82,15 +81,15 @@ class Navigation:
         self.__robot.log("Initialization navigation topic finished")
 
     def __init_flag(self):
-        self.__is_nav_mode = False
-        self.__is_recovery_mode = False
+        # self.__is_nav_mode = False
+        # self.__is_recovery_mode = False
         self.__current_position = None
         self.__current_goal_pose = None
         self.__is_back_obstacle = False
         self.__is_package_onboard = False
         self.__is_turning = False
         self.__is_finding_pose = False
-        self.__base_mode = ROBOT_MODE._NORMAL
+        self.__base_mode = ROBOT_MODE._NORMAL               
 
     def cmd_vel_callback(self, cmd_vel_msg):
         '''
@@ -130,9 +129,18 @@ class Navigation:
         -------
         scan_msg: LaserScan
         '''
-        self.scan_range = scan_msg.ranges
-        self.range_max = scan_msg.range_max
-        self.range_min = scan_msg.range_min
+        temp = self.scan_range
+        self.scan_range = []
+        index = int(len(scan_msg.ranges)/2)
+        for i in scan_msg.ranges[index-200:index+200]:
+            if not np.isnan(i):
+                self.scan_range  += [i]
+        if not self.scan_range:
+            self.scan_range = temp
+            return
+        self.range_max = max(self.scan_range)
+        self.range_min = min(self.scan_range)
+        # rospy.loginfo("Scan max: {} scan min: {} len:{}".format(max(self.scan_range), min(self.scan_range), len(self.scan_range)))
         
     def odometry_callback(self, odom_msg):
         '''
@@ -218,10 +226,6 @@ class Navigation:
         rospy.loginfo("rotate testing {0}: yaw:{1}".format(msg.data, self.pose[2]))
         delta = self.rotate_angle(self.__correct_angle(np.deg2rad(msg.data)), True)
         self.__robot.log("delta: {0}".format(delta))
-
-    def aruco_callback(self, msg):
-        rospy.loginfo(msg)
-        self.__robot.log("Aruco_msg:{msg}")
 
     def odom_update(self, timer):
         '''
@@ -348,10 +352,10 @@ class Navigation:
         elif speed < -ROBOT_MAX_SPEED:
             speed = -ROBOT_MAX_SPEED
         
-        if speed > 0.05 and speed < 0.13:
-            speed = 0.13
-        elif speed < -0.05 and speed > -0.13:
-            speed = -0.13
+        if speed > 0.05 and speed < 0.14:
+            speed = 0.14
+        elif speed < -0.05 and speed > -0.14:
+            speed = -0.14
         if is_angular:
             speed /= (ROBOT_WIDTH / 2)
         return speed
@@ -452,4 +456,5 @@ class Navigation:
             if abs(yaw_now - yaw_target) <=0.05:
                 self.__robot.set_stop() 
                 time.sleep(2)
+        self.__robot.set_stop() 
         return abs(self.pose[2] - yaw_target)

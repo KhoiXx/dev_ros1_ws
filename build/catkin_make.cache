@@ -1,2 +1,2 @@
-fiducials/aruco_detect:fiducials/fiducial_msgs:fiducials/fiducial_slam:fiducials/fiducials:image_common/image_transport:vision_msgs
--DCATKIN_DEVEL_PREFIX=/home/khoixx/dev_ros1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/khoixx/dev_ros1_ws/install -DCATKIN_WHITELIST_PACKAGES=aruco_detect;fiducial_msgs;fiducial_slam;fiducials;image_transport;vision_msgs -G Unix Makefiles
+fiducials/aruco_detect:fiducials/fiducial_msgs:image_common/image_transport:vision_msgs
+-DCATKIN_DEVEL_PREFIX=/home/khoixx/dev_ros1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/khoixx/dev_ros1_ws/install -DCATKIN_WHITELIST_PACKAGES=aruco_detect;fiducial_msgs;image_transport;vision_msgs -G Unix Makefiles

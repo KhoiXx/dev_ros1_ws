@@ -22,12 +22,6 @@
   <arg name="scan_topic"                                default="/scan"/>
   <arg name="odom_topic"                                default="/odom"/>
   
-  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
-      <remap from="image"       to="/camera/aligned_depth_to_color/image_raw"/>
-      <remap from="camera_info" to="/camera/color/camera_info"/>
-      <remap from="scan"        to="/scan"/>
-      <param name="range_max" type="double" value="3"/>
-  </node>
 
   <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
   
@@ -55,6 +49,6 @@
   </include>
   
     <!-- Navigation parameters -->
-  <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml"/>
+  <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml" launch-prefix="bash -c 'sleep 70; $0 $@' "/>
 
 </launch>

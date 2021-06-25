@@ -168,199 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
 
 # Convenience name for target.
-dynamic_reconfigure_gencfg: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+_run_tests_aruco_detect_rostest_test_aruco_images.test: fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
 
-.PHONY : dynamic_reconfigure_gencfg
+.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test
 
 # fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule
-
-# Convenience name for target.
-_run_tests_aruco_detect: fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule
-
-.PHONY : _run_tests_aruco_detect
-
-# fast build rule for target.
-_run_tests_aruco_detect/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build
-.PHONY : _run_tests_aruco_detect/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule
-
-# Convenience name for target.
-aruco_images_test: fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule
-
-.PHONY : aruco_images_test
-
-# fast build rule for target.
-aruco_images_test/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build
-.PHONY : aruco_images_test/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
-
-# Convenience name for target.
-aruco_detect_gencfg: fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
-
-.PHONY : aruco_detect_gencfg
-
-# fast build rule for target.
-aruco_detect_gencfg/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build
-.PHONY : aruco_detect_gencfg/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
-
-# Convenience name for target.
-run_tests_aruco_detect_rostest_test_aruco_images.test: fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
-
-.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test
-
-# fast build rule for target.
-run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
-.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
-
-# Convenience name for target.
-aruco_detect: fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
-
-.PHONY : aruco_detect
-
-# fast build rule for target.
-aruco_detect/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build
-.PHONY : aruco_detect/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
-
-# Convenience name for target.
-run_tests_aruco_detect: fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
-
-.PHONY : run_tests_aruco_detect
-
-# fast build rule for target.
-run_tests_aruco_detect/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build
-.PHONY : run_tests_aruco_detect/fast
-
-# Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
-
-# Convenience name for target.
-run_tests_aruco_detect_rostest: fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
-
-.PHONY : run_tests_aruco_detect_rostest
-
-# fast build rule for target.
-run_tests_aruco_detect_rostest/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build
-.PHONY : run_tests_aruco_detect_rostest/fast
+_run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
+.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test/fast
 
 # Convenience name for target.
 fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest.dir/rule:
@@ -378,19 +198,94 @@ _run_tests_aruco_detect_rostest/fast:
 .PHONY : _run_tests_aruco_detect_rostest/fast
 
 # Convenience name for target.
-fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
-.PHONY : fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
+fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
 
 # Convenience name for target.
-_run_tests_aruco_detect_rostest_test_aruco_images.test: fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
+run_tests_aruco_detect_rostest: fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
 
-.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test
+.PHONY : run_tests_aruco_detect_rostest
 
 # fast build rule for target.
-_run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
-	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
-.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test/fast
+run_tests_aruco_detect_rostest/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build
+.PHONY : run_tests_aruco_detect_rostest/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_cpp: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
+
+# Convenience name for target.
+run_tests_aruco_detect_rostest_test_aruco_images.test: fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
+
+.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test
+
+# fast build rule for target.
+run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
+.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_nodejs: fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+visualization_msgs_generate_messages_nodejs/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
+.PHONY : visualization_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_py: fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_py
+
+# fast build rule for target.
+visualization_msgs_generate_messages_py/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
+.PHONY : visualization_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule
+
+# Convenience name for target.
+aruco_images_test: fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule
+
+.PHONY : aruco_images_test
+
+# fast build rule for target.
+aruco_images_test/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build
+.PHONY : aruco_images_test/fast
 
 # Convenience name for target.
 fiducials/aruco_detect/CMakeFiles/clean_test_results_aruco_detect.dir/rule:
@@ -406,6 +301,186 @@ clean_test_results_aruco_detect: fiducials/aruco_detect/CMakeFiles/clean_test_re
 clean_test_results_aruco_detect/fast:
 	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/clean_test_results_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/clean_test_results_aruco_detect.dir/build
 .PHONY : clean_test_results_aruco_detect/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_lisp: fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_lisp
+
+# fast build rule for target.
+visualization_msgs_generate_messages_lisp/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build
+.PHONY : visualization_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_nodejs: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_gencfg: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+
+.PHONY : dynamic_reconfigure_gencfg
+
+# fast build rule for target.
+dynamic_reconfigure_gencfg/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
+.PHONY : dynamic_reconfigure_gencfg/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule
+
+# Convenience name for target.
+_run_tests_aruco_detect: fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/rule
+
+.PHONY : _run_tests_aruco_detect
+
+# fast build rule for target.
+_run_tests_aruco_detect/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build
+.PHONY : _run_tests_aruco_detect/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_lisp: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_lisp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_lisp/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_cpp: fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_cpp
+
+# fast build rule for target.
+visualization_msgs_generate_messages_cpp/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
+.PHONY : visualization_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
+
+# Convenience name for target.
+run_tests_aruco_detect: fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
+
+.PHONY : run_tests_aruco_detect
+
+# fast build rule for target.
+run_tests_aruco_detect/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build
+.PHONY : run_tests_aruco_detect/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_eus: fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_eus
+
+# fast build rule for target.
+visualization_msgs_generate_messages_eus/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
+.PHONY : visualization_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_eus: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_eus
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_eus/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_py: fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_py
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_py/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_py/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
+
+# Convenience name for target.
+aruco_detect_gencfg: fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
+
+.PHONY : aruco_detect_gencfg
+
+# fast build rule for target.
+aruco_detect_gencfg/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build
+.PHONY : aruco_detect_gencfg/fast
+
+# Convenience name for target.
+fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
+.PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
+
+# Convenience name for target.
+aruco_detect: fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
+
+.PHONY : aruco_detect
+
+# fast build rule for target.
+aruco_detect/fast:
+	cd /home/khoixx/dev_ros1_ws/build && $(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build
+.PHONY : aruco_detect/fast
 
 src/aruco_detect.o: src/aruco_detect.cpp.o
 
@@ -472,24 +547,29 @@ help:
 	@echo "... install"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... _run_tests_aruco_detect"
-	@echo "... dynamic_reconfigure_generate_messages_py"
+	@echo "... _run_tests_aruco_detect_rostest_test_aruco_images.test"
+	@echo "... _run_tests_aruco_detect_rostest"
+	@echo "... run_tests_aruco_detect_rostest"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
+	@echo "... run_tests_aruco_detect_rostest_test_aruco_images.test"
+	@echo "... visualization_msgs_generate_messages_nodejs"
+	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... rebuild_cache"
 	@echo "... aruco_images_test"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... aruco_detect_gencfg"
-	@echo "... run_tests_aruco_detect_rostest_test_aruco_images.test"
-	@echo "... aruco_detect"
-	@echo "... run_tests_aruco_detect"
-	@echo "... run_tests_aruco_detect_rostest"
-	@echo "... _run_tests_aruco_detect_rostest"
-	@echo "... _run_tests_aruco_detect_rostest_test_aruco_images.test"
 	@echo "... list_install_components"
 	@echo "... clean_test_results_aruco_detect"
+	@echo "... visualization_msgs_generate_messages_lisp"
+	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... dynamic_reconfigure_gencfg"
+	@echo "... _run_tests_aruco_detect"
+	@echo "... dynamic_reconfigure_generate_messages_lisp"
+	@echo "... visualization_msgs_generate_messages_cpp"
+	@echo "... run_tests_aruco_detect"
+	@echo "... visualization_msgs_generate_messages_eus"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... dynamic_reconfigure_generate_messages_py"
+	@echo "... aruco_detect_gencfg"
+	@echo "... aruco_detect"
 	@echo "... src/aruco_detect.o"
 	@echo "... src/aruco_detect.i"
 	@echo "... src/aruco_detect.s"

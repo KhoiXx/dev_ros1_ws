@@ -5,9 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
-subdirs("fiducials/fiducials")
 subdirs("image_common/image_transport")
 subdirs("fiducials/fiducial_msgs")
-subdirs("fiducials/fiducial_slam")
 subdirs("vision_msgs")
 subdirs("fiducials/aruco_detect")

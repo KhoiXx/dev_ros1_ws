@@ -8,7 +8,7 @@ Panels:
         - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.7425600290298462
-    Tree Height: 76
+    Tree Height: 234
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -182,7 +182,7 @@ Visualization Manager:
         Show Workspace: false
         Start State Alpha: 1
         Start State Color: 0; 255; 0
-      Planning Scene Topic: /planning_scene
+      Planning Scene Topic: move_group/monitored_planning_scene
       Robot Description: robot_description
       Scene Geometry:
         Scene Alpha: 1
@@ -284,29 +284,31 @@ Visualization Manager:
         Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 1
-    - Class: rviz/Image
-      Enabled: false
-      Image Topic: /fiducial_images
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: false
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
         base_link:
-          Value: true
-        camera_link:
-          Value: true
-        dummy:
           Value: false
+        camera_link:
+          Value: false
+        dummy:
+          Value: true
+        fiducial_1:
+          Value: true
+        fiducial_10:
+          Value: true
+        fiducial_11:
+          Value: true
+        fiducial_12:
+          Value: true
+        fiducial_17:
+          Value: true
+        fiducial_2:
+          Value: true
+        fiducial_3:
+          Value: true
         link_1:
           Value: false
         link_2:
@@ -320,11 +322,13 @@ Visualization Manager:
         link_51:
           Value: false
         link_52:
-          Value: true
+          Value: false
         link_53:
           Value: false
         link_54:
           Value: false
+        main_camera_optical:
+          Value: true
         wh_bl:
           Value: false
         wh_br:
@@ -350,7 +354,21 @@ Visualization Manager:
                     link_5:
                       link_51:
                         link_52:
-                          {}
+                          main_camera_optical:
+                            fiducial_1:
+                              {}
+                            fiducial_10:
+                              {}
+                            fiducial_11:
+                              {}
+                            fiducial_12:
+                              {}
+                            fiducial_17:
+                              {}
+                            fiducial_2:
+                              {}
+                            fiducial_3:
+                              {}
                       link_53:
                         link_54:
                           {}
@@ -364,6 +382,18 @@ Visualization Manager:
               {}
       Update Interval: 0
       Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /fiducial_images
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -376,11 +406,12 @@ Visualization Manager:
       Hide Inactive Objects: true
     - Class: rviz/MoveCamera
     - Class: rviz/Select
+    - Class: rviz/Measure
   Value: true
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.0845401287078857
+      Distance: 0.5574896931648254
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -395,15 +426,15 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.25479644536972046
+      Pitch: -0.05520255118608475
       Target Frame: dummy
       Value: XYOrbit (rviz)
-      Yaw: 4.939924240112305
+      Yaw: 1.3967634439468384
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 683
+  Height: 1028
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -414,9 +445,9 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000001f300000267fc0200000008fb000000100044006900730070006c0061007900730100000027000000dd000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000010a000001840000017d00fffffffb0000000a0049006d0061006700650200000291000000b100000280000001e0000002520000026700000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003c0fc0200000008fb000000100044006900730070006c00610079007301000000270000017b000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000001a8000001880000017d00fffffffb0000000a0049006d0061006700650100000336000000b10000001600ffffff0000047c000003c000000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1099
-  X: 453
-  Y: 228
+  Width: 1828
+  X: 92
+  Y: 24

@@ -285,19 +285,6 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named _catkin_empty_exported_target
-
-# Build rule for target.
-_catkin_empty_exported_target: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	$(MAKE) -f fiducials/fiducials/CMakeFiles/_catkin_empty_exported_target.dir/build.make fiducials/fiducials/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-#=============================================================================
 # Target rules for targets named list_transports
 
 # Build rule for target.
@@ -1169,461 +1156,6 @@ fiducial_msgs_gennodejs/fast:
 .PHONY : fiducial_msgs_gennodejs/fast
 
 #=============================================================================
-# Target rules for targets named run_tests_fiducial_slam_rostest_test_create_map_aruco.xml
-
-# Build rule for target.
-run_tests_fiducial_slam_rostest_test_create_map_aruco.xml: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam_rostest_test_create_map_aruco.xml
-.PHONY : run_tests_fiducial_slam_rostest_test_create_map_aruco.xml
-
-# fast build rule for target.
-run_tests_fiducial_slam_rostest_test_create_map_aruco.xml/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest_test_create_map_aruco.xml.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest_test_create_map_aruco.xml.dir/build
-.PHONY : run_tests_fiducial_slam_rostest_test_create_map_aruco.xml/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam_rostest_test_init_map_aruco.xml
-
-# Build rule for target.
-_run_tests_fiducial_slam_rostest_test_init_map_aruco.xml: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam_rostest_test_init_map_aruco.xml
-.PHONY : _run_tests_fiducial_slam_rostest_test_init_map_aruco.xml
-
-# fast build rule for target.
-_run_tests_fiducial_slam_rostest_test_init_map_aruco.xml/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_init_map_aruco.xml.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_init_map_aruco.xml.dir/build
-.PHONY : _run_tests_fiducial_slam_rostest_test_init_map_aruco.xml/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_fiducial_slam_rostest
-
-# Build rule for target.
-run_tests_fiducial_slam_rostest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam_rostest
-.PHONY : run_tests_fiducial_slam_rostest
-
-# fast build rule for target.
-run_tests_fiducial_slam_rostest/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest.dir/build
-.PHONY : run_tests_fiducial_slam_rostest/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_generate_messages_lisp
-
-# Build rule for target.
-fiducial_slam_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_generate_messages_lisp
-.PHONY : fiducial_slam_generate_messages_lisp
-
-# fast build rule for target.
-fiducial_slam_generate_messages_lisp/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/build
-.PHONY : fiducial_slam_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_generate_messages_nodejs
-
-# Build rule for target.
-fiducial_slam_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_generate_messages_nodejs
-.PHONY : fiducial_slam_generate_messages_nodejs
-
-# fast build rule for target.
-fiducial_slam_generate_messages_nodejs/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_nodejs.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_nodejs.dir/build
-.PHONY : fiducial_slam_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_generate_messages_eus
-
-# Build rule for target.
-fiducial_slam_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_generate_messages_eus
-.PHONY : fiducial_slam_generate_messages_eus
-
-# fast build rule for target.
-fiducial_slam_generate_messages_eus/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_eus.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_eus.dir/build
-.PHONY : fiducial_slam_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_gennodejs
-
-# Build rule for target.
-fiducial_slam_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_gennodejs
-.PHONY : fiducial_slam_gennodejs
-
-# fast build rule for target.
-fiducial_slam_gennodejs/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gennodejs.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gennodejs.dir/build
-.PHONY : fiducial_slam_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_fiducial_slam_rostest_test_init_map_aruco.xml
-
-# Build rule for target.
-run_tests_fiducial_slam_rostest_test_init_map_aruco.xml: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam_rostest_test_init_map_aruco.xml
-.PHONY : run_tests_fiducial_slam_rostest_test_init_map_aruco.xml
-
-# fast build rule for target.
-run_tests_fiducial_slam_rostest_test_init_map_aruco.xml/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest_test_init_map_aruco.xml.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest_test_init_map_aruco.xml.dir/build
-.PHONY : run_tests_fiducial_slam_rostest_test_init_map_aruco.xml/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_gencpp
-
-# Build rule for target.
-fiducial_slam_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_gencpp
-.PHONY : fiducial_slam_gencpp
-
-# fast build rule for target.
-fiducial_slam_gencpp/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gencpp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gencpp.dir/build
-.PHONY : fiducial_slam_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_geneus
-
-# Build rule for target.
-fiducial_slam_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_geneus
-.PHONY : fiducial_slam_geneus
-
-# fast build rule for target.
-fiducial_slam_geneus/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_geneus.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_geneus.dir/build
-.PHONY : fiducial_slam_geneus/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_genpy
-
-# Build rule for target.
-fiducial_slam_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_genpy
-.PHONY : fiducial_slam_genpy
-
-# fast build rule for target.
-fiducial_slam_genpy/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genpy.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genpy.dir/build
-.PHONY : fiducial_slam_genpy/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_generate_messages_cpp
-
-# Build rule for target.
-fiducial_slam_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_generate_messages_cpp
-.PHONY : fiducial_slam_generate_messages_cpp
-
-# fast build rule for target.
-fiducial_slam_generate_messages_cpp/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/build
-.PHONY : fiducial_slam_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_generate_messages
-
-# Build rule for target.
-fiducial_slam_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_generate_messages
-.PHONY : fiducial_slam_generate_messages
-
-# fast build rule for target.
-fiducial_slam_generate_messages/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages.dir/build
-.PHONY : fiducial_slam_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_fiducial_slam_gtest_transform_var_test
-
-# Build rule for target.
-run_tests_fiducial_slam_gtest_transform_var_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam_gtest_transform_var_test
-.PHONY : run_tests_fiducial_slam_gtest_transform_var_test
-
-# fast build rule for target.
-run_tests_fiducial_slam_gtest_transform_var_test/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest_transform_var_test.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest_transform_var_test.dir/build
-.PHONY : run_tests_fiducial_slam_gtest_transform_var_test/fast
-
-#=============================================================================
-# Target rules for targets named _fiducial_slam_generate_messages_check_deps_AddFiducial
-
-# Build rule for target.
-_fiducial_slam_generate_messages_check_deps_AddFiducial: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _fiducial_slam_generate_messages_check_deps_AddFiducial
-.PHONY : _fiducial_slam_generate_messages_check_deps_AddFiducial
-
-# fast build rule for target.
-_fiducial_slam_generate_messages_check_deps_AddFiducial/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_fiducial_slam_generate_messages_check_deps_AddFiducial.dir/build.make fiducials/fiducial_slam/CMakeFiles/_fiducial_slam_generate_messages_check_deps_AddFiducial.dir/build
-.PHONY : _fiducial_slam_generate_messages_check_deps_AddFiducial/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_genlisp
-
-# Build rule for target.
-fiducial_slam_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_genlisp
-.PHONY : fiducial_slam_genlisp
-
-# fast build rule for target.
-fiducial_slam_genlisp/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genlisp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genlisp.dir/build
-.PHONY : fiducial_slam_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named visualization_msgs_generate_messages_eus
-
-# Build rule for target.
-visualization_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_eus
-.PHONY : visualization_msgs_generate_messages_eus
-
-# fast build rule for target.
-visualization_msgs_generate_messages_eus/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build.make fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
-.PHONY : visualization_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named visualization_msgs_generate_messages_lisp
-
-# Build rule for target.
-visualization_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_lisp
-.PHONY : visualization_msgs_generate_messages_lisp
-
-# fast build rule for target.
-visualization_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build.make fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build
-.PHONY : visualization_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named visualization_msgs_generate_messages_nodejs
-
-# Build rule for target.
-visualization_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_nodejs
-.PHONY : visualization_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-visualization_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
-.PHONY : visualization_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_fiducial_slam_gtest
-
-# Build rule for target.
-run_tests_fiducial_slam_gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam_gtest
-.PHONY : run_tests_fiducial_slam_gtest
-
-# fast build rule for target.
-run_tests_fiducial_slam_gtest/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest.dir/build
-.PHONY : run_tests_fiducial_slam_gtest/fast
-
-#=============================================================================
-# Target rules for targets named visualization_msgs_generate_messages_cpp
-
-# Build rule for target.
-visualization_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_cpp
-.PHONY : visualization_msgs_generate_messages_cpp
-
-# fast build rule for target.
-visualization_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build.make fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
-.PHONY : visualization_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam
-
-# Build rule for target.
-fiducial_slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam
-.PHONY : fiducial_slam
-
-# fast build rule for target.
-fiducial_slam/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/build
-.PHONY : fiducial_slam/fast
-
-#=============================================================================
-# Target rules for targets named transform_var_test
-
-# Build rule for target.
-transform_var_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 transform_var_test
-.PHONY : transform_var_test
-
-# fast build rule for target.
-transform_var_test/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/transform_var_test.dir/build.make fiducials/fiducial_slam/CMakeFiles/transform_var_test.dir/build
-.PHONY : transform_var_test/fast
-
-#=============================================================================
-# Target rules for targets named visualization_msgs_generate_messages_py
-
-# Build rule for target.
-visualization_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_py
-.PHONY : visualization_msgs_generate_messages_py
-
-# fast build rule for target.
-visualization_msgs_generate_messages_py/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make fiducials/fiducial_slam/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
-.PHONY : visualization_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_fiducial_slam
-
-# Build rule for target.
-run_tests_fiducial_slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam
-.PHONY : run_tests_fiducial_slam
-
-# fast build rule for target.
-run_tests_fiducial_slam/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam.dir/build
-.PHONY : run_tests_fiducial_slam/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam
-
-# Build rule for target.
-_run_tests_fiducial_slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam
-.PHONY : _run_tests_fiducial_slam
-
-# fast build rule for target.
-_run_tests_fiducial_slam/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam.dir/build
-.PHONY : _run_tests_fiducial_slam/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam_gtest
-
-# Build rule for target.
-_run_tests_fiducial_slam_gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam_gtest
-.PHONY : _run_tests_fiducial_slam_gtest
-
-# fast build rule for target.
-_run_tests_fiducial_slam_gtest/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_gtest.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_gtest.dir/build
-.PHONY : _run_tests_fiducial_slam_gtest/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam_gtest_transform_var_test
-
-# Build rule for target.
-_run_tests_fiducial_slam_gtest_transform_var_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam_gtest_transform_var_test
-.PHONY : _run_tests_fiducial_slam_gtest_transform_var_test
-
-# fast build rule for target.
-_run_tests_fiducial_slam_gtest_transform_var_test/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_gtest_transform_var_test.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_gtest_transform_var_test.dir/build
-.PHONY : _run_tests_fiducial_slam_gtest_transform_var_test/fast
-
-#=============================================================================
-# Target rules for targets named clean_test_results_fiducial_slam
-
-# Build rule for target.
-clean_test_results_fiducial_slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_fiducial_slam
-.PHONY : clean_test_results_fiducial_slam
-
-# fast build rule for target.
-clean_test_results_fiducial_slam/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/clean_test_results_fiducial_slam.dir/build.make fiducials/fiducial_slam/CMakeFiles/clean_test_results_fiducial_slam.dir/build
-.PHONY : clean_test_results_fiducial_slam/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam_rostest
-
-# Build rule for target.
-_run_tests_fiducial_slam_rostest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam_rostest
-.PHONY : _run_tests_fiducial_slam_rostest
-
-# fast build rule for target.
-_run_tests_fiducial_slam_rostest/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest.dir/build
-.PHONY : _run_tests_fiducial_slam_rostest/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam_rostest_test_create_map_aruco.xml
-
-# Build rule for target.
-_run_tests_fiducial_slam_rostest_test_create_map_aruco.xml: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam_rostest_test_create_map_aruco.xml
-.PHONY : _run_tests_fiducial_slam_rostest_test_create_map_aruco.xml
-
-# fast build rule for target.
-_run_tests_fiducial_slam_rostest_test_create_map_aruco.xml/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_create_map_aruco.xml.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_create_map_aruco.xml.dir/build
-.PHONY : _run_tests_fiducial_slam_rostest_test_create_map_aruco.xml/fast
-
-#=============================================================================
-# Target rules for targets named auto_init_403_test
-
-# Build rule for target.
-auto_init_403_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 auto_init_403_test
-.PHONY : auto_init_403_test
-
-# fast build rule for target.
-auto_init_403_test/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/build.make fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/build
-.PHONY : auto_init_403_test/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_fiducial_slam_rostest_test_auto_init_403.test
-
-# Build rule for target.
-run_tests_fiducial_slam_rostest_test_auto_init_403.test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_fiducial_slam_rostest_test_auto_init_403.test
-.PHONY : run_tests_fiducial_slam_rostest_test_auto_init_403.test
-
-# fast build rule for target.
-run_tests_fiducial_slam_rostest_test_auto_init_403.test/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest_test_auto_init_403.test.dir/build.make fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_rostest_test_auto_init_403.test.dir/build
-.PHONY : run_tests_fiducial_slam_rostest_test_auto_init_403.test/fast
-
-#=============================================================================
-# Target rules for targets named fiducial_slam_generate_messages_py
-
-# Build rule for target.
-fiducial_slam_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fiducial_slam_generate_messages_py
-.PHONY : fiducial_slam_generate_messages_py
-
-# fast build rule for target.
-fiducial_slam_generate_messages_py/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/build
-.PHONY : fiducial_slam_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_fiducial_slam_rostest_test_auto_init_403.test
-
-# Build rule for target.
-_run_tests_fiducial_slam_rostest_test_auto_init_403.test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_fiducial_slam_rostest_test_auto_init_403.test
-.PHONY : _run_tests_fiducial_slam_rostest_test_auto_init_403.test
-
-# fast build rule for target.
-_run_tests_fiducial_slam_rostest_test_auto_init_403.test/fast:
-	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_auto_init_403.test.dir/build.make fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_auto_init_403.test.dir/build
-.PHONY : _run_tests_fiducial_slam_rostest_test_auto_init_403.test/fast
-
-#=============================================================================
 # Target rules for targets named vision_msgs_genpy
 
 # Build rule for target.
@@ -1676,17 +1208,17 @@ vision_msgs_genlisp/fast:
 .PHONY : vision_msgs_genlisp/fast
 
 #=============================================================================
-# Target rules for targets named vision_msgs_generate_messages_lisp
+# Target rules for targets named vision_msgs_geneus
 
 # Build rule for target.
-vision_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vision_msgs_generate_messages_lisp
-.PHONY : vision_msgs_generate_messages_lisp
+vision_msgs_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_msgs_geneus
+.PHONY : vision_msgs_geneus
 
 # fast build rule for target.
-vision_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_generate_messages_lisp.dir/build.make vision_msgs/CMakeFiles/vision_msgs_generate_messages_lisp.dir/build
-.PHONY : vision_msgs_generate_messages_lisp/fast
+vision_msgs_geneus/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_geneus.dir/build.make vision_msgs/CMakeFiles/vision_msgs_geneus.dir/build
+.PHONY : vision_msgs_geneus/fast
 
 #=============================================================================
 # Target rules for targets named _vision_msgs_generate_messages_check_deps_Detection2D
@@ -1741,17 +1273,43 @@ _vision_msgs_generate_messages_check_deps_BoundingBox3D/fast:
 .PHONY : _vision_msgs_generate_messages_check_deps_BoundingBox3D/fast
 
 #=============================================================================
-# Target rules for targets named _vision_msgs_generate_messages_check_deps_Detection3D
+# Target rules for targets named _vision_msgs_generate_messages_check_deps_Classification3D
 
 # Build rule for target.
-_vision_msgs_generate_messages_check_deps_Detection3D: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vision_msgs_generate_messages_check_deps_Detection3D
-.PHONY : _vision_msgs_generate_messages_check_deps_Detection3D
+_vision_msgs_generate_messages_check_deps_Classification3D: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vision_msgs_generate_messages_check_deps_Classification3D
+.PHONY : _vision_msgs_generate_messages_check_deps_Classification3D
 
 # fast build rule for target.
-_vision_msgs_generate_messages_check_deps_Detection3D/fast:
-	$(MAKE) -f vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3D.dir/build.make vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3D.dir/build
-.PHONY : _vision_msgs_generate_messages_check_deps_Detection3D/fast
+_vision_msgs_generate_messages_check_deps_Classification3D/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Classification3D.dir/build.make vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Classification3D.dir/build
+.PHONY : _vision_msgs_generate_messages_check_deps_Classification3D/fast
+
+#=============================================================================
+# Target rules for targets named vision_msgs_generate_messages_lisp
+
+# Build rule for target.
+vision_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_msgs_generate_messages_lisp
+.PHONY : vision_msgs_generate_messages_lisp
+
+# fast build rule for target.
+vision_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_generate_messages_lisp.dir/build.make vision_msgs/CMakeFiles/vision_msgs_generate_messages_lisp.dir/build
+.PHONY : vision_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _catkin_empty_exported_target
+
+# Build rule for target.
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/_catkin_empty_exported_target.dir/build.make vision_msgs/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
 # Target rules for targets named vision_msgs_generate_messages
@@ -1767,17 +1325,17 @@ vision_msgs_generate_messages/fast:
 .PHONY : vision_msgs_generate_messages/fast
 
 #=============================================================================
-# Target rules for targets named _vision_msgs_generate_messages_check_deps_Classification3D
+# Target rules for targets named _vision_msgs_generate_messages_check_deps_Detection3D
 
 # Build rule for target.
-_vision_msgs_generate_messages_check_deps_Classification3D: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vision_msgs_generate_messages_check_deps_Classification3D
-.PHONY : _vision_msgs_generate_messages_check_deps_Classification3D
+_vision_msgs_generate_messages_check_deps_Detection3D: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vision_msgs_generate_messages_check_deps_Detection3D
+.PHONY : _vision_msgs_generate_messages_check_deps_Detection3D
 
 # fast build rule for target.
-_vision_msgs_generate_messages_check_deps_Classification3D/fast:
-	$(MAKE) -f vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Classification3D.dir/build.make vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Classification3D.dir/build
-.PHONY : _vision_msgs_generate_messages_check_deps_Classification3D/fast
+_vision_msgs_generate_messages_check_deps_Detection3D/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3D.dir/build.make vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3D.dir/build
+.PHONY : _vision_msgs_generate_messages_check_deps_Detection3D/fast
 
 #=============================================================================
 # Target rules for targets named _vision_msgs_generate_messages_check_deps_Classification2D
@@ -1832,17 +1390,30 @@ _vision_msgs_generate_messages_check_deps_VisionInfo/fast:
 .PHONY : _vision_msgs_generate_messages_check_deps_VisionInfo/fast
 
 #=============================================================================
-# Target rules for targets named vision_msgs_geneus
+# Target rules for targets named vision_msgs_generate_messages_eus
 
 # Build rule for target.
-vision_msgs_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vision_msgs_geneus
-.PHONY : vision_msgs_geneus
+vision_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_msgs_generate_messages_eus
+.PHONY : vision_msgs_generate_messages_eus
 
 # fast build rule for target.
-vision_msgs_geneus/fast:
-	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_geneus.dir/build.make vision_msgs/CMakeFiles/vision_msgs_geneus.dir/build
-.PHONY : vision_msgs_geneus/fast
+vision_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_generate_messages_eus.dir/build.make vision_msgs/CMakeFiles/vision_msgs_generate_messages_eus.dir/build
+.PHONY : vision_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named _vision_msgs_generate_messages_check_deps_Detection3DArray
+
+# Build rule for target.
+_vision_msgs_generate_messages_check_deps_Detection3DArray: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vision_msgs_generate_messages_check_deps_Detection3DArray
+.PHONY : _vision_msgs_generate_messages_check_deps_Detection3DArray
+
+# fast build rule for target.
+_vision_msgs_generate_messages_check_deps_Detection3DArray/fast:
+	$(MAKE) -f vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3DArray.dir/build.make vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3DArray.dir/build
+.PHONY : _vision_msgs_generate_messages_check_deps_Detection3DArray/fast
 
 #=============================================================================
 # Target rules for targets named vision_msgs_generate_messages_nodejs
@@ -1882,32 +1453,6 @@ vision_msgs_gencpp: cmake_check_build_system
 vision_msgs_gencpp/fast:
 	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_gencpp.dir/build.make vision_msgs/CMakeFiles/vision_msgs_gencpp.dir/build
 .PHONY : vision_msgs_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named _vision_msgs_generate_messages_check_deps_Detection3DArray
-
-# Build rule for target.
-_vision_msgs_generate_messages_check_deps_Detection3DArray: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vision_msgs_generate_messages_check_deps_Detection3DArray
-.PHONY : _vision_msgs_generate_messages_check_deps_Detection3DArray
-
-# fast build rule for target.
-_vision_msgs_generate_messages_check_deps_Detection3DArray/fast:
-	$(MAKE) -f vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3DArray.dir/build.make vision_msgs/CMakeFiles/_vision_msgs_generate_messages_check_deps_Detection3DArray.dir/build
-.PHONY : _vision_msgs_generate_messages_check_deps_Detection3DArray/fast
-
-#=============================================================================
-# Target rules for targets named vision_msgs_generate_messages_eus
-
-# Build rule for target.
-vision_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vision_msgs_generate_messages_eus
-.PHONY : vision_msgs_generate_messages_eus
-
-# fast build rule for target.
-vision_msgs_generate_messages_eus/fast:
-	$(MAKE) -f vision_msgs/CMakeFiles/vision_msgs_generate_messages_eus.dir/build.make vision_msgs/CMakeFiles/vision_msgs_generate_messages_eus.dir/build
-.PHONY : vision_msgs_generate_messages_eus/fast
 
 #=============================================================================
 # Target rules for targets named clean_test_results_vision_msgs
@@ -2014,173 +1559,17 @@ run_tests_vision_msgs_gtest_vision_msgs_test/fast:
 .PHONY : run_tests_vision_msgs_gtest_vision_msgs_test/fast
 
 #=============================================================================
-# Target rules for targets named dynamic_reconfigure_gencfg
+# Target rules for targets named _run_tests_aruco_detect_rostest_test_aruco_images.test
 
 # Build rule for target.
-dynamic_reconfigure_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
-.PHONY : dynamic_reconfigure_gencfg
+_run_tests_aruco_detect_rostest_test_aruco_images.test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_aruco_detect_rostest_test_aruco_images.test
+.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test
 
 # fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_aruco_detect
-
-# Build rule for target.
-_run_tests_aruco_detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_aruco_detect
-.PHONY : _run_tests_aruco_detect
-
-# fast build rule for target.
-_run_tests_aruco_detect/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build
-.PHONY : _run_tests_aruco_detect/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_py
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named aruco_images_test
-
-# Build rule for target.
-aruco_images_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 aruco_images_test
-.PHONY : aruco_images_test
-
-# fast build rule for target.
-aruco_images_test/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build
-.PHONY : aruco_images_test/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_eus
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named aruco_detect_gencfg
-
-# Build rule for target.
-aruco_detect_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 aruco_detect_gencfg
-.PHONY : aruco_detect_gencfg
-
-# fast build rule for target.
-aruco_detect_gencfg/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build
-.PHONY : aruco_detect_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_aruco_detect_rostest_test_aruco_images.test
-
-# Build rule for target.
-run_tests_aruco_detect_rostest_test_aruco_images.test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_aruco_detect_rostest_test_aruco_images.test
-.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test
-
-# fast build rule for target.
-run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
-.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test/fast
-
-#=============================================================================
-# Target rules for targets named aruco_detect
-
-# Build rule for target.
-aruco_detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 aruco_detect
-.PHONY : aruco_detect
-
-# fast build rule for target.
-aruco_detect/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build
-.PHONY : aruco_detect/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_aruco_detect
-
-# Build rule for target.
-run_tests_aruco_detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_aruco_detect
-.PHONY : run_tests_aruco_detect
-
-# fast build rule for target.
-run_tests_aruco_detect/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build
-.PHONY : run_tests_aruco_detect/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_aruco_detect_rostest
-
-# Build rule for target.
-run_tests_aruco_detect_rostest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_aruco_detect_rostest
-.PHONY : run_tests_aruco_detect_rostest
-
-# fast build rule for target.
-run_tests_aruco_detect_rostest/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build
-.PHONY : run_tests_aruco_detect_rostest/fast
+_run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
+.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test/fast
 
 #=============================================================================
 # Target rules for targets named _run_tests_aruco_detect_rostest
@@ -2196,17 +1585,82 @@ _run_tests_aruco_detect_rostest/fast:
 .PHONY : _run_tests_aruco_detect_rostest/fast
 
 #=============================================================================
-# Target rules for targets named _run_tests_aruco_detect_rostest_test_aruco_images.test
+# Target rules for targets named run_tests_aruco_detect_rostest
 
 # Build rule for target.
-_run_tests_aruco_detect_rostest_test_aruco_images.test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_aruco_detect_rostest_test_aruco_images.test
-.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test
+run_tests_aruco_detect_rostest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_aruco_detect_rostest
+.PHONY : run_tests_aruco_detect_rostest
 
 # fast build rule for target.
-_run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
-	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
-.PHONY : _run_tests_aruco_detect_rostest_test_aruco_images.test/fast
+run_tests_aruco_detect_rostest/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/build
+.PHONY : run_tests_aruco_detect_rostest/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named run_tests_aruco_detect_rostest_test_aruco_images.test
+
+# Build rule for target.
+run_tests_aruco_detect_rostest_test_aruco_images.test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_aruco_detect_rostest_test_aruco_images.test
+.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test
+
+# fast build rule for target.
+run_tests_aruco_detect_rostest_test_aruco_images.test/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/build
+.PHONY : run_tests_aruco_detect_rostest_test_aruco_images.test/fast
+
+#=============================================================================
+# Target rules for targets named visualization_msgs_generate_messages_nodejs
+
+# Build rule for target.
+visualization_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_nodejs
+.PHONY : visualization_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+visualization_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
+.PHONY : visualization_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named visualization_msgs_generate_messages_py
+
+# Build rule for target.
+visualization_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_py
+.PHONY : visualization_msgs_generate_messages_py
+
+# fast build rule for target.
+visualization_msgs_generate_messages_py/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
+.PHONY : visualization_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named aruco_images_test
+
+# Build rule for target.
+aruco_images_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_images_test
+.PHONY : aruco_images_test
+
+# fast build rule for target.
+aruco_images_test/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build
+.PHONY : aruco_images_test/fast
 
 #=============================================================================
 # Target rules for targets named clean_test_results_aruco_detect
@@ -2220,6 +1674,162 @@ clean_test_results_aruco_detect: cmake_check_build_system
 clean_test_results_aruco_detect/fast:
 	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/clean_test_results_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/clean_test_results_aruco_detect.dir/build
 .PHONY : clean_test_results_aruco_detect/fast
+
+#=============================================================================
+# Target rules for targets named visualization_msgs_generate_messages_lisp
+
+# Build rule for target.
+visualization_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_lisp
+.PHONY : visualization_msgs_generate_messages_lisp
+
+# fast build rule for target.
+visualization_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/build
+.PHONY : visualization_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_gencfg
+
+# Build rule for target.
+dynamic_reconfigure_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
+.PHONY : dynamic_reconfigure_gencfg
+
+# fast build rule for target.
+dynamic_reconfigure_gencfg/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
+.PHONY : dynamic_reconfigure_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named _run_tests_aruco_detect
+
+# Build rule for target.
+_run_tests_aruco_detect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_aruco_detect
+.PHONY : _run_tests_aruco_detect
+
+# fast build rule for target.
+_run_tests_aruco_detect/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/_run_tests_aruco_detect.dir/build
+.PHONY : _run_tests_aruco_detect/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
+.PHONY : dynamic_reconfigure_generate_messages_lisp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_lisp/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named visualization_msgs_generate_messages_cpp
+
+# Build rule for target.
+visualization_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_cpp
+.PHONY : visualization_msgs_generate_messages_cpp
+
+# fast build rule for target.
+visualization_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
+.PHONY : visualization_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named run_tests_aruco_detect
+
+# Build rule for target.
+run_tests_aruco_detect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_aruco_detect
+.PHONY : run_tests_aruco_detect
+
+# fast build rule for target.
+run_tests_aruco_detect/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/build
+.PHONY : run_tests_aruco_detect/fast
+
+#=============================================================================
+# Target rules for targets named visualization_msgs_generate_messages_eus
+
+# Build rule for target.
+visualization_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_eus
+.PHONY : visualization_msgs_generate_messages_eus
+
+# fast build rule for target.
+visualization_msgs_generate_messages_eus/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build.make fiducials/aruco_detect/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
+.PHONY : visualization_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_eus
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
+.PHONY : dynamic_reconfigure_generate_messages_eus
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_eus/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_py
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
+.PHONY : dynamic_reconfigure_generate_messages_py
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_py/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make fiducials/aruco_detect/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named aruco_detect_gencfg
+
+# Build rule for target.
+aruco_detect_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_detect_gencfg
+.PHONY : aruco_detect_gencfg
+
+# fast build rule for target.
+aruco_detect_gencfg/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build
+.PHONY : aruco_detect_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named aruco_detect
+
+# Build rule for target.
+aruco_detect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_detect
+.PHONY : aruco_detect
+
+# fast build rule for target.
+aruco_detect/fast:
+	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/build
+.PHONY : aruco_detect/fast
 
 # Help Target
 help:
@@ -2243,7 +1853,6 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... list_transports"
 	@echo "... image_transport_plugins"
 	@echo "... geometry_msgs_generate_messages_py"
@@ -2311,63 +1920,29 @@ help:
 	@echo "... fiducial_msgs_genlisp"
 	@echo "... fiducial_msgs_generate_messages_nodejs"
 	@echo "... fiducial_msgs_gennodejs"
-	@echo "... run_tests_fiducial_slam_rostest_test_create_map_aruco.xml"
-	@echo "... _run_tests_fiducial_slam_rostest_test_init_map_aruco.xml"
-	@echo "... run_tests_fiducial_slam_rostest"
-	@echo "... fiducial_slam_generate_messages_lisp"
-	@echo "... fiducial_slam_generate_messages_nodejs"
-	@echo "... fiducial_slam_generate_messages_eus"
-	@echo "... fiducial_slam_gennodejs"
-	@echo "... run_tests_fiducial_slam_rostest_test_init_map_aruco.xml"
-	@echo "... fiducial_slam_gencpp"
-	@echo "... fiducial_slam_geneus"
-	@echo "... fiducial_slam_genpy"
-	@echo "... fiducial_slam_generate_messages_cpp"
-	@echo "... fiducial_slam_generate_messages"
-	@echo "... run_tests_fiducial_slam_gtest_transform_var_test"
-	@echo "... _fiducial_slam_generate_messages_check_deps_AddFiducial"
-	@echo "... fiducial_slam_genlisp"
-	@echo "... visualization_msgs_generate_messages_eus"
-	@echo "... visualization_msgs_generate_messages_lisp"
-	@echo "... visualization_msgs_generate_messages_nodejs"
-	@echo "... run_tests_fiducial_slam_gtest"
-	@echo "... visualization_msgs_generate_messages_cpp"
-	@echo "... fiducial_slam"
-	@echo "... transform_var_test"
-	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... run_tests_fiducial_slam"
-	@echo "... _run_tests_fiducial_slam"
-	@echo "... _run_tests_fiducial_slam_gtest"
-	@echo "... _run_tests_fiducial_slam_gtest_transform_var_test"
-	@echo "... clean_test_results_fiducial_slam"
-	@echo "... _run_tests_fiducial_slam_rostest"
-	@echo "... _run_tests_fiducial_slam_rostest_test_create_map_aruco.xml"
-	@echo "... auto_init_403_test"
-	@echo "... run_tests_fiducial_slam_rostest_test_auto_init_403.test"
-	@echo "... fiducial_slam_generate_messages_py"
-	@echo "... _run_tests_fiducial_slam_rostest_test_auto_init_403.test"
 	@echo "... vision_msgs_genpy"
 	@echo "... vision_msgs_generate_messages_py"
 	@echo "... vision_msgs_gennodejs"
 	@echo "... vision_msgs_genlisp"
-	@echo "... vision_msgs_generate_messages_lisp"
+	@echo "... vision_msgs_geneus"
 	@echo "... _vision_msgs_generate_messages_check_deps_Detection2D"
 	@echo "... _vision_msgs_generate_messages_check_deps_ObjectHypothesisWithPose"
 	@echo "... _vision_msgs_generate_messages_check_deps_BoundingBox2D"
 	@echo "... _vision_msgs_generate_messages_check_deps_BoundingBox3D"
-	@echo "... _vision_msgs_generate_messages_check_deps_Detection3D"
-	@echo "... vision_msgs_generate_messages"
 	@echo "... _vision_msgs_generate_messages_check_deps_Classification3D"
+	@echo "... vision_msgs_generate_messages_lisp"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... vision_msgs_generate_messages"
+	@echo "... _vision_msgs_generate_messages_check_deps_Detection3D"
 	@echo "... _vision_msgs_generate_messages_check_deps_Classification2D"
 	@echo "... _vision_msgs_generate_messages_check_deps_Detection2DArray"
 	@echo "... _vision_msgs_generate_messages_check_deps_ObjectHypothesis"
 	@echo "... _vision_msgs_generate_messages_check_deps_VisionInfo"
-	@echo "... vision_msgs_geneus"
+	@echo "... vision_msgs_generate_messages_eus"
+	@echo "... _vision_msgs_generate_messages_check_deps_Detection3DArray"
 	@echo "... vision_msgs_generate_messages_nodejs"
 	@echo "... vision_msgs_generate_messages_cpp"
 	@echo "... vision_msgs_gencpp"
-	@echo "... _vision_msgs_generate_messages_check_deps_Detection3DArray"
-	@echo "... vision_msgs_generate_messages_eus"
 	@echo "... clean_test_results_vision_msgs"
 	@echo "... _run_tests_vision_msgs_gtest_vision_msgs_test"
 	@echo "... run_tests_vision_msgs"
@@ -2376,22 +1951,27 @@ help:
 	@echo "... run_tests_vision_msgs_gtest"
 	@echo "... _run_tests_vision_msgs_gtest"
 	@echo "... run_tests_vision_msgs_gtest_vision_msgs_test"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... _run_tests_aruco_detect"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... aruco_images_test"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... aruco_detect_gencfg"
-	@echo "... run_tests_aruco_detect_rostest_test_aruco_images.test"
-	@echo "... aruco_detect"
-	@echo "... run_tests_aruco_detect"
-	@echo "... run_tests_aruco_detect_rostest"
-	@echo "... _run_tests_aruco_detect_rostest"
 	@echo "... _run_tests_aruco_detect_rostest_test_aruco_images.test"
+	@echo "... _run_tests_aruco_detect_rostest"
+	@echo "... run_tests_aruco_detect_rostest"
+	@echo "... dynamic_reconfigure_generate_messages_cpp"
+	@echo "... run_tests_aruco_detect_rostest_test_aruco_images.test"
+	@echo "... visualization_msgs_generate_messages_nodejs"
+	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... aruco_images_test"
 	@echo "... clean_test_results_aruco_detect"
+	@echo "... visualization_msgs_generate_messages_lisp"
+	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... dynamic_reconfigure_gencfg"
+	@echo "... _run_tests_aruco_detect"
+	@echo "... dynamic_reconfigure_generate_messages_lisp"
+	@echo "... visualization_msgs_generate_messages_cpp"
+	@echo "... run_tests_aruco_detect"
+	@echo "... visualization_msgs_generate_messages_eus"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... dynamic_reconfigure_generate_messages_py"
+	@echo "... aruco_detect_gencfg"
+	@echo "... aruco_detect"
 .PHONY : help
 
 

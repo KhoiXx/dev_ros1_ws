@@ -36,9 +36,9 @@
     </group_state>
     <group_state name="ready" group="robotarm">
         <joint name="joint_0" value="0" />
-        <joint name="joint_1" value="0" />
-        <joint name="joint_2" value="0.5031" />
-        <joint name="joint_3" value="-1.544" />
+        <joint name="joint_1" value="-0.17" />
+        <joint name="joint_2" value="0.87" />
+        <joint name="joint_3" value="-1.78" />
         <joint name="joint_4" value="0" />
         <joint name="joint_5" value="0" />
     </group_state>
@@ -58,7 +58,7 @@
         <joint name="joint_4" value="0" />
         <joint name="joint_5" value="0.1" />
     </group_state>
-    <group_state name="find_onself" group="robotarm">
+    <group_state name="find_onshelf" group="robotarm">
         <joint name="joint_0" value="0.0501" />
         <joint name="joint_1" value="0.0907" />
         <joint name="joint_2" value="-0.4433" />
@@ -111,24 +111,36 @@
     <disable_collisions link1="link_1" link2="wh_fl" reason="Never" />
     <disable_collisions link1="link_1" link2="wh_fr" reason="Never" />
     <disable_collisions link1="link_2" link2="link_3" reason="Adjacent" />
+    <disable_collisions link1="link_2" link2="link_52" reason="Never" />
+    <disable_collisions link1="link_2" link2="link_54" reason="Never" />
     <disable_collisions link1="link_2" link2="wh_bl" reason="Never" />
     <disable_collisions link1="link_2" link2="wh_br" reason="Never" />
     <disable_collisions link1="link_2" link2="wh_fl" reason="Never" />
     <disable_collisions link1="link_2" link2="wh_fr" reason="Never" />
     <disable_collisions link1="link_3" link2="link_4" reason="Adjacent" />
+    <disable_collisions link1="link_3" link2="link_5" reason="Never" />
+    <disable_collisions link1="link_3" link2="link_51" reason="Never" />
+    <disable_collisions link1="link_3" link2="link_52" reason="Never" />
+    <disable_collisions link1="link_3" link2="link_53" reason="Never" />
+    <disable_collisions link1="link_3" link2="link_54" reason="Never" />
+    <disable_collisions link1="link_3" link2="wh_bl" reason="Never" />
+    <disable_collisions link1="link_3" link2="wh_br" reason="Never" />
+    <disable_collisions link1="link_3" link2="wh_fl" reason="Never" />
     <disable_collisions link1="link_4" link2="link_5" reason="Adjacent" />
     <disable_collisions link1="link_4" link2="link_51" reason="Never" />
     <disable_collisions link1="link_4" link2="link_52" reason="Never" />
     <disable_collisions link1="link_4" link2="link_53" reason="Never" />
     <disable_collisions link1="link_4" link2="link_54" reason="Never" />
+    <disable_collisions link1="link_4" link2="wh_bl" reason="Never" />
+    <disable_collisions link1="link_4" link2="wh_br" reason="Never" />
     <disable_collisions link1="link_5" link2="link_51" reason="Adjacent" />
     <disable_collisions link1="link_5" link2="link_52" reason="Default" />
     <disable_collisions link1="link_5" link2="link_53" reason="Adjacent" />
     <disable_collisions link1="link_5" link2="link_54" reason="Default" />
     <disable_collisions link1="link_51" link2="link_52" reason="Adjacent" />
     <disable_collisions link1="link_51" link2="link_53" reason="Default" />
-    <disable_collisions link1="link_51" link2="link_54" reason="Default" />
-    <disable_collisions link1="link_52" link2="link_53" reason="Never" />
+    <disable_collisions link1="link_51" link2="link_54" reason="Never" />
+    <disable_collisions link1="link_52" link2="link_53" reason="Default" />
     <disable_collisions link1="link_52" link2="link_54" reason="Default" />
     <disable_collisions link1="link_53" link2="link_54" reason="Adjacent" />
     <disable_collisions link1="wh_bl" link2="wh_br" reason="Never" />
