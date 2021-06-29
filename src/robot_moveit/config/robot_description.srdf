@@ -43,17 +43,17 @@
         <joint name="joint_5" value="0" />
     </group_state>
     <group_state name="load_1" group="robotarm">
-        <joint name="joint_0" value="-3.11" />
-        <joint name="joint_1" value="0.67" />
-        <joint name="joint_2" value="0.42" />
+        <joint name="joint_0" value="-2.99" />
+        <joint name="joint_1" value="0.84" />
+        <joint name="joint_2" value="0.29" />
         <joint name="joint_3" value="-2.19" />
         <joint name="joint_4" value="-0.02" />
         <joint name="joint_5" value="0.1" />
     </group_state>
     <group_state name="load_2" group="robotarm">
-        <joint name="joint_0" value="-3.25" />
-        <joint name="joint_1" value="0.67" />
-        <joint name="joint_2" value="0.42" />
+        <joint name="joint_0" value="-3.3" />
+        <joint name="joint_1" value="0.79" />
+        <joint name="joint_2" value="0.29" />
         <joint name="joint_3" value="-2.19" />
         <joint name="joint_4" value="-0.02" />
         <joint name="joint_5" value="0.1" />
@@ -68,7 +68,7 @@
     </group_state>
     <group_state name="put_on_shelf" group="robotarm">
         <joint name="joint_0" value="0.07" />
-        <joint name="joint_1" value="1.13" />
+        <joint name="joint_1" value="0.95" />
         <joint name="joint_2" value="-0.35" />
         <joint name="joint_3" value="-1.75" />
         <joint name="joint_4" value="0.00" />
