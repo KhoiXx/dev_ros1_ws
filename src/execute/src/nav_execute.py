@@ -69,7 +69,7 @@ class Navigation:
         self.imu_sub = rospy.Subscriber('/imu/data', Imu, self.imu_callback)
         self.goal_result_sub = rospy.Subscriber('/move_base/result', MoveBaseActionResult, self.goal_result_callback)
         rospy.Subscriber('/sonar/back_obstacle', Bool, self.back_obstacle_callback)
-        rospy.Subscriber('/scan', LaserScan, self.scan_callback)
+        # rospy.Subscriber('/scan', LaserScan, self.scan_callback)
         rospy.Subscriber('/finding_pose', Float32, self.finding_pose_callback)
         rospy.Subscriber('/set_rotate_angle', Int32, self.set_rotate_angle_callback)
 

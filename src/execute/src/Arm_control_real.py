@@ -22,7 +22,7 @@ J4_ZERO = 178
 J3_ZERO = 148
 J2_ZERO = 74
 J1_ZERO = 34
-J0_ZERO = 218
+J0_ZERO = 216
 position_zero = [J0_ZERO, J1_ZERO, J2_ZERO, J3_ZERO, J4_ZERO, J5_ZERO]
 
 class adjust_joint_angle:

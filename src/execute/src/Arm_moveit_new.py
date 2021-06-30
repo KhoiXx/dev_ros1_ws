@@ -61,7 +61,7 @@ class moveit_handle():
         # rospy.Subscriber('/move_base/result', MoveBaseActionResult, self.goal_result_callback)
         rospy.Subscriber('/result', Int32, self.result_callback)
         rospy.Subscriber('/fiducial_transforms', FiducialTransformArray, self.aruco_transform)
-        rospy.Subscriber('/scan', LaserScan, self.scan_callback)
+        # rospy.Subscriber('/scan', LaserScan, self.scan_callback)
 
         # rospy.Publisher('/move_group/display_planned_path', moveit_msgs.msg.DisplayTrajectory, queue_size=10)
         find_pose_pub = rospy.Publisher('/finding_pose', Float32, queue_size=10)
@@ -109,10 +109,10 @@ class moveit_handle():
             if i.fiducial_id in self.chosen_id:
                 self.__chosen_id_time = rospy.get_rostime()
                 self.package_id = i.fiducial_id
-                self.log("detect_id")
+                # self.log("detect_id")
         self.__is_package_detect = True if rospy.get_rostime().nsecs - self.__chosen_id_time.nsecs < 5*(10**7) else False
         self.__is_shelf_detect = True if rospy.get_rostime().nsecs - self.__shelf_id_time.nsecs < 5*(10**7) else False
-        self.log("detect shelf:{} id:{}".format(self.__is_shelf_detect, self.__is_package_detect))
+        # self.log("detect shelf:{} id:{}".format(self.__is_shelf_detect, self.__is_package_detect))
 
     def set_pose_callback(self,msg):
         # target.position.x = 0.15
@@ -151,8 +151,8 @@ class moveit_handle():
         Check goal status and correct robot heading
         '''
         try:
-            rospy.loginfo("Goal result")
-            self.log("Goal result")
+            # rospy.loginfo("Goal result")
+            # self.log("Goal result")
             # if result_msg.data == GOAL_STATUS_SUCCESS:
             #     if not self.handle_keyboard():
             #         return
@@ -200,67 +200,76 @@ class moveit_handle():
 
     def load_package(self):
         '''Control the arm to load package onto the robot'''
-        self.group.set_named_target("find_package")
-        self.handle_command(1)
-        timeout = 50
-        time = rospy.get_rostime()
-        delta_t = 5
-        speed = 0.14
-        while not self.__is_shelf_detect:
-            self.__robot_base.set_speed([speed, speed])
-            time.sleep(0.2)
-            ##check is there any obstacle
-            while (self.__is_back_obstacle and speed < 0) or (min(self.scan_range) > 0.4 and speed >0 ):
-                self.__robot_base.set_stop()
-                if rospy.get_time() - time > timeout:   return False
-            if rospy.get_time() - time >= delta_t:
-                self.__robot_base.set_stop()
-                speed = -speed
-                delta_t += 5
-            if rospy.get_time() - time > timeout:   return False
-        target_frame = '/fiducial_' + str(self.shelf_id)
-        time = rospy.get_rostime()
-        while rospy.get_rostime() - time < 10:
-            translation, rotation = self.lookup_transform(target_frame, 'dummy')
-            if abs(translation.x) < 0.02 or translation == None:
-                break
-            direction = 1 if translation.x > 0 else -1
-            self.__robot_base.set_speed([speed*direction, speed*direction])
-            time.sleep(0.1)
-        self.__robot_base.set_stop()
-        if translation.x >=0.02 or translation == None:
-            self.log("Cannot get to the shelf")
-            rospy.loginfo("Cannot get to the shelf")
-            return False
-        self.__robot_base.set_rotate(-0.3)
-        while self.__robot_base.robot_status != ROBOT_STATUS._STOP:
-            current_joints = self.group.get_current_joint_values()
-            _,rotarm = self.lookup_transform(target_frame,'link_1')
-            _,rotbase = self.lookup_transform('dummy','link_1')
-            yawarm = rotarm[2]
-            yawbase = rotbase[2]
-            alpha = -90+yawarm
-            current_joints[0] += np.deg2rad(alpha)
-            if abs(alpha) > 2 and current_joints[0] <= np.deg2rad(260):
-                self.group.set_joint_value_target(current_joints)
-                self.handle_command(1)
-            time.sleep(0.1)
-            if abs(yawbase) < 3:
-                self.__robot_base.set_stop()
-        ##finished align with shelf
-        while min(self.scan_range) >0.27:
-            target_frame = "/fiducial_"+self.package_id
-            trans,rot = self.lookup_transform(target_frame, "dummy")
-            if trans.x > 0.02:
-                self.__robot_base.set_speed([0.14,0.17])
-            elif trans.x > 0.02:
-                self.__robot_base.set_speed([0.17,0.14])
-            else:
-                self.__robot_base.set_speed([0.14,0.14])
-            time.sleep(0.1)
-        time.sleep(1)            
-        self.__robot_base.set_stop()
-        ##stand in front of the package
+        try:
+            self.log("Start load package")
+            self.group.set_named_target("ready")
+            self.handle_command(1)
+            timeout = 10
+            time = rospy.get_rostime()
+            delta_t = 5
+            speed = 0.14
+            
+            while not self.__is_shelf_detect:
+                self.__robot_base.set_speed([speed, speed])
+                time.sleep(0.2)
+                ##check is there any obstacle
+                # if min(self.scan_range) < 0.6:
+                #     self.log("Min scan_range: {}".format(min(self.scan_range)))
+                #     self.__robot_base.set_stop()
+                if rospy.get_time() - time > timeout:  
+                    self.log("load timeout") 
+                    return False
+            self.__robot_base.set_stop()
+            self.log("Find shelf id finished")
+
+            target_frame = '/fiducial_' + str(self.shelf_id)
+            time = rospy.get_rostime()
+            while rospy.get_rostime() - time < 10:
+                translation, rotation = self.lookup_transform(target_frame, 'dummy')
+                if abs(translation.x) < 0.02 or translation == None:
+                    break
+                direction = 1 if translation.x > 0 else -1
+                self.__robot_base.set_speed([speed*direction, speed*direction])
+                time.sleep(0.1)
+            self.log("Aligning with code finished")
+            self.__robot_base.set_stop()
+            if translation.x >=0.02 or translation == None:
+                self.log("Cannot get to the shelf")
+                rospy.loginfo("Cannot get to the shelf")
+                return False
+
+            self.__robot_base.set_rotate(-0.3)
+            while self.__robot_base.robot_status != ROBOT_STATUS._STOP:
+                current_joints = self.group.get_current_joint_values()
+                _,rotarm = self.lookup_transform(target_frame,'link_1')
+                _,rotbase = self.lookup_transform('dummy','link_1')
+                yawarm = rotarm[2]
+                yawbase = rotbase[2]
+                alpha = -90+yawarm
+                current_joints[0] += np.deg2rad(alpha)
+                if abs(alpha) > 2 and current_joints[0] <= np.deg2rad(260):
+                    self.group.set_joint_value_target(current_joints)
+                    self.handle_command(1)
+                time.sleep(0.1)
+                if abs(yawbase) < 3:
+                    self.__robot_base.set_stop()
+
+            ##finished align with shelf
+            # while min(self.scan_range) >0.27:
+            #     target_frame = "/fiducial_"+self.package_id
+            #     trans,rot = self.lookup_transform(target_frame, "dummy")
+            #     if trans.x > 0.02:
+            #         self.__robot_base.set_speed([0.14,0.17])
+            #     elif trans.x > 0.02:
+            #         self.__robot_base.set_speed([0.17,0.14])
+            #     else:
+            #         self.__robot_base.set_speed([0.14,0.14])
+            #     time.sleep(0.1)
+            # time.sleep(1)            
+            self.__robot_base.set_stop()
+            ##stand in front of the package
+        except :
+            self.log('load_package@Exception', traceback.format_exc())
         
     def unload_package(self):
         self.__robot_base.set_stop()
@@ -286,6 +295,11 @@ class moveit_handle():
         for i in range(1,4):
             trans = self.lookup_transform(target_frame, "dummy")[0]
             if trans == None:
+                if i == 1:
+                    self.__robot_base.set_speed([-0.15, -0.15])
+                    time.sleep(0.5)
+                    self.__robot_base.set_stop()
+                    continue
                 joint_angle = self.group.get_current_joint_values()
                 joint_angle[0] += (0.1*i)* (-1) ** i
                 self.group.set_joint_value_target(joint_angle)
@@ -340,7 +354,7 @@ class moveit_handle():
             self.group.set_named_target("load_1")
 
         self.handle_command(1)
-        self.group.shift_pose_target(2, -0.041)
+        self.group.shift_pose_target(2, -0.051)
         self.handle_command(1)
         joint_angle = self.group.get_current_joint_values()
         joint_angle[3] += 0.15
@@ -474,7 +488,7 @@ class moveit_handle():
                 if not package and not shelf:
                     continue
                 self.chosen_id = [int(package)] if package else Fiducials_id.PACKAGE_3 if shelf == 3 else Fiducials_id.PACKAGE_2 if shelf == 2 else Fiducials_id.PACKAGE_1
-                self.package_width = 36 if package in Fiducials_id.PACKAGE_1 else 30
+                self.package_width = 36 if package in Fiducials_id.PACKAGE_1 + Fiducials_id.PACKAGE_3 else 30
                 self.shelf_id = int(shelf)  if shelf else 3 if package in Fiducials_id.PACKAGE_3 else 2 if package in Fiducials_id.PACKAGE_2 else 1
                 break
             except :
@@ -483,7 +497,7 @@ class moveit_handle():
             return False
 
         if "unload" in action_to_do:
-             if not self.unload_package():
+            if not self.unload_package():
                 return False
         else:
             if not self.load_package():
@@ -491,7 +505,7 @@ class moveit_handle():
         return True
 
     def handle_command(self, command):
-        '''Chose to command for moveit to execute'''
+        '''Choose a command for moveit to execute'''
         try:
             #self.group.set_position_target([self.target.position.x,self.target.position.y,self.target.position.z],end_effector_link=end_link)
             #self.targer.orientation = self.group.get_random_orientation()
