@@ -2,7 +2,11 @@ DWAPlannerROS:
 
 # Robot Configuration Parameters
   max_vel_x: 0.2
+<<<<<<< HEAD
   min_vel_x: -0.1
+=======
+  min_vel_x: 0.1
+>>>>>>> 0bdc4befa9b8ff83dbaf7c097dcc7cba7537f569
 
   max_vel_y: 0.0
   min_vel_y: 0.0
@@ -20,7 +24,11 @@ DWAPlannerROS:
 
 # Goal Tolerance Parametes
   xy_goal_tolerance: 0.1
+<<<<<<< HEAD
   yaw_goal_tolerance: 1.57
+=======
+  yaw_goal_tolerance: 0.1
+>>>>>>> 0bdc4befa9b8ff83dbaf7c097dcc7cba7537f569
   latch_xy_goal_tolerance: true
   dwa: true
   holonomic_robot: false
