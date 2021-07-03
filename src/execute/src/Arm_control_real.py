@@ -22,7 +22,7 @@ J4_ZERO = 178
 J3_ZERO = 148
 J2_ZERO = 74
 J1_ZERO = 34
-J0_ZERO = 216
+J0_ZERO = 219
 position_zero = [J0_ZERO, J1_ZERO, J2_ZERO, J3_ZERO, J4_ZERO, J5_ZERO]
 
 class adjust_joint_angle:
@@ -33,7 +33,7 @@ class adjust_joint_angle:
             datetime.datetime.now().strftime('arm_real_%d%m_%H%M'),
             '.log'
         ]
-        self.__file_log = open("".join(log_info), "w")
+        # self.__file_log = open("".join(log_info), "w")
         self.name = []
         self.j5_angle = J5_ZERO
         self.j4_angle = np.rad2deg(0.1) + J4_ZERO
@@ -50,12 +50,12 @@ class adjust_joint_angle:
         self.test = ServoKit(channels = 16)
         for i in range(6):
             self.test.servo[i].set_pulse_width_range(min_pulse = 370, max_pulse = 2340)
-        self.log("PCA is opening")
+        # self.log("PCA is opening")
         self.exc_joint = [self.test.servo[5], self.test.servo[4], self.test.servo[3], self.test.servo[2], self.test.servo[1], self.test.servo[0]]
         self.exc_joint[0].actuation_range = 260
         for i in range(6):
             self.exc_joint[i].angle = self.fix_angle(self.position[i])
-        self.log('Finished initializing arm_control')
+        # self.log('Finished initializing arm_control')
         rospy.Subscriber('joint_states', JointState, self.callback)
         rospy.Subscriber('gripper_state', Int32, self.gripper_callback)
 

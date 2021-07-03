@@ -11,9 +11,9 @@ from nav_execute import Navigation
 
 class Thesis_robot(object):
     def __init__(self, port , baudrate):
-        self.thesis_robot = Robot(port, baudrate)
+        # self.thesis_robot = Robot(port, baudrate)
         time.sleep(1)
-        self.navigation = Navigation(self.thesis_robot)
+        self.navigation = Navigation()
 
 def main(port, baud):
     try:

@@ -42,11 +42,19 @@
         <joint name="joint_4" value="0" />
         <joint name="joint_5" value="0" />
     </group_state>
+    <group_state name="ready_!" group="robotarm">
+        <joint name="joint_0" value="0" />
+        <joint name="joint_1" value="0" />
+        <joint name="joint_2" value="0" />
+        <joint name="joint_3" value="-0.23" />
+        <joint name="joint_4" value="0" />
+        <joint name="joint_5" value="0" />
+    </group_state>
     <group_state name="load_1" group="robotarm">
-        <joint name="joint_0" value="-2.99" />
-        <joint name="joint_1" value="0.84" />
+        <joint name="joint_0" value="-3.05" />
+        <joint name="joint_1" value="0.72" />
         <joint name="joint_2" value="0.29" />
-        <joint name="joint_3" value="-2.19" />
+        <joint name="joint_3" value="-2.12" />
         <joint name="joint_4" value="-0.02" />
         <joint name="joint_5" value="0.1" />
     </group_state>
@@ -75,7 +83,7 @@
         <joint name="joint_5" value="0.1" />
     </group_state>
     <group_state name="find_onboard" group="robotarm">
-        <joint name="joint_0" value="-3.182" />
+        <joint name="joint_0" value="-3.08" />
         <joint name="joint_1" value="-0.17" />
         <joint name="joint_2" value="0.62" />
         <joint name="joint_3" value="-1.09" />

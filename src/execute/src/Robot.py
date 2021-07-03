@@ -48,11 +48,9 @@ class Robot(RobotControl):
         if status != pre_status :
             self.status_pub.publish(status)
         self.pre_robot_status = status
-
-
     
     def keycontrol_callback(self, msg):
-        self.log_latest_command()
+        # self.log_latest_command()
         if not self.is_keyboard_mode():
             self.set_keyboard_mode()
             # reset speed
@@ -126,14 +124,14 @@ class Robot(RobotControl):
                 self.set_speed([-self._current_speed, -self._current_speed])
                 return
                 
-            if key_command == Key_mapping.COMMAND_SAVE_MAP:
-                if self.save_map(timeout_map=15):
-                    self.log("Save map successfully...")
-                    # self.log_console("Save map successfully...")
-                else:
-                    self.log("Save map failed...")
-                    # self.log_console("Save map failed...")
-                return
+            # if key_command == Key_mapping.COMMAND_SAVE_MAP:
+            #     if self.save_map(timeout_map=15):
+            #         self.log("Save map successfully...")
+            #         # self.log_console("Save map successfully...")
+            #     else:
+            #         self.log("Save map failed...")
+            #         # self.log_console("Save map failed...")
+            #     return
 
             self.log("handle_key_command INVALID command [" + key_command + "]")
         except Exception as ex:

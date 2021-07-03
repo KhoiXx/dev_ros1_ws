@@ -16,7 +16,7 @@ from enum import Enum
 from robot_command import RobotCommand
 
 ROBOT_WIDTH = 0.26
-ROBOT_MAX_SPEED = 0.5
+ROBOT_MAX_SPEED = 0.4
 ROBOT_STATUS = Enum('ROBOT_STATUS','_STOP _ROTATING _RUNNING')
 
 
