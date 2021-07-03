@@ -42,7 +42,7 @@
         <joint name="joint_4" value="0" />
         <joint name="joint_5" value="0" />
     </group_state>
-    <group_state name="ready_!" group="robotarm">
+    <group_state name="ready_1" group="robotarm">
         <joint name="joint_0" value="0" />
         <joint name="joint_1" value="0" />
         <joint name="joint_2" value="0" />

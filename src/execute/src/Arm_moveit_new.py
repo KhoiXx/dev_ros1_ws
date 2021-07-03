@@ -41,9 +41,9 @@ PACKAGE_WIDTH_MAX = 45
 
 def position(id="A1"):
     case = {
-        "A1": Point(2.292, -0.467, 0.00),
-        "A2": Point(2.3, -0.643, 0.00),
-        "A3": Point(2.334, -0.771, 0.00),
+        "A1": Point(2.212, -0.467, 0.00),
+        "A2": Point(2.22, -0.643, 0.00),
+        "A3": Point(2.244, -0.771, 0.00),
         "B1": Point(3.121, 1.676, 0.00),
         "B2": Point(3.2, 1.676, 0.00),
         "B3": Point(3.287, 1.586, 0.00),
@@ -53,14 +53,14 @@ def position(id="A1"):
 
 def orientation(id="A1"):
     case = {
-        "A1": Quaternion(0.00, 0.00, -0.0269967, 0.9996355),
-        "A2": Quaternion(0.00, 0.00, -0.0349929, 0.9993876),
+        "A1": Quaternion(0.00, 0.00, -0.0169992, 0.9998555),
+        "A2": Quaternion(0.00, 0.00, -0.0169992, 0.9998555),
         "A3": Quaternion(0.00, 0.00, -0.0169992, 0.9998555),
         "B1": Quaternion(0.00, 0.00, 0.6997161, 0.714421),
         "B2": Quaternion(0.00, 0.00, 0.7142137, 0.6999277),
         "B3": Quaternion(0.00, 0.00, 0.7173561, 0.6967067),
     }
-    return case.get(id, Quaternion(0.00, 0.00, 0.0269967, 0.9996355))
+    return case.get(id, Quaternion(0.00, 0.00, 0.0169992, 0.9998555))
 
 
 class moveit_handle:
@@ -120,7 +120,7 @@ class moveit_handle:
         self.package_count = 0
         self.goal_shelf = PoseStamped()
         self.goal_shelf.header.frame_id = "map"
-        self.action_to_do = "load"
+        self.action_to_do = "unload"
         self.detect_id = ""
         self.count = 0
 
@@ -189,13 +189,14 @@ class moveit_handle:
                     self.handle_command(1)
                     time.sleep(3)
                     for i in range(3):
-                        trans = self.lookup_transform("fiducial" + str(self.shelf_id), "dummy")[0]
+                        trans = self.lookup_transform("fiducial_" + str(self.shelf_id), "dummy")[0]
                         if trans is not None:
                             if trans.x < 0.329:
                                 break
+                            rospy.loginfo(trans.x)
                             self.__robot_base.set_speed([0.14, 0.14])
                             delay = (trans.x - 0.329) / 0.14
-                            time.sleep(delay)
+                            time.sleep(delay+0.1)
                         else:
                             if self.__is_back_obstacle:
                                 time.sleep(3)

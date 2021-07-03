@@ -73,6 +73,8 @@ class Navigation:
         rospy.Subscriber('/finding_pose', Float32, self.finding_pose_callback)
         rospy.Subscriber('/set_rotate_angle', Int32, self.set_rotate_angle_callback)
 
+        rospy.Subscriber('/test_speed', Float32, self.test_speed)
+
         #update odom
         self.nav_success_pub = rospy.Publisher('/nav_success', Bool, queue_size=1)
         self.odom_raw_pub = rospy.Publisher('/odom', Odometry, queue_size=20)
@@ -91,6 +93,10 @@ class Navigation:
         self.__is_turning = False
         self.__is_finding_pose = False
         self.__base_mode = ROBOT_MODE._NORMAL               
+
+    def test_speed(self, speed):
+        data = speed.data
+        self.__robot.set_speed([data, data])
 
     def cmd_vel_callback(self, cmd_vel_msg):
         '''
@@ -331,13 +337,20 @@ class Navigation:
             R_r = R_c + ROBOT_WIDTH / 2   # r center right
             v_whl = abs(angular * R_l) * direction
             v_whr = abs(angular * R_r) * direction
-            ratio = v_whl/v_whr
-            if abs(v_whl - v_whr) < 0:
-                v_whl = self.check_speed(v_whl, is_angular=True, max_speed=0.16)
-                v_whr = self.check_speed(v_whl/ratio, is_angular=True, max_speed=0.5)
+            ratio = float(v_whl/v_whr)
+            if max(ratio, 1/ratio) <= 0.25/0.14:
+                if ratio < 1:
+                    v_whl = self.check_speed(speed = v_whl, max_speed=0.2)
+                    v_whr = self.check_speed(speed = v_whl/ratio, max_speed=0.5)
+                else:   
+                    v_whr = self.check_speed(speed = v_whr, max_speed=0.2)
+                    v_whl = self.check_speed(speed = v_whr * ratio, max_speed=0.5)
             else:
-                v_whr = self.check_speed(v_whr, is_angular=True, max_speed=0.16)
-                v_whl = self.check_speed(v_whr * ratio, is_angular=True, max_speed=0.5)
+                if not max(v_whl, v_whr) > 0.14 and not min(v_whr, v_whl) < -0.14:
+                    if v_whr >= v_whl >= 0: v_whr = 0.14
+                    elif v_whl > v_whr >= 0: v_whl = 0.14
+                    elif v_whr <= v_whl <= 0: v_whr = -0.14
+                    elif v_whl < v_whr <= 0: v_whl = -0.14
 
             self.__robot.log("v left: {0} v right: {1}".format(v_whl, v_whr))
             self.__robot.set_speed([v_whl, v_whr])
@@ -353,9 +366,9 @@ class Navigation:
         elif speed < -max_speed:
             speed = -max_speed
         
-        if speed > 0.05 and speed < 0.14:
+        if speed > 0.04 and speed < 0.14:
             speed = 0.14
-        elif speed < -0.05 and speed > -0.14:
+        elif speed < -0.04 and speed > -0.14:
             speed = -0.14
         if is_angular:
             speed /= (ROBOT_WIDTH / 2)
