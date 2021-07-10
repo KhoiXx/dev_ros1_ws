@@ -1,11 +1,13 @@
 <launch>
-  <node pkg="execute" type="imu_node.py" name="IMU_Node" output="screen"/>
-    <param name="port" value="/dev/ttyUSB0"/>
-    <param name="baud" value="115200"/>
-  <!-- <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_data"/>
-    <param name="use_mag" value="true"/>
-    <param name="world_frame" value="enu"/>  -->
+  <group ns="Robot">
+    <node pkg="execute" type="imu_node.py" name="IMU_Node" output="screen"/>
+      <param name="port" value="/dev/ttyUSB0"/>
+      <param name="baud" value="115200"/>
+    <!-- <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_data"/>
+      <param name="use_mag" value="true"/>
+      <param name="world_frame" value="enu"/>  -->
+  </group>
   <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_data"/>
       <param name="use_mag" value="true"/>
-      <param name="world_frame" value="enu"/>
+      <param name="world_frame" value="enu"/>/>
 </launch>

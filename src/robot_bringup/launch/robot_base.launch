@@ -1,5 +1,7 @@
 <launch>
-  <node pkg="execute" type="thesis_robot_node.py" name="Thesis_robot" output="screen"/>
-    <param name="port" value="/dev/ttyTHS1"/>
-    <param name="baud" value="115200"/>
+  <group ns="Robot">
+    <node pkg="execute" type="thesis_robot_node.py" name="Thesis_robot" output="screen"/>
+      <param name="port" value="/dev/ttyTHS1"/>
+      <param name="baud" value="115200"/>
+  </group>
 </launch>

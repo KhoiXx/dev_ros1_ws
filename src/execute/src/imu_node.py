@@ -110,8 +110,8 @@ class IMU_node(IMU_Sensor):
             rospy.Subscriber("robot_status", String, self.read_robot_status)
             self.pub_acc_gyr_raw = rospy.Publisher("/imu/data_raw", Imu, queue_size=20)
             self.pub_mag_raw = rospy.Publisher("/imu/mag", MagneticField, queue_size=10)
-            self.pub_back_obstacle = rospy.Publisher("/sonar/back_obstacle", Bool, queue_size=2)
-            self.pub_package_onboard = rospy.Publisher("/sonar/package_onboard", Bool, queue_size=2)
+            self.pub_back_obstacle = rospy.Publisher("/mytopic/back_obstacle", Bool, queue_size=2)
+            self.pub_package_onboard = rospy.Publisher("/mytopic/package_onboard", Bool, queue_size=2)
             self.initMessage()
 
             self.__robot_status = ROBOT_STATUS._STOP

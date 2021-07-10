@@ -12,7 +12,7 @@ class KeyBoardControl():
     def __init__(self):
         #super().__init__('keyboard_node')
         #rospy.init_node('keyboard_node')
-        self.key_publisher = rospy.Publisher('keyboard_control',String, queue_size = 10)
+        self.key_publisher = rospy.Publisher('/keyboard_control',String, queue_size = 10)
         self.mapping_key = {
             # 'w',
             # 's',
