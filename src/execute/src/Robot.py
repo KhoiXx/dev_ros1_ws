@@ -38,7 +38,7 @@ class Robot(RobotControl):
 
     def initial_topic(self):
         self.log("Initial robot's topic...")
-        self.sub_key = rospy.Subscriber('keyboard_control', String, self.keycontrol_callback)
+        self.sub_key = rospy.Subscriber('/keyboard_control', String, self.keycontrol_callback)
         self.status_pub = rospy.Publisher('robot_status', String, queue_size=10)
         rospy.Timer(rospy.Duration(0.02), callback = self.robot_status_pub) #50Hz
 

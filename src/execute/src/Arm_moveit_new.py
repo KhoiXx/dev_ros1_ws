@@ -3,24 +3,22 @@
 import traceback
 import rospy
 import sys
-import copy
 import moveit_commander
+import time
+import numpy as np
+import datetime
+import traceback
+import tf2_ros
+
 from geometry_msgs.msg import *
 from sensor_msgs.msg import JointState, LaserScan
 from std_msgs.msg import Int32, String, Bool, Float32
 from move_base_msgs.msg import MoveBaseActionResult
 from fiducial_msgs.msg import FiducialTransform, FiducialTransformArray
-import time
-import numpy as np
-from Robot import Robot
-from robot_control import ROBOT_STATUS
 from transforms3d.euler import quat2euler, euler2quat
 
-from pynput.keyboard import Key, Listener
-from key_mapping import Key_mapping
-import datetime
-import traceback
-import tf2_ros
+from Robot import Robot
+from robot_control import ROBOT_STATUS
 
 ROS_WS = "/home/khoixx/dev_ros1_ws"
 LOG_FILE_PATH = ROS_WS + "/log/arm_log/"
@@ -39,11 +37,11 @@ PACKAGE_WIDTH_MIN = 10
 PACKAGE_WIDTH_MAX = 45
 
 
-def position(id="A1"):
+def shelf_position(id="A1"):
     case = {
-        "A1": Point(2.212, -0.467, 0.00),
-        "A2": Point(2.22, -0.643, 0.00),
-        "A3": Point(2.244, -0.771, 0.00),
+        "A1": Point(2.112, -0.467, 0.00),
+        "A2": Point(2.12, -0.643, 0.00),
+        "A3": Point(2.144, -0.771, 0.00),
         "B1": Point(3.34, 1.25, 0.00),
         "B2": Point(3.43, 1.25, 0.00),
         "B3": Point(3.52, 1.25, 0.00),
@@ -51,7 +49,7 @@ def position(id="A1"):
     return case.get(id, Point(2.292, -0.467, 0.00))
 
 
-def orientation(id="A1"):
+def shelf_orientation(id="A1"):
     case = {
         # "A1": Quaternion(0.00, 0.00, -0.0169992, 0.9998555),
         # "A2": Quaternion(0.00, 0.00, -0.0169992, 0.9998555),
@@ -68,7 +66,6 @@ def orientation(id="A1"):
 
 class moveit_handle:
     def __init__(self):
-        self.key_pressed = None
         log_info = [
             LOG_FILE_PATH,
             datetime.datetime.now().strftime("arm_real %d%m_%H:%M"),
@@ -78,10 +75,10 @@ class moveit_handle:
         self.__init_variables()
         self.__init_topic()
         self.__init_arm()
-        self.__robot_base = Robot()
         self.tfBuffer = tf2_ros.Buffer()
         listener = tf2_ros.TransformListener(self.tfBuffer)
         self.log("Finish initializing arm_moveit")
+        self.speed_pub.publish(Float32(0.0))
         rospy.loginfo(
             "Finish initializing arm_moveit {}".format(
                 self.group.get_end_effector_link()
@@ -89,6 +86,7 @@ class moveit_handle:
         )
 
     def __init_topic(self):
+        ## Subcribe
         # rospy.Subscriber("target_position", Pose, self.set_pose_callback)
         rospy.Subscriber("/mytopic/back_obstacle", Bool, self.back_obstacle_callback)
         rospy.Subscriber("/mytopic/nav_success", Bool, self.goal_result_callback)
@@ -97,11 +95,14 @@ class moveit_handle:
             "/fiducial_transforms", FiducialTransformArray, self.aruco_transform
         )
         rospy.Subscriber("/mytopic/yaw_angle", Float32, self.yaw_angle_callback)
-
+        ##Publish
         # find_pose_pub = rospy.Publisher("/finding_pose", Float32, queue_size=10)
         self.gripper_state = rospy.Publisher("/gripper_state", Int32, queue_size=10)
         self.set_rotate_angle_pub = rospy.Publisher(
             "/mytopic/set_rotate_angle", Int32, queue_size=10
+        )
+        self.set_move_distance_pub = rospy.Publisher(
+            "/mytopic/set_move_distance", Float32, queue_size=10
         )
         # rospy.Timer(rospy.Duration(1), callback = self.show_pose)
         self.goal_pub = rospy.Publisher(
@@ -115,7 +116,6 @@ class moveit_handle:
         self.package_width = 36
         self.package_id = 12
         self.shelf_id = 2
-        self.__is_package_onboard = False
         self.__is_back_obstacle = False
         self.__is_package_detect = False
         self.__is_shelf_detect = False
@@ -139,6 +139,12 @@ class moveit_handle:
         self.calc_gripper_angle()
 
     def aruco_transform(self, msg):
+        """
+        Handle msg from aruco_detect
+        Params:
+        ==========
+        msg: FiducialTransformArray
+        """
         for i in msg.transforms:
             if i.fiducial_id == self.shelf_id:
                 # self.log("detect shelf")
@@ -161,6 +167,12 @@ class moveit_handle:
         # self.log("detect shelf:{} id:{}".format(self.__is_shelf_detect, self.__is_package_detect))
 
     def set_pose_callback(self, msg):
+        """ 
+        Handle msg form set_pose topic
+        Params:
+        ==========
+        msg: Pose
+        """
         # target.position.x = 0.15
         # target.position.y = 0.0275537972778
         # target.position.z = 0.0956095295963
@@ -182,18 +194,12 @@ class moveit_handle:
         time.sleep(1)
         self.handle_command(2)
 
-    # def find_shelf(self, target_id):
-    #     self.group.set_named_target("ready_1")
-    #     self.handle_command(1)
-    #     time.sleep(3)
-    #     for i in range(5):
-    #         trans = self.lookup_transform("fiducial_" + str(self.shelf_id), "dummy")[0]
-    #         if trans is not None:
-
-
     def goal_result_callback(self, result_msg):
         """
-        Check goal status and correct robot heading
+        Check goal status execute load/unload package
+        Params:
+        =============
+        result_msg: Int32
         """
         try:
             rospy.loginfo("Goal result ")
@@ -204,23 +210,22 @@ class moveit_handle:
                     self.handle_command(1)
                     time.sleep(3)
                     for i in range(3):
-                        trans = self.lookup_transform("fiducial_" + str(self.shelf_id), "dummy")[0]
+                        trans = self.lookup_transform(
+                            "fiducial_" + str(self.shelf_id), "dummy"
+                        )[0]
                         if trans is not None:
                             if trans.x < 0.329:
                                 break
                             rospy.loginfo(trans.x)
-                            # self.__robot_base.set_speed([0.14, 0.14])
                             self.speed_pub.publish(Float32(0.14))
                             delay = (trans.x - 0.329) / 0.14
-                            time.sleep(delay+0.1)
+                            time.sleep(delay + 0.1)
                         else:
                             if self.__is_back_obstacle:
                                 time.sleep(3)
                                 continue
-                            # self.__robot_base.set_speed([-0.14, -0.14])
                             self.speed_pub.publish(Float32(-0.14))
                             time.sleep(0.4)
-                        # self.__robot_base.set_stop()
                         self.speed_pub.publish(Float32(0.0))
                         time.sleep(2)
                     else:
@@ -246,10 +251,8 @@ class moveit_handle:
                         if self.__is_back_obstacle:
                             time.sleep(3)
                             continue
-                        # self.__robot_base.set_speed([-0.14, -0.14])
                         self.speed_pub.publish(Float32(-0.14))
                         time.sleep(0.5)
-                        self.__robot_base.set_stop()
                         self.speed_pub.publish(Float32(0.0))
                         time.sleep(2)
                     else:
@@ -267,23 +270,55 @@ class moveit_handle:
 
     def result_callback(self, result_msg):
         """
-        Check goal status and correct robot heading
+        Handle msg form result topic, this is for testing
+        Params:
+        ============
+        result_msg: Int32
         """
         try:
             self.log("Result_callback")
-            self.move_to_shelf()
+
+            if self.move_to_shelf():
+                self.group.set_named_target("ready")
+                self.handle_command(1)
+                time.sleep(3)
+                for i in range(3):
+                    if self.detect_id:
+                        self.pick_n_place_shelf(self.detect_id)
+                        break
+                    else:
+                        time.sleep(1)
+            else:
+                return
+            # self.move_to_shelf()
         except:
             self.log("result_callback@Exception", traceback.format_exc())
 
     def back_obstacle_callback(self, msg):
-        """save back_obstacle msg publised from sonar"""
+        """
+        Save back_obstacle msg publised from sonar
+        Params:
+        ============
+        msg: Bool
+        """
         self.__is_back_obstacle = msg.data
 
     def yaw_angle_callback(self, msg):
-        self.yaw_angle_deg = np.rad2deg(msg.data) 
+        """
+        Get yaw angle now from yaw_angle topic calculate by nav_excute
+        Params:
+        ==========
+        msg: Float32
+        """
+        self.yaw_angle_deg = np.rad2deg(msg.data)
 
     def lookup_transform(self, target_frame, source_frame):
-        for i in range(5):
+        """
+        Looking up for transform form source_frame to target frame in tf
+        Params:
+        ==================
+        target_frame, source_frame: tf frame"""
+        for i in range(3):
             try:
                 trans = self.tfBuffer.lookup_transform(
                     source_frame, target_frame, rospy.Time()
@@ -297,254 +332,331 @@ class moveit_handle:
         else:
             return None, None
         return translation, rotation
+    
+    def set_robot_perpendicular(self, id):
+        """ 
+        Rotate robot perpendicular to shelf or package face
+        Params:
+        ============
+        id: shelf_id or package id (Int)"""
+        rot = None
+        rot = self.lookup_transform("fiducial_" + str(id), "dummy")[1]
+        if rot is None:
+            return False
+        rot_yaw = np.rad2deg(rot[2])
+        self.log("rot_yaw: {}".format(rot_yaw))
+        if not -114 > rot_yaw > -105: ## the range where the package face is considered to be perpendicular to robot
+            self.set_rotate_angle_pub.publish(109 + rot_yaw)
+            time.sleep(5)
+            self.log("Aligning {}".format(109 + rot_yaw))
+            return False
+        else:
+            self.log("Already perpendiculation")
+            return True
+    
+    def decrease_y_distance(self, delta_y):
+        """
+        Align robot straight with the package
+        Params:
+        ==============
+        delta_y: distace from robot to target package id in x axis (Float)"""
+        try:
+            start_yaw = self.yaw_angle_deg
+            angle = Int32(90) if delta_y > 0 else Int32(-90)
+            self.set_rotate_angle_pub.publish(angle)
+            time.sleep(10)
+            rospy.loginfo("Spin 90")
+            self.set_move_distance_pub.publish(Float32(abs(delta_y)))
+            time.sleep(5)
+            rospy.loginfo("Go straight 90")
+            self.set_rotate_angle_pub.publish(start_yaw - self.yaw_angle_deg)
+            self.log("angle: {}; return_angle: {}".format(angle, start_yaw - self.yaw_angle_deg))
+            time.sleep(10)
+        except:
+            self.log("decrease_y_distance@Exception", traceback.format_exc())
+        
+    def spin_joint_0_finding(self, id):
+        """
+        If no transfrom rotate arm left and right to look for the target id
+        Params:
+        ==============
+        id: target id (Int)"""
+        for i in range(7):
+            trans, rot = None, None
+            trans, rot = self.lookup_transform("fiducial_" + str(id), "dummy")
+            if trans is not None:
+                self.log("spin_joint_0_finding finish success")
+                return True
+            joint_0_angle = self.group.get_current_joint_values()[0]
+            ## rotate left and right, each time in the loop move further
+            joint_0_angle += -0.2 * (i + 1) * (-1) ** i
+            self.group.set_joint_value_target("joint_0", 0.7 if joint_0_angle >= 0.7 else joint_0_angle)
+            self.handle_command(1)
+            time.sleep(3)
+        else:
+            self.log("Fail_fiding_id")
+            self.group.set_named_target("home")
+            self.handle_command(1)
+            return False
 
     def move_to_shelf(self):
-        "Moving robot to selected shelf code"
-        self.group.set_named_target("ready_1")
-        self.handle_command(1)
-        time.sleep(3)
-        for i in range(8):
-            trans = self.lookup_transform("fiducial_" + str(self.shelf_id), "dummy")[0]
-            self.log("Transform_shelf_1: {}".format(trans))
-            if trans is not None:
-                trans.y += 0.08
-                break
-            joint_0_angle = self.group.get_current_joint_values()[0]
-            joint_0_angle += 0.2 * (i+1) * (-1) ** i
-            self.group.set_joint_value_target("joint_0", joint_0_angle)
+        """Moving robot to selected shelf code"""
+        try:
+            self.group.set_named_target("ready_1")
             self.handle_command(1)
-            time.sleep(2)
-        else:
-            self.group.set_named_target("home")
-            self.handle_command(1)
-            return False
-        start_yaw = self.yaw_angle_deg
-        if abs(trans.y) > 0.05:
-            angle = Int32(80) if trans.y > 0 else Int32(-80) 
-            self.set_rotate_angle_pub.publish(angle)
-            time.sleep(6)
-            self.speed_pub.publish(Float32(0.14))
-            time_delay = (trans.y / 0.14)
-            time.sleep(time_delay)
-            self.speed_pub.publish(Float32(0.0))
-            self.set_rotate_angle_pub.publish(start_yaw - self.yaw_angle_deg)
             time.sleep(3)
-        count = 0
-        for i in range(7):
-            trans, rot = self.lookup_transform("fiducial_" + str(self.shelf_id), "dummy")
-            if trans is None:
-                if not self.__is_back_obstacle:
-                    self.speed_pub.publish(Float32(-0.14))
-                count +=1
-                time.sleep(1)
-                self.speed_pub.publish(Float32(0.0))
-                continue
-            self.log("Transform_shelf_2: {}, {}".format(trans, rot))
-            rot[2] = np.rad2deg(rot[2])
-            if not -114 > rot[2] > -105:
-                self.set_rotate_angle_pub.publish(107 - rot[2])
+            ### find transform from robot to shelf code, if no transform try to move the arm
+            set_perpendicular = False
+            for i in range(2):
+                if not self.spin_joint_0_finding(self.shelf_id):
+                    self.log("Move to shelf return, no transform")
+                    return
+                if not set_perpendicular:
+                    self.set_robot_perpendicular(self.shelf_id)
+                    set_perpendicular = True
+
+            self.group.set_named_target("ready_1")
+            self.handle_command(1)
+
+            ### move closer to the shelf; if lost track of the package, move out and try again
+            for i in range(5):
+                trans_, rot_ = None, None
+                trans_, rot_ = self.lookup_transform(
+                    "fiducial_" + str(self.shelf_id), "dummy"
+                )
+                if trans_ is None:
+                    self.set_move_distance_pub.publish(Float32(-0.15))
+                    self.log("Retrying finding transformation")
+                    continue
+                trans_.y += 0.03
+                if not set_perpendicular:
+                    self.set_robot_perpendicular(self.shelf_id)
+                rospy.loginfo("trans x: {}, trans y : {}".format(trans_.x, trans_.y))
+                if abs(trans_.y) > 0.06:
+                    self.decrease_y_distance(trans_.y)
+                    set_perpendicular = False
+                    continue
+                trans_.x += -0.5 * trans_.y
+                self.log("Transform_shelf_2: {} \n {}".format(trans_, rot_))
+                if 0.31 <= trans_.x <= 0.35:
+                    break
+                self.set_move_distance_pub.publish(Float32(trans_.x - 0.32))
                 time.sleep(3)
-            trans.x += 0.5 * trans.y
-            if 0.3 <= trans.x <= 0.38:
-                self.log("In the working range")
-                break
-            elif trans.x > 0.38:
-                time_delay = abs(trans.x - 0.38) / 0.14
-                speed = 0.14
-            elif trans.x < 0.3:
-                time_delay = abs(trans.x - 0.3) / 0.14
-                speed = -0.14
-                if self.__is_back_obstacle: continue
-            self.speed_pub.publish(Float32(speed))
-            time.sleep(time_delay)
-            self.speed_pub.publish(Float32(0.0))
-        else:
-            self.log("Cannot get to the shelf")
-            self.group.set_named_target("home")
-            self.handle_command(1)
-            return False
-        self.log("Finish moving close to the shelf")
-        return True
-            
-    def pick_n_place_shelf(self, target_frame):
-        # self.__robot_base.set_stop()
-        self.speed_pub.publish(Float32(0.0))
-        self.log("Start pick and place shelf")
-
-        ## check if robot is too close or too far from package
-        for i in range(5):
-            trans = self.lookup_transform(target_frame, "dummy")[0]
-            # self.log("Transform: x:{} y:{} z:{}".format(trans.x, trans.y, trans.z))
-            # rospy.loginfo("Transform: x:{} y:{} z:{}".format(trans.x, trans.y, trans.z))
-            if trans is None:
-                # self.__robot_base.set_speed([-0.14, -0.14])
-                self.speed_pub.publish(Float32(-0.14))
-                time.sleep(0.4)
-            elif trans.x > 0.38:
-                # self.__robot_base.set_speed([0.14, 0.14])
-                self.speed_pub.publish(Float32(0.14))
-                delay = (trans.x - 0.388) / 0.14
-                time.sleep(delay)
             else:
-                break
-            # self.__robot_base.set_stop()
+                self.log("Cannot get to the shelf")
+                self.group.set_named_target("home")
+                self.handle_command(1)
+                ## moving out of the shelf area
+                self.set_move_distance_pub.publish(Float32(-0.2))
+                return False
+            self.log("Finish moving close to the shelf")
+            return True
+        except:
+            self.log("move_to_shelf@Excetption",traceback.format_exc())
+
+    def pick_n_place_shelf(self, target_frame):
+        """ 
+        Pick the package from shelf to the robot
+        Params:
+        ==========
+        target_frame: the package target frame id (tf_frame)"""
+        try:
+            self.log("Start pick and place shelf")
+            ## stop the robot in case resducial action before
             self.speed_pub.publish(Float32(0.0))
-            time.sleep(0.5)
-        else:
-            self.log("No transformation")
-            rospy.loginfo("No transformation")
-            return False
+            ## execute pick package
+            for i in range(3):
+                trans = None
+                if self.spin_joint_0_finding(int(target_frame.split("_")[1])):
+                    trans = self.lookup_transform(target_frame, "dummy")[0]
+                else:
+                    self.log("Cannot find package")
+                    return
+                ## release gripper
+                self.calc_gripper_angle(release = True)
+                time.sleep(3)
+                # trans.x -= 0.11  # set the goal 12cm away from the package
+                # trans.y += 0.021
+                trans.x += -0.5 * trans.y - 0.11
+                # if trans.y < 0.03:
+                #     trans.y += 0.025 * trans.x / 0.114
 
-        ## execute pick package
-        for i in range(3):
-            self.calc_gripper_angle()
-            time.sleep(3)
-            trans.x -= 0.12  # set the goal 12cm away from the package
+                rospy.loginfo("position = {}".format([trans.x, trans.y, trans.z]))
+                yaw = (
+                    np.arctan((trans.y - 0.022) / (trans.x - 0.095)) - 1.495
+                )  # 1.49 is the offset angle between start and 90deg position of servo
+                pose = [trans.x, trans.y, trans.z - 0.01] + [0.0, 0.0, yaw]
 
-            rospy.loginfo("position = {}".format([trans.x, trans.y, trans.z]))
-            yaw = (
-                np.arctan(trans.y / trans.x) - 1.49
-            )  # 1.49 is the offset angle between start and 90deg position of servo
-            pose = [trans.x, trans.y, trans.z] + [0.0, 0.0, yaw]
+                self.log("Target pose: {}".format(pose))
 
-            self.log("Target pose: {}".format(pose))
-
-            self.group.set_pose_target(pose)
-            a = self.group.plan()
-
-            ## if moveit cannot find the valid trajectory try to increase the yaw angle
-            ## cuz the yaw caculate above isn't perfectly correct
-            while not a.joint_trajectory.points:
-                rospy.loginfo("plannig")
-                pose[5] += 0.025
                 self.group.set_pose_target(pose)
                 a = self.group.plan()
-                if abs(pose[5] - yaw) > 0.2:
+
+                ## if moveit cannot find the valid trajectory try to increase the yaw angle
+                ## cuz the yaw caculate above isn't perfectly correct
+                while not a.joint_trajectory.points:
+                    rospy.loginfo("plannig")
+                    pose[5] += 0.025
+                    self.group.set_pose_target(pose)
+                    a = self.group.plan()
+                    if abs(pose[5] - yaw) > 0.2:
+                        return
+                self.handle_command(1)
+                time.sleep(1)
+                ## move the arm straight to the package
+                ## after testing i picked 5.4cm cuz the distance from package and camera isn't exactly
+                self.group.shift_pose_target(0, 0.051)
+                self.handle_command(1)
+                time.sleep(0.5)
+                self.execute_joint(2, 0.1)
+                self.calc_gripper_angle(self.package_width, False)
+                time.sleep(3)
+
+                ## move to ready position to check if package is picked or not
+                self.group.shift_pose_target(2, 0.04)
+                self.handle_command(1)
+                self.group.set_named_target("ready")
+                self.handle_command(1)
+                trans = self.lookup_transform(target_frame, "dummy")[0]
+                time.sleep(1)
+                if trans == None:
                     break
+            else:
+                self.log("Cannot pick package on shelf")
+                ## moving out of the shelf area
+                self.set_move_distance_pub.publish(Float32(-0.2))
+                return
+
+            ## move arm higher and get to the deck
+            self.execute_joint(3, 0.3)
+            self.execute_joint(2, -0.6)
+            self.execute_joint(3, 0.5)
+            self.execute_joint(2, -0.3)
+            if not self.package_count:
+                self.group.set_named_target("load_2")
+            else:
+                self.group.set_named_target("load_1")
             self.handle_command(1)
 
-            ## move the arm straight to the package
-            ## after testing i picked 4.9cm cuz the distance from package and camera isn't exactly
-            self.group.shift_pose_target(0, 0.054)
+            ## bcuz the load positions are set higher than the deck to avoid collision
+            #  so i need to shift it to lower position
+            self.group.shift_pose_target(2, -0.02)
             self.handle_command(1)
-            self.calc_gripper_angle(self.package_width, False)
-            time.sleep(3)
-
-            ## move to ready position to check if package is picked or not
-            self.group.shift_pose_target(2, 0.02)
-            self.handle_command(1)
-            self.group.set_named_target("ready")
-            self.handle_command(1)
-            trans = self.lookup_transform(target_frame, "dummy")[0]
+            self.execute_joint(2, 0.05)
+            self.calc_gripper_angle()
             time.sleep(2)
-            if trans == None:
-                break
-        else:
-            return
 
-        self.execute_joint(2, -0.1)
-        if not self.package_count:
-            self.group.set_named_target("load_2")
-        else:
-            self.group.set_named_target("load_1")
-        self.handle_command(1)
-
-        ## bcuz the load positions are set higher than the deck to avoid collision
-        #  so i need to shift it to lower position
-        self.group.shift_pose_target(2, -0.02)
-        self.handle_command(1)
-        self.execute_joint(2, 0.05)
-        self.calc_gripper_angle()
-        time.sleep(2)
-
-        ## move out and go back to home position and wait for another command
-        # self.group.shift_pose_target(2, 0.06)
-        # self.handle_command(1)
-        self.execute_joint(2, -0.25)
-        self.group.set_named_target("home")
-        self.handle_command(1)
-        if self.package_count < 2:
-            self.package_count += 1  # count the package on the deck
+            ## move out and go back to home position and wait for another command
+            # self.group.shift_pose_target(2, 0.06)
+            # self.handle_command(1)
+            self.execute_joint(2, -0.25)
+            self.group.set_named_target("home")
+            self.handle_command(1)
+            if self.package_count < 2:
+                self.package_count += 1  # count the package on the deck
+            
+            ## moving out of the shelf area
+            self.set_move_distance_pub.publish(Float32(-0.2))
+        except:
+            self.log("pick_n_place_shelf@Exception", traceback.format_exc())
 
     def pick_n_place_onboard(self, target_frame, target_shelf="fiducial_1"):
+        """ 
+        Pick and place package from robot to the selected shelf
+        Params:
+        ===========
+        target_frame: (tf_frame) frame id of the target package"""
+        try:
+            if not self.move_to_shelf():
+                return
 
-        self.group.set_named_target("find_onboard")
-        self.handle_command(1)
-        time.sleep(3)
-
-        for i in range(1, 4):
-            trans, rot = self.lookup_transform(target_frame, "dummy")
-            if trans == None:
-                joint_angle = self.group.get_current_joint_values()
-                joint_angle[0] += (0.2 * i) * (-1) ** i
-                self.group.set_joint_value_target(joint_angle)
-                self.handle_command(1)
-                time.sleep(3)
-            else:
-                break
-        else:
-            return
-        for i in range(3):
-            self.calc_gripper_angle()
-            time.sleep(3)
-            rospy.loginfo("position = {}".format([trans.x, trans.y, rot[2]]))
-            trans.x += -0.5 * trans.y + 0.06
-            if trans.y < 0.03:
-                trans.y += 0.025 * trans.x / 0.114
-
-            yaw = np.arctan((trans.y - 0.022) / (trans.x - 0.095)) + 1.648
-            pose = [trans.x, trans.y, 0.2] + [0.0, 0.0, yaw]
-            rospy.loginfo("Target pose: {}".format(pose))
-
-            self.log("Target pose: {}".format([pose[0], pose[1], pose[5]]))
-
-            self.group.set_pose_target(pose)
-            a = self.group.plan()
-            time.sleep(0.5)
-            while not a.joint_trajectory.points:
-                rospy.loginfo("plannig")
-                pose[5] += 0.025
-                self.group.set_pose_target(pose)
-                a = self.group.plan()
-                if abs(pose[5] - yaw) > 0.2:
-                    break
-            self.handle_command(1)
-
-            joint_angle = self.group.get_current_joint_values()
-            joint_angle[3] -= 0.08
-            joint_angle[2] += 0.19
-            self.group.set_joint_value_target(joint_angle)
-            self.handle_command(1)
-            # self.group.shift_pose_target(0, -0.03)
-            # self.handle_command(1)
-            self.calc_gripper_angle(self.package_width, False)
-            time.sleep(3)
-            self.execute_joint(2, 0.36)
             self.group.set_named_target("find_onboard")
             self.handle_command(1)
-            time.sleep(2)
-            trans, rot = self.lookup_transform(target_frame, "dummy")
-            if trans == None:
-                break
-        else:
-            return
-        self.execute_joint(1, 1)
-        if self.package_count > 0:
-            self.package_count -= 1
-        self.group.set_named_target("ready")
-        self.handle_command(1)
-        self.execute_joint(3, -0.22)
-        self.group.set_named_target("put_on_shelf")
-        self.handle_command(1)
-        self.execute_joint(3, 0.15)
-        self.calc_gripper_angle()
-        time.sleep(3)
-        self.group.shift_pose_target(0, -0.06)
-        self.handle_command(1)
-        self.group.set_named_target("home")
-        self.handle_command(1)
+            time.sleep(3)
+            if not self.spin_joint_0_finding(int(target_frame.split("_")[1])):
+                ## moving out of the shelf area
+                self.set_move_distance_pub.publish(Float32(-0.2))
+                return
+            for i in range(3):
+                self.calc_gripper_angle()
+                time.sleep(3)
+                rospy.loginfo("position = {}".format([trans.x, trans.y, rot[2]]))
+                ## the transx, transy error is linear belong to each other after testing
+                trans.x += -0.5 * trans.y + 0.06
+                if trans.y < 0.03:
+                    trans.y += 0.025 * trans.x / 0.114
+
+                yaw = np.arctan((trans.y - 0.022) / (trans.x - 0.095)) + 1.648 ## 1.648 is the 90 angle position of ther arm
+                pose = [trans.x, trans.y, 0.2] + [0.0, 0.0, yaw]
+                rospy.loginfo("Target pose: {}".format(pose))
+
+                self.log("Target pose: {}".format([pose[0], pose[1], pose[5]]))
+
+                ## move arm to target pose
+                self.group.set_pose_target(pose)
+                a = self.group.plan()
+                time.sleep(0.5)
+                while not a.joint_trajectory.points:
+                    rospy.loginfo("plannig")
+                    pose[5] += 0.025
+                    self.group.set_pose_target(pose)
+                    a = self.group.plan()
+                    if abs(pose[5] - yaw) > 0.2:
+                        break
+                self.handle_command(1)
+
+                joint_angle = self.group.get_current_joint_values()
+                joint_angle[3] -= 0.08
+                joint_angle[2] += 0.19
+                self.group.set_joint_value_target(joint_angle)
+                self.handle_command(1)
+                # self.group.shift_pose_target(0, -0.03)
+                # self.handle_command(1)
+
+                ## pickup the package and check if package is picked or not
+                self.calc_gripper_angle(self.package_width, realse = False)
+                time.sleep(3)
+                self.execute_joint(2, 0.36)
+                self.group.set_named_target("find_onboard")
+                self.handle_command(1)
+                time.sleep(2)
+                trans, rot = self.lookup_transform(target_frame, "dummy")
+                if trans == None:
+                    break
+            else:
+                self.log("Cannot pick package onboard")
+                ## moving out of the shelf area
+                self.set_move_distance_pub.publish(Float32(-0.2))
+                return
+            
+            ## move joint_1 back
+            self.execute_joint(1, 1)
+            if self.package_count > 0:
+                self.package_count -= 1
+
+            ## put package on shelf and return home
+            self.group.set_named_target("ready")
+            self.handle_command(1)
+            self.execute_joint(3, -0.22)
+            self.group.set_named_target("put_on_shelf")
+            self.handle_command(1)
+            self.execute_joint(3, 0.15)
+            self.calc_gripper_angle()
+            time.sleep(3)
+            self.group.shift_pose_target(0, -0.06)
+            self.handle_command(1)
+            self.group.set_named_target("home")
+            self.handle_command(1)
+
+            ## moving out of the shelf area
+            self.set_move_distance_pub.publish(Float32(-0.2))
+        except:
+            self.log("pick_n_place_onboard@Exception",traceback.format_exc())
 
     def handle_keyboard(self):
+        """
+        Get and process the input selection from user
+        """
         for attemp in range(10):
             try:
                 # package = input("Choose your package id: ")
@@ -558,9 +670,9 @@ class moveit_handle:
                         print("Please input valid integer value")
                         continue
                 shelf = input("Choose shelf id: ")
-                self.shelf_id = int(shelf[1]) if int(shelf[1]) in [1,2,3] else 0
-                self.goal_shelf.pose.position = position(shelf)
-                self.goal_shelf.pose.orientation = orientation(shelf)
+                self.shelf_id = int(shelf[1]) if int(shelf[1]) in [1, 2, 3] else 0
+                self.goal_shelf.pose.position = shelf_position(shelf)
+                self.goal_shelf.pose.orientation = shelf_orientation(shelf)
                 self.goal_shelf.header.stamp = rospy.Time()
                 self.goal_pub.publish(self.goal_shelf)
                 msg = "Publish goal_shelf finished"
@@ -573,7 +685,14 @@ class moveit_handle:
             return False
 
     def handle_command(self, command):
-        """Choose a command for moveit to execute"""
+        """
+        Choose a command for moveit to execute
+        Params:
+        ===============
+        command: (Int)  0: stop arm
+                        1: execute to target selected before
+                        2: execute to target saved in self.targets
+        """
         try:
             self.log("command: %f", command)
             if command == 0:
@@ -603,11 +722,18 @@ class moveit_handle:
             self.log("handle_command@Exception", traceback.format_exc())
 
     def calc_gripper_angle(self, package_width=50, release=True):
-        """This is specified for my robot only
+        """
+        This is specified for my robot only
         =====> calculate servo angle suitable for each package width
         my equation: y = -1.09 * x + 60.3
                      y: gripper angle (deg)
-                     x: width of the package (mm)"""
+                     x: width of the package (mm)
+        Params:
+        ==============
+        package_width:(Int) mm width of the package
+        release: (Bool)     True: release the gripper
+                            False: pick the package
+        """
 
         if release:
             self.gripper_state.publish(Int32(6))
@@ -620,7 +746,15 @@ class moveit_handle:
             self.gripper_state.publish(Int32(joint_angle + 8))
 
     def execute_joint(self, joint, angle, set_joint=False):
-        """Add/minus or set specific joint angle with a specific value"""
+        """
+        Add/minus or set specific joint angle with a specific value
+        Params:
+        =============
+        joint: (Int) joint want to execute
+        angle: (Int) angle to rotate 
+        set_joint: (Bool)   True: angle is the position want to rotate to rotate
+                            False: angle is the angle want to add to current position
+        """
         if not joint or not angle:
             return
         joint_angle = self.group.get_current_joint_values()
@@ -647,8 +781,6 @@ def main():
     moveit_commander.roscpp_initialize(sys.argv)
     rospy.init_node("Arm_moveit", anonymous=True)
     moveit = moveit_handle()
-    # moveit.handle_keyboard()
-    # if not moveit.press_handle():
     rospy.spin()
     moveit_commander.roscpp_shutdown()
 

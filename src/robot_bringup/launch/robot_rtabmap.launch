@@ -49,7 +49,5 @@
   </include>
   
     <!-- Navigation parameters -->
-  <group ns="move_base_group">
-    <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml" launch-prefix="bash -c 'sleep 70; $0 $@' "/>
-  </group>
+  <include file="$(find robot_navigation)/launch/includes/rtab_move_base.launch.xml" launch-prefix="bash -c 'sleep 70; $0 $@' "/>
 </launch>
