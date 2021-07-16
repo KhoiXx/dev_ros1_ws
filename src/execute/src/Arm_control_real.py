@@ -19,21 +19,14 @@ LOG_FILE_PATH = ROS_WS + '/log/arm_log/'
 
 J5_ZERO = 0
 J4_ZERO = 178
-J3_ZERO = 148
-J2_ZERO = 74
+J3_ZERO = 149
+J2_ZERO = 73
 J1_ZERO = 34
 J0_ZERO = 219
 position_zero = [J0_ZERO, J1_ZERO, J2_ZERO, J3_ZERO, J4_ZERO, J5_ZERO]
 
 class adjust_joint_angle:
     def __init__(self):
-        
-        log_info = [
-            LOG_FILE_PATH,
-            datetime.datetime.now().strftime('arm_real_%d%m_%H%M'),
-            '.log'
-        ]
-        # self.__file_log = open("".join(log_info), "w")
         self.name = []
         self.j5_angle = J5_ZERO
         self.j4_angle = np.rad2deg(0.1) + J4_ZERO
@@ -115,25 +108,6 @@ class adjust_joint_angle:
         elif _angle <0:
             _angle = 0
         return _angle
-            
-    
-    def log(self, *arg):
-        '''
-        logging to file.
-        '''
-        # log(self.root_node, arg)
-        now = int (time.time() * 1000) # milliseconds
-        msg = []
-        msg.append(str(now))
-        for x in arg:
-            msg.append("[" + str(x) + "]")
-        msg.append("\n")
-        # self.root_node.get_logger().info("".join(msg))
-        self.__file_log.write(" ".join(msg))
-        
-
-
-
 
 def joint_states_listener():
     rospy.init_node('joint_states_current')
