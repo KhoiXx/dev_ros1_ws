@@ -98,12 +98,12 @@
         <joint name="joint_4" value="0" />
         <joint name="joint_5" value="0.1" />
     </group_state>
-    <group_state name="find_package" group="robotarm">
-        <joint name="joint_0" value="-1.58" />
-        <joint name="joint_1" value="-0.1745" />
-        <joint name="joint_2" value="1.03" />
-        <joint name="joint_3" value="-1.92" />
-        <joint name="joint_4" value="-0.04" />
+    <group_state name="avoid_collision" group="robotarm">
+        <joint name="joint_0" value="-2.31" />
+        <joint name="joint_1" value="-0.00" />
+        <joint name="joint_2" value="0.13" />
+        <joint name="joint_3" value="-0.69" />
+        <joint name="joint_4" value="-0.00" />
         <joint name="joint_5" value="0.1" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
