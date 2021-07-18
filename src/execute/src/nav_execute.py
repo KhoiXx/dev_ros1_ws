@@ -46,6 +46,7 @@ class Navigation:
         self.velocity = [0.00, 0.00, 0.00]  # vx, vy, vth
         self.__init_topic()
         self.__init_flag()
+        self.__robot.set_stop()
         rospy.loginfo("Initialization navigation finished")
         self.__robot.log("Initialization navigation finished")
 
@@ -94,6 +95,7 @@ class Navigation:
         self.yaw_angle_publish = rospy.Publisher(
             "/mytopic/yaw_angle", Float32, queue_size=10
         )
+        self.finish_command_pub = rospy.Publisher("/mytopic/finish_command", Bool, queue_size = 10)
         self.odom_broadcaster = tf.TransformBroadcaster()
         self.__robot.log("Initialization navigation topic finished")
 
@@ -151,6 +153,7 @@ class Navigation:
         """
         rospy.loginfo("Handling cmd_vel msg")
         ## if robot is moving backward and obstacle behind ====> Cancel Goal
+        linear = self.check_speed(linear)
         if linear < 0 and self.__is_back_obstacle:
             self.__robot.set_stop()
             msg = GoalID()
@@ -163,13 +166,13 @@ class Navigation:
         if linear == 0.0:
             # speed_wh = angular*ROBOT_WIDTH / 2 #v = w*r
             self.__robot.log("cmd rotate")
-            self.__robot.set_rotate(self.check_speed(angular, is_angular=True))
+            self.__robot.set_rotate(self.check_speed(angular))
             return
         ## linear != 0 and angular == 0 ====> Go straight
         if angular == 0.0:
             self.__robot.log("cmd forward")
-            speed = self.check_speed(linear)
-            self.__robot.set_speed([speed, speed])
+            ##testing
+            self.__robot.set_speed([linear, linear])
             return
         ## linear != 0 and angular != 0 ====> Turn when moving
         else:
@@ -180,44 +183,7 @@ class Navigation:
             R_r = R_c + ROBOT_WIDTH / 2  # r center right
             v_whl = abs(angular * R_l) * direction
             v_whr = abs(angular * R_r) * direction
-
-            ratio = float(v_whl / v_whr)
-            self.__robot.log(
-                "v left_control: {0} v right_control: {1} ratio:{2}".format(
-                    v_whl, v_whr, ratio
-                )
-            )
-
-            ## if ratio is not higher than 2.15
-            ## (meaning the speed difference of left and right is not too big)
-            if max(ratio, 1 / ratio) <= 2.15:
-                if ratio < 1:
-                    v_whl = self.check_speed(speed=v_whl, max_speed=0.2)
-                    v_whr = self.check_speed(speed=v_whl / ratio, max_speed=0.5)
-                else:
-                    v_whr = self.check_speed(speed=v_whr, max_speed=0.2)
-                    v_whl = self.check_speed(speed=v_whr * ratio, max_speed=0.5)
-            ## if speed difference of left and right is too big,
-            ## limit the max speed to avoid robot turning too fast
-            else:
-                if v_whr >= v_whl >= 0:
-                    v_whr = 0.18
-                    v_whl = v_whr * ratio
-                elif v_whl > v_whr >= 0:
-                    v_whl = 0.18
-                    v_whr = v_whl / ratio
-                elif v_whr <= v_whl <= 0:
-                    v_whr = -0.18
-                    v_whl = v_whr * ratio
-                elif v_whl < v_whr <= 0:
-                    v_whl = -0.18
-                    v_whr = v_whl / ratio
-                elif v_whr > v_whl:
-                    v_whr = 0.14
-                    v_whl = -0.14
-                else:
-                    v_whr = -0.14
-                    v_whl = 0.14
+            ##testing
 
             self.__robot.log("v left: {0} v right: {1}".format(v_whl, v_whr))
             self.__robot.set_speed([v_whl, v_whr])
@@ -332,6 +298,9 @@ class Navigation:
         """
         self.__robot.log("rotate testing {0}: yaw:{1}".format(msg.data, self.pose[2]))
         rospy.loginfo("rotate testing {0}: yaw:{1}".format(msg.data, self.pose[2]))
+        if msg.data == 360:
+            self.rotate_angle(self.goal_yaw)
+            return
         delta = self.rotate_angle(self.__correct_angle(np.deg2rad(msg.data)), True)
         self.__robot.log("delta: {0}".format(delta))
 
@@ -406,7 +375,7 @@ class Navigation:
         except :
             self.__robot.log("update_odom@Exception", traceback.format_exc())
 
-    def check_speed(self, speed, is_angular=False, max_speed=ROBOT_MAX_SPEED):
+    def check_speed(self, speed, max_speed=ROBOT_MAX_SPEED):
         """
         Limit speed in valid range
         Params:
@@ -414,17 +383,12 @@ class Navigation:
         speed: speed to check (Float)
         is_angular: (Bool)  True: speed is angular velocity
         max_speed (Float): The upper limit speed"""
-        if is_angular:
-            speed *= ROBOT_WIDTH / 2
-
         sign = 1 if speed >= 0 else -1
         if abs(speed) >= max_speed:
             speed = max_speed * sign
-        elif 0.04 < abs(speed) < 0.14:
-            speed = 0.14 * sign
+        elif abs(speed) <= 0.06:
+            speed = 0.06 * sign
 
-        if is_angular:
-            speed /= ROBOT_WIDTH / 2
         return speed
 
     def __correct_angle(self, angle, is_radian=True):
@@ -515,11 +479,10 @@ class Navigation:
             log_msg = "yaw_now:{} delta:{} ".format(yaw_now, yaw_now - yaw_target)
             # rospy.loginfo(log_msg)
             self.__robot.log(log_msg)
+            self.finish_command_pub.publish(Bool(False))
             while abs(yaw_now - yaw_target) > 0.05:
                 direction = 1 if yaw_now <= yaw_target else -1
-                self.__robot.set_rotate(
-                    self.check_speed(1.2 * direction, is_angular=True)
-                )
+                self.__robot.set_rotate(self.check_speed(0.14 * direction))
                 time.sleep(0.02)
                 if rospy.get_rostime().secs - time_start > 30:
                     rospy.loginfo("timeout")
@@ -535,6 +498,7 @@ class Navigation:
                     time.sleep(2)
                     yaw_now = self.pose[2]
             self.__robot.set_stop()
+            self.finish_command_pub.publish(Bool(True))
             return abs(self.pose[2] - yaw_target)
         except:
             self.__robot.set_stop()
@@ -552,6 +516,8 @@ class Navigation:
             distance = 0
             direction = 1 if set_dis >= 0 else -1
             speed = 0.14 * direction
+            start_yaw = self.pose[2]
+            self.finish_command_pub.publish(Bool(False))
             while abs(abs(set_dis) - distance) > 0.005:
                 if rospy.get_rostime().secs - time_start > 15:
                     self.__robot.log("Move_distance timeout")
@@ -559,13 +525,22 @@ class Navigation:
                 if self.__is_back_obstacle and speed < 0:
                     self.__robot.set_stop()
                     continue
-                self.__robot.set_speed([speed, speed])
+                if self.pose[2] > start_yaw:
+                    speed_l = speed * 1.4
+                    speed_r = speed
+                elif self.pose[2] < start_yaw:
+                    speed_r = speed * 1.4
+                    speed_l = speed
+                else:
+                    speed_r = speed_l = speed
+                self.__robot.set_speed([speed_l, speed_r])
                 time.sleep(0.02)
                 ## calculate distance from mag of vector
                 distance = np.sqrt(
                     sum(i ** 2 for i in np.subtract(self.pose[:2], start_pose))
                 )
             self.__robot.set_stop()
+            self.finish_command_pub.publish(Bool(True))
             return distance
         except:
             self.__robot.set_stop()

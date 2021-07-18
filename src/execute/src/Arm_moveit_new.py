@@ -30,7 +30,7 @@ class Fiducials_id:
     PACKAGE_1 = [10, 20, 30, 40, 50]
     PACKAGE_2 = [11, 21, 31, 41, 51]
     PACKAGE_3 = [12, 22, 32, 42, 52]
-    shelf_pose = [1, 2, 3]
+    SHELF = [1, 2, 3]
 
 
 PACKAGE_WIDTH_MIN = 10
@@ -95,6 +95,7 @@ class moveit_handle:
             "/fiducial_transforms", FiducialTransformArray, self.aruco_transform
         )
         rospy.Subscriber("/mytopic/yaw_angle", Float32, self.yaw_angle_callback)
+        rospy.Subscriber("/mytopic/finish_command", Bool, self.finish_command_callback)
         ##Publish
         # find_pose_pub = rospy.Publisher("/finding_pose", Float32, queue_size=10)
         self.gripper_state = rospy.Publisher("/gripper_state", Int32, queue_size=10)
@@ -125,10 +126,11 @@ class moveit_handle:
         self.package_count = 0
         self.goal_shelf = PoseStamped()
         self.goal_shelf.header.frame_id = "map"
-        self.action_to_do = "unload"
+        self.action_to_do = "load"
         self.detect_id = ""
         self.count = 0
         self.yaw_angle_deg = 0
+        self.finish_command = False
 
     def __init_arm(self):
         self.robot = moveit_commander.RobotCommander()
@@ -153,7 +155,8 @@ class moveit_handle:
                 self.__chosen_id_time = rospy.get_rostime()
                 self.package_id = i.fiducial_id
                 # self.log("detect_id")
-            self.detect_id = "fiducial_" + str(i.fiducial_id)
+            if self.action_to_do == "load" and i.fiducial_id not in Fiducials_id.SHELF:
+                self.detect_id = "fiducial_" + str(i.fiducial_id)
             if i.fiducial_id in Fiducials_id.PACKAGE_1:
                 self.package_width = 36
             elif i.fiducial_id in Fiducials_id.PACKAGE_2:
@@ -198,6 +201,28 @@ class moveit_handle:
         time.sleep(1)
         self.handle_command(2)
 
+    def finish_command_callback(self, msg):
+        """
+        Read data from mytopic/finish_command 
+        Params:
+        =============
+        msg: Bool
+        """
+        self.finish_command = msg.data
+        self.log("Finish_command callback {}".format(msg.data))
+
+    def finish_command_reading(self):
+        start_time = rospy.get_rostime().secs
+        time.sleep(1)
+        self.finish_command = False
+        while not self.finish_command:
+            time.sleep(0.5)
+            if rospy.get_rostime().secs - start_time > 15:
+                self.log("Finish command timeout: {}".format(rospy.get_rostime().secs - start_time))
+                return False
+        time.sleep(1)
+        return True
+
     def goal_result_callback(self, result_msg):
         """
         Check goal status execute load/unload package
@@ -210,52 +235,32 @@ class moveit_handle:
             self.log("Goal result")
             if result_msg.data:
                 if "unload" in self.action_to_do:
-                    self.group.set_named_target("ready_1")
-                    self.handle_command(1)
-                    time.sleep(3)
-                    for i in range(3):
-                        trans = self.lookup_transform(
-                            "fiducial_" + str(self.shelf_id), "dummy"
-                        )[0]
-                        if trans:
-                            if trans.x < 0.329:
-                                break
-                            rospy.loginfo(trans.x)
-                            self.speed_pub.publish(Float32(0.14))
-                            delay = (trans.x - 0.329) / 0.14
-                            time.sleep(delay + 0.1)
-                        else:
-                            if self.__is_back_obstacle:
-                                time.sleep(3)
-                                continue
-                            self.speed_pub.publish(Float32(-0.14))
-                            time.sleep(0.4)
-                        self.speed_pub.publish(Float32(0.0))
+                    if self.move_to_shelf():
+                        self.set_rotate_angle_pub.publish(Int32(360))
                         time.sleep(2)
-                    else:
-                        if self.count < 3:
-                            self.goal_shelf.header.stamp = rospy.Time()
-                            self.goal_pub.publish(self.goal_shelf)
-                            msg = "Publish goal_shelf finished"
-                            self.log(msg)
-                            self.count += 1
-                        return
-                    self.count = 0
-                    self.pick_n_place_onboard("fiducial_" + str(self.chosen_id))
+                        self.pick_n_place_onboard("fiducial_" + str(self.chosen_id))
                 else:
                     self.detect_id = ""
                     if self.move_to_shelf():
-                        self.group.set_named_target("ready")
-                        self.handle_command(1)
-                        time.sleep(3)
                         for i in range(3):
+                            self.group.set_named_target("ready")
+                            self.handle_command(1)
+                            self.set_rotate_angle_pub.publish(Int32(360))
+                            time.sleep(2)
                             if self.detect_id:
+                                self.log("self detect_id: {}".format(self.detect_id))
                                 self.pick_n_place_shelf(self.detect_id)
                                 break
                             else:
                                 time.sleep(1)
                     else:
                         return
+                self.group.set_named_target("home")
+                self.handle_command(1)
+                self.calc_gripper_angle()
+                ## moving out of the shelf area
+                self.set_move_distance_pub.publish(Float32(-0.2))
+                self.finish_command_reading()
         except:
             self.log("goal_result_callback@Exception", traceback.format_exc())
 
@@ -268,24 +273,20 @@ class moveit_handle:
         """
         try:
             self.log("Result_callback")
-            # self.handle_keyboard()
-            self.detect_id = ""
-            self.chosen_id = input("Chosen id: ")
-            if self.move_to_shelf():
-                time.sleep(3)
-                for i in range(3):
-                    self.group.set_named_target("ready")
-                    self.handle_command(1)
-                    if self.detect_id:
-                        self.log("self detect_id: {}".format(self.detect_id))
-                        self.pick_n_place_shelf(self.detect_id)
-                        break
-                    else:
-                        time.sleep(1)
-            # self.execute_joint(0, 1)
-            self.pick_n_place_onboard("fiducial_" + str(self.chosen_id))
-            self.group.set_named_target("home")
-            self.handle_command(1)
+            self.handle_keyboard()
+            # self.detect_id = ""
+            # if self.move_to_shelf():
+            #     for i in range(3):
+            #         self.group.set_named_target("ready")
+            #         self.handle_command(1)
+            #         self.set_rotate_angle_pub.publish(Int32(360))
+            #         time.sleep(2)
+            #         if self.detect_id:
+            #             self.log("self detect_id: {}".format(self.detect_id))
+            #             self.pick_n_place_shelf(self.detect_id)
+            #             break
+            #         else:
+            #             time.sleep(1)
         except:
             self.log("result_callback@Exception", traceback.format_exc())
 
@@ -350,7 +351,7 @@ class moveit_handle:
             not -114 > rot_yaw > -105
         ):  ## the range where the package face is considered to be perpendicular to robot
             self.set_rotate_angle_pub.publish(109 + rot_yaw)
-            time.sleep(6)
+            self.finish_command_reading()
             self.log("Aligning {}".format(109 + rot_yaw))
             return False
         else:
@@ -367,10 +368,12 @@ class moveit_handle:
             start_yaw = self.yaw_angle_deg
             angle = Int32(90) if delta_y > 0 else Int32(-90)
             self.set_rotate_angle_pub.publish(angle)
-            time.sleep(10)
             rospy.loginfo("Spin 90")
+            state = self.finish_command_reading()
+            self.log("State: {}".format(state))
             self.set_move_distance_pub.publish(Float32(abs(delta_y)))
-            time.sleep(5)
+            self.log("State: {}, delta_y: {}".format(state, delta_y))
+            self.finish_command_reading()
             rospy.loginfo("Go straight 90")
             self.set_rotate_angle_pub.publish(start_yaw - self.yaw_angle_deg)
             self.log(
@@ -378,7 +381,7 @@ class moveit_handle:
                     angle, start_yaw - self.yaw_angle_deg
                 )
             )
-            time.sleep(10)
+            self.finish_command_reading()
         except:
             self.log("decrease_y_distance@Exception", traceback.format_exc())
 
@@ -416,11 +419,19 @@ class moveit_handle:
             time.sleep(3)
             set_perpendicular = False
             ### move closer to the shelf; if lost track of the package, move out and try again
+            pre_trans = []
+            move = False
             for i in range(8):
                 trans_ = []
                 rospy.loginfo("i: {}".format(i))
-                pre_trans = trans_
+                start_time = rospy.get_rostime()
                 trans_ = self.lookup_transform("fiducial_" + str(self.shelf_id), "link_1")[0]
+                while i and trans_ == pre_trans:
+                    trans_ = self.lookup_transform("fiducial_" + str(self.shelf_id), "link_1")[0]
+                    if rospy.get_rostime() - start_time > 5:
+                        self.log("Lookup_transform time out")
+                        return
+                pre_trans = trans_
                 rospy.loginfo("trans_ look: {}".format(trans_))
                 if not trans_:
                     set_perpendicular = False
@@ -444,31 +455,28 @@ class moveit_handle:
                     i -= 1
                     continue
 
-                if trans_ == pre_trans: 
-                    i -= 1
-                    continue
                 rospy.loginfo("trans x: {}, trans y : {}".format(trans_.x, trans_.y))
                 if abs(trans_.y) > 0.06:
                     rospy.loginfo("4")
-                    self.decrease_y_distance(trans_.y)
                     self.group.set_named_target("ready_1")
                     self.handle_command(1)
+                    self.decrease_y_distance(trans_.y)
                     set_perpendicular = False
-                    time.sleep(3)
+                    time.sleep(5)
                     continue
                 # trans_.x += -0.5 * trans_.y
                 rospy.loginfo("trans_x look: {}".format(trans_.x))
-
                 self.log("Transform_shelf_2: {}".format(trans_))
-                if 0.24 <= trans_.x <= 0.29:
+                if (0.24 <= trans_.x <= 0.29) or (move and trans_.x > 0.32):
+                    if abs(trans_.y) > 0.06:
+                        self.set_move_distance_pub.publish(Float32(-0.2))
+                        self.finish_command_reading()
+                        i -= 1
+                        continue 
                     break
-                # elif trans_.x > 0.38:
-                #     self.set_move_distance_pub.publish(Float32(0.18))
-                #     set_perpendicular = False
-                #     i -= 1
-                # else:
                 self.set_move_distance_pub.publish(Float32(trans_.x - 0.25))
-                break
+                self.finish_command_reading()
+                move = True
             else:
                 rospy.loginfo("5")
                 self.log("Cannot get to the shelf")
@@ -548,7 +556,7 @@ class moveit_handle:
                 self.log("pose_2: {}".format(self.group.get_current_pose()))
                 self.handle_command(1)
                 self.execute_joint(1, 0.1)
-                self.execute_joint(2, 0.05)
+                self.execute_joint(2, 0.1)
                 time.sleep(0.5)
                 self.calc_gripper_angle(self.package_width, False)
                 time.sleep(3)
@@ -572,6 +580,7 @@ class moveit_handle:
             ## move arm higher and get to the deck
             self.execute_joint(3, 0.3)
             self.execute_joint(2, -0.3)
+            self.execute_joint(0, -3.1)
             if not self.package_count:
                 self.group.set_named_target("load_2")
             else:
@@ -594,8 +603,6 @@ class moveit_handle:
             if self.package_count < 2:
                 self.package_count += 1  # count the package on the deck
 
-            ## moving out of the shelf area
-            # self.set_move_distance_pub.publish(Float32(-0.2))
         except:
             self.log("pick_n_place_shelf@Exception", traceback.format_exc())
 
@@ -609,7 +616,7 @@ class moveit_handle:
             self.group.set_named_target("find_onboard")
             self.handle_command(1)
             time.sleep(3)
-            for i in range(3):
+            for i in range(4):
                 if self.spin_joint_0_finding(int(target_frame.split("_")[1])):
                     ## moving out of the shelf area
                     trans = self.lookup_transform(target_frame, "dummy")[0]
@@ -639,12 +646,7 @@ class moveit_handle:
                 a = self.group.plan()
                 time.sleep(0.5)
                 if not a.joint_trajectory.points:
-                    rospy.loginfo("plannig")
-                    pose[5] += 0.025
-                    self.group.set_pose_target(pose)
-                    a = self.group.plan()
-                    if abs(pose[5] - yaw) > 0.2:
-                        break
+                    continue
                 self.handle_command(1)
 
                 
@@ -678,8 +680,8 @@ class moveit_handle:
                 # self.set_move_distance_pub.publish(Float32(-0.2))
                 return
 
-            ## move joint_1 back
-            self.execute_joint(1, 1)
+            ## move joint_3 back
+            self.execute_joint(3, -3)
             if self.package_count > 0:
                 self.package_count -= 1
 
@@ -690,8 +692,10 @@ class moveit_handle:
             self.execute_joint(2, -0.175)
             self.group.set_named_target("put_on_shelf")
             self.handle_command(1)
+            self.log("Put on shelf: {}".format(self.group.get_current_joint_values()))
             self.group.shift_pose_target(2, -0.05)
             self.handle_command(1)
+            self.log("Shift down: {}".format(self.group.get_current_joint_values()))
             self.execute_joint(3, 0.15)
             self.calc_gripper_angle()
             time.sleep(3)
@@ -700,8 +704,6 @@ class moveit_handle:
             self.group.set_named_target("home")
             self.handle_command(1)
 
-            ## moving out of the shelf area
-            self.set_move_distance_pub.publish(Float32(-0.2))
         except:
             self.log("pick_n_place_onboard@Exception", traceback.format_exc())
 

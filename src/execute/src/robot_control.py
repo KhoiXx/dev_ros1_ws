@@ -285,8 +285,7 @@ class RobotControl(object):
         [vvl,vvr]
         speed_rotate: rad/s
         '''
-        speed_linear = speed_rotate * ROBOT_WIDTH / 2 # V= W*R
-        speed_data = [-speed_linear, speed_linear]
+        speed_data = [-speed_rotate, speed_rotate]
         self.__robot_serial.set_speed(speed_data)
         self.set_status_rotating()
 
